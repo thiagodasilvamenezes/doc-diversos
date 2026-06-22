@@ -1,0 +1,4729 @@
+WEBVTT
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-0
+00:00:00.640 --> 00:00:05.411
+Pessoal, a gente então vai encaminhar.
+Vamos nos encaminhar agora para o nosso
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-1
+00:00:05.411 --> 00:00:08.914
+último parceiro é a IBM,
+que já está aqui nos aguardando,
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-2
+00:00:08.914 --> 00:00:12.598
+agradecer mais uma vez,
+porque eles é entenderam que a gente
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-3
+00:00:12.598 --> 00:00:17.309
+precisou avançar um pouco no tempo.
+Então eu queria chamar para conversar com
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-4
+00:00:17.309 --> 00:00:20.873
+conosco o Wallace Figueiredo,
+especialista rescorp da IBM,
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-5
+00:00:20.873 --> 00:00:25.523
+que ele vai falar sobre Terra form.
+E eu acho que é um assunto que o pessoal
+
+d6d0e096-0558-4e94-97d6-773f2590cc7c-6
+00:00:25.523 --> 00:00:28.000
+tá ansioso aqui aguardando, viu, Wallace?
+
+f391d497-178e-42e9-9da9-c143cac7db48-0
+00:00:34.240 --> 00:00:40.716
+Olá pessoal, alô, alô, agora sim,
+agora vai. Olá pessoal,
+
+f391d497-178e-42e9-9da9-c143cac7db48-1
+00:00:40.716 --> 00:00:47.640
+tudo bem com vocês?
+Estão é me chamo allacio Figueiredo agora
+
+f391d497-178e-42e9-9da9-c143cac7db48-2
+00:00:47.640 --> 00:00:54.005
+parte da do time BM, mas veio da hashcorp,
+já trabalhou,
+
+f391d497-178e-42e9-9da9-c143cac7db48-3
+00:00:54.005 --> 00:00:58.360
+trabalhava na hashcorp aproximadamente.
+
+c547c026-b058-4c03-acbc-be5a40318bf9-0
+00:00:58.880 --> 00:01:03.171
+É 5 anos basicamente,
+com tudo que tem ali dentro do portfólio,
+
+c547c026-b058-4c03-acbc-be5a40318bf9-1
+00:01:03.171 --> 00:01:06.389
+né? Então,
+tanto a parte mais de infraestrutura
+
+c547c026-b058-4c03-acbc-be5a40318bf9-2
+00:01:06.389 --> 00:01:11.016
+quanto a parte de segurança.
+E eu vou dar uma visão um pouquinho pra
+
+c547c026-b058-4c03-acbc-be5a40318bf9-3
+00:01:11.016 --> 00:01:15.575
+vocês do que nós temos apresentação, OPA,
+legal. Vamos lá, pessoal.
+
+c547c026-b058-4c03-acbc-be5a40318bf9-4
+00:01:15.575 --> 00:01:21.140
+O tema principal da nossa apresentação é,
+vai ser o Terra form e como ele habilita
+
+c547c026-b058-4c03-acbc-be5a40318bf9-5
+00:01:21.140 --> 00:01:24.694
+basicamente as iniciativas de gênero,
+de plataforma.
+
+c547c026-b058-4c03-acbc-be5a40318bf9-6
+00:01:24.694 --> 00:01:26.840
+E daí a gente fala um pouquinho.
+
+dd014864-7d86-4379-b7e0-f84114f16fac-0
+00:01:27.200 --> 00:01:31.123
+É sobre isso,
+já venho trabalhando aí com time é já tem
+
+dd014864-7d86-4379-b7e0-f84114f16fac-1
+00:01:31.123 --> 00:01:34.205
+111,
+bom tempo aí e sigo acompanhando vocês
+
+dd014864-7d86-4379-b7e0-f84114f16fac-2
+00:01:34.205 --> 00:01:38.478
+nessa nessa jornada.
+É então quando a gente fala basicamente
+
+dd014864-7d86-4379-b7e0-f84114f16fac-3
+00:01:38.478 --> 00:01:44.083
+de de é infraestrutura, digamos assim,
+quais são os principais desafios que nós
+
+dd014864-7d86-4379-b7e0-f84114f16fac-4
+00:01:44.083 --> 00:01:48.216
+temos, né? Então,
+e até um pouquinho do por que engenharia
+
+dd014864-7d86-4379-b7e0-f84114f16fac-5
+00:01:48.216 --> 00:01:52.139
+de plataforma?
+Quando a gente começa AAA se questionar,
+
+dd014864-7d86-4379-b7e0-f84114f16fac-6
+00:01:52.139 --> 00:01:52.839
+né? Então.
+
+36d2f4c7-c3c7-4ab8-bc5b-b6a29606da5d-0
+00:01:53.360 --> 00:01:57.276
+Uma das partes está em trazer agilidade,
+né? Então, quando a gente começa a olhar,
+
+36d2f4c7-c3c7-4ab8-bc5b-b6a29606da5d-1
+00:01:57.276 --> 00:02:00.202
+por exemplo, um fluxo mais,
+é tradicional na forma como nós é
+
+36d2f4c7-c3c7-4ab8-bc5b-b6a29606da5d-2
+00:02:00.202 --> 00:02:03.600
+produtizamos a nossa infraestrutura ou
+entregamos nossa infraestrutura.
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-0
+00:02:04.040 --> 00:02:07.169
+Ela historicamente,
+ela vem de uma forma muito voltada a um
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-1
+00:02:07.169 --> 00:02:10.455
+sistema de ticketing, né?
+Então vou dar um exemplo para vocês,
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-2
+00:02:10.455 --> 00:02:14.159
+eu preciso subir alguma coisa,
+então eu tenho que gerar um ticket para
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-3
+00:02:14.159 --> 00:02:17.341
+isso. Alguém pega aquele ticket,
+analisa a minha requisição,
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-4
+00:02:17.341 --> 00:02:20.627
+muitas vezes isso se deriva, né?
+Então eu tenho time de dados,
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-5
+00:02:20.627 --> 00:02:23.287
+eu tenho time de rede,
+eu tenho time de segurança,
+
+bbd858fc-bbfc-4378-9085-1c3fede9f132-6
+00:02:23.287 --> 00:02:27.200
+então aquela minha solicitação,
+ela vai se dividir em várias necessidades.
+
+0555c500-c9de-48a5-b1ff-f562915a0335-0
+00:02:27.480 --> 00:02:32.876
+E aí cada um analisa pra tomar a sua ação,
+executar sua tarefa, e aí, no total,
+
+0555c500-c9de-48a5-b1ff-f562915a0335-1
+00:02:32.876 --> 00:02:37.665
+desde a minha solicitação até que aquela
+infraestrutura seja entregue,
+
+0555c500-c9de-48a5-b1ff-f562915a0335-2
+00:02:37.665 --> 00:02:42.454
+digamos assim, ela leva ali 20 dias,
+30 dias, em alguns casos 40 dias.
+
+0555c500-c9de-48a5-b1ff-f562915a0335-3
+00:02:42.454 --> 00:02:47.783
+Mas nós precisamos ser muito mais ágeis,
+né? Ainda mais no dia de hoje. Então,
+
+0555c500-c9de-48a5-b1ff-f562915a0335-4
+00:02:47.783 --> 00:02:51.425
+aonde? Produtos, serviços,
+o negócio tem uma demanda,
+
+0555c500-c9de-48a5-b1ff-f562915a0335-5
+00:02:51.425 --> 00:02:56.079
+tem tem fome por esse tipo de coisa,
+então a gente precisa entregar.
+
+17ff9d7c-c009-4a0a-b195-6111492ea279-0
+00:02:56.400 --> 00:02:59.949
+É esse tipo de infraestrutura, né?
+Com uma certa agilidade, né?
+
+17ff9d7c-c009-4a0a-b195-6111492ea279-1
+00:02:59.949 --> 00:03:03.776
+Eu vi aqui algumas Apresentações,
+não tive a oportunidade de passar,
+
+17ff9d7c-c009-4a0a-b195-6111492ea279-2
+00:03:03.776 --> 00:03:07.602
+é o dia todo com com vocês,
+mas eu posso até pegar no próprio gancho
+
+17ff9d7c-c009-4a0a-b195-6111492ea279-3
+00:03:07.602 --> 00:03:10.819
+da apresentação dos nossos colegas aqui
+do do Google, né?
+
+17ff9d7c-c009-4a0a-b195-6111492ea279-4
+00:03:10.819 --> 00:03:14.480
+E o time de é que está trabalhando com
+analítica dentro do banco.
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-0
+00:03:14.720 --> 00:03:17.817
+Imagina quando uma nova necessidade de
+chegar para eles,
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-1
+00:03:17.817 --> 00:03:21.566
+eles precisam analisar talvez 111
+conjunto de regras contra o modelo
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-2
+00:03:21.566 --> 00:03:24.337
+específico.
+A ideia é que isso seja feito da forma
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-3
+00:03:24.337 --> 00:03:27.869
+mais ágil possível, né?
+E não que isso demore 20304050 dias para
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-4
+00:03:27.869 --> 00:03:31.021
+ser executado, tá,
+então esse é um é um exemplo para além
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-5
+00:03:31.021 --> 00:03:33.629
+disso,
+uma vez que eu tenho essa infraestrutura
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-6
+00:03:33.629 --> 00:03:36.074
+criada,
+é importante eu ter alguma camada de
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-7
+00:03:36.074 --> 00:03:39.606
+governança em cima dela,
+não preciso ter algum tipo de controle,
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-8
+00:03:39.606 --> 00:03:42.106
+certo?
+Então nossos amigos também da Red head
+
+254ab1bc-af1c-4e9d-a017-4ba48f097cee-9
+00:03:42.106 --> 00:03:44.279
+estavam falando um pouco dessa parte de.
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-0
+00:03:44.760 --> 00:03:47.136
+É de custos, né?
+Então custos em cima da nuvem,
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-1
+00:03:47.136 --> 00:03:49.909
+seja ela é híbrida, seja ela privada,
+seja ela pública.
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-2
+00:03:49.909 --> 00:03:52.633
+A gente tava falando um pouco um pouco
+sobre isso e é,
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-3
+00:03:52.633 --> 00:03:56.347
+é é realmente quando a gente começa a
+olhar principalmente a estratégia de
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-4
+00:03:56.347 --> 00:03:59.417
+adoção de nuvem, né?
+Muita coisa foi feita de uma forma muito
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-5
+00:03:59.417 --> 00:04:01.893
+rápida,
+só que não levando em consideração várias
+
+a9dc9ef0-1d36-4e32-bc16-2a130499f288-6
+00:04:01.893 --> 00:04:04.320
+coisas importantes, como, por exemplo,
+dinheiro.
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-0
+00:04:04.840 --> 00:04:07.749
+Né? Então,
+muitas vezes você colocava muita coisa no
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-1
+00:04:07.749 --> 00:04:11.153
+ar da forma mais rápida possível pra
+poder atender o negócio.
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-2
+00:04:11.153 --> 00:04:14.941
+Mas a um custo é é gigantesco, né?
+Então é muito importante que essa
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-3
+00:04:14.941 --> 00:04:18.180
+infraestrutura,
+esse produto que a gente esteja colocando,
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-4
+00:04:18.180 --> 00:04:21.913
+tenha esse tipo de controle.
+Tem 111 certo nível de governo em cima
+
+25fd8bbe-0143-4916-8a84-7823ac0be5ba-5
+00:04:21.913 --> 00:04:23.560
+dele. Vamos colocar assim, né?
+
+44b370fc-6896-4d77-989e-223cc06ba462-0
+00:04:24.320 --> 00:04:27.979
+É e claro que, por fim,
+quando a gente começa a falar da parte um
+
+44b370fc-6896-4d77-989e-223cc06ba462-1
+00:04:27.979 --> 00:04:31.750
+pouco mais, é operacional, né?
+A gente entra também em questões até
+
+44b370fc-6896-4d77-989e-223cc06ba462-2
+00:04:31.750 --> 00:04:35.964
+mesmo de de dia 2, que são importantes,
+né? Então, uma otimização contínua,
+
+44b370fc-6896-4d77-989e-223cc06ba462-3
+00:04:35.964 --> 00:04:39.458
+mudanças contínuas, né?
+Tarefas que elas são é historicamente,
+
+44b370fc-6896-4d77-989e-223cc06ba462-4
+00:04:39.458 --> 00:04:43.340
+por exemplo, mais head rock.
+Como isso pode estar integrado dentro de
+
+44b370fc-6896-4d77-989e-223cc06ba462-5
+00:04:43.340 --> 00:04:44.560
+um fluxo automatizado?
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-0
+00:04:44.880 --> 00:04:48.969
+Tá, então isso tudo é, é importante,
+é como a gente vai conseguir,
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-1
+00:04:48.969 --> 00:04:53.485
+é atingir é um maior nível de de
+eficiência na forma como nós trabalhamos
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-2
+00:04:53.485 --> 00:04:57.940
+com a nossa infraestrutura no dia de hoje.
+Tudo bem. Então, basicamente,
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-3
+00:04:57.940 --> 00:05:02.701
+a proposta que nós trazemos em cima do
+nosso portfólio, eu vou, vou fazer 11,
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-4
+00:05:02.701 --> 00:05:07.400
+vou passar de uma forma geral que nós
+temos no portfólio é é a hashicorp BM,
+
+ba86700f-ece5-450a-8f60-941c4e4d0062-5
+00:05:07.400 --> 00:05:09.720
+embora o nosso foco aqui seja em cima.
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-0
+00:05:10.120 --> 00:05:13.208
+É do terraform, tá?
+Mas é interessante vocês entenderem o que
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-1
+00:05:13.208 --> 00:05:17.094
+mais que a gente consegue é trazer na
+parte de infraestrutura e de segurança,
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-2
+00:05:17.094 --> 00:05:19.037
+tá?
+E aí nós basicamente trazemos essa
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-3
+00:05:19.037 --> 00:05:21.329
+mensagem de do cloud right, né? Então,
+assim,
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-4
+00:05:21.329 --> 00:05:25.065
+pra você conseguir operar a nuvem e
+trabalhar com a nuvem da melhor forma.
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-5
+00:05:25.065 --> 00:05:28.851
+Mas quando a gente fala de nuvem aqui
+também tem um detalhe que ele é muito
+
+fc27fd8f-f420-45c3-a5bf-791b58eda362-6
+00:05:28.851 --> 00:05:29.399
+importante.
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-0
+00:05:29.600 --> 00:05:31.882
+Tá,
+nós normalmente estamos falando do modelo
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-1
+00:05:31.882 --> 00:05:34.809
+operativo de nuvem,
+então por isso que pra nós não importa
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-2
+00:05:34.809 --> 00:05:36.992
+muito.
+A gente está falando de realmente de
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-3
+00:05:36.992 --> 00:05:40.565
+nuvem pública, de nuvem privada, de enfim,
+é multicloud, nuvem híbrida.
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-4
+00:05:40.565 --> 00:05:44.187
+A gente está falando muito mais do modelo
+operativo em si. Legal. Então,
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-5
+00:05:44.187 --> 00:05:47.461
+se você é uma empresa que roda,
+eu sei que não é o caso de vocês,
+
+e260c681-25d1-4a17-96bf-5a19630b60b2-6
+00:05:47.461 --> 00:05:48.999
+mas estou falando de uma forma.
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-0
+00:05:49.200 --> 00:05:53.297
+É é figurativa. Aqui, se você roda 100%,
+por exemplo, é onpreme.
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-1
+00:05:53.297 --> 00:05:56.513
+Desde que você tenha um modelo operativo
+de nuvem,
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-2
+00:05:56.513 --> 00:06:01.556
+nada impede de você trabalhar basicamente
+com qualquer solução que nós temos no
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-3
+00:06:01.556 --> 00:06:06.410
+nosso portfólio. Ok, então basicamente,
+né, é toda a nossa, a nossa solução,
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-4
+00:06:06.410 --> 00:06:10.634
+o nosso portfólio, digamos assim.
+Ele é dividido em 2 é verticais,
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-5
+00:06:10.634 --> 00:06:15.300
+uma que nós chamamos de é infraestruture
+life cycle management, né? ELME?
+
+984eb6c8-09a6-41ca-8af6-5dd776a90e58-6
+00:06:15.300 --> 00:06:18.200
+Outra chamada security life cycle
+management.
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-0
+00:06:18.560 --> 00:06:21.645
+Aonde basicamente é na perspectiva de
+infraestrutura,
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-1
+00:06:21.645 --> 00:06:25.073
+nós trazemos ali soluções que elas estão
+muito focadas, né?
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-2
+00:06:25.073 --> 00:06:28.215
+Do dia zero ao dia n na perspectiva de
+infraestrutura.
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-3
+00:06:28.215 --> 00:06:32.557
+Então aqui eu vou cuidar tanto do build
+dessa infraestrutura de uma maneira
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-4
+00:06:32.557 --> 00:06:35.413
+imutável, né?
+Principalmente quando a gente fala,
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-5
+00:06:35.413 --> 00:06:39.527
+por exemplo, do próprio terraforme,
+que a gente vai conversar bastante.
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-6
+00:06:39.527 --> 00:06:43.926
+É aqui a gente fala também, por exemplo,
+de preparação de Golden imades, né?
+
+ef3bd8ba-778d-4302-8207-97d2dfb0d898-7
+00:06:43.926 --> 00:06:47.640
+Quando eu começo a falar na figura do do
+do paker, certo? Então.
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-0
+00:06:47.920 --> 00:06:49.956
+Poxa,
+eu tenho que às vezes eu tenho 111
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-1
+00:06:49.956 --> 00:06:53.979
+necessidade muito grande ainda por ias,
+como é que eu consigo standardizar ainda
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-2
+00:06:53.979 --> 00:06:57.258
+mais do ambiente heterogêneo?
+Como eu de vocês falamos de Google,
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-3
+00:06:57.258 --> 00:07:00.138
+teve o pessoal da da Microsoft, é,
+a gente tem um prêmio,
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-4
+00:07:00.138 --> 00:07:03.367
+tem um cenário gigantesco,
+como é que eu consigo padronizar, né?
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-5
+00:07:03.367 --> 00:07:07.291
+Na perspectiva de imagens douradas e
+trazer mutabilidade também pra esse é pra
+
+edcc5ed1-fdbb-4db6-8f6e-9da41a36ccc5-6
+00:07:07.291 --> 00:07:10.519
+essa camada, vamos dizer assim,
+nós temos o packer pra isso, tá?
+
+3a052e86-fc7d-4369-80ef-78e02412e03e-0
+00:07:11.240 --> 00:07:14.048
+Temos o ipoint.
+Vou falar brevemente para ele,
+
+3a052e86-fc7d-4369-80ef-78e02412e03e-1
+00:07:14.048 --> 00:07:17.932
+é sobre ele durante a nossa a nossa
+apresentação de Terra forma.
+
+3a052e86-fc7d-4369-80ef-78e02412e03e-2
+00:07:17.932 --> 00:07:22.712
+Mas pense no ipoint como um micro IDP.
+Ele é uma solução que ele está aqui para
+
+3a052e86-fc7d-4369-80ef-78e02412e03e-3
+00:07:22.712 --> 00:07:25.760
+poder acelerar esse modelo de producer e
+consumer.
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-0
+00:07:26.000 --> 00:07:30.274
+Né, na perspectiva de infraestrutura, né,
+de produtização da infraestrutura, ok,
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-1
+00:07:30.274 --> 00:07:34.601
+nós temos o nôma de que é uma solução que
+ela está focada muito mais em run time,
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-2
+00:07:34.601 --> 00:07:36.712
+né?
+Então na forma como a gente executa
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-3
+00:07:36.712 --> 00:07:40.986
+alguns tipos de carga de trabalho, né,
+com foco em alta performance, tá embaixo,
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-4
+00:07:40.986 --> 00:07:43.677
+footprint,
+no lado de segurança de uma forma muito
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-5
+00:07:43.677 --> 00:07:47.899
+rápida. Nós temos o volt, que ele é uma,
+eu diria que hoje ele é até uma Stack,
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-6
+00:07:47.899 --> 00:07:51.593
+porque eu tenho algumas outras soluções
+que levam o nome de volt, né?
+
+a0748921-9c53-4120-b8d0-0472d2c85af2-7
+00:07:51.593 --> 00:07:53.440
+Então como por exemplo, Walt rader.
+
+8b538197-a366-4b4b-a874-02997e2a8f0e-0
+00:07:53.760 --> 00:07:57.315
+Que me permite fazer escandi segredos
+dentro de aplicação,
+
+8b538197-a366-4b4b-a874-02997e2a8f0e-1
+00:07:57.315 --> 00:08:00.448
+então segredos é um problema que a gente
+vê, enfim,
+
+8b538197-a366-4b4b-a874-02997e2a8f0e-2
+00:08:00.448 --> 00:08:05.329
+que está por aí em basicamente todas as
+empresas estão novamente trazendo o caso
+
+8b538197-a366-4b4b-a874-02997e2a8f0e-3
+00:08:05.329 --> 00:08:08.884
+de vocês. O ambiente heterogêneo, né?
+Vou puxar novamente.
+
+8b538197-a366-4b4b-a874-02997e2a8f0e-4
+00:08:08.884 --> 00:08:12.559
+AAAA apresentação anterior, né?
+Eu vi muita coisa ali, poxa.
+
+f3b15a09-ad62-4dd3-af0d-132df2b0ca52-0
+00:08:12.880 --> 00:08:15.566
+Sai do da nuvem XE,
+conversa com a nuvem y,
+
+f3b15a09-ad62-4dd3-af0d-132df2b0ca52-1
+00:08:15.566 --> 00:08:19.595
+então assim você tem identidades,
+é de aplicação ali acontecendo,
+
+f3b15a09-ad62-4dd3-af0d-132df2b0ca52-2
+00:08:19.595 --> 00:08:24.480
+você tem acesso acontecendo de uma nuvem
+para outra, do um prêmio para a nuvem.
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-0
+00:08:24.680 --> 00:08:27.006
+Então,
+como é que eu consigo coordenar toda essa
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-1
+00:08:27.006 --> 00:08:30.044
+parte de segredos, né,
+e de credenciais que existem entre esses
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-2
+00:08:30.044 --> 00:08:33.414
+2 mundos? O Walt está aí pra isso,
+pra nos auxiliar nesse sentido, tá?
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-3
+00:08:33.414 --> 00:08:36.072
+E também na descoberta,
+como eu comentei anteriormente,
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-4
+00:08:36.072 --> 00:08:39.490
+no Walt rader, qual que é o meu?
+O qual o tamanho da minha problemática
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-5
+00:08:39.490 --> 00:08:41.769
+hoje eu não sei. Então,
+pra eu saber o tamanho,
+
+413c546d-49eb-413e-b10e-c65780d7c2b3-6
+00:08:41.769 --> 00:08:44.760
+eu tenho Walt rader pra fazer scaning,
+código e et cetera, tá?
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-0
+00:08:45.800 --> 00:08:49.936
+A parte de boundery aqui é muito mais no
+foco de acesso remoto, né?
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-1
+00:08:49.936 --> 00:08:54.621
+Então aqui seria é pro pessoal que tem
+mais familiaridade ali Na Na parte de
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-2
+00:08:54.621 --> 00:08:59.366
+segurança, mais é acesso privilegiado, tá?
+Então seria um pan, digamos assim.
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-3
+00:08:59.366 --> 00:09:03.321
+Só que o boundery ele tem 11.
+Diferencial se comparado a algumas
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-4
+00:09:03.321 --> 00:09:08.188
+soluções é já conhecidas de mercado, né?
+Ele tá focado muito mais na jornada do
+
+2051e05a-76d0-4f8a-a8ac-a245ed049804-5
+00:09:08.188 --> 00:09:09.040
+desenvolvedor.
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-0
+00:09:09.560 --> 00:09:13.409
+Tá, então a ideia dele é estreitar, né?
+A distância entre o desenvolvedor, né?
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-1
+00:09:13.409 --> 00:09:16.917
+E a infraestrutura que ele precisa é pra
+trabalhar e aqui é importante.
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-2
+00:09:16.917 --> 00:09:20.571
+Talvez eu vou só pegar aqui uns 30
+segundos pra falar um pouco desse fluxo
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-3
+00:09:20.571 --> 00:09:24.226
+pessoal, porque é uma coisa que eu tenho,
+eu tenho trabalhado em frente de
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-4
+00:09:24.226 --> 00:09:27.734
+engenharia de plataforma com diferentes
+tipos de empresa e que estão em
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-5
+00:09:27.734 --> 00:09:31.193
+diferentes graus de maturidade.
+Uma coisa que eu reparei é as empresas
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-6
+00:09:31.193 --> 00:09:34.166
+que elas estão com o nível de maturidade
+um pouco mais alto,
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-7
+00:09:34.166 --> 00:09:37.479
+é os times de plataforma,
+eles estão é assumindo a responsabilidade
+
+d971bab4-08b1-472e-ac03-5db3c4c3a91e-8
+00:09:37.479 --> 00:09:38.599
+da experiência do deve.
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-0
+00:09:39.240 --> 00:09:41.454
+Né?
+Então devex está entrando pra dentro de
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-1
+00:09:41.454 --> 00:09:43.668
+plataforma,
+isso passa a ser preocupação de
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-2
+00:09:43.668 --> 00:09:46.386
+plataforma, tá?
+Então isso é algo muito interessante.
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-3
+00:09:46.386 --> 00:09:49.909
+Então porque eu chamei é, é,
+eu estou fazendo esse comentário em cima
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-4
+00:09:49.909 --> 00:09:52.475
+do balder,
+porque o balder é muito isso novamente,
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-5
+00:09:52.475 --> 00:09:55.243
+ele é um pan,
+na ideia dele é conectar o desenvolvedor
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-6
+00:09:55.243 --> 00:09:59.269
+a infraestrutura que ele precisa, né?
+Pra desenvolver os seus sistemas é de uma
+
+7c96ab19-e9ae-4642-8cef-f3c62d710173-7
+00:09:59.269 --> 00:10:00.880
+forma extremamente transparente.
+
+11123860-2aad-46ca-a681-de63830e2073-0
+00:10:01.400 --> 00:10:03.930
+Extremamente transparente, tá?
+Então enfim,
+
+11123860-2aad-46ca-a681-de63830e2073-1
+00:10:03.930 --> 00:10:07.611
+o Dave consegue conectar no seu,
+na sua base de dados de teste,
+
+11123860-2aad-46ca-a681-de63830e2073-2
+00:10:07.611 --> 00:10:10.716
+como se fosse local,
+como se fosse um local host, né?
+
+11123860-2aad-46ca-a681-de63830e2073-3
+00:10:10.716 --> 00:10:15.259
+Então essa é esse é um exemplo que a
+gente consegue dar nesse tipo de solução,
+
+11123860-2aad-46ca-a681-de63830e2073-4
+00:10:15.259 --> 00:10:18.307
+tá? E por fim,
+a parte de cônsul que ele está focado
+
+11123860-2aad-46ca-a681-de63830e2073-5
+00:10:18.307 --> 00:10:22.103
+basicamente no caso de uso de service
+mash service Discovery, né?
+
+11123860-2aad-46ca-a681-de63830e2073-6
+00:10:22.103 --> 00:10:26.646
+E aqui novamente a gente pode falar, pô,
+mas eu já tenho a solução é x ou y de
+
+11123860-2aad-46ca-a681-de63830e2073-7
+00:10:26.646 --> 00:10:30.960
+mesh, aonde está a Fortaleza do Consul?
+É sergnóstica ser multiplataforma.
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-0
+00:10:31.200 --> 00:10:34.540
+Né? Então, novamente,
+o ambiente heterogêneo como o de vocês,
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-1
+00:10:34.540 --> 00:10:38.634
+eu consigo ter uma solução dessa,
+que ela vai premiar todos esses ambientes
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-2
+00:10:38.634 --> 00:10:43.052
+e vai trazer um ponto único de controle
+na forma como os serviços falam entre si,
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-3
+00:10:43.052 --> 00:10:45.961
+né? Na, na, no, no leste, Oeste,
+ali deles, perfeito.
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-4
+00:10:45.961 --> 00:10:48.925
+Quando a gente começa aqui,
+eu já dei um duplo clique,
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-5
+00:10:48.925 --> 00:10:51.349
+já falei um pouco, é um pouco pra vocês,
+né?
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-6
+00:10:51.349 --> 00:10:55.875
+E como é que a gente a gente trabalha com
+cada uma das soluções até pra gente poder
+
+f9f56f12-22a9-4aba-9ed8-c3e98d3993c1-7
+00:10:55.875 --> 00:10:56.360
+agilizar.
+
+6b586b82-1942-4191-841f-f3b802e141b6-0
+00:10:56.720 --> 00:11:00.304
+Mas eu acho que é importante entender um
+pouco esse esse fluxo, né?
+
+6b586b82-1942-4191-841f-f3b802e141b6-1
+00:11:00.304 --> 00:11:03.783
+Do build the play manage,
+que é a gente vai trabalhar basicamente
+
+6b586b82-1942-4191-841f-f3b802e141b6-2
+00:11:03.783 --> 00:11:06.418
+em cima dele.
+Quando a gente fala de Terra forme,
+
+6b586b82-1942-4191-841f-f3b802e141b6-3
+00:11:06.418 --> 00:11:10.793
+claro que a gente pode ter alguns passos,
+é a mais ou a menos em cima desse fluxo,
+
+6b586b82-1942-4191-841f-f3b802e141b6-4
+00:11:10.793 --> 00:11:14.852
+ainda mais quando a gente explode.
+Isso para uma iniciativa de engenharia de
+
+6b586b82-1942-4191-841f-f3b802e141b6-5
+00:11:14.852 --> 00:11:17.540
+plataforma, tá,
+mas basicamente esse é o foco, né?
+
+6b586b82-1942-4191-841f-f3b802e141b6-6
+00:11:17.540 --> 00:11:20.545
+O que a gente,
+o life 5 que a gente vai trabalhar dentro
+
+6b586b82-1942-4191-841f-f3b802e141b6-7
+00:11:20.545 --> 00:11:24.867
+dessa perspectiva de infraestrutura, tá,
+uma outra coisa que vale a pena eu falar
+
+6b586b82-1942-4191-841f-f3b802e141b6-8
+00:11:24.867 --> 00:11:26.080
+antes da gente mover é.
+
+038c83a7-2821-4ba4-ab78-0c82e20e457b-0
+00:11:27.200 --> 00:11:31.316
+Um pouco da do posicionamento que o
+terraforma ele tem dentro de uma
+
+038c83a7-2821-4ba4-ab78-0c82e20e457b-1
+00:11:31.316 --> 00:11:36.209
+iniciativa de engenharia de plataforma,
+né? Ele não é a engenharia de plataforma,
+
+038c83a7-2821-4ba4-ab78-0c82e20e457b-2
+00:11:36.209 --> 00:11:39.072
+ele não é o processo em si.
+Ele não é quem vai,
+
+038c83a7-2821-4ba4-ab78-0c82e20e457b-3
+00:11:39.072 --> 00:11:43.249
+de fato fazer com que vocês adotem essa
+cultura. Mas ele é, por trás,
+
+038c83a7-2821-4ba4-ab78-0c82e20e457b-4
+00:11:43.249 --> 00:11:44.920
+um habilitador de tudo isso.
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-0
+00:11:45.400 --> 00:11:49.140
+Tá, então ele é é quem vai habilitar, né,
+engenharia de plataforma,
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-1
+00:11:49.140 --> 00:11:53.430
+ele é quem vai habilitar um modelo de é
+produto, ele consumer, digamos assim,
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-2
+00:11:53.430 --> 00:11:56.290
+dentro da sua, da sua companhia.
+Ele não é o único,
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-3
+00:11:56.290 --> 00:11:59.095
+ele normalmente trabalha junto de outras
+soluções.
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-4
+00:11:59.095 --> 00:12:03.275
+Nós falamos aqui do developer hub da Red
+Heat, nós falamos aqui de enceble,
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-5
+00:12:03.275 --> 00:12:07.125
+então assim a gente vai trabalhar
+integrado com essas outras camadas,
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-6
+00:12:07.125 --> 00:12:10.040
+fora toda a parte de é nuvem pública e
+etcetera, né?
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-7
+00:12:10.040 --> 00:12:14.385
+Mas ele diria que ele é Oo motor, né?
+Ele vai ser quem vai habilitar esse tipo
+
+cc312865-0e3a-4086-bbb6-6bc7346ecfb8-8
+00:12:14.385 --> 00:12:15.320
+de de iniciativa.
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-0
+00:12:15.480 --> 00:12:19.775
+Ativa, tá bom então começando do básico,
+falando um pouco de terraforme,
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-1
+00:12:19.775 --> 00:12:24.307
+quem é que já teve oportunidade de
+interagir com terraforme levanta a mão só
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-2
+00:12:24.307 --> 00:12:29.073
+para ter uma ideia a bastante gente legal,
+bom para quem não não não teve ainda,
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-3
+00:12:29.073 --> 00:12:33.251
+para quem ainda não tem é é muita ideia
+do que se trata é o terraform,
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-4
+00:12:33.251 --> 00:12:37.665
+ele basicamente é uma solução que
+habilita a infraestrutura como código tá
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-5
+00:12:37.665 --> 00:12:42.196
+então pensa que você de uma maneira
+declarativa escreve o que você espera da
+
+be29fcb7-37ce-49bc-a9c4-ce56696b8610-6
+00:12:42.196 --> 00:12:45.079
+sua infraestrutura?
+O que você quer provisionar?
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-0
+00:12:45.400 --> 00:12:48.367
+Legal, então a língua,
+a linguagem que você utiliza, né?
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-1
+00:12:48.367 --> 00:12:51.959
+Para escrever os terraforms, o hcl,
+também conhecido como hashi Corp
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-2
+00:12:51.959 --> 00:12:56.227
+configuration language super simples de
+aprender exatamente porque é declarativo,
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-3
+00:12:56.227 --> 00:12:58.882
+tá, pessoal? Então assim,
+se vocês querem começar,
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-4
+00:12:58.882 --> 00:13:01.485
+se vocês tem curiosidade,
+podem ir ao nosso site,
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-5
+00:13:01.485 --> 00:13:05.702
+só você baixar o binário e você já tem
+tudo que você precisa para você começar a
+
+45a5a9d2-7dff-4bec-8844-dec9ebf5b953-6
+00:13:05.702 --> 00:13:07.159
+codificar em terraforme, tá?
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-0
+00:13:09.440 --> 00:13:13.140
+Pra vocês terem uma ideia,
+um pouquinho do que o terraform é,
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-1
+00:13:13.140 --> 00:13:17.735
+significa ele é standard basicamente pro
+mundo todo no que tange AIAC legal.
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-2
+00:13:17.735 --> 00:13:21.316
+Então a gente tem uma quantidade muito
+grande de providers,
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-3
+00:13:21.316 --> 00:13:25.553
+providers pra vocês entenderem.
+São basicamente infraestruturas que eu
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-4
+00:13:25.553 --> 00:13:30.447
+consigo gerenciar, né? Ou APIs ou enfim,
+porque vai pra além de infraestrutura ou
+
+b5408ab9-a803-44fb-9f37-ddf627ca5975-5
+00:13:30.447 --> 00:13:31.760
+nuvens ou componentes.
+
+28b545fe-6026-4e5b-bb38-45e880ff7626-0
+00:13:32.160 --> 00:13:37.187
+Né? Então assim, eu tenho mais de 5800.
+É é tipo de solução que eu consigo
+
+28b545fe-6026-4e5b-bb38-45e880ff7626-1
+00:13:37.187 --> 00:13:41.008
+provisionar, né?
+E cuidar do lifict ou dela através do é
+
+28b545fe-6026-4e5b-bb38-45e880ff7626-2
+00:13:41.008 --> 00:13:41.880
+do terraform.
+
+7f007967-aca1-43b6-8f95-5cd57143e224-0
+00:13:42.480 --> 00:13:45.844
+Eu tenho mais de 21000 módulos,
+módulos pra vocês entenderem.
+
+7f007967-aca1-43b6-8f95-5cd57143e224-1
+00:13:45.844 --> 00:13:50.023
+É uma forma que você tem de criar algo,
+é opinado de você empacotar de certa
+
+7f007967-aca1-43b6-8f95-5cd57143e224-2
+00:13:50.023 --> 00:13:54.148
+forma um tipo de de infraestrutura de
+configuração que você quer fazer, né?
+
+7f007967-aca1-43b6-8f95-5cd57143e224-3
+00:13:54.148 --> 00:13:57.676
+Então ao invés de eu dar pra vocês todos
+os parâmetros do mundo,
+
+7f007967-aca1-43b6-8f95-5cd57143e224-4
+00:13:57.676 --> 00:14:00.227
+porque eu não pego, crio somente.
+Por exemplo,
+
+7f007967-aca1-43b6-8f95-5cd57143e224-5
+00:14:00.227 --> 00:14:03.972
+é o sabor ou formato que vocês
+precisariam construir e eu modularizo
+
+7f007967-aca1-43b6-8f95-5cd57143e224-6
+00:14:03.972 --> 00:14:07.119
+isso pra que você possa reutilizar na
+linha do tempo, tá?
+
+87c36361-1aef-4b9a-876f-e5089c139913-0
+00:14:07.800 --> 00:14:10.415
+E mais de 25 é run task, parkners,
+run task.
+
+87c36361-1aef-4b9a-876f-e5089c139913-1
+00:14:10.415 --> 00:14:15.298
+A gente vai falar disso um pouquinho mais
+adiante, mas basicamente é uma interface.
+
+87c36361-1aef-4b9a-876f-e5089c139913-2
+00:14:15.298 --> 00:14:20.064
+A forma que eu uso é dentro do terraform
+para falar com soluções externas para me
+
+87c36361-1aef-4b9a-876f-e5089c139913-3
+00:14:20.064 --> 00:14:22.680
+integrar externamente com terceiros,
+tá bom?
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-0
+00:14:25.200 --> 00:14:28.655
+Um pouquinho do fluxo, né?
+A gente tava comentando muito de de
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-1
+00:14:28.655 --> 00:14:32.987
+desses, dos componentes e et cetera.
+Então nós temos basicamente é os módulos,
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-2
+00:14:32.987 --> 00:14:37.045
+como eu vou dizer, é ponto chave,
+ainda mais em cima de uma iniciativa de
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-3
+00:14:37.045 --> 00:14:40.774
+engenharia de plataforma.
+Então como é que eu passo a produtizar as
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-4
+00:14:40.774 --> 00:14:43.736
+coisas, né? Como é que eu, eu,
+eu disponibilizo isso?
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-5
+00:14:43.736 --> 00:14:46.697
+Como é que funciona um pouquinho na nossa
+lógica, né,
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-6
+00:14:46.697 --> 00:14:49.220
+essa habilitação de engenharia de
+plataforma,
+
+3ae2894f-0b8f-40f6-910d-fd8ada898b37-7
+00:14:49.220 --> 00:14:52.840
+e eu tô falando muito também do modelo de
+produto e consumer, né?
+
+8c5dfda2-3885-4259-9abf-b4b37e5e559f-0
+00:14:53.840 --> 00:14:56.390
+Bom,
+a primeira coisa é a gente criar é os
+
+8c5dfda2-3885-4259-9abf-b4b37e5e559f-1
+00:14:56.390 --> 00:14:58.999
+produtos, a gente começar a produtizar,
+né?
+
+8c5dfda2-3885-4259-9abf-b4b37e5e559f-2
+00:14:58.999 --> 00:15:03.210
+A nossa infraestrutura em si ou as nossas
+soluções internas? Ok? E aí,
+
+8c5dfda2-3885-4259-9abf-b4b37e5e559f-3
+00:15:03.210 --> 00:15:07.480
+você vai contar normalmente ou com um
+time especializado do da própria?
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-0
+00:15:08.160 --> 00:15:12.582
+Que faz parte diretamente de do time de
+engenharia de plataforma. Ou,
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-1
+00:15:12.582 --> 00:15:16.372
+em muitos casos,
+você tem até uma situação de inersourcing,
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-2
+00:15:16.372 --> 00:15:18.836
+né?
+Onde pessoas da de distintas áreas
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-3
+00:15:18.836 --> 00:15:22.816
+começam a colaborar e a produtizar suas
+próprias soluções, né?
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-4
+00:15:22.816 --> 00:15:26.607
+Então essa é uma outra.
+É uma outra forma de você conseguir
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-5
+00:15:26.607 --> 00:15:29.197
+ampliar.
+Esse é a quantidade de recursos
+
+1945d435-032e-4969-a64b-63c9f24b2ae7-6
+00:15:29.197 --> 00:15:30.839
+produtizados depois disso.
+
+e0aeb815-5e2b-46b1-a7c1-79ccae4e6c1e-0
+00:15:31.680 --> 00:15:36.753
+Você normalmente tem uma é publica isso
+num registro, seja o produto em si,
+
+e0aeb815-5e2b-46b1-a7c1-79ccae4e6c1e-1
+00:15:36.753 --> 00:15:41.494
+ou seja através de uma oferta.
+Aí isso vai depender um pouquinho da da
+
+e0aeb815-5e2b-46b1-a7c1-79ccae4e6c1e-2
+00:15:41.494 --> 00:15:44.565
+estratégia de cada é empresa de cada
+cliente.
+
+e0aeb815-5e2b-46b1-a7c1-79ccae4e6c1e-3
+00:15:44.565 --> 00:15:49.238
+Você pode ou publicar a oferta
+diretamente e consumir a oferta de uma
+
+e0aeb815-5e2b-46b1-a7c1-79ccae4e6c1e-4
+00:15:49.238 --> 00:15:50.239
+maneira direta.
+
+4409d98e-1866-45b0-95f5-330bb42401a7-0
+00:15:50.480 --> 00:15:54.312
+Ou você pode publicar esse essa,
+esses modos, né, esses produtos,
+
+4409d98e-1866-45b0-95f5-330bb42401a7-1
+00:15:54.312 --> 00:15:57.390
+e você ter a composição da oferta numa
+outra camada,
+
+4409d98e-1866-45b0-95f5-330bb42401a7-2
+00:15:57.390 --> 00:16:01.861
+numa camada que normalmente a gente chama
+de uma camada de orquestração, tá,
+
+4409d98e-1866-45b0-95f5-330bb42401a7-3
+00:16:01.861 --> 00:16:06.448
+mas pra diante eu explico pra vocês o
+porque é e qual seria a diferença de ter
+
+4409d98e-1866-45b0-95f5-330bb42401a7-4
+00:16:06.448 --> 00:16:09.120
+e não ter uma camada de orquestração,
+tá bom?
+
+1fdeae61-8246-4b69-bee3-95268ce36213-0
+00:16:10.200 --> 00:16:13.922
+E aqui basicamente a gente tem um modelo,
+né, do produto ser consumer,
+
+1fdeae61-8246-4b69-bee3-95268ce36213-1
+00:16:13.922 --> 00:16:17.330
+que eu citei é, é, enfim, tantas vezes,
+né? Então os produtores,
+
+1fdeae61-8246-4b69-bee3-95268ce36213-2
+00:16:17.330 --> 00:16:21.157
+eles basicamente vão é serão os
+responsáveis por popular esse registro e
+
+1fdeae61-8246-4b69-bee3-95268ce36213-3
+00:16:21.157 --> 00:16:25.037
+os consumidores exatamente quem quer
+provisionar aquela infraestrutura é,
+
+1fdeae61-8246-4b69-bee3-95268ce36213-4
+00:16:25.037 --> 00:16:29.021
+eu tive até 11 caso recentemente que isso
+é algo também que é interessante,
+
+1fdeae61-8246-4b69-bee3-95268ce36213-5
+00:16:29.021 --> 00:16:33.268
+porque a forma como a gente produtiza as
+coisas outros disponibiliza as ofertas,
+
+1fdeae61-8246-4b69-bee3-95268ce36213-6
+00:16:33.268 --> 00:16:35.679
+ela pode estar mais próximo ou mais
+distante.
+
+51428a3d-485b-467e-aafd-c7a4f79f88b9-0
+00:16:36.160 --> 00:16:38.953
+É do negócio.
+O importante é vocês entenderem que
+
+51428a3d-485b-467e-aafd-c7a4f79f88b9-1
+00:16:38.953 --> 00:16:42.751
+existe uma flexibilidade em cima disso.
+E eu vou usar como exemplo.
+
+51428a3d-485b-467e-aafd-c7a4f79f88b9-2
+00:16:42.751 --> 00:16:45.880
+Um caso que eu estive é que eu participei
+recentemente.
+
+bad45b31-87b0-413e-8d97-8256acfb2992-0
+00:16:46.280 --> 00:16:50.840
+Aonde é o cliente nos solicitou,
+é uma forma dele criar uma infraestrutura
+
+bad45b31-87b0-413e-8d97-8256acfb2992-1
+00:16:50.840 --> 00:16:55.219
+que fosse altamente efêmera e que ele
+pudesse, por exemplo, avaliar. É,
+
+bad45b31-87b0-413e-8d97-8256acfb2992-2
+00:16:55.219 --> 00:17:00.388
+era uma questão de análise de crédito, né?
+Liga um pouco do nosso com o nosso tópico
+
+bad45b31-87b0-413e-8d97-8256acfb2992-3
+00:17:00.388 --> 00:17:03.733
+anterior de novo,
+vocês estavam falando pessoal estava
+
+bad45b31-87b0-413e-8d97-8256acfb2992-4
+00:17:03.733 --> 00:17:07.260
+assim, ó, falei, eu passei por isso,
+não tem muito tempo,
+
+bad45b31-87b0-413e-8d97-8256acfb2992-5
+00:17:07.260 --> 00:17:11.456
+é liga com com o nosso caso é anterior,
+aonde o cliente falou, poxa,
+
+bad45b31-87b0-413e-8d97-8256acfb2992-6
+00:17:11.456 --> 00:17:14.983
+eu queria um ambiente que ele seja
+altamente efêmero, né?
+
+bad45b31-87b0-413e-8d97-8256acfb2992-7
+00:17:14.983 --> 00:17:16.200
+Onde eu quero fazer?
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-0
+00:17:16.280 --> 00:17:21.378
+Uma análise de crédito em cima de alguns
+modelos que eu tenho e qual que é a ideia?
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-1
+00:17:21.378 --> 00:17:26.355
+O que eu quero consumir? Eu quero assim,
+eu quero solicitar as informações para o
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-2
+00:17:26.355 --> 00:17:29.693
+meu consumidor,
+que para ele faça um sentido que seria
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-3
+00:17:29.693 --> 00:17:34.366
+basicamente um dado de uma persona, né?
+Então ele passa como variável para o
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-4
+00:17:34.366 --> 00:17:37.340
+Terra.
+Form é basicamente qual que é o perfil da
+
+b6cecccb-569d-4d6c-abfd-f15ef721eb9a-5
+00:17:37.340 --> 00:17:39.039
+pessoa, enfim, idade, renda.
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-0
+00:17:39.320 --> 00:17:41.467
+Não tinha nada relacionado a tecnologia,
+né?
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-1
+00:17:41.467 --> 00:17:44.664
+Em cima disso que acontecia quando ele
+alimentava essas variáveis.
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-2
+00:17:44.664 --> 00:17:47.909
+Então a forma e profissional,
+toda a infraestrutura necessária para
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-3
+00:17:47.909 --> 00:17:50.677
+rodar aquele modelo,
+rodava todos os scripts necessários,
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-4
+00:17:50.677 --> 00:17:54.017
+etcétera dava o resultado, né?
+Mostrava aquele resultado atrás de uma
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-5
+00:17:54.017 --> 00:17:57.739
+dashboard que ele tinha integrada.
+E como era um caso de um ambiente efêmero,
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-6
+00:17:57.739 --> 00:18:01.366
+já matava toda aquela infraestrutura,
+dialogo em seguida. Então processava,
+
+558faad0-2dbe-45d2-bb42-1017f8e30b84-7
+00:18:01.366 --> 00:18:03.800
+gerava o resultado e matava toda a
+infraestrutura.
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-0
+00:18:04.360 --> 00:18:06.591
+Né? Então,
+com isso é trazendo muita agilidade,
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-1
+00:18:06.591 --> 00:18:09.614
+porque era algo que é.
+Quando a gente mostrou esse esse cliente,
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-2
+00:18:09.614 --> 00:18:12.776
+ele entendeu que ele conseguia colocar na
+mão da pessoa de negócio.
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-3
+00:18:12.776 --> 00:18:16.031
+Então é uma pessoa que ela não tem nenhum
+conhecimento de tecnologia,
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-4
+00:18:16.031 --> 00:18:18.309
+de como fazer aquilo, né? É,
+mas ao mesmo tempo,
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-5
+00:18:18.309 --> 00:18:21.890
+ele entendia que não IA ter, por exemplo,
+um exagero em execução e etcetera.
+
+649e6a2b-ff26-4f52-8102-c23db80f529e-6
+00:18:21.890 --> 00:18:24.680
+Inclusive a gente chegou a criar alguns
+Garden rails, como.
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-0
+00:18:25.080 --> 00:18:29.113
+É tempos máximos de execução.
+Então se chegasse em um determinado tempo,
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-1
+00:18:29.113 --> 00:18:32.097
+sei lá, 1 hora,
+você automaticamente já matava aquela
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-2
+00:18:32.097 --> 00:18:35.303
+infraestrutura,
+então você tinha alguns Garden railes ali
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-3
+00:18:35.303 --> 00:18:39.558
+para você poder é garantir que aquilo
+ficasse dentro de uma janela abaixo de
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-4
+00:18:39.558 --> 00:18:43.149
+custo. Vamos colocar assim, tá?
+Então foi algo bem interessante,
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-5
+00:18:43.149 --> 00:18:46.189
+tá tudo isso que eu tô falando para vocês,
+pessoal, é,
+
+7738b7b7-145a-4a1a-8e10-5851a229ddce-6
+00:18:46.189 --> 00:18:49.560
+ele é habilitado através de um de um
+fluxo, é aonde a gente.
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-0
+00:18:51.080 --> 00:18:55.182
+Muito dessa desse provisionamento vai
+ocorrer dentro da própria solução,
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-1
+00:18:55.182 --> 00:18:59.396
+mas todo o código que a gente vai
+utilizar, ele virá através de um vice s,
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-2
+00:18:59.396 --> 00:19:01.981
+né?
+Virá através dos repositórios que vocês é
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-3
+00:19:01.981 --> 00:19:06.196
+possuem. Então basicamente dele,
+a gente vai ter 3 tipos de é objetos, né?
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-4
+00:19:06.196 --> 00:19:09.231
+Que são as políticas,
+os módulos e os recursos em si.
+
+7f8c8c96-48a1-41bf-b7a6-bf81a671800b-5
+00:19:09.231 --> 00:19:11.759
+Se eu estiver provisionando usando um
+fluxo.
+
+5818500c-2daa-45e3-b7ec-22907a130f90-0
+00:19:12.120 --> 00:19:16.596
+É Git e isso é muito interessante porque
+a gente tem a plataforma rodando,
+
+5818500c-2daa-45e3-b7ec-22907a130f90-1
+00:19:16.596 --> 00:19:21.073
+provisionando toda a infraestrutura,
+mas sem perder em nada a colaboração,
+
+5818500c-2daa-45e3-b7ec-22907a130f90-2
+00:19:21.073 --> 00:19:24.893
+muito pelo contrário,
+potencializando isso e trazendo automação
+
+5818500c-2daa-45e3-b7ec-22907a130f90-3
+00:19:24.893 --> 00:19:29.310
+em cima desse processo de colaboração,
+seja no desenvolvimento de módulo,
+
+5818500c-2daa-45e3-b7ec-22907a130f90-4
+00:19:29.310 --> 00:19:32.354
+seja Na Na.
+Numa perspectiva de é é manutenção dos
+
+5818500c-2daa-45e3-b7ec-22907a130f90-5
+00:19:32.354 --> 00:19:36.294
+ambientes que dos ambientes que já
+existem, né? Então isso é uma,
+
+5818500c-2daa-45e3-b7ec-22907a130f90-6
+00:19:36.294 --> 00:19:39.039
+é algo interessante desse tipo de
+integração.
+
+6cd1bbaf-1c45-4082-ab92-fd4a3d633027-0
+00:19:39.600 --> 00:19:44.055
+O registro aonde a gente publica os modos
+envolvidos por vocês é um registro
+
+6cd1bbaf-1c45-4082-ab92-fd4a3d633027-1
+00:19:44.055 --> 00:19:47.354
+privado, é um registro de vocês,
+mas isso não é previne,
+
+6cd1bbaf-1c45-4082-ab92-fd4a3d633027-2
+00:19:47.354 --> 00:19:51.000
+não faz com que vocês percam o acesso ao
+registro público, né?
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-0
+00:19:51.880 --> 00:19:55.301
+O nosso registro público,
+ele é um dos principais assets que
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-1
+00:19:55.301 --> 00:19:59.340
+existem porque basicamente é onde você
+encontra não somente comunidade,
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-2
+00:19:59.340 --> 00:20:03.939
+mas também grande parte dos vendros, né?
+Que são os nossos parceiros tecnológicos
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-3
+00:20:03.939 --> 00:20:06.800
+desenvolvendo ativamente né pro nosso
+ecossistema,
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-4
+00:20:06.800 --> 00:20:09.437
+seja através do desenvolvimento de
+provedores,
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-5
+00:20:09.437 --> 00:20:12.690
+seja através através do desenvolvimento
+de módulos em si.
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-6
+00:20:12.690 --> 00:20:16.953
+Então você acaba tendo a combinação dos 2.
+Tem o seu produto que é privado,
+
+26f0c2c6-1c01-40cc-94cc-8236b516c1cb-7
+00:20:16.953 --> 00:20:20.879
+mas você também pode continuar,
+é acessando e consumindo, é o módulo.
+
+348358ce-7a2b-4a6c-b9bb-5da9f0658c3d-0
+00:20:21.600 --> 00:20:24.780
+É o módulo público.
+Existe uma problemática que ela aflige
+
+348358ce-7a2b-4a6c-b9bb-5da9f0658c3d-1
+00:20:24.780 --> 00:20:28.876
+muitos dos nossos clientes quando você
+está desenvolvendo o módulo privado,
+
+348358ce-7a2b-4a6c-b9bb-5da9f0658c3d-2
+00:20:28.876 --> 00:20:32.326
+que é uma questão de poxa,
+como é que eu cuido do ciclo de vida
+
+348358ce-7a2b-4a6c-b9bb-5da9f0658c3d-3
+00:20:32.326 --> 00:20:36.746
+desse módulo? Então vamos pensar assim,
+eu acabei de falar para vocês que módulo,
+
+348358ce-7a2b-4a6c-b9bb-5da9f0658c3d-4
+00:20:36.746 --> 00:20:40.520
+muitas vezes ele é representação de um
+produto de infraestrutura, né?
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-0
+00:20:41.680 --> 00:20:44.549
+Só que aquilo,
+como tudo tem um ciclo de vida,
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-1
+00:20:44.549 --> 00:20:49.007
+seja porque é o Google ou a Microsoft ou
+AWS ou a redhet está evoluindo,
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-2
+00:20:49.007 --> 00:20:52.243
+aquela infraestrutura que está te dando
+mais opções,
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-3
+00:20:52.243 --> 00:20:56.823
+seja porque você tem uma forma mais
+eficiente de fazer aquela mesma coisa.
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-4
+00:20:56.823 --> 00:21:00.792
+Então existe ali 11 ciclo de vida que
+você precisa é cuidar, né?
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-5
+00:21:00.792 --> 00:21:05.860
+Essa é uma outra vantagem que a gente tem
+em cima do nosso é registro privado, né?
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-6
+00:21:05.860 --> 00:21:10.745
+Desses módulos que você consegue ter um
+controle muito melhor na perspectiva do
+
+2bcc8f8e-5e91-48a6-a1fd-0b73ecd9d889-7
+00:21:10.745 --> 00:21:11.600
+ciclo de vida.
+
+4d1fbc4e-8d8c-4915-8005-ec0640f3ea6b-0
+00:21:11.680 --> 00:21:14.731
+Como, por exemplo,
+eu consigo depreciar um módulo e fazer
+
+4d1fbc4e-8d8c-4915-8005-ec0640f3ea6b-1
+00:21:14.731 --> 00:21:18.730
+com que toda a minha camada usuária seja
+notificada que aquele módulo foi é
+
+4d1fbc4e-8d8c-4915-8005-ec0640f3ea6b-2
+00:21:18.730 --> 00:21:22.729
+depreciado e a partir daí eu preciso
+startartar um processo de mudança, né?
+
+4d1fbc4e-8d8c-4915-8005-ec0640f3ea6b-3
+00:21:22.729 --> 00:21:26.359
+Então essa é uma vantagem que você tem,
+outra vantagem que você tem.
+
+d1ae73e8-2d12-4975-9eaa-4ea59c0036cc-0
+00:21:26.920 --> 00:21:31.098
+Caso não seja de responsabilidade,
+porque aí normalmente dentro da da de uma
+
+d1ae73e8-2d12-4975-9eaa-4ea59c0036cc-1
+00:21:31.098 --> 00:21:34.137
+iniciativa de engenharia de plataforma,
+a gente define,
+
+d1ae73e8-2d12-4975-9eaa-4ea59c0036cc-2
+00:21:34.137 --> 00:21:36.959
+muitas vezes é o nível de
+responsabilidade ali, né?
+
+d1ae73e8-2d12-4975-9eaa-4ea59c0036cc-3
+00:21:36.959 --> 00:21:40.866
+Então tem alguns que a área diretamente
+ou a sigla ou Abu, ou que seja,
+
+d1ae73e8-2d12-4975-9eaa-4ea59c0036cc-4
+00:21:40.866 --> 00:21:43.959
+tem responsabilidade direta sobre aquela
+infraestrutura.
+
+4089d3e7-e8c6-4840-874b-15392944eb17-0
+00:21:44.320 --> 00:21:47.389
+Então ele seria o responsável por
+atualizar, por exemplo,
+
+4089d3e7-e8c6-4840-874b-15392944eb17-1
+00:21:47.389 --> 00:21:50.512
+a sua infraestrutura.
+Mas tem é um outro modelo aonde essa
+
+4089d3e7-e8c6-4840-874b-15392944eb17-2
+00:21:50.512 --> 00:21:53.582
+camada ela está abstraída.
+Se ela é uma camada abstraída,
+
+4089d3e7-e8c6-4840-874b-15392944eb17-3
+00:21:53.582 --> 00:21:57.499
+ela normalmente gera 11 peso operacional
+maior no time de plataforma, né?
+
+4089d3e7-e8c6-4840-874b-15392944eb17-4
+00:21:57.499 --> 00:22:00.039
+Mas pra isso,
+quando eu falo de modo lificy com
+
+4089d3e7-e8c6-4840-874b-15392944eb17-5
+00:22:00.039 --> 00:22:03.850
+menagement, eu também os ajudo.
+De que forma eu consigo atualizar todos
+
+4089d3e7-e8c6-4840-874b-15392944eb17-6
+00:22:03.850 --> 00:22:07.926
+os módulos de uma vez só? Se eu quiser,
+então deixa eu pegar atualizar minha
+
+4089d3e7-e8c6-4840-874b-15392944eb17-7
+00:22:07.926 --> 00:22:08.720
+infraestrutura.
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-0
+00:22:09.200 --> 00:22:13.242
+De um, de uma forma geral,
+sem que o usuário tenha que interagir ou
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-1
+00:22:13.242 --> 00:22:17.462
+saber que isso é um problema.
+Então essa é uma outra possibilidade que
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-2
+00:22:17.462 --> 00:22:21.743
+você também tem, tá? E por fim,
+o que eu diria que a nossa é Estrela na
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-3
+00:22:21.743 --> 00:22:25.071
+perspectiva de habilitação de engenharia
+de plataforma,
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-4
+00:22:25.071 --> 00:22:29.411
+são os módulos do tipo no code,
+dando um passo para trás pessoal e dando
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-5
+00:22:29.411 --> 00:22:32.443
+uma visão,
+principalmente para quem não teve muita
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-6
+00:22:32.443 --> 00:22:36.901
+interação com com o Terra forme,
+como normalmente você consumia um módulo,
+
+e59970a4-e6d4-4a15-af60-0411a0b37d58-7
+00:22:36.901 --> 00:22:37.080
+tá?
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-0
+00:22:37.840 --> 00:22:42.268
+Você basicamente desenvolvia esse módulo
+dentro dele todas as funções que você
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-1
+00:22:42.268 --> 00:22:44.847
+precisa,
+o que você gostaria que ele tivesse,
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-2
+00:22:44.847 --> 00:22:49.052
+e aí basicamente você era obrigado a
+chamar esse módulo dentro de um outro
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-3
+00:22:49.052 --> 00:22:53.425
+arquivo terraform. Então pensa assim,
+eu crio um arquivo principal e eu chamo
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-4
+00:22:53.425 --> 00:22:57.069
+aquele módulo referencio ele dentro de um
+arquivo principal, né?
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-5
+00:22:57.069 --> 00:23:00.264
+Isso tinha um problema,
+porque se eu for pegar na minha,
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-6
+00:23:00.264 --> 00:23:04.413
+Na Na perspectiva de um desenvolvedor,
+ou até mesmo a gente falou aqui de
+
+7979e3a8-c428-418a-b06d-ea7500ec33e5-7
+00:23:04.413 --> 00:23:06.600
+pessoas de negócio consumido terraform.
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-0
+00:23:07.120 --> 00:23:10.758
+Eu exigiria que essa pessoa tivesse
+conhecimento prévio de terraforme.
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-1
+00:23:10.758 --> 00:23:13.935
+Ela tem que ter esse conhecimento de ir
+lá, criar um arquivo,
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-2
+00:23:13.935 --> 00:23:17.779
+subir aquilo num guite e tudo mais, né?
+Ou pegar aquilo como um fork de um
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-3
+00:23:17.779 --> 00:23:21.878
+repositório pré existente e etcetera.
+Quando eu começo a falar da questão do no
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-4
+00:23:21.878 --> 00:23:24.953
+code, o que eu estou fazendo aqui é,
+eu pego aquele módulo,
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-5
+00:23:24.953 --> 00:23:28.847
+eu codifico ele e aquele módulo ele
+simplesmente passa ser representado por
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-6
+00:23:28.847 --> 00:23:31.000
+uma PI.
+Então eu posso simplesmente agora
+
+f51afeee-cf9a-408e-94c2-92d5b00cebb0-7
+00:23:31.000 --> 00:23:34.279
+consumir aquela PIE,
+fazer o provisionamento da infraestrutura.
+
+3640e6c4-d331-4316-b521-e8623c02b887-0
+00:23:34.920 --> 00:23:37.522
+Sem ter nenhuma necessidade de fazer
+forking,
+
+3640e6c4-d331-4316-b521-e8623c02b887-1
+00:23:37.522 --> 00:23:40.859
+de fazer menção ou referência dentro de
+arquivo, nem nada.
+
+3640e6c4-d331-4316-b521-e8623c02b887-2
+00:23:40.859 --> 00:23:44.875
+Então essa camada que antes ela existia,
+na perspectiva do consumidor,
+
+3640e6c4-d331-4316-b521-e8623c02b887-3
+00:23:44.875 --> 00:23:48.382
+ela não existe mais.
+Agora o que o consumidor precisa fazer é
+
+3640e6c4-d331-4316-b521-e8623c02b887-4
+00:23:48.382 --> 00:23:52.229
+simplesmente passar variáveis e a
+infraestrutura sai do outro lado.
+
+3640e6c4-d331-4316-b521-e8623c02b887-5
+00:23:52.229 --> 00:23:55.510
+Por isso que a gente chama isso de no
+code provision, ok?
+
+3640e6c4-d331-4316-b521-e8623c02b887-6
+00:23:55.510 --> 00:23:59.639
+Então é dentro do que eu já é,
+tenho discutido com vocês e etcetera, né?
+
+3640e6c4-d331-4316-b521-e8623c02b887-7
+00:23:59.639 --> 00:24:01.280
+A iniciativa de vocês de ter.
+
+73818f4d-1127-4c06-b16e-fa651225c206-0
+00:24:02.160 --> 00:24:06.039
+Um idp é junto ao developer hub e, enfim,
+e entre as demais iniciativas,
+
+73818f4d-1127-4c06-b16e-fa651225c206-1
+00:24:06.039 --> 00:24:10.131
+pensa que isso basicamente vai ser.
+Você tem a revisão de uma oferta que ela
+
+73818f4d-1127-4c06-b16e-fa651225c206-2
+00:24:10.131 --> 00:24:12.788
+estará conectada ao módulo, por exemplo,
+no code,
+
+73818f4d-1127-4c06-b16e-fa651225c206-3
+00:24:12.788 --> 00:24:16.987
+e é simplesmente uma chamada de API que
+vai provisionar toda a infraestrutura.
+
+73818f4d-1127-4c06-b16e-fa651225c206-4
+00:24:16.987 --> 00:24:20.919
+Você não tem mais que ficar mantendo isso
+de nenhuma outra forma, tá bom?
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-0
+00:24:22.840 --> 00:24:26.139
+Então aqui é um exemplo, né?
+Aqui é dentro do do fluxo do próprio,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-1
+00:24:26.139 --> 00:24:28.650
+é terraforme,
+mas é claro que vocês vão ter isso é
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-2
+00:24:28.650 --> 00:24:31.654
+disponibilizado dentro de uma estrutura
+de de DP, então não,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-3
+00:24:31.654 --> 00:24:34.854
+não precisam se ater a esse exemplo,
+mas a mais pra vocês terem,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-4
+00:24:34.854 --> 00:24:37.612
+é uma ideia do que eu tô falando, né?
+Algo bem opinado.
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-5
+00:24:37.612 --> 00:24:40.468
+Isso aqui é o que estaria na mão do do
+usuário final, né?
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-6
+00:24:40.468 --> 00:24:44.013
+Ele preenche variável ou tem algo
+realmente opinado, como um drop down,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-7
+00:24:44.013 --> 00:24:46.426
+que ele seleciona o que ele quer,
+ele dá um net,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-8
+00:24:46.426 --> 00:24:49.381
+a infraestrutura dele é criada e ele nem
+sabe o que acabou,
+
+4671e91d-e7c5-46c3-ba41-0a86f6183611-9
+00:24:49.381 --> 00:24:50.760
+é sendo criado por trás, tá?
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-0
+00:24:53.400 --> 00:24:56.316
+Quando a gente estava falando de governo,
+né?
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-1
+00:24:56.316 --> 00:25:01.007
+Qual é a forma que eu tenho de garantir
+gard railes fazer com que os meus
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-2
+00:25:01.007 --> 00:25:06.206
+usuários fiquem é dentro da da linha, né?
+Nós temos um passo intermediário dentro
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-3
+00:25:06.206 --> 00:25:10.200
+do nosso, do nosso pipeline, né,
+de entrega de infraestrutura,
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-4
+00:25:10.200 --> 00:25:12.990
+que é um passo de verificação de
+políticas.
+
+1de298c5-bbae-49de-8a6b-96dd07fa600e-5
+00:25:12.990 --> 00:25:16.160
+Então eu consigo basicamente codificar
+políticas.
+
+6224a1fb-70eb-4b6f-9c6d-aa2b1c72bc78-0
+00:25:16.520 --> 00:25:18.954
+Né?
+E garantir que esses gardulails sejam
+
+6224a1fb-70eb-4b6f-9c6d-aa2b1c72bc78-1
+00:25:18.954 --> 00:25:23.648
+aplicados em tempo de execução desses
+pipelines. Então imagina que, por exemplo,
+
+6224a1fb-70eb-4b6f-9c6d-aa2b1c72bc78-2
+00:25:23.648 --> 00:25:27.126
+eu estou subindo.
+É um tipo de infraestrutura onde eu quero
+
+6224a1fb-70eb-4b6f-9c6d-aa2b1c72bc78-3
+00:25:27.126 --> 00:25:27.880
+garantir que.
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-0
+00:25:28.400 --> 00:25:31.073
+Dada a instância de banco de dados ou
+dados,
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-1
+00:25:31.073 --> 00:25:35.411
+tamanhos de virtual machine ou o que seja,
+fiquem dentro daquele padrão,
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-2
+00:25:35.411 --> 00:25:38.620
+então eu só posso usar instâncias
+pequenas ou médias.
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-3
+00:25:38.620 --> 00:25:43.373
+Ou se é para ambiente de desenvolvimento,
+eu só posso usar instâncias pequenas,
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-4
+00:25:43.373 --> 00:25:46.463
+por exemplo, né?
+Então esse tipo de de verificação,
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-5
+00:25:46.463 --> 00:25:50.385
+esse tipo de gard rail, né?
+Eu consigo criar e colocar no meio do
+
+2cd5b571-c3e3-4d4c-a1a8-d9617401ab2f-6
+00:25:50.385 --> 00:25:50.920
+processo.
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-0
+00:25:51.280 --> 00:25:55.483
+Tá, como nós fazemos isso?
+Nós suportamos basicamente 2 framorks de
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-1
+00:25:55.483 --> 00:25:58.883
+polices code,
+um da própria hashcorp chamado sentinel,
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-2
+00:25:58.883 --> 00:26:01.480
+tá,
+entenda que isso tudo é codificado da
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-3
+00:26:01.480 --> 00:26:05.250
+mesma forma que existe,
+é da mesma forma que o próprio Terra
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-4
+00:26:05.250 --> 00:26:08.403
+forme, né?
+Então você vai codificar toda a lógica,
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-5
+00:26:08.403 --> 00:26:11.989
+o que que ele vai analisar,
+o que vai garantir que aquela
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-6
+00:26:11.989 --> 00:26:16.254
+infraestrutura esteja dentro ou fora de
+comprise, digamos assim, tá,
+
+792bb7e0-20db-4c40-acb2-2d7f8e9bf6e6-7
+00:26:16.254 --> 00:26:18.479
+e basicamente você vai aplicar isso.
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-0
+00:26:18.840 --> 00:26:23.048
+Né, na granularidade que você desejar,
+então você pode colocar aquilo como um
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-1
+00:26:23.048 --> 00:26:26.502
+gard rail, universal,
+qualquer tipo de infraestrutura que nasça
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-2
+00:26:26.502 --> 00:26:30.063
+dentro do do Terra forma e vai herdar
+aquele tipo de de política.
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-3
+00:26:30.063 --> 00:26:33.678
+Posso dar um exemplo para vocês,
+talvez em forcemente de tags, né?
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-4
+00:26:33.678 --> 00:26:37.078
+Então toda a infraestrutura tem que ser
+tagueada assim ou sim,
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-5
+00:26:37.078 --> 00:26:41.232
+então eu posso criar uma política,
+aplicar ela no contexto global, certo? É,
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-6
+00:26:41.232 --> 00:26:45.225
+ou senão você também consegue aplicar em
+outros níveis hierárquicos, tal.
+
+2baaabc1-ce2b-4beb-bd94-b258731a4852-7
+00:26:45.225 --> 00:26:47.600
+Para além disso,
+nós também suportamos OPA.
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-0
+00:26:48.240 --> 00:26:51.264
+Né? Então,
+para quem já está habituado em trabalhar
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-1
+00:26:51.264 --> 00:26:54.462
+com OPA, para outras iniciativas,
+para outras frentes,
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-2
+00:26:54.462 --> 00:26:58.533
+OPA é algo que surgiu muito forte,
+principalmente dentro de é, enfim,
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-3
+00:26:58.533 --> 00:27:03.069
+copernedes EE variáveis, né? Então,
+se você já está habituado a trabalhar com
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-4
+00:27:03.069 --> 00:27:05.337
+OPA,
+é um outro premier que nós também
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-5
+00:27:05.337 --> 00:27:08.187
+suportamos. Entendam pessoal,
+não é um ou outro,
+
+65dd5c41-584c-4fd0-a082-c3d666607e8e-6
+00:27:08.187 --> 00:27:12.200
+você pode trabalhar com os 2 se você
+desejar, tá sem problema algum.
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-0
+00:27:15.280 --> 00:27:17.202
+Então,
+quando a gente começa a falar de
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-1
+00:27:17.202 --> 00:27:20.663
+gerenciar a infraestrutura, né,
+que nós estamos criando agora em escala
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-2
+00:27:20.663 --> 00:27:22.826
+aqui,
+a gente já está começando a ir para um
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-3
+00:27:22.826 --> 00:27:24.989
+outro lado, né?
+Tudo que eu falei para vocês
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-4
+00:27:24.989 --> 00:27:27.776
+anteriormente,
+a visão era um pouquinho mais de dia zero,
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-5
+00:27:27.776 --> 00:27:31.189
+eu vou colocar assim. Então,
+quando eu começo a ir para o lado mais de
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-6
+00:27:31.189 --> 00:27:33.544
+gerenciar a infraestrutura,
+uma vez criada aqui,
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-7
+00:27:33.544 --> 00:27:36.717
+a gente tem algumas coisas que a gente
+consegue ajudar vocês, né?
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-8
+00:27:36.717 --> 00:27:39.120
+O primeiro delas,
+que eu acho muito interessante,
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-9
+00:27:39.120 --> 00:27:42.100
+é a parte de workspaces efêmeros, tá,
+e por que isso é legal?
+
+c7092ab5-24f2-4390-9c31-71a5722336c4-10
+00:27:42.100 --> 00:27:44.839
+Comentei com vocês anteriormente que eu
+tenho visto que.
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-0
+00:27:45.480 --> 00:27:50.533
+As empresas que têm adquirido um nível é
+mais alto de maturidade da parte de
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-1
+00:27:50.533 --> 00:27:55.782
+engenharia de plataforma, têm herdado.
+É a responsabilidade pela experiência do
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-2
+00:27:55.782 --> 00:27:59.129
+Dev, né?
+E o principal ponto que eles se preocupam
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-3
+00:27:59.129 --> 00:28:03.854
+é em garantir que ODEV possa experimentar,
+garantir a experimentação do
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-4
+00:28:03.854 --> 00:28:06.938
+desenvolvedor.
+Pra você ter uma ideia pessoal,
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-5
+00:28:06.938 --> 00:28:11.335
+eu tenho um cliente que a
+responsabilidade deles chega no nível da
+
+6d3a0e46-f61f-492e-8713-f0d21d4a1adc-6
+00:28:11.335 --> 00:28:12.320
+máquina do Dev.
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-0
+00:28:12.960 --> 00:28:15.791
+Né?
+Do setup inicial do débi assim que ele é
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-1
+00:28:15.791 --> 00:28:19.882
+contratado, né? Então assim é.
+É pra vocês verem o quanto é essa
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-2
+00:28:19.882 --> 00:28:23.280
+preocupação.
+É algo real e muitas vezes você pode ter
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-3
+00:28:23.280 --> 00:28:28.125
+uma equipe é de desenvolvimento muito boa,
+mas pode ser que eles não estejam
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-4
+00:28:28.125 --> 00:28:32.279
+operando em sua habilidade plena de
+inovar exatamente por não ter
+
+6fb3a52a-7dfa-45e3-94c8-47736e1eb0f5-5
+00:28:32.279 --> 00:28:33.160
+flexibilidade.
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-0
+00:28:33.680 --> 00:28:36.244
+Certo, então,
+quando eu começo a falar de ambientes
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-1
+00:28:36.244 --> 00:28:39.598
+efêmeros, né, workspace efêmeros,
+é talvez começar a criar pequenos
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-2
+00:28:39.598 --> 00:28:42.015
+produtos ou coisas que possam fazer
+sentido, né?
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-3
+00:28:42.015 --> 00:28:45.615
+Que eu possa disponibilizar para ele,
+que ele consiga levantar ambientes
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-4
+00:28:45.615 --> 00:28:47.983
+rápidos,
+para ele conseguir experimentar alguma
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-5
+00:28:47.983 --> 00:28:50.597
+coisa, experimentar uma aplicação,
+criar um sandbox,
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-6
+00:28:50.597 --> 00:28:54.395
+mas garantindo que ele seja efêmero para
+que depois de um certo tempo ele se
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-7
+00:28:54.395 --> 00:28:57.206
+autodestrua, tá,
+então isso é importante para também não
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-8
+00:28:57.206 --> 00:29:00.363
+se tornar a nossa conta, né, pessoal?
+Isso é a parte de finops,
+
+5995c97d-06b5-4cc3-bd18-18e9ca84f08b-9
+00:29:00.363 --> 00:29:02.040
+é importante também, certo? Então.
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-0
+00:29:02.880 --> 00:29:05.904
+Quando a gente começa a entrar nessa
+questão de dia 2, né?
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-1
+00:29:05.904 --> 00:29:10.057
+Comentei com vocês de ambientes efêmeros,
+outras coisas que elas são importantes
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-2
+00:29:10.057 --> 00:29:12.621
+toda a partir de verificação de drift, né?
+Então,
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-3
+00:29:12.621 --> 00:29:16.312
+se alguma se você cria um tipo de
+infraestrutura e alguém vai por fora,
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-4
+00:29:16.312 --> 00:29:18.671
+por exemplo,
+e faz alguma modificação naquela
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-5
+00:29:18.671 --> 00:29:21.593
+infraestrutura, né?
+Eu consigo ter notificação de drift.
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-6
+00:29:21.593 --> 00:29:25.336
+Eu consigo é startup, por exemplo,
+tomar alguma ação sobre aquele drift.
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-7
+00:29:25.336 --> 00:29:28.104
+Então é uma outra,
+é visão que eu consigo ter também,
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-8
+00:29:28.104 --> 00:29:31.949
+e eu vou falar de mais uma que ela não
+está representada aqui dentro desse
+
+6b9b0af2-17dc-4675-827d-a64874fc2722-9
+00:29:31.949 --> 00:29:32.360
+desenho.
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-0
+00:29:32.640 --> 00:29:35.794
+Mas é a parte de de ações, né,
+que nós chamamos de de action.
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-1
+00:29:35.794 --> 00:29:39.202
+E aí são basicamente alterações que eu
+posso fazer nesse ambiente,
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-2
+00:29:39.202 --> 00:29:43.272
+mas com com a ótica de dia 2, né? Poxa,
+subir uma base de dados que normalmente
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-3
+00:29:43.272 --> 00:29:46.477
+eu faço logo em seguida,
+que eu que eu subo uma base de dados,
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-4
+00:29:46.477 --> 00:29:50.140
+rodar um dia da my gration, né? Então,
+isso não é algo que faz parte da
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-5
+00:29:50.140 --> 00:29:53.295
+infraestrutura na perspectiva de uma
+infraestrutura imutável,
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-6
+00:29:53.295 --> 00:29:56.958
+mas é algo que faz total sentido.
+Eu preciso rodar um day da my gration
+
+bb72c7c0-b847-42ee-b455-bb3fc849c004-7
+00:29:56.958 --> 00:29:59.400
+depois que eu subo aquela base de dados,
+certo?
+
+ce96b224-7385-4319-9cde-65dca285bff7-0
+00:29:59.800 --> 00:30:01.977
+É,
+eu tô subindo o conteúdo estático e eu
+
+ce96b224-7385-4319-9cde-65dca285bff7-1
+00:30:01.977 --> 00:30:04.311
+preciso, por exemplo, invalidar um Cash,
+né?
+
+ce96b224-7385-4319-9cde-65dca285bff7-2
+00:30:04.311 --> 00:30:07.888
+Então é uma ação que eu preciso permitir
+pra aquele meu usuário, né,
+
+ce96b224-7385-4319-9cde-65dca285bff7-3
+00:30:07.888 --> 00:30:10.325
+que tá consumindo esse tipo de
+infraestrutura.
+
+ce96b224-7385-4319-9cde-65dca285bff7-4
+00:30:10.325 --> 00:30:12.711
+Eu preciso permitir com que ele faça
+sozinho,
+
+ce96b224-7385-4319-9cde-65dca285bff7-5
+00:30:12.711 --> 00:30:15.355
+que ele não precisa abrir um chamado pra
+isso, tá?
+
+ce96b224-7385-4319-9cde-65dca285bff7-6
+00:30:15.355 --> 00:30:17.999
+Então já vou comentar com vocês da parte
+de dia 2.
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-0
+00:30:18.600 --> 00:30:22.704
+Então drift detection pessoal aqui é um
+pouco da visão que vocês é, vão ter,
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-1
+00:30:22.704 --> 00:30:26.595
+eu tenho. Nós temos várias formas,
+por exemplo, de notificar drifts, né?
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-2
+00:30:26.595 --> 00:30:30.327
+Então eu posso gerar drift,
+gerar notificação por e-mail ou até mesmo
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-3
+00:30:30.327 --> 00:30:33.365
+trigar, por exemplo,
+alguma rotina externa para que haja
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-4
+00:30:33.365 --> 00:30:36.830
+remediação automatizada.
+Então a gente consegue ser bem flexível
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-5
+00:30:36.830 --> 00:30:39.655
+em cima disso.
+É a parte de operações remotas que eu
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-6
+00:30:39.655 --> 00:30:43.120
+consigo permitir também.
+Aqui eu tenho algumas algumas formas de
+
+c996711d-9253-4ca2-aa8e-baf4d74862a6-7
+00:30:43.120 --> 00:30:44.720
+trabalhar com operação remota.
+
+bf79660e-1080-473c-a384-a6ac68eaf024-0
+00:30:44.920 --> 00:30:47.951
+Desde, claro,
+habilitar vocês a fazer é entrega de
+
+bf79660e-1080-473c-a384-a6ac68eaf024-1
+00:30:47.951 --> 00:30:51.874
+agentes de execução, né?
+Em ambientes remotos, como está no nome,
+
+bf79660e-1080-473c-a384-a6ac68eaf024-2
+00:30:51.874 --> 00:30:56.331
+né? Então é, eu tenho, por exemplo,
+meu deploy de Terra form aqui on Prem,
+
+bf79660e-1080-473c-a384-a6ac68eaf024-3
+00:30:56.331 --> 00:31:00.432
+mas eu quero fazer deployamente de
+recursos que estão é num ambiente
+
+bf79660e-1080-473c-a384-a6ac68eaf024-4
+00:31:00.432 --> 00:31:04.058
+secundário, numa nuvem secundário,
+de uma forma privada, né,
+
+bf79660e-1080-473c-a384-a6ac68eaf024-5
+00:31:04.058 --> 00:31:06.673
+que ele não tem acesso à internet nem
+nada.
+
+bf79660e-1080-473c-a384-a6ac68eaf024-6
+00:31:06.673 --> 00:31:11.369
+Poderia colocar um agente lá Pra Ele
+poder interagir com essa infraestrutura e
+
+bf79660e-1080-473c-a384-a6ac68eaf024-7
+00:31:11.369 --> 00:31:12.320
+para além disso.
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-0
+00:31:13.560 --> 00:31:17.886
+Eu a gente tava falando um pouco de
+engenharia de plataforma e eu falei pra
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-1
+00:31:17.886 --> 00:31:21.928
+vocês de uma camada de orquestração que
+ela pode passar a existir e da
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-2
+00:31:21.928 --> 00:31:25.686
+importância dela explicando pra vocês de
+uma forma muito sucinta,
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-3
+00:31:25.686 --> 00:31:29.785
+o porque é é importante ter essa camada
+de de orquestração é porque ela
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-4
+00:31:29.785 --> 00:31:34.111
+normalmente traz uniformidade nas ofertas,
+porque desde a perspectiva de um
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-5
+00:31:34.111 --> 00:31:37.299
+desenvolvedor pessoal ou de consumidores
+da plataforma,
+
+f04e0dd2-5ed6-424a-ba12-6e21977dd8b6-6
+00:31:37.299 --> 00:31:39.520
+é super importante nós entendermos que.
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-0
+00:31:39.800 --> 00:31:43.783
+Não deve existir um único caminho,
+pode ser que a gente comece por um único
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-1
+00:31:43.783 --> 00:31:47.138
+caminho, tá tudo bem,
+mas na linha do tempo não deve existir um
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-2
+00:31:47.138 --> 00:31:50.126
+único caminho,
+porque isso pode atrapalhar diretamente a
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-3
+00:31:50.126 --> 00:31:53.113
+experiência do desenvolvedor ou do
+usuário final. Então,
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-4
+00:31:53.113 --> 00:31:56.363
+o que eu quero dizer com isso? Você tem,
+por exemplo, um idp,
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-5
+00:31:56.363 --> 00:31:58.722
+faz muito sentido e você tem que ter um
+idp,
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-6
+00:31:58.722 --> 00:32:02.915
+mas a pergunta que a gente normalmente
+tem que fazer é, um idp para todo mundo.
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-7
+00:32:02.915 --> 00:32:06.532
+Essa é a pergunta para toda a comunidade
+que eu estou atendendo, né?
+
+1b0ebff5-ac6e-4920-8807-c298c4751218-8
+00:32:06.532 --> 00:32:07.999
+A pergunta chave ela é essa.
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-0
+00:32:08.600 --> 00:32:12.626
+Se eu chegar à conclusão que não e que eu
+tenho que ter, por exemplo,
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-1
+00:32:12.626 --> 00:32:17.112
+outros caminhos, como por exemplo,
+uma CLI, um SDK, é 111 manifesto ou enfim,
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-2
+00:32:17.112 --> 00:32:20.276
+que são formas que eu vejo é clientes
+operando por aí.
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-3
+00:32:20.276 --> 00:32:24.532
+Eu tenho que ter um ponto único de
+consolidação dessa oferta que eu estou
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-4
+00:32:24.532 --> 00:32:29.306
+criando e que eu estou disponibilizando,
+né? Então vou usar um exemplo para vocês,
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-5
+00:32:29.306 --> 00:32:33.045
+oferta aplicação Java.
+Essa é a oferta que eu criei que tinha lá
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-6
+00:32:33.045 --> 00:32:36.266
+disponível no meu idp.
+Eu preciso garantir que ela seja
+
+3c1d3dc2-faa0-425d-9021-1bd4f3cfb542-7
+00:32:36.266 --> 00:32:38.280
+consistente, independente da forma.
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-0
+00:32:38.560 --> 00:32:42.182
+Que meu usuário consuma, certo? Então,
+se ele consome por CLI,
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-1
+00:32:42.182 --> 00:32:45.575
+tem que ser a mesma oferta que está
+disponível no meu IDP,
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-2
+00:32:45.575 --> 00:32:48.680
+que é a mesma oferta que está disponível
+via SDK, né?
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-3
+00:32:48.680 --> 00:32:51.786
+Então eu preciso garantir consistência em
+cima disso.
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-4
+00:32:51.786 --> 00:32:55.753
+Por isso que normalmente você tem uma
+camada de é intermediária, né?
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-5
+00:32:55.753 --> 00:33:00.354
+Você ter ali uma camada de orquestração
+se faz tão importante pra você garantir
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-6
+00:33:00.354 --> 00:33:04.207
+uniformidade legal. E aí,
+na perspectiva do próprio é Terra forme,
+
+ad519b0d-a8ce-4cca-9927-54c04a27c268-7
+00:33:04.207 --> 00:33:07.600
+eu permito com que você interaja com ele
+de várias formas.
+
+adeed888-eff2-4634-aae2-b489591b997c-0
+00:33:07.960 --> 00:33:12.512
+Seja via CLI, seja via, por exemplo, API,
+seja via no code, como nós comentamos.
+
+adeed888-eff2-4634-aae2-b489591b997c-1
+00:33:12.512 --> 00:33:16.446
+Então você tem algumas formas de você
+lidar com ele, mas não pessoal.
+
+adeed888-eff2-4634-aae2-b489591b997c-2
+00:33:16.446 --> 00:33:19.087
+Só pra ficar claro e não misturar os
+assuntos.
+
+adeed888-eff2-4634-aae2-b489591b997c-3
+00:33:19.087 --> 00:33:23.302
+Eu não estou dizendo que ele pode
+substituir essa necessidade dessa camada
+
+adeed888-eff2-4634-aae2-b489591b997c-4
+00:33:23.302 --> 00:33:26.281
+de orquestração,
+porque dependendo do que a gente tá
+
+adeed888-eff2-4634-aae2-b489591b997c-5
+00:33:26.281 --> 00:33:30.046
+buscando fazer com essa camada,
+ela vai ser necessária sim ou sim,
+
+adeed888-eff2-4634-aae2-b489591b997c-6
+00:33:30.046 --> 00:33:33.699
+externa ao terraforme legal,
+eu só tava linkando os assuntos pra
+
+adeed888-eff2-4634-aae2-b489591b997c-7
+00:33:33.699 --> 00:33:37.240
+voltar no que eu tinha prometido a vocês
+de explicar o porquê.
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-0
+00:33:37.600 --> 00:33:42.763
+Nessa camada intermediária, tá?
+Run tests é algo que me permite falar com
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-1
+00:33:42.763 --> 00:33:46.322
+terceiros.
+Qualquer aplicação que eu precise falar
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-2
+00:33:46.322 --> 00:33:51.276
+externamente pra pegar alguma aprovação,
+pra fazer alguma sinalização.
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-3
+00:33:51.276 --> 00:33:55.393
+Desde a perspectiva do fluxo de entrega
+de infraestrutura,
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-4
+00:33:55.393 --> 00:33:59.650
+eu tenho através de run tests.
+Vou dar um exemplo pra vocês.
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-5
+00:33:59.650 --> 00:34:04.185
+Eu fiz A Entrega de uma infraestrutura de
+de nuvem, por exemplo.
+
+ca31e7cf-7479-4313-ba2f-fdc7886861a5-6
+00:34:04.185 --> 00:34:06.000
+Entreguei lá uma série de.
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-0
+00:34:06.480 --> 00:34:10.403
+De recursos da da EJA,
+e eu preciso basicamente atualizar um
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-1
+00:34:10.403 --> 00:34:13.362
+cmdb,
+então posso usar um run pasch no final,
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-2
+00:34:13.362 --> 00:34:17.286
+que pega o resultado daquilo que eu criei
+e atualizo o cmdb.
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-3
+00:34:17.286 --> 00:34:20.631
+Então esse é um exemplo,
+falar com coisas externas,
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-4
+00:34:20.631 --> 00:34:25.970
+mas envolver essa coisa externa dentro de
+um fluxo é de entrega de infraestrutura,
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-5
+00:34:25.970 --> 00:34:28.607
+né?
+Iniciei alguém tava comentando o que
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-6
+00:34:28.607 --> 00:34:32.338
+vocês é, tinham,
+acho que fechado 11 parceria ou acabaram
+
+dccd5c0d-3164-4b4a-b875-c9a55eb670ac-7
+00:34:32.338 --> 00:34:35.040
+adquirindo o servissinal, por exemplo, né?
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-0
+00:34:35.400 --> 00:34:39.741
+Então eu vou abrir um ticket novo assim
+que alguma alguma alguma execução se
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-1
+00:34:39.741 --> 00:34:42.278
+inicie.
+Posso fazer isso também sem problema
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-2
+00:34:42.278 --> 00:34:45.266
+algum, né?
+A pessoa pode inicializar o processo pelo
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-3
+00:34:45.266 --> 00:34:49.438
+idp? Foi lá consumir uma oferta,
+mas o primeiro passo do Terra form é ter
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-4
+00:34:49.438 --> 00:34:54.174
+um run task para falar com um serve sinal
+para registrar aquilo dentro dele e assim
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-5
+00:34:54.174 --> 00:34:57.444
+vai, então assim,
+qualquer coisa que vocês precisem falar
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-6
+00:34:57.444 --> 00:35:00.713
+com um terceiro, tá?
+Nós já temos 25 integrações prontas,
+
+bf2c7bd9-08aa-438b-a179-3c5677d9d11b-7
+00:35:00.713 --> 00:35:02.799
+mas entendam que isso aqui você pode.
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-0
+00:35:03.320 --> 00:35:07.907
+Basicamente fazer o que você quiser.
+Isso existe lá todo um todo um framer que
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-1
+00:35:07.907 --> 00:35:12.495
+você pode seguir e desenvolver o seu
+próprio one test e se assim você desejar.
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-2
+00:35:12.495 --> 00:35:15.746
+Tudo bem e actions aqui é uma coisa é bem
+interessante.
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-3
+00:35:15.746 --> 00:35:19.289
+Isso é algo de certa forma recente,
+saiu em outubro passado,
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-4
+00:35:19.289 --> 00:35:22.831
+que é de fato nossa habilitador dessas
+tarefas de dia 2, né?
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-5
+00:35:22.831 --> 00:35:25.444
+O comitê do Dara my gration como um
+exemplo,
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-6
+00:35:25.444 --> 00:35:30.090
+invalidação de casting e qualquer outra
+tarefa que você precisa fazer, não sei.
+
+be5879b0-b3dc-4bbf-a7b6-36fe6e900522-7
+00:35:30.090 --> 00:35:31.600
+Rotação de um certificado.
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-0
+00:35:32.080 --> 00:35:35.956
+É reboot de uma instância pessoal.
+Aí vocês imaginem, imaginem,
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-1
+00:35:35.956 --> 00:35:39.408
+vocês podem imaginar coisas que vocês
+colocam no ar, né?
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-2
+00:35:39.408 --> 00:35:43.526
+Na perspectiva de infraestrutura e que
+depois uma vez aquilo no ar,
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-3
+00:35:43.526 --> 00:35:48.129
+vocês precisam interagir com ela,
+que não significa mudar a infraestrutura,
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-4
+00:35:48.129 --> 00:35:51.581
+mas significa as vezes mudar algum
+parâmetro específico,
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-5
+00:35:51.581 --> 00:35:55.760
+executar alguma ação, né?
+Pensa no action como um habilitador disso.
+
+d027aa2a-d687-414c-b12e-37fa50b1e571-6
+00:35:55.760 --> 00:35:59.999
+E o action, assim como é o no code,
+ele também disponibiliza uma API.
+
+7660883f-8175-4da8-ac95-0618d49cf359-0
+00:36:01.120 --> 00:36:04.817
+Então eu posso tanto executar actions no
+momento que eu estou provisionando uma
+
+7660883f-8175-4da8-ac95-0618d49cf359-1
+00:36:04.817 --> 00:36:07.035
+infraestrutura.
+Como eu posso criar os actions,
+
+7660883f-8175-4da8-ac95-0618d49cf359-2
+00:36:07.035 --> 00:36:09.253
+deixar eles ali atrelado àquela
+infraestrutura,
+
+7660883f-8175-4da8-ac95-0618d49cf359-3
+00:36:09.253 --> 00:36:12.673
+mas não necessariamente executando, né,
+esperando com que alguém execute.
+
+7660883f-8175-4da8-ac95-0618d49cf359-4
+00:36:12.673 --> 00:36:15.861
+Então esses exemplos que eu acabei de dar
+são algo que, por exemplo,
+
+7660883f-8175-4da8-ac95-0618d49cf359-5
+00:36:15.861 --> 00:36:19.512
+dentro de um idp, pode virar um botão.
+Eu fiz um provisionamento de uma de uma
+
+7660883f-8175-4da8-ac95-0618d49cf359-6
+00:36:19.512 --> 00:36:23.209
+oferta, por exemplo, pro que eu quiser,
+e agora eu tenho que invalidar um Cash.
+
+7660883f-8175-4da8-ac95-0618d49cf359-7
+00:36:23.209 --> 00:36:26.259
+Eu tenho que rodar um certificado,
+eu posso, lá vai ter um botão,
+
+7660883f-8175-4da8-ac95-0618d49cf359-8
+00:36:26.259 --> 00:36:27.600
+eu sou usuário, eu clico ali.
+
+dd930353-98d5-4d03-afd0-8284bc3a0f0e-0
+00:36:28.000 --> 00:36:30.718
+Ele já executa o action e faz.
+O que eu preciso fazer.
+
+dd930353-98d5-4d03-afd0-8284bc3a0f0e-1
+00:36:30.718 --> 00:36:33.388
+Não depende de um sistema de ticketing
+para isso, tá?
+
+dd930353-98d5-4d03-afd0-8284bc3a0f0e-2
+00:36:33.388 --> 00:36:36.008
+Então essa é uma outra coisa que é bem
+interessante.
+
+dd930353-98d5-4d03-afd0-8284bc3a0f0e-3
+00:36:36.008 --> 00:36:38.480
+Nos ajuda muito no dia 2 e é claro,
+pessoal, que.
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-0
+00:36:39.080 --> 00:36:41.956
+Na perspectiva do action,
+de uma forma genérica, é isso.
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-1
+00:36:41.956 --> 00:36:44.883
+Mas como vocês contam, por exemplo,
+com essa boldreadhet,
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-2
+00:36:44.883 --> 00:36:48.214
+vocês podem usar essa esse mesmo
+mecanismo, né? Pra, por exemplo,
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-3
+00:36:48.214 --> 00:36:51.293
+você chamar um playbook,
+você fazer algo que seja muito mais
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-4
+00:36:51.293 --> 00:36:54.119
+complexo nessa,
+na perspectiva do que eu tô comentando,
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-5
+00:36:54.119 --> 00:36:56.946
+do que uma única ação às vezes é uma
+tarefa cascateada,
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-6
+00:36:56.946 --> 00:37:00.933
+às vezes você precisa lidar com múltiplos
+sistemas ao mesmo tempo que faz mais
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-7
+00:37:00.933 --> 00:37:04.466
+sentido você ter, por exemplo,
+um playbook e mandar esse playbook ser
+
+6129d5a3-5d1d-4be7-a5a4-4902d88cbed1-8
+00:37:04.466 --> 00:37:07.040
+executado, né?
+Ao invés de você fazer diretamente.
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-0
+00:37:07.280 --> 00:37:10.490
+Tá,
+então esse é um link Superinteressante e
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-1
+00:37:10.490 --> 00:37:16.197
+super poderoso que vocês podem é utilizar
+e vocês tem isso já, né? Então enfim,
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-2
+00:37:16.197 --> 00:37:21.405
+fica aí para vocês é é explorarem.
+E o Explorer é basicamente uma visão,
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-3
+00:37:21.405 --> 00:37:26.827
+ele é uma view que você tem é que traz
+algumas informações que elas são bem
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-4
+00:37:26.827 --> 00:37:30.964
+ricas no dia a dia.
+Uma coisa que o pontuo para os nossos
+
+1dd5f6fd-21e8-4c68-b176-6fb393e216fb-5
+00:37:30.964 --> 00:37:34.960
+clientes e muitos deles pecam é em gerar
+informação, é.
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-0
+00:37:36.120 --> 00:37:40.607
+E o que está acontecendo no seu ambiente
+de e a seu no seu ambiente de plataforma?
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-1
+00:37:40.607 --> 00:37:45.148
+Então muitos deles acabam implementando,
+mas não tem nenhuma métrica, não tem nada,
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-2
+00:37:45.148 --> 00:37:48.932
+não tem nenhum tipo de informação.
+A coisa vai acontecendo e eles vão
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-3
+00:37:48.932 --> 00:37:52.554
+reagindo. Uma coisa que é importante,
+pessoal, tenham informações,
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-4
+00:37:52.554 --> 00:37:56.014
+entendam o que vocês estão é
+disponibilizando na perspectiva de
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-5
+00:37:56.014 --> 00:37:58.987
+infraestrutura,
+entenda como o life 5 funciona de cada
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-6
+00:37:58.987 --> 00:38:01.852
+módulo, por exemplo,
+e quem pode ajudar vocês nisso?
+
+56ce2b84-5f6a-41f0-a0e1-52011df22d97-7
+00:38:01.852 --> 00:38:02.879
+O próprio Explorer.
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-0
+00:38:03.640 --> 00:38:06.859
+Porque quando eu disponibilizo uma
+infraestrutura, eu consigo ver,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-1
+00:38:06.859 --> 00:38:09.310
+por exemplo,
+de toda essa infraestrutura que eu tô
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-2
+00:38:09.310 --> 00:38:12.049
+disponibilizando,
+qual é a versão de módulo de cada uma,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-3
+00:38:12.049 --> 00:38:15.701
+pra se eu precisar lançar uma versão nova,
+eu saber quem vai ser impactado,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-4
+00:38:15.701 --> 00:38:19.065
+quantas pessoas serão impactadas,
+quantos ambientes serão impactados.
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-5
+00:38:19.065 --> 00:38:21.179
+Se eu quiser ter uma lista de,
+por exemplo,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-6
+00:38:21.179 --> 00:38:24.303
+quais são todos os ambientes que tem
+drift, né? Que estão drift?
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-7
+00:38:24.303 --> 00:38:28.195
+Eu consigo rapidamente pelo Explorer ter
+uma visão disso. Falo assim, Ah, legal,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-8
+00:38:28.195 --> 00:38:30.405
+eu tenho aqui 38 ambientes que possuem
+drift,
+
+0ac5f8f5-7681-4526-8042-de61205d8c28-9
+00:38:30.405 --> 00:38:32.280
+então eu preciso criar alguma forma de.
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-0
+00:38:32.560 --> 00:38:37.177
+Remediação ou mudar o meu processo para
+garantir que eu não permita, né? Drift,
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-1
+00:38:37.177 --> 00:38:41.795
+porque esse é um ponto importante, né?
+O drift ele existe porque nós permitimos
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-2
+00:38:41.795 --> 00:38:45.720
+através de algum processo,
+então a gente tem que entender também se
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-3
+00:38:45.720 --> 00:38:49.125
+o drift será parte do nosso processo ou
+não, certo? Então,
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-4
+00:38:49.125 --> 00:38:53.223
+caso a ideia é que não seja,
+tá aí uma oportunidade que a gente tem de
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-5
+00:38:53.223 --> 00:38:56.282
+evoluir esse processo.
+Caso ele seja com essa visão,
+
+cc9f2ca0-f73c-4cf7-8a56-ffb0c66aa43d-6
+00:38:56.282 --> 00:38:58.880
+eu sei como é que eu vou conseguir
+remediar.
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-0
+00:38:59.480 --> 00:39:01.521
+Tá,
+então esse é um outro ponto super
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-1
+00:39:01.521 --> 00:39:05.336
+importante e o Explorer pra vocês,
+não tenham a impressão de que vocês
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-2
+00:39:05.336 --> 00:39:07.862
+teriam que vir aqui e olhar a ideia
+novamente,
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-3
+00:39:07.862 --> 00:39:11.193
+que vocês mantenham a ferramenta de
+observabilidade de vocês.
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-4
+00:39:11.193 --> 00:39:14.578
+Então o Explorer todas essas views,
+ele também exporta via PI,
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-5
+00:39:14.578 --> 00:39:16.942
+então você pode coletar o dado que tá
+nele,
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-6
+00:39:16.942 --> 00:39:20.435
+que ele tá trazendo e ter essa visão
+dentro de uma ferramenta de
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-7
+00:39:20.435 --> 00:39:24.303
+observabilidade de vocês, tá?
+A gente não precisa que vocês se conectem
+
+1b519961-8764-44c1-9f25-8fcc590b64e3-8
+00:39:24.303 --> 00:39:28.279
+no Terra form e fiquem olhando os dados
+que o Explorer tá tá gerando, tá?
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-0
+00:39:29.960 --> 00:39:32.846
+Então uma visão assim, meio que holística,
+né,
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-1
+00:39:32.846 --> 00:39:36.470
+do que a gente tava falando da questão de
+de do que é, né?
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-2
+00:39:36.470 --> 00:39:41.444
+Essa AAO infraestruture life cycle, né?
+Então basicamente nós temos aqui em cima
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-3
+00:39:41.444 --> 00:39:45.068
+A responsabilidade do deve,
+do time de opis e de security,
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-4
+00:39:45.068 --> 00:39:48.998
+que normalmente ela tá é amarrada, né?
+Uma coisa que eu digo é,
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-5
+00:39:48.998 --> 00:39:52.929
+pra gente ter sucesso,
+como o time de dinheiro é de plataforma,
+
+003dcf0d-32c4-4359-9f40-dfa71435ba92-6
+00:39:52.929 --> 00:39:57.720
+eu tenho que andar de mãos dadas com o
+time de segurança, né? Então isso é é.
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-0
+00:39:58.080 --> 00:40:01.661
+Desde desde a minha perspectiva é uma.
+É uma premissa para o sucesso de
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-1
+00:40:01.661 --> 00:40:05.391
+engenharia de plataforma e por um simples
+motivo pessoal, se eu não tiver,
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-2
+00:40:05.391 --> 00:40:09.320
+se eu não tiver de mãos dadas com eles,
+eles vão me bloquear em algum momento.
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-3
+00:40:09.320 --> 00:40:11.906
+E aí o que antes poderia ser uma entrega
+de 1 hora,
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-4
+00:40:11.906 --> 00:40:15.736
+acaba sendo uma entrega novamente de 30
+dias, porque agora não tinha que ir,
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-5
+00:40:15.736 --> 00:40:18.770
+tipo a segurança, né?
+Então é muito importante que o time de
+
+5ef0f3ca-48ce-41bc-9d38-deab7fa1c71c-6
+00:40:18.770 --> 00:40:20.760
+segurança esteja envolvido nisso, então.
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-0
+00:40:21.240 --> 00:40:24.000
+Nesse desenho,
+entenda que eu faço meio que uma
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-1
+00:40:24.000 --> 00:40:27.164
+amarração desses 2,
+porque muitas coisas aqui eles são
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-2
+00:40:27.164 --> 00:40:30.499
+corresponsáveis, tá?
+Então deve principalmente como nosso
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-3
+00:40:30.499 --> 00:40:34.641
+principal cliente aqui em cima,
+ele tem a responsabilidade de cuidar do
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-4
+00:40:34.641 --> 00:40:38.379
+life cycle da aplicação.
+Então lembrem se quando eu tava falando
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-5
+00:40:38.379 --> 00:40:42.808
+um pouco do portfólio hashscorp, né?
+Eu trouxe a visão de infraestrutur life
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-6
+00:40:42.808 --> 00:40:47.294
+cycoming e se a equipe life cycoming.
+Mas existe um outro tipo de controle de
+
+07c7f875-6c53-4708-8e62-5b89a9fb7188-7
+00:40:47.294 --> 00:40:49.479
+life cycle que é o da aplicação em si.
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-0
+00:40:50.000 --> 00:40:54.317
+E ele é igualmente importante, legal,
+mas quem cuida disso é o próprio
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-1
+00:40:54.317 --> 00:40:57.661
+desenvolvedor,
+não tem ferramenta pra isso, tá? Então,
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-2
+00:40:57.661 --> 00:41:00.580
+enfim,
+é ele como nosso consumidor aqui em cima
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-3
+00:41:00.580 --> 00:41:04.289
+e na parte de baixo, desde profissional,
+infraestrutura, né?
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-4
+00:41:04.289 --> 00:41:08.728
+Olhando a ideia de dia zero, né,
+a basicamente cuidar de toda a parte de
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-5
+00:41:08.728 --> 00:41:12.802
+dia 2 e drifts e de comissionar, né?
+Garantir todo esse life cyco,
+
+fa507b78-fff7-4633-b785-1e9797bc7b7d-6
+00:41:12.802 --> 00:41:17.120
+quando a estrutura é nasce e morre,
+acaba ficando de responsabilidade.
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-0
+00:41:17.520 --> 00:41:21.926
+Do time de plataforma eu vou colocar aqui
+entre aspas, que é claro que muito disso,
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-1
+00:41:21.926 --> 00:41:26.017
+uma vez que você está produtizando, né?
+O nosso próprio é usuário passa a ter
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-2
+00:41:26.017 --> 00:41:30.161
+controle desse tipo de ação de quando
+nasce e de quando morre. Tá bom pessoal?
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-3
+00:41:30.161 --> 00:41:34.463
+Isso que eu tinha para fazer para vocês,
+espero que tenha clareado um pouquinho o
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-4
+00:41:34.463 --> 00:41:37.715
+que a gente tá fazendo.
+O que nós trazemos é como hashicorp e
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-5
+00:41:37.715 --> 00:41:40.443
+acima de tudo,
+o que nós trazemos na perspectiva do
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-6
+00:41:40.443 --> 00:41:43.800
+próprio terraform, né?
+Que é o que a gente tá trabalhando forte
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-7
+00:41:43.800 --> 00:41:46.160
+com vocês.
+Agradeço muito o tempo de vocês e
+
+4ee18d24-6e4a-4d3c-b802-c8146e00c154-8
+00:41:46.160 --> 00:41:46.999
+qualquer dúvida.
+
+6bf01d06-051a-4dd9-8bce-ee4623616818-0
+00:41:47.360 --> 00:41:48.600
+Estou por aí, obrigado.
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-0
+00:41:58.240 --> 00:42:02.947
+Que legal. Walace, time da IBM,
+muito obrigada, viu? Foi um fantástico, é,
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-1
+00:42:02.947 --> 00:42:06.149
+a gente tá realmente caminhando aqui para
+o final.
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-2
+00:42:06.149 --> 00:42:10.920
+Eu já vou deixar aqui a minha fala de
+despedida e vou chamar o Emerson para
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-3
+00:42:10.920 --> 00:42:14.184
+encerrar de uma forma institucional o
+nosso evento.
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-4
+00:42:14.184 --> 00:42:17.699
+Quero agradecer a vocês todos,
+em nome da escola de ti,
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-5
+00:42:17.699 --> 00:42:22.156
+agradecer que vocês permaneceram aqui
+durante esse evento espetacular.
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-6
+00:42:22.156 --> 00:42:27.366
+É sempre um prazer a gente elaborar, né,
+algo assim a gente ter esse retorno que é
+
+a4cdb236-4807-4539-ab3d-db4eadd6abc9-7
+00:42:27.366 --> 00:42:28.120
+a audiência.
+
+ac693336-a2a6-41be-92b2-28317a5010e7-0
+00:42:28.240 --> 00:42:32.109
+Agradecer aos colegas que nos
+acompanharam aí remotamente.
+
+ac693336-a2a6-41be-92b2-28317a5010e7-1
+00:42:32.109 --> 00:42:37.158
+Reforço que as perguntas que ficaram
+registradas lá no perguntas e respostas
+
+ac693336-a2a6-41be-92b2-28317a5010e7-2
+00:42:37.158 --> 00:42:41.356
+da live vão ser respondidas
+posteriormente e vocês aqui também.
+
+ac693336-a2a6-41be-92b2-28317a5010e7-3
+00:42:41.356 --> 00:42:45.553
+Alguma dúvida que surgir?
+Tem a caixa postal lá do do COI de de
+
+ac693336-a2a6-41be-92b2-28317a5010e7-4
+00:42:45.553 --> 00:42:50.274
+novo e a cx, nde, cx, nde tá bom?
+E o vou passar agora a palavra para o
+
+ac693336-a2a6-41be-92b2-28317a5010e7-5
+00:42:50.274 --> 00:42:53.226
+Emerson,
+para ele fazer o nosso encerramento
+
+ac693336-a2a6-41be-92b2-28317a5010e7-6
+00:42:53.226 --> 00:42:54.800
+oficial. Muito obrigada.
+
+c980c0ab-1e91-4429-925b-7b37996a73c6-0
+00:43:00.400 --> 00:43:04.150
+Encerramento breve, né? Ô Edmilson,
+Edmilson,
+
+c980c0ab-1e91-4429-925b-7b37996a73c6-1
+00:43:04.150 --> 00:43:10.917
+Piau agora é a hora do do da chamada, né,
+Danilo? Danilo não tá aí, já foi embora,
+
+c980c0ab-1e91-4429-925b-7b37996a73c6-2
+00:43:10.917 --> 00:43:16.787
+chega aí, chega aí, Edmilson,
+Edmilson rapidinho. Danilo Piau chega aí,
+
+c980c0ab-1e91-4429-925b-7b37996a73c6-3
+00:43:16.787 --> 00:43:23.064
+cleidson não tá né cleidson essa hora ele
+tá dormindo, né? Chega aí, Márcio,
+
+c980c0ab-1e91-4429-925b-7b37996a73c6-4
+00:43:23.064 --> 00:43:23.880
+rapidinho.
+
+f55fa896-b1be-4321-a6e5-2b7ff74c4f68-0
+00:43:24.680 --> 00:43:33.571
+Representa o acabou e Rafinha.
+Cheguei a gente primeiro agradecer
+
+f55fa896-b1be-4321-a6e5-2b7ff74c4f68-1
+00:43:33.571 --> 00:43:44.080
+imensamente a todos os nossos parceiros.
+Aí o Alisson é engraçado, a gente é.
+
+6248db9f-8032-4fc9-9149-6a378be1db71-0
+00:43:44.640 --> 00:43:48.093
+A todo vapor, né, cara?
+A gente com a com o terraforme,
+
+6248db9f-8032-4fc9-9149-6a378be1db71-1
+00:43:48.093 --> 00:43:52.225
+a gente tá com o Squad ativo de pegando
+tudo que a gente já tinha,
+
+6248db9f-8032-4fc9-9149-6a378be1db71-2
+00:43:52.225 --> 00:43:55.802
+tudo que a gente falou aqui, né,
+que o time do risco é é,
+
+6248db9f-8032-4fc9-9149-6a378be1db71-3
+00:43:55.802 --> 00:44:00.119
+colocou que já tinha é vários,
+é vários templates já já em execução e
+
+6248db9f-8032-4fc9-9149-6a378be1db71-4
+00:44:00.119 --> 00:44:02.894
+tal,
+só que a gente ainda não tinha nem esse
+
+6248db9f-8032-4fc9-9149-6a378be1db71-5
+00:44:02.894 --> 00:44:06.162
+nem contrato, né?
+Agora que a gente tá com o tfe é é
+
+6248db9f-8032-4fc9-9149-6a378be1db71-6
+00:44:06.162 --> 00:44:09.616
+implantando,
+né AAA fazendo a instalação da plataforma.
+
+6248db9f-8032-4fc9-9149-6a378be1db71-7
+00:44:09.616 --> 00:44:13.440
+O Rômulo tá ali como um dos nossos
+representantes, né Rômulo?
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-0
+00:44:13.840 --> 00:44:18.886
+É e é e é importante. É legal assim, né?
+É quando a gente colocou quantas pessoas
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-1
+00:44:18.886 --> 00:44:23.255
+tem abaixo de 40 anos, né, eu tenho 27,
+a gente de quase de caixa, né?
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-2
+00:44:23.255 --> 00:44:26.147
+A gente passou por uma estrada esburacada,
+né,
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-3
+00:44:26.147 --> 00:44:29.532
+meio complicada em que a gente não tinha.
+Eu já falei,
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-4
+00:44:29.532 --> 00:44:34.086
+a gente não tinha infraestrutura,
+tinha escassez demais, né? Então, cara,
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-5
+00:44:34.086 --> 00:44:36.855
+a gente falou, sei lá,
+quando implantou Pix,
+
+c1a082ce-37fb-4266-a9b9-33eec7366077-6
+00:44:36.855 --> 00:44:40.240
+quando implantou um Monte de serviço
+crítico na caixa.
+
+18111eb8-0a55-483f-99d2-98f4c98f14f7-0
+00:44:40.560 --> 00:44:43.262
+Pô,
+não tinha licença ou não tinha capacidade.
+
+18111eb8-0a55-483f-99d2-98f4c98f14f7-1
+00:44:43.262 --> 00:44:46.943
+Na pandemia a gente não tinha. É máquina,
+né? É. E a gente, né.
+
+18111eb8-0a55-483f-99d2-98f4c98f14f7-2
+00:44:46.943 --> 00:44:50.854
+Hoje é essa dificuldade.
+A gente não vai mais passar, porque assim,
+
+18111eb8-0a55-483f-99d2-98f4c98f14f7-3
+00:44:50.854 --> 00:44:54.880
+tudo que a gente está falando aqui hoje,
+cara, está com a plataforma.
+
+c4539448-92ab-435a-b704-e23cc9257e2e-0
+00:44:55.640 --> 00:44:58.566
+Né?
+De terraforme toda nossa estec de
+
+c4539448-92ab-435a-b704-e23cc9257e2e-1
+00:44:58.566 --> 00:45:02.957
+automação ace, bom, idp é orquestração,
+é do open shift,
+
+c4539448-92ab-435a-b704-e23cc9257e2e-2
+00:45:02.957 --> 00:45:09.272
+é nuvem com contrato muito bom, muito bom.
+Então tudo que a gente está fazendo de
+
+c4539448-92ab-435a-b704-e23cc9257e2e-3
+00:45:09.272 --> 00:45:14.202
+que a gente pavimentou agora,
+tanto na questão da da IBM cloud,
+
+c4539448-92ab-435a-b704-e23cc9257e2e-4
+00:45:14.202 --> 00:45:20.594
+que ainda sustenta nosso o caixa tem mais
+na Edge e na Google, na WS, então assim,
+
+c4539448-92ab-435a-b704-e23cc9257e2e-5
+00:45:20.594 --> 00:45:24.600
+só tem uma parte ruim nisso,
+não tem desculpa mais.
+
+f21fc262-a611-495d-bae4-91225eef36b5-0
+00:45:26.400 --> 00:45:30.702
+Não tem mais o que fazer assim,
+é a gente também não tem tempo, né, de Ah,
+
+f21fc262-a611-495d-bae4-91225eef36b5-1
+00:45:30.702 --> 00:45:34.717
+não vamos conseguir implementar daqui a 6
+meses não, não tem mais, é.
+
+f21fc262-a611-495d-bae4-91225eef36b5-2
+00:45:34.717 --> 00:45:38.330
+Ontem me falaram que a gente é teve a
+reforma casa Brasil, né?
+
+f21fc262-a611-495d-bae4-91225eef36b5-3
+00:45:38.330 --> 00:45:43.034
+Um programa ano passado, daqui a algumas,
+acho que uma semana eu acho que já deve
+
+f21fc262-a611-495d-bae4-91225eef36b5-4
+00:45:43.034 --> 00:45:45.959
+lançar.
+A periferia viva é um outro programa novo,
+
+f21fc262-a611-495d-bae4-91225eef36b5-5
+00:45:45.959 --> 00:45:50.663
+que é para exatamente trazer um incentivo
+de saneamento para quem está na favela.
+
+f21fc262-a611-495d-bae4-91225eef36b5-6
+00:45:50.663 --> 00:45:52.040
+Onde que vai rodar isso?
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-0
+00:45:53.440 --> 00:45:56.440
+A nuvem,
+com toda essa automação que a gente tá
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-1
+00:45:56.440 --> 00:46:01.503
+fazendo e a gente não vai ter 3 vezes
+para implementar, é questão de uma semana.
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-2
+00:46:01.503 --> 00:46:05.379
+Então assim, não tem mais desculpa, né?
+Então a parte ruim é,
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-3
+00:46:05.379 --> 00:46:09.067
+não temos mais desculpa,
+temos é investimento, Patrocínio,
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-4
+00:46:09.067 --> 00:46:13.005
+todas as ferramentas,
+todos os parceiros é com a gente e então
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-5
+00:46:13.005 --> 00:46:17.194
+assim, né, é a vantagem também,
+que também temos mais pessoas, né?
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-6
+00:46:17.194 --> 00:46:21.944
+Temos equipe, temos times engajados,
+então é juntou a fome com a vontade de
+
+c6c8374e-4ca7-4947-a0e7-eadddc844069-7
+00:46:21.944 --> 00:46:22.319
+comer.
+
+bac8d777-1775-4363-86dd-ecc921a37a8b-0
+00:46:22.800 --> 00:46:30.376
+Essa é um orgulho grande de fazer parte
+desse processo. Aqui está representado.
+
+bac8d777-1775-4363-86dd-ecc921a37a8b-1
+00:46:30.376 --> 00:46:37.574
+O Madson representando é o time é de
+automação. O Edmilson faz o que mesmo?
+
+bac8d777-1775-4363-86dd-ecc921a37a8b-2
+00:46:37.574 --> 00:46:44.678
+Edmilson exatamente da parte de p mo e
+finops é alguns gastam aí ele tenta
+
+bac8d777-1775-4363-86dd-ecc921a37a8b-3
+00:46:44.678 --> 00:46:45.720
+economizar.
+
+bff73815-e964-4ba8-8c6c-4da74759c985-0
+00:46:46.400 --> 00:46:50.329
+Só tenta, né?
+Porque do Danilo na parte de DevOps,
+
+bff73815-e964-4ba8-8c6c-4da74759c985-1
+00:46:50.329 --> 00:46:56.184
+Piau com nuvem pública. E o Rafinha?
+Tudo que a gente está representando de
+
+bff73815-e964-4ba8-8c6c-4da74759c985-2
+00:46:56.184 --> 00:47:00.267
+dessa é o COI, né?
+Olhando como habilitação de novos
+
+bff73815-e964-4ba8-8c6c-4da74759c985-3
+00:47:00.267 --> 00:47:02.040
+serviços de estratégia.
+
+bfce9e89-496d-47de-9855-442727eb8b5d-0
+00:47:02.560 --> 00:47:08.027
+Só que essa execução pra gente acelerar
+isso é exatamente o time de plataforma
+
+bfce9e89-496d-47de-9855-442727eb8b5d-1
+00:47:08.027 --> 00:47:13.217
+com Oo 24 7 com o time operacionalmente é
+é acelerando todo esse processo,
+
+bfce9e89-496d-47de-9855-442727eb8b5d-2
+00:47:13.217 --> 00:47:17.715
+então se vocês quiserem manter 11,
+vamos falar rapidinho também.
+
+bfce9e89-496d-47de-9855-442727eb8b5d-3
+00:47:17.715 --> 00:47:23.390
+Ninguém tá com né fome nem sono, mas é,
+é ao mesmo tempo que eu agradeço demais é
+
+bfce9e89-496d-47de-9855-442727eb8b5d-4
+00:47:23.390 --> 00:47:28.096
+vocês estarem aqui até até agora, né? É,
+sei que é muito denso, né,
+
+bfce9e89-496d-47de-9855-442727eb8b5d-5
+00:47:28.096 --> 00:47:31.280
+foi muito assunto, só que olha que coisa,
+né?
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-0
+00:47:32.040 --> 00:47:37.788
+Tudo assunto e tudo é tecnologia que nós
+temos contratados e que está a nossa
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-1
+00:47:37.788 --> 00:47:43.167
+disposição aqui para a gente acelerar
+esse movimento, né? É então assim,
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-2
+00:47:43.167 --> 00:47:47.147
+agradeço demais a presença.
+A semana para alguns, né?
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-3
+00:47:47.147 --> 00:47:52.453
+A semana só tá começando e contem com
+conosco ali no COI para toda essa
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-4
+00:47:52.453 --> 00:47:57.906
+estratégia de nuvem da FC cops.
+Mas a gente também depende muito de todas
+
+9632aa22-47a7-4732-8f6d-9023eccaf4e8-5
+00:47:57.906 --> 00:48:01.960
+as áreas, né, produção?
+Agradeço a presença da galera.
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-0
+00:48:02.040 --> 00:48:06.598
+Tinha o pessoal de segurança aqui,
+arquitetura, desenvolvimento,
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-1
+00:48:06.598 --> 00:48:11.576
+é porque a gente não trabalha sozinho, né?
+Em nenhum dos aspectos, né?
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-2
+00:48:11.576 --> 00:48:15.784
+Então obrigado vocês todos celinha.
+Eu prefiro gente, cara,
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-3
+00:48:15.784 --> 00:48:19.711
+vocês na escola de ti mais uma vez, né?
+Muito obrigado.
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-4
+00:48:19.711 --> 00:48:25.531
+Eu falei que eu prefiro muito mais estar
+em uma crise do Pix do que fazer qualquer
+
+42af7b15-9a50-4a55-b704-d1a9d1324405-5
+00:48:25.531 --> 00:48:30.440
+tipo de organização de evento.
+Então sem vocês nada teria acontecido.
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-0
+00:48:32.600 --> 00:48:36.416
+Obrigado galera. É,
+não tem que ser rápido, ó,
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-1
+00:48:36.416 --> 00:48:42.424
+tem 4 minutos ali em ordem. Bom,
+rapidamente aqui eu tava até falando com
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-2
+00:48:42.424 --> 00:48:47.134
+o Fernandinho aqui,
+um colega nosso de longas Datas aí já
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-3
+00:48:47.134 --> 00:48:51.599
+passou pelo mundo,
+já viu essas experiências que foram
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-4
+00:48:51.599 --> 00:48:56.552
+passadas hoje aqui.
+E o que eu tava comentando com ele é bem
+
+da255af4-9e2d-4f73-8af7-8e758b57a3a6-5
+00:48:56.552 --> 00:48:57.040
+legal.
+
+8efcad40-ff04-44df-b301-55182a59b698-0
+00:48:57.840 --> 00:49:00.537
+Fernandinho,
+você tá voltando agora pra caixa,
+
+8efcad40-ff04-44df-b301-55182a59b698-1
+00:49:00.537 --> 00:49:04.094
+ele teve um ciclo aí fora né?
+Acho que passou pela WS, enfim,
+
+8efcad40-ff04-44df-b301-55182a59b698-2
+00:49:04.094 --> 00:49:07.078
+é e voltou agora.
+Eu tava comentando com ele, cara,
+
+8efcad40-ff04-44df-b301-55182a59b698-3
+00:49:07.078 --> 00:49:10.751
+tá vendo isso daí que tá sendo
+apresentado pela renatinha aqui,
+
+8efcad40-ff04-44df-b301-55182a59b698-4
+00:49:10.751 --> 00:49:14.883
+pelo Luciano, pela IBM, pela Google,
+é tudo novo dentro da caixa mesmo,
+
+8efcad40-ff04-44df-b301-55182a59b698-5
+00:49:14.883 --> 00:49:17.981
+como o Emerson falou, tudo novo.
+E o mais importante,
+
+8efcad40-ff04-44df-b301-55182a59b698-6
+00:49:17.981 --> 00:49:22.228
+além de ferramentar o operacional,
+também a mão de obra aqui é toda nova,
+
+8efcad40-ff04-44df-b301-55182a59b698-7
+00:49:22.228 --> 00:49:25.786
+a maioria aqui é nova,
+então assim é muita oportunidade mesmo
+
+8efcad40-ff04-44df-b301-55182a59b698-8
+00:49:25.786 --> 00:49:26.360
+pra gente.
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-0
+00:49:26.920 --> 00:49:30.293
+Eu, que já trabalhei no one,
+premes com produção,
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-1
+00:49:30.293 --> 00:49:35.962
+o próprio Emerson também e outros colegas.
+O Rafa hoje está com no comando aí dessa
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-2
+00:49:35.962 --> 00:49:40.415
+parte toda do one premes.
+E a gente não pode esquecer que a gente
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-3
+00:49:40.415 --> 00:49:44.734
+está falando 2% dos nossas,
+dos nossos outlooks estão na nuvem,
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-4
+00:49:44.734 --> 00:49:49.593
+com a ambição de chegar até 30%.
+Então tem 98% aí que mantém o banco no
+
+7fcdb414-c26f-4c7c-b856-4aa1ecc29784-5
+00:49:49.593 --> 00:49:51.280
+nosso dia a dia aqui, né?
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-0
+00:49:52.160 --> 00:49:55.245
+Mas é legal.
+Amanhã a gente deve fazer um fórum mais
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-1
+00:49:55.245 --> 00:49:59.321
+específico aí dentro do COI.
+Aí vai ter a oportunidade de cada frente
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-2
+00:49:59.321 --> 00:50:02.291
+explorar aí um pouco aí do que a gente tá
+fazendo.
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-3
+00:50:02.291 --> 00:50:06.774
+A gente tem 11 background aí de uma
+consultoria que tá direcionando como que
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-4
+00:50:06.774 --> 00:50:11.257
+a gente vai usar todo ferramental?
+Como que a gente vai operacionalizar tudo
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-5
+00:50:11.257 --> 00:50:14.634
+isso dentro do COI?
+Eu tô puxando toda essa parte de PMO,
+
+b92a9fdd-12b8-40f7-86b2-62ad00ae2964-6
+00:50:14.634 --> 00:50:17.080
+que é a organização dessas atividades pra.
+
+dec67c33-7172-490b-9e45-025a7d3007aa-0
+00:50:17.800 --> 00:50:22.966
+Para alavancar aí essa todo esse uso e
+essa migração desses work loads e uma
+
+dec67c33-7172-490b-9e45-025a7d3007aa-1
+00:50:22.966 --> 00:50:27.126
+parte também que é muito importante.
+A gente brinca às vezes,
+
+dec67c33-7172-490b-9e45-025a7d3007aa-2
+00:50:27.126 --> 00:50:32.696
+mas o sinopse eu acho que Luciano citou
+acho que 2 slides aqui bem importante, né?
+
+dec67c33-7172-490b-9e45-025a7d3007aa-3
+00:50:32.696 --> 00:50:36.051
+Uma dedada do camarada ele tu citou
+alguma coisa,
+
+dec67c33-7172-490b-9e45-025a7d3007aa-4
+00:50:36.051 --> 00:50:39.406
+eu falo que é a cada clique ali vai uma
+Hilux EE,
+
+dec67c33-7172-490b-9e45-025a7d3007aa-5
+00:50:39.406 --> 00:50:44.640
+já teve algumas Hilux aqui no nosso dia a
+dia já com o que está usando então?
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-0
+00:50:45.160 --> 00:50:48.465
+É bem crítico,
+amanhã eu dou uma explorada mais nesse
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-1
+00:50:48.465 --> 00:50:52.505
+assunto. Obrigado pessoal, oi galera,
+não vou ser muito demorado,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-2
+00:50:52.505 --> 00:50:55.933
+mas agradeço a participante,
+todo mundo aqui bem legal,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-3
+00:50:55.933 --> 00:50:58.871
+a gente trouxe pessoas,
+o time vai se conhecer,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-4
+00:50:58.871 --> 00:51:03.646
+eu conhecia muitas pessoas só pela voz,
+o Everton ali, ó, tô vendo ele agora,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-5
+00:51:03.646 --> 00:51:07.747
+é pela primeira vez, é,
+a gente tem um desafio muito grande agora,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-6
+00:51:07.747 --> 00:51:12.338
+como a gente ainda não tem como ir para
+trás, só temos que ir para frente,
+
+560bc9da-bd9f-4187-88fc-4c3aef0ef6c8-7
+00:51:12.338 --> 00:51:13.440
+temos ferramental.
+
+5cd2f712-0ce2-4a8e-9301-2fca0c042372-0
+00:51:13.880 --> 00:51:18.365
+Temos pessoas, então é o futuro,
+está a nossa porta e a gente está aqui
+
+5cd2f712-0ce2-4a8e-9301-2fca0c042372-1
+00:51:18.365 --> 00:51:21.106
+para construir essa estratégia juntos,
+viu?
+
+5cd2f712-0ce2-4a8e-9301-2fca0c042372-2
+00:51:21.106 --> 00:51:26.339
+Obrigado pela participação de todo mundo.
+Bom, galera, que bom, né? Ter vocês aqui,
+
+5cd2f712-0ce2-4a8e-9301-2fca0c042372-3
+00:51:26.339 --> 00:51:29.640
+todo mundo junto aqui foi.
+Foi muito legal conhecer.
+
+5cd2f712-0ce2-4a8e-9301-2fca0c042372-4
+00:51:29.640 --> 00:51:32.880
+Tem a galera que eu nunca tinha visto
+pessoalmente.
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-0
+00:51:33.520 --> 00:51:38.040
+E gente que eu trabalho a algum tempo, né?
+De milson, Jade, eretro. Tô enjoada, né,
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-1
+00:51:38.040 --> 00:51:40.569
+cara?
+Nesse e é muito bom ver ver vocês aqui e
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-2
+00:51:40.569 --> 00:51:44.120
+essa troca que ocorreu aqui hoje foi
+sensacional, foi algo assim,
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-3
+00:51:44.120 --> 00:51:48.210
+incrível e é algo que a gente tem que
+colocar como meta e compromisso nosso
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-4
+00:51:48.210 --> 00:51:51.008
+aqui no COI,
+que é sempre espalhar conhecimento pra
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-5
+00:51:51.008 --> 00:51:53.590
+todos vocês.
+A gente só consegue ir pra frente,
+
+8fd7f339-62a7-4015-9ec0-5b9389cdacbb-6
+00:51:53.590 --> 00:51:56.119
+todo mundo for junto de conhecimento
+nivelado.
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-0
+00:51:56.400 --> 00:52:00.371
+Tem coisa aqui que eu vi hoje que mesmo
+me locutor nesse mofo do tuforufa aqui
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-1
+00:52:00.371 --> 00:52:03.085
+junto aqui há muito tempo,
+nunca ouvi falar. E assim,
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-2
+00:52:03.085 --> 00:52:07.056
+é sempre um pontinho pra você poder
+anotar no papelzinho ali, estudar em casa.
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-3
+00:52:07.056 --> 00:52:10.876
+Depois já vou começar a instalar o
+opencall ali, que o que o Luciano falou,
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-4
+00:52:10.876 --> 00:52:14.143
+vou começar a brincar,
+criar uma gente maluca pra poder destruir
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-5
+00:52:14.143 --> 00:52:17.310
+minha casa ali. Enfim,
+conhecimento é muito bom e isso aqui tá
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-6
+00:52:17.310 --> 00:52:20.578
+muito legal. E assim,
+falando um pouquinho do nosso compromisso,
+
+dd8ed790-1e90-47f4-b2bf-28c941d837b8-7
+00:52:20.578 --> 00:52:22.840
+eu ouvi uma frase semana passada no
+podcast.
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-0
+00:52:24.000 --> 00:52:28.275
+Era um artigo do Martin Fowler que
+referenciava uma frase da Kate Serra,
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-1
+00:52:28.275 --> 00:52:31.028
+ela é programadora,
+instrutora de programação,
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-2
+00:52:31.028 --> 00:52:34.952
+é uma das fodonas de programação no mundo.
+E ela falou o seguinte,
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-3
+00:52:34.952 --> 00:52:39.345
+o papel do deve é fazer com que o usuário
+dos sistemas dela sejam os bers,
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-4
+00:52:39.345 --> 00:52:43.504
+os caras mais *****. Por quê?
+Porque o todo deve tem que fazer com que
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-5
+00:52:43.504 --> 00:52:48.248
+a aplicação que ele desenvolve transforma
+o usuário que está usando no cara mais
+
+b6bc0c3e-5825-41af-a8c4-53d9c98167d9-6
+00:52:48.248 --> 00:52:51.879
+**** na atividade dele.
+Se eu estou fazendo um software para.
+
+020430c1-499e-462c-bd29-f4179f0f6ba4-0
+00:52:52.960 --> 00:52:57.448
+É pra atendimento na agência,
+o software tem que fazer com que o cara
+
+020430c1-499e-462c-bd29-f4179f0f6ba4-1
+00:52:57.448 --> 00:53:01.551
+que atenda na agência,
+o melhor atendente de agência do mundo e
+
+020430c1-499e-462c-bd29-f4179f0f6ba4-2
+00:53:01.551 --> 00:53:06.040
+pra gente que tá integrando,
+tá entregando serviço de infraestrutura.
+
+75f57157-8531-4517-aee7-348ce4c58e25-0
+00:53:06.360 --> 00:53:10.543
+A gente tem que fazer com que o nosso
+deve seja o deve mais **** do mundo,
+
+75f57157-8531-4517-aee7-348ce4c58e25-1
+00:53:10.543 --> 00:53:14.112
+porque ele vai usar os nossos serviços,
+a nossa infraestrutura,
+
+75f57157-8531-4517-aee7-348ce4c58e25-2
+00:53:14.112 --> 00:53:17.850
+a nossa pipeline e os nossos serviços de
+de, de de infraestrutura.
+
+75f57157-8531-4517-aee7-348ce4c58e25-3
+00:53:17.850 --> 00:53:21.977
+Então o que ela disse para o papel do
+deve, a gente leva para nossa vida,
+
+75f57157-8531-4517-aee7-348ce4c58e25-4
+00:53:21.977 --> 00:53:24.766
+para o nosso papel,
+para entregar infraestrutura,
+
+75f57157-8531-4517-aee7-348ce4c58e25-5
+00:53:24.766 --> 00:53:29.116
+pipeline e tudo quanto é ciclo de vida
+devotos que a gente vai entregar aqui,
+
+75f57157-8531-4517-aee7-348ce4c58e25-6
+00:53:29.116 --> 00:53:33.356
+beleza, então essa ideia para vocês.
+Obrigado a todo mundo aqui até amanhã.
+
+75f57157-8531-4517-aee7-348ce4c58e25-7
+00:53:33.356 --> 00:53:34.359
+Boa tarde pessoal.
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-0
+00:53:35.080 --> 00:53:39.364
+É essa iniciativa aqui realmente é algo
+fora do comum, né?
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-1
+00:53:39.364 --> 00:53:44.955
+A primeira que eu imagino de muitas,
+a oportunidade que a gente teve aqui de
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-2
+00:53:44.955 --> 00:53:50.329
+conhecer as pessoas que no dia a dia a
+gente só troca ideia no Teams, né?
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-3
+00:53:50.329 --> 00:53:55.775
+E também essa integração sem ela não
+adianta ou qual vai puxar as frentes.
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-4
+00:53:55.775 --> 00:54:01.512
+Não adianta o suporte ou a produção se
+não tivesse integração de todo mundo No
+
+14d7bae0-f97c-4e92-90e0-bd68a1fc36f8-5
+00:54:01.512 --> 00:54:03.400
+No prol do mesmo objetivo.
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-0
+00:54:03.920 --> 00:54:06.853
+Então pra quem viveu o tempo de escassez,
+né?
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-1
+00:54:06.853 --> 00:54:11.571
+Eu tava até comentando com o Piau aqui a
+gente não tinha nem um notebook,
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-2
+00:54:11.571 --> 00:54:14.887
+o notebook já era,
+a gente fazia o próprio upgrade,
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-3
+00:54:14.887 --> 00:54:20.116
+botando memória pra ver se ele dava 11
+sobrevida. É, a gente tá no momento ímpar,
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-4
+00:54:20.116 --> 00:54:24.834
+né? A empresa investiu, é, tem soluções,
+tem infraestrutura, tem a cloud,
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-5
+00:54:24.834 --> 00:54:27.959
+tem equipe,
+então agora tá nas nossas mãos fazer
+
+39f2373e-5c35-4872-959a-61f6a73ea0a3-6
+00:54:27.959 --> 00:54:32.040
+acontecer essa transformação digital,
+então contem com a gente.
+
+883720d0-60dd-4387-b20c-15f9e0a03f0d-0
+00:54:32.360 --> 00:54:35.993
+A gente recebeu o COI lá na CSTI com com
+grande orgulho, né?
+
+883720d0-60dd-4387-b20c-15f9e0a03f0d-1
+00:54:35.993 --> 00:54:39.270
+Conseguimos fazer uma reforma boa para
+recepcioná Los,
+
+883720d0-60dd-4387-b20c-15f9e0a03f0d-2
+00:54:39.270 --> 00:54:42.308
+exatamente para aumentar esse nível de
+integração.
+
+883720d0-60dd-4387-b20c-15f9e0a03f0d-3
+00:54:42.308 --> 00:54:46.239
+Então está na está na nossas mãos,
+pessoal. É só realmente fazer.
+
+2bb51f57-1299-46d8-9070-3e5c9b886b6b-0
+00:54:59.160 --> 00:55:02.420
+O Márcio tem que falar,
+porque vocês vão falando, eu vou,
+
+2bb51f57-1299-46d8-9070-3e5c9b886b6b-1
+00:55:02.420 --> 00:55:06.862
+eu vou só aproveitar para corroborar o
+que o Rafa falou que os colegas falaram
+
+2bb51f57-1299-46d8-9070-3e5c9b886b6b-2
+00:55:06.862 --> 00:55:09.842
+também, né? Que assim, só de de caixa, né?
+Eu tenho.
+
+2bb51f57-1299-46d8-9070-3e5c9b886b6b-3
+00:55:09.842 --> 00:55:13.271
+Acho que o pessoal aqui tem de idade, né,
+20 anos, tá vendo,
+
+2bb51f57-1299-46d8-9070-3e5c9b886b6b-4
+00:55:13.271 --> 00:55:17.319
+pareceu só um pouquinho mais novo que
+você só tá que você, comentou, é.
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-0
+00:55:18.280 --> 00:55:20.264
+Só que quando a gente entrou, né,
+a gente falou,
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-1
+00:55:20.264 --> 00:55:23.262
+a gente não tem mais escassez, né,
+que a gente tinha, né, de recurso, né.
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-2
+00:55:23.262 --> 00:55:26.341
+Então a gente está conversando hoje,
+como é que a gente inclusive vai fazer
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-3
+00:55:26.341 --> 00:55:28.731
+para integrar, né?
+Tudo isso que a gente está contratando,
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-4
+00:55:28.731 --> 00:55:31.850
+né? E talvez esse seja o papel, né,
+que a frente de automação acaba trazendo
+
+37d2f3e8-5277-4c11-b223-d6814ac84fdd-5
+00:55:31.850 --> 00:55:34.199
+né, pra esse processo, né,
+de entrar na forma de um lado.
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-0
+00:55:34.640 --> 00:55:36.552
+Né, a gente tem,
+a gente não pode esquecer,
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-1
+00:55:36.552 --> 00:55:39.594
+a gente está falando de coisa nova, né,
+jornal, desenvolvedor e tudo,
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-2
+00:55:39.594 --> 00:55:43.201
+mas a gente tem também todo tudo aquilo
+que a gente suporta ali dentro da CST, né,
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-3
+00:55:43.201 --> 00:55:46.026
+cara? Todo o legado, né?
+Como é que a gente faz para trazer isso
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-4
+00:55:46.026 --> 00:55:49.547
+para dentro de novas jornadas também, né?
+Então a gente entende que na frente de
+
+f0bb2b15-236c-40d5-8689-8283cc07f0e0-5
+00:55:49.547 --> 00:55:52.720
+automação, muito com esse ou né,
+com a juros da Red het, aí a gente vai.
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-0
+00:55:53.280 --> 00:55:56.100
+Tentar fazer essa cola, né?
+E aí só pra comentar, né?
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-1
+00:55:56.100 --> 00:55:58.712
+Lembro quando eu entrei, né,
+há 20 anos atrás, é,
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-2
+00:55:58.712 --> 00:56:02.054
+a gente IA passar lá cofre e a gente
+fazia upgrade em servidor,
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-3
+00:56:02.054 --> 00:56:05.920
+canibalizando outro servidor, sabe,
+era isso, a gente sentava ali, abria,
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-4
+00:56:05.920 --> 00:56:09.733
+tirava um peito de memória e colocava, né,
+hoje a gente tem recurso, né,
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-5
+00:56:09.733 --> 00:56:13.546
+a gente tá né, vendo aqui, né,
+como que a gente consegue, né, Edimilson,
+
+5dbf99a3-309a-496d-804f-d31cb5503c84-6
+00:56:13.546 --> 00:56:16.679
+é utilizar melhor esse recurso,
+então realmente é um tempo.
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-0
+00:56:17.040 --> 00:56:19.827
+Que a gente não tinha EEE assim,
+é um investimento, né,
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-1
+00:56:19.827 --> 00:56:23.261
+que a gente tem feito não só em
+infraestrutura, sabe em contratação,
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-2
+00:56:23.261 --> 00:56:27.143
+também em treinamento, sabe de de vocês.
+Isso que tá acontecendo aqui a gente
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-3
+00:56:27.143 --> 00:56:29.532
+nunca teve, é verdade, né?
+Desde a jornada, né,
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-4
+00:56:29.532 --> 00:56:33.365
+de quando vocês foram recepcionados aqui
+nos TBS, né, que entraram há 1 ano,
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-5
+00:56:33.365 --> 00:56:36.252
+um ano e meio, né?
+É com toda essa jornada nos cursos que
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-6
+00:56:36.252 --> 00:56:38.740
+vocês estão fazendo,
+então a gente não teve isso,
+
+73406663-51a7-4d3b-bd02-80e5c7f1ac6b-7
+00:56:38.740 --> 00:56:41.080
+então aproveitem o momento, né,
+para usufruir.
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-0
+00:56:41.680 --> 00:56:45.160
+Não só da parte tecnológica,
+do aprendizado, né,
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-1
+00:56:45.160 --> 00:56:50.628
+mas também de tudo isso aqui que tá
+acontecendo, né? Realmente não é sempre,
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-2
+00:56:50.628 --> 00:56:53.469
+né,
+que a gente consegue ter isso tá aí
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-3
+00:56:53.469 --> 00:56:58.085
+realmente por fim, né? Celi,
+agradecer o pessoal também que tava
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-4
+00:56:58.085 --> 00:57:01.778
+remoto, tá?
+Tiveram algumas centenas de pessoas que
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-5
+00:57:01.778 --> 00:57:06.039
+passaram por aqui,
+o próprio colega que ganhou Oo brinde lá
+
+58ac2e0e-8b7e-4542-92c3-eeeec32ba193-6
+00:57:06.039 --> 00:57:09.519
+da Amazon, ele é o Flávio,
+é Flávio leidemilson.
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-0
+00:57:09.920 --> 00:57:16.595
+Supervisor da cedic é uma centralizadora
+de recuperação de crédito lá de Belém não
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-1
+00:57:16.595 --> 00:57:21.582
+é ti, mas é, é, é, mas é.
+É engraçado porque a gente está com
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-2
+00:57:21.582 --> 00:57:27.051
+algumas iniciativas, né?
+O último que a gente fez lá do black belt,
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-3
+00:57:27.051 --> 00:57:32.360
+lá foram teve um dia falando de GitHub e
+GT tops, toda estrutura,
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-4
+00:57:32.360 --> 00:57:37.909
+tinham 1500 pessoas online.
+É de pessoas que entraram ao longo da da
+
+1c26d96f-3a58-4fc1-95b4-19d4635ac966-5
+00:57:37.909 --> 00:57:39.840
+da live dessas Lives lá.
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-0
+00:57:40.120 --> 00:57:44.574
+Foram quase 10000 e de todas as vice
+presidências, não só ti por quê?
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-1
+00:57:44.574 --> 00:57:48.393
+Porque a gente também,
+você também não é ti, né? Habitação,
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-2
+00:57:48.393 --> 00:57:53.675
+porque a gente também está trazendo essa
+nova jornada até para aquelas questões do
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-3
+00:57:53.675 --> 00:57:58.193
+dos departamentais. Então, assim,
+no a gente veio de vários silos, né,
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-4
+00:57:58.193 --> 00:58:01.630
+que o departamental,
+o cara tinha lá 11 servidorzinho
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-5
+00:58:01.630 --> 00:58:05.130
+escondido ali embaixo da mesa.
+Não pode ser assim, né?
+
+8392b12f-2174-4c5d-85b0-6214c7f16a61-6
+00:58:05.130 --> 00:58:09.839
+Porque se existe uma necessidade de
+negócio em que o sistema corporativo.
+
+d5dd7446-ff89-4628-8fd3-bac2b2b57f12-0
+00:58:09.920 --> 00:58:14.665
+Vamos dizer assim, não anão é. É abarque,
+né? Não, não é não. Não esteja no escopo.
+
+d5dd7446-ff89-4628-8fd3-bac2b2b57f12-1
+00:58:14.665 --> 00:58:19.242
+Existe essa necessidade também de ajuste.
+Então para isso também não precisa ser
+
+d5dd7446-ff89-4628-8fd3-bac2b2b57f12-2
+00:58:19.242 --> 00:58:19.920
+uma jornada.
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-0
+00:58:20.320 --> 00:58:23.796
+Difícil né?
+Então também a gente tá trazendo isso pra
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-1
+00:58:23.796 --> 00:58:26.951
+nuvem,
+tem que trazer o código pra governança do
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-2
+00:58:26.951 --> 00:58:31.651
+GitHub pra ter guardi de segurança também
+pra ter toda essa governança é
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-3
+00:58:31.651 --> 00:58:35.127
+profissional.
+Então assim a gente só tá falando que a
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-4
+00:58:35.127 --> 00:58:40.020
+gente tem que ter é esse nível de
+profissionalismo pra tudo que for serviço
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-5
+00:58:40.020 --> 00:58:43.304
+que a caixa vá fornecer.
+Então novamente obrigado,
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-6
+00:58:43.304 --> 00:58:48.390
+bom Descanso pra todos amanhã 9 e meia lá
+na cesta aí Na Na Na universidade de
+
+de20bab2-2ca2-460f-b09e-3fc61b562f54-7
+00:58:48.390 --> 00:58:50.000
+caixa né? Pra quem ainda?
+
+f2f0e077-d68d-4776-af99-8d3bbd265b97-0
+00:58:50.320 --> 00:58:54.295
+Tiver com a gente. E até a próxima, Hein,
+pessoal, obrigado, viu? Ah, uma selfie.
+
+f2f0e077-d68d-4776-af99-8d3bbd265b97-1
+00:58:54.295 --> 00:58:55.120
+Uma selfie, Hein?

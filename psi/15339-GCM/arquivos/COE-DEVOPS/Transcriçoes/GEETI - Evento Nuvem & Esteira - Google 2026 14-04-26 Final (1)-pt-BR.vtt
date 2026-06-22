@@ -1,0 +1,3490 @@
+WEBVTT
+
+1203620c-6b7d-4194-847d-08bb624ba470-0
+00:00:04.120 --> 00:00:07.020
+Muito bem, pessoal,
+fizemos esse intervalo,
+
+1203620c-6b7d-4194-847d-08bb624ba470-1
+00:00:07.020 --> 00:00:10.448
+ele foi um pouco mais longo,
+mas foi foi divertido.
+
+1203620c-6b7d-4194-847d-08bb624ba470-2
+00:00:10.448 --> 00:00:14.601
+A gente conseguiu se mexer um pouquinho,
+dar umas risadas, né?
+
+1203620c-6b7d-4194-847d-08bb624ba470-3
+00:00:14.601 --> 00:00:19.808
+Então agora a gente vai retomar nossa
+programação normal e nesse momento já é,
+
+1203620c-6b7d-4194-847d-08bb624ba470-4
+00:00:19.808 --> 00:00:23.697
+vamos dar continuidade.
+A gente vai chamar aqui para falar
+
+1203620c-6b7d-4194-847d-08bb624ba470-5
+00:00:23.697 --> 00:00:27.784
+conosco o time da Google,
+que vão falar sobre big quer e data
+
+1203620c-6b7d-4194-847d-08bb624ba470-6
+00:00:27.784 --> 00:00:29.960
+analíticos, eu quero trazer aqui.
+
+935c4ed5-5984-4ae6-8946-d9f7c23c23f0-0
+00:00:30.040 --> 00:00:38.689
+Aqui na frente o Maicon é representando a
+Google e ele vai fazer uma apresentação
+
+935c4ed5-5984-4ae6-8946-d9f7c23c23f0-1
+00:00:38.689 --> 00:00:46.284
+aqui pra gente hoje em conjunto com
+colegas nossos da caixa, por favor,
+
+935c4ed5-5984-4ae6-8946-d9f7c23c23f0-2
+00:00:46.284 --> 00:00:54.301
+Morais e por favor, hélio, venham pra cá.
+Vou passar o microfone pra vocês.
+
+935c4ed5-5984-4ae6-8946-d9f7c23c23f0-3
+00:00:54.301 --> 00:00:57.359
+Boa tarde, pessoal. Tudo bem?
+
+ad89676f-8d8f-4208-9b1f-f02336decf6f-0
+00:00:59.480 --> 00:01:06.356
+Eu sou o Michael, o Michael Silva,
+e sou arquiteto na Google e atendo a
+
+ad89676f-8d8f-4208-9b1f-f02336decf6f-1
+00:01:06.356 --> 00:01:10.846
+caixa. É um prazer. Tá aqui com vocês,
+espero,
+
+ad89676f-8d8f-4208-9b1f-f02336decf6f-2
+00:01:10.846 --> 00:01:15.335
+vê Los muito mais vezes por aqui nos
+projetos,
+
+ad89676f-8d8f-4208-9b1f-f02336decf6f-3
+00:01:15.335 --> 00:01:22.785
+nos perrengues e no sucesso também.
+Boa tarde, obrigado, boa tarde. Alô, alô,
+
+ad89676f-8d8f-4208-9b1f-f02336decf6f-4
+00:01:22.785 --> 00:01:24.600
+boa tarde, pessoal.
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-0
+00:01:25.200 --> 00:01:29.051
+É, sou Rafael Moraes.
+Atualmente eu estou como líder da
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-1
+00:01:29.051 --> 00:01:33.935
+comunidade do risco na sudi AE estou aqui
+para dar um testemunho aqui,
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-2
+00:01:33.935 --> 00:01:39.644
+o pessoal do Google pediu para gente vir
+aqui é contar um pouco para vocês o nosso
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-3
+00:01:39.644 --> 00:01:44.803
+projeto que é OCPML na fábrica de modelos.
+Obrigado Rafa, boa tarde gente.
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-4
+00:01:44.803 --> 00:01:48.655
+É eu sou o hélio Borges,
+está trabalho na no risco, né,
+
+6a05a1ee-fd1e-438e-9fba-b0f5b8179a26-5
+00:01:48.655 --> 00:01:51.200
+especificamente no risco operacional.
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-0
+00:01:51.800 --> 00:01:56.825
+E também eu fui convidado aí pelo pessoal
+da Google pra falar um pouquinho do que a
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-1
+00:01:56.825 --> 00:02:00.773
+gente tá desenvolvendo lá.
+Tá hoje a gente tá é em parceria com a
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-2
+00:02:00.773 --> 00:02:03.525
+Google,
+implantando OOCPMLEA gente tá atuando
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-3
+00:02:03.525 --> 00:02:08.012
+junto aí pra fazer um ambiente todo.
+A gente poder usufruir disso aí dessa
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-4
+00:02:08.012 --> 00:02:12.679
+ferramenta Na Na primeira parte da
+apresentação. Então o Maicon vai conduzir,
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-5
+00:02:12.679 --> 00:02:17.106
+a gente vai sentar aqui um pouquinho na
+Maicon e aí depois a gente volta,
+
+ec7fa01f-b146-4fbe-bfaf-b758d324cd27-6
+00:02:17.106 --> 00:02:19.200
+obrigado, boa apresentação, Maicon.
+
+d71ab9b3-97e5-4f40-b01d-d10aa8350d5c-0
+00:02:20.240 --> 00:02:25.296
+Pessoal,
+então a nossa ideia é falar um pouquinho
+
+d71ab9b3-97e5-4f40-b01d-d10aa8350d5c-1
+00:02:25.296 --> 00:02:33.286
+uma parte conceitual de analytics e do
+serviço big care. E logo depois o time,
+
+d71ab9b3-97e5-4f40-b01d-d10aa8350d5c-2
+00:02:33.286 --> 00:02:41.477
+o Rafa e o hélio vão vir aqui falar se é
+verdade ou não tudo que eu tô falando e
+
+d71ab9b3-97e5-4f40-b01d-d10aa8350d5c-3
+00:02:41.477 --> 00:02:47.040
+não foi ensaiado,
+então a vocês vão avaliar, obrigado.
+
+11c2cac5-c406-4494-ba58-5c771479279b-0
+00:02:49.400 --> 00:02:53.737
+Beleza, pessoal,
+eu queria começar primeiro falando da
+
+11c2cac5-c406-4494-ba58-5c771479279b-1
+00:02:53.737 --> 00:02:58.942
+caminhada Google, né? É,
+a Google não começou com a Google cloud.
+
+11c2cac5-c406-4494-ba58-5c771479279b-2
+00:02:58.942 --> 00:03:03.990
+Hoje eu tô aqui arquiteto da Google cloud
+é dedicado pra caixa,
+
+11c2cac5-c406-4494-ba58-5c771479279b-3
+00:03:03.990 --> 00:03:10.141
+mas a Google não começou com Google cloud.
+A Google começou é é desenvolvendo
+
+11c2cac5-c406-4494-ba58-5c771479279b-4
+00:03:10.141 --> 00:03:14.479
+aplicações pra resolver problemas em
+nível planetário,
+
+11c2cac5-c406-4494-ba58-5c771479279b-5
+00:03:14.479 --> 00:03:17.240
+como indexar toda a internet, como.
+
+ea7a95fb-8747-429c-b7a9-d9ce1db4c861-0
+00:03:18.640 --> 00:03:26.995
+Transmitir mensagens com arquivos de
+forma segura pra todo mundo,
+
+ea7a95fb-8747-429c-b7a9-d9ce1db4c861-1
+00:03:26.995 --> 00:03:34.338
+como servir vídeos sem latência pra toda
+a população, né?
+
+ea7a95fb-8747-429c-b7a9-d9ce1db4c861-2
+00:03:34.338 --> 00:03:42.441
+Do planeta e servindo bilhões de pessoas
+ao redor desse, desse,
+
+ea7a95fb-8747-429c-b7a9-d9ce1db4c861-3
+00:03:42.441 --> 00:03:45.480
+desse mundo e pra fazer?
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-0
+00:03:46.280 --> 00:03:51.920
+Pra desenvolver esse serviço com com
+excelência que que eles oferecem,
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-1
+00:03:51.920 --> 00:03:55.654
+foi criado uma tecnologia,
+uma infraestrutura,
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-2
+00:03:55.654 --> 00:04:01.691
+serviços pra acelerar o desenvolvimento
+do time, desses desses do time, né,
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-3
+00:04:01.691 --> 00:04:07.173
+que desenvolve os produtos.
+E hoje essa tecnologia que eu tô falando
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-4
+00:04:07.173 --> 00:04:11.860
+é a Google cloud.
+A Google cloud pessoal é a base e é onde
+
+ad0c99c1-94e3-4ec5-9238-28072a3c229f-5
+00:04:11.860 --> 00:04:14.720
+está rodando todas essas aplicações.
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-0
+00:04:15.040 --> 00:04:20.097
+Google que vocês conhecem hoje.
+Então quando vocês estiverem
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-1
+00:04:20.097 --> 00:04:23.746
+desenvolvendo é na plataforma Google
+cloud,
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-2
+00:04:23.746 --> 00:04:30.130
+lembrem que vocês estão usando a mesma
+tecnologia que todas essas aplicações
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-3
+00:04:30.130 --> 00:04:35.851
+foram desenvolvidas e são desenvolvidas,
+né? Continuamente até hoje.
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-4
+00:04:35.851 --> 00:04:40.743
+E um serviço que é central pra quase
+todos esses serviços,
+
+e91ffa1c-570e-48aa-8909-49f3ccad139b-5
+00:04:40.743 --> 00:04:43.480
+porque é uma plataforma de dados.
+
+1b997316-a969-4d82-ab97-e084f77c41c5-0
+00:04:44.120 --> 00:04:49.824
+Onde você faz ingestão de dados,
+faz o tratamento de dados, é publica.
+
+1b997316-a969-4d82-ab97-e084f77c41c5-1
+00:04:49.824 --> 00:04:55.608
+Esse dado, faz a governança, é o big care.
+Ele é a base pro, Gmail pro,
+
+1b997316-a969-4d82-ab97-e084f77c41c5-2
+00:04:55.608 --> 00:05:00.188
+Google search, pro,
+maps e os outros serviços da Google.
+
+1b997316-a969-4d82-ab97-e084f77c41c5-3
+00:05:00.188 --> 00:05:06.053
+E é dele que a gente vai falar,
+porque a gente vai falar de analíticas e
+
+1b997316-a969-4d82-ab97-e084f77c41c5-4
+00:05:06.053 --> 00:05:12.320
+ele é o é o serviço central pra quando a
+gente tá falando de gestão de dados.
+
+673d59b7-476e-48c6-878b-0f0d3c20b8d4-0
+00:05:13.160 --> 00:05:20.529
+O big care pessoal é um serviço service
+onde você não precisa configurar servidor.
+
+673d59b7-476e-48c6-878b-0f0d3c20b8d4-1
+00:05:20.529 --> 00:05:24.525
+É porque ele é.
+Ele é gerenciado pela cloud,
+
+673d59b7-476e-48c6-878b-0f0d3c20b8d4-2
+00:05:24.525 --> 00:05:31.628
+você usa e ele vai escalando de forma é
+automática de acordo com o que você vai
+
+673d59b7-476e-48c6-878b-0f0d3c20b8d4-3
+00:05:31.628 --> 00:05:36.068
+utilizando.
+É um serviço que tem mais de 14 anos.
+
+673d59b7-476e-48c6-878b-0f0d3c20b8d4-4
+00:05:36.068 --> 00:05:41.840
+É só no ano passado ele teve mais de 300
+features implementadas.
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-0
+00:05:42.400 --> 00:05:45.283
+Esse ano,
+no primeiro trimestre sem features,
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-1
+00:05:45.283 --> 00:05:48.793
+e tem muito mais,
+principalmente no evento é da Google,
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-2
+00:05:48.793 --> 00:05:53.807
+que está por vir. No final desse mês,
+o next, a gente vai ter muitas novidades,
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-3
+00:05:53.807 --> 00:05:58.633
+então a gente vai falar muito dele aqui,
+vai entrar em mais detalhe mais pra
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-4
+00:05:58.633 --> 00:06:01.767
+frente e logo depois o time,
+os colegas de vocês,
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-5
+00:06:01.767 --> 00:06:05.716
+da caixa vão falar de experiência que
+eles estão tendo também.
+
+ed8c487d-8f78-4c10-81fc-a1e7471cc088-6
+00:06:05.716 --> 00:06:08.600
+É fazendo esse desenvolvimento na
+plataforma.
+
+90bc102a-38a3-4ca9-beab-67949b279984-0
+00:06:09.560 --> 00:06:16.447
+Quando a gente tá utilizando Oo big care,
+a gente tá por trás dessa infraestrutura
+
+90bc102a-38a3-4ca9-beab-67949b279984-1
+00:06:16.447 --> 00:06:21.095
+que eu falei.
+Então tem um firew de última geração pra,
+
+90bc102a-38a3-4ca9-beab-67949b279984-2
+00:06:21.095 --> 00:06:24.746
+se bem configurado,
+proteger os seus dados,
+
+90bc102a-38a3-4ca9-beab-67949b279984-3
+00:06:24.746 --> 00:06:31.385
+rede de baixa latência então é a mesma
+rede pessoal que serve essas aplicações,
+
+90bc102a-38a3-4ca9-beab-67949b279984-4
+00:06:31.385 --> 00:06:35.120
+por exemplo, o YouTube,
+que é bem demandado.
+
+d8a5f0f8-0b41-47d7-b7cf-4afa936bdcaa-0
+00:06:36.920 --> 00:06:42.727
+OA parte de computação você tem o seu
+dado, beleza, agora eu quero tratar,
+
+d8a5f0f8-0b41-47d7-b7cf-4afa936bdcaa-1
+00:06:42.727 --> 00:06:47.296
+fazer a limpeza, processamento,
+enriquecimento, qualidade.
+
+d8a5f0f8-0b41-47d7-b7cf-4afa936bdcaa-2
+00:06:47.296 --> 00:06:51.865
+Precisa de computação.
+Então ele reúne o armazenamento e a
+
+d8a5f0f8-0b41-47d7-b7cf-4afa936bdcaa-3
+00:06:51.865 --> 00:06:57.983
+computação em uma plataforma pra você
+preparar o seu dado pra gerar em sites e
+
+d8a5f0f8-0b41-47d7-b7cf-4afa936bdcaa-4
+00:06:57.983 --> 00:07:02.319
+também é pra servir pra IA.
+A gente chama de AI, ready?
+
+581250e2-52be-4b36-8c01-b4d81188fbf8-0
+00:07:02.760 --> 00:07:10.327
+É onde você deixa o dado pronto pra é ou
+treinamento ou inferência ou análise de
+
+581250e2-52be-4b36-8c01-b4d81188fbf8-1
+00:07:10.327 --> 00:07:17.053
+base de a e o armazenamento dele pessoal,
+a durabilidade é de 11 nines.
+
+581250e2-52be-4b36-8c01-b4d81188fbf8-2
+00:07:17.053 --> 00:07:22.471
+É um valor assim,
+absurdo é que significa quase que você.
+
+581250e2-52be-4b36-8c01-b4d81188fbf8-3
+00:07:22.471 --> 00:07:28.917
+O seu dado não vai ser perdido,
+como eu falei, dentro da plataforma,
+
+581250e2-52be-4b36-8c01-b4d81188fbf8-4
+00:07:28.917 --> 00:07:31.440
+dentro do serviço big care.
+
+8e2dbe94-17df-40b7-acef-813fa95e8375-0
+00:07:31.880 --> 00:07:39.176
+Você faz todo o seu tratamento de dados
+pra deixar pronto pra gerar os seus
+
+8e2dbe94-17df-40b7-acef-813fa95e8375-1
+00:07:39.176 --> 00:07:45.032
+insights. Por exemplo,
+é quais os clientes mais devedores ou
+
+8e2dbe94-17df-40b7-acef-813fa95e8375-2
+00:07:45.032 --> 00:07:47.720
+quais os clientes que tem é?
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-0
+00:07:48.440 --> 00:07:53.842
+Algum recurso na conta corrente que
+poderia ser usado para investimento,
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-1
+00:07:53.842 --> 00:07:57.913
+por exemplo?
+Você pode gerar insights entre aspas mais
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-2
+00:07:57.913 --> 00:08:01.243
+simples,
+mas também preparar o seu dado para
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-3
+00:08:01.243 --> 00:08:07.090
+treinamento e inferência de a pessoal.
+Provavelmente vocês não escutaram falar
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-4
+00:08:07.090 --> 00:08:12.789
+de a hoje, né? E pessoal, assim é,
+eu acho que hoje a gente já tá entendendo
+
+68bd89af-955a-4fbc-a3c3-66d4890381d6-5
+00:08:12.789 --> 00:08:14.640
+que anão é mais buzzword.
+
+a8b4e022-3885-49dd-8fdc-19f877396efc-0
+00:08:15.120 --> 00:08:22.670
+É obrigatório pra gente acelerar o nosso
+serviço de forma pessoal. Pra corporação,
+
+a8b4e022-3885-49dd-8fdc-19f877396efc-1
+00:08:22.670 --> 00:08:29.221
+a IA é um acelerador e depois a
+corporação toda adotando IA também é um
+
+a8b4e022-3885-49dd-8fdc-19f877396efc-2
+00:08:29.221 --> 00:08:36.044
+diferencial pra diante dessa concorrência,
+ainda mais no setor financeiro.
+
+a8b4e022-3885-49dd-8fdc-19f877396efc-3
+00:08:36.044 --> 00:08:40.320
+Então a gente tá num momento disruptivo é
+que.
+
+ab9e8e15-62cb-4ad4-8cfe-caa489d17e3e-0
+00:08:41.000 --> 00:08:45.012
+Cara, é muito legal.
+A gente tá passando por isso,
+
+ab9e8e15-62cb-4ad4-8cfe-caa489d17e3e-1
+00:08:45.012 --> 00:08:49.654
+assim como o pessoal.
+Muita gente passou pela transição de
+
+ab9e8e15-62cb-4ad4-8cfe-caa489d17e3e-2
+00:08:49.654 --> 00:08:54.297
+internet. É, eu faço essa comparação EAIA,
+veio evoluindo.
+
+ab9e8e15-62cb-4ad4-8cfe-caa489d17e3e-3
+00:08:54.297 --> 00:09:00.512
+Hoje a gente tá falando de a multimodal,
+que é AIA, que processa não só texto,
+
+ab9e8e15-62cb-4ad4-8cfe-caa489d17e3e-4
+00:09:00.512 --> 00:09:02.480
+mas imagem, vídeo, áudio.
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-0
+00:09:03.560 --> 00:09:07.783
+Pra resolver problemas.
+Muito parecido com os problemas que vem
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-1
+00:09:07.783 --> 00:09:11.611
+pra gente, humano. Quando vem problema,
+não vem só texto,
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-2
+00:09:11.611 --> 00:09:16.495
+vem várias informações que a gente tem
+que processar e tomar uma decisão.
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-3
+00:09:16.495 --> 00:09:19.530
+Então a aya tá se aproximando disso com
+essa,
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-4
+00:09:19.530 --> 00:09:24.414
+essa essa faceta multimodal de poder
+processar também muitas coisas que a
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-5
+00:09:24.414 --> 00:09:28.572
+gente, como ser humano, de forma manual,
+processa. Além disso,
+
+cb5a7449-6efe-4879-b194-c880a4c8b6f0-6
+00:09:28.572 --> 00:09:32.400
+a gente tá conseguindo usar essas é essa
+multimodalidade.
+
+2011e13c-24ad-4434-b6a8-e97eb69909e9-0
+00:09:32.720 --> 00:09:37.362
+Para gerar agentes autônomos,
+que faz uma parte do nosso serviço,
+
+2011e13c-24ad-4434-b6a8-e97eb69909e9-1
+00:09:37.362 --> 00:09:41.442
+mas que no final a gente ainda tem um
+controle decisório,
+
+2011e13c-24ad-4434-b6a8-e97eb69909e9-2
+00:09:41.442 --> 00:09:47.000
+então ele é um auxiliar para acelerar o
+que a gente está fazendo hoje e claro.
+
+262e42ca-c144-4b3c-91f5-4035d2ee05dd-0
+00:09:49.120 --> 00:09:53.086
+Tanto a gente como OLLM pura é modelos de
+machine learning.
+
+262e42ca-c144-4b3c-91f5-4035d2ee05dd-1
+00:09:53.086 --> 00:09:58.109
+Tudo tem que estar direcionado de forma
+responsável e a gente tem que ter a
+
+262e42ca-c144-4b3c-91f5-4035d2ee05dd-2
+00:09:58.109 --> 00:10:01.414
+governança disso,
+que que é de forma responsável,
+
+262e42ca-c144-4b3c-91f5-4035d2ee05dd-3
+00:10:01.414 --> 00:10:06.240
+ter guard raios para seguir a legislação
+e ainda falando de um ambiente.
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-0
+00:10:06.760 --> 00:10:13.098
+É regulado igual o nosso regulação a
+nível país, regulação a nível estados,
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-1
+00:10:13.098 --> 00:10:19.103
+regulação a nível interno das da da caixa,
+legislação do banco central.
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-2
+00:10:19.103 --> 00:10:24.023
+Então esse dado tem que estar muito bem
+preparado pra iar,
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-3
+00:10:24.023 --> 00:10:28.694
+fornecer a informação certa no momento
+certo pra gente.
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-4
+00:10:28.694 --> 00:10:35.616
+Então por isso que a gente tem que criar
+esses guard raios e tratar o nosso dado é
+
+342fb501-8eef-446b-bcb9-1acf7603d07f-5
+00:10:35.616 --> 00:10:36.200
+a base.
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-0
+00:10:36.600 --> 00:10:41.681
+AI a base da IA é o dado.
+Se a gente não tem um dado pronto,
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-1
+00:10:41.681 --> 00:10:45.430
+o resultado da IA também não vai ser
+pronto.
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-2
+00:10:45.430 --> 00:10:51.927
+Não vai ser interessante pra gente.
+Olha só esses dados pra é colaborar com o
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-3
+00:10:51.927 --> 00:10:56.092
+que eu tô falando.
+70% das organizações lutam com
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-4
+00:10:56.092 --> 00:11:02.673
+internamente pra unificar os próprios
+dados e a governança. Quem pode acessar,
+
+33d092c3-a11e-4c68-9937-0f5635ed951d-5
+00:11:02.673 --> 00:11:03.840
+quem não pode?
+
+9d17b10c-a405-4ff4-bd37-7e5a74a4eff5-0
+00:11:04.200 --> 00:11:09.622
+Os meus dados estão espalhados,
+então ainda mais empresas grandes,
+
+9d17b10c-a405-4ff4-bd37-7e5a74a4eff5-1
+00:11:09.622 --> 00:11:16.017
+igual a caixa é muito difícil. E olha,
+e aí já puxando o número de baixo A 80%
+
+9d17b10c-a405-4ff4-bd37-7e5a74a4eff5-2
+00:11:16.017 --> 00:11:22.330
+dos dados de uma organização não são
+aproveitados por não serem estruturados.
+
+9d17b10c-a405-4ff4-bd37-7e5a74a4eff5-3
+00:11:22.330 --> 00:11:28.157
+E aí entra a questão da multimodalidade.
+A gente tratava muito bem dado
+
+9d17b10c-a405-4ff4-bd37-7e5a74a4eff5-4
+00:11:28.157 --> 00:11:31.800
+estruturado s que é s que é l puro é
+tabela.
+
+72e4cb15-be01-4ed5-9417-6055da837ad6-0
+00:11:32.440 --> 00:11:37.525
+Planilhas e os dados não estruturados
+eram muito difíceis de ser,
+
+72e4cb15-be01-4ed5-9417-6055da837ad6-1
+00:11:37.525 --> 00:11:42.610
+de serem tratados. E aí hoje,
+com essa evolução de a tratar dados
+
+72e4cb15-be01-4ed5-9417-6055da837ad6-2
+00:11:42.610 --> 00:11:46.924
+estruturados e não estruturados,
+a gente vem evoluindo.
+
+72e4cb15-be01-4ed5-9417-6055da837ad6-3
+00:11:46.924 --> 00:11:52.703
+70 por 75% das empresas relatam
+dificuldade em encontrar expertis interna,
+
+72e4cb15-be01-4ed5-9417-6055da837ad6-4
+00:11:52.703 --> 00:11:57.480
+porque também a gente tá evoluindo,
+conhecendo cada vez mais.
+
+ee298eae-1c87-4c86-bf2d-3bfec3930e62-0
+00:11:57.760 --> 00:12:04.299
+É esse esse fenômeno que tá acontecendo e
+o que a gente tá fazendo aqui agora faz
+
+ee298eae-1c87-4c86-bf2d-3bfec3930e62-1
+00:12:04.299 --> 00:12:09.961
+parte dessa evolução pra gente crescer,
+saber utilizar do jeito certo,
+
+ee298eae-1c87-4c86-bf2d-3bfec3930e62-2
+00:12:09.961 --> 00:12:15.384
+saber os limites pra gerar o valor de
+negócio que a empresa espera.
+
+ee298eae-1c87-4c86-bf2d-3bfec3930e62-3
+00:12:15.384 --> 00:12:20.328
+Diante disso, mesmo tendo, é difícil, né?
+Por essas questões,
+
+ee298eae-1c87-4c86-bf2d-3bfec3930e62-4
+00:12:20.328 --> 00:12:23.040
+esses números que eu tô mostrando.
+
+e45178fc-1439-4e90-a3e4-d1f8fd4877cf-0
+00:12:23.360 --> 00:12:29.910
+Mas 92% das organizações esperam aumentar
+o investimento de a nos próximos 3 anos.
+
+e45178fc-1439-4e90-a3e4-d1f8fd4877cf-1
+00:12:29.910 --> 00:12:35.118
+E que que acontece no começo?
+A gente está desenvolvendo uma poc,
+
+e45178fc-1439-4e90-a3e4-d1f8fd4877cf-2
+00:12:35.118 --> 00:12:38.670
+tudo perfeito,
+lindo nosso está funcionando.
+
+e45178fc-1439-4e90-a3e4-d1f8fd4877cf-3
+00:12:38.670 --> 00:12:43.721
+Quando vai mover para produção para usar
+os dados reais, acaba.
+
+e45178fc-1439-4e90-a3e4-d1f8fd4877cf-4
+00:12:43.721 --> 00:12:49.640
+O que a gente vê é que acaba perdendo um
+pouco de força justamente porque.
+
+f5025d1e-b039-47eb-bc57-9465b7df1117-0
+00:12:50.200 --> 00:12:55.902
+Talvez não tenha tratado a base para e a
+que é a gestão dos dados.
+
+f5025d1e-b039-47eb-bc57-9465b7df1117-1
+00:12:55.902 --> 00:13:01.265
+Só que tem empresas.
+Eu trouxe esses cases aqui para vocês que
+
+f5025d1e-b039-47eb-bc57-9465b7df1117-2
+00:13:01.265 --> 00:13:06.286
+já estão, ou seja,
+mostrando que é possível gerar um valor
+
+f5025d1e-b039-47eb-bc57-9465b7df1117-3
+00:13:06.286 --> 00:13:12.670
+de valor de negócio importantíssimos
+quando eles conseguem estruturar essa
+
+f5025d1e-b039-47eb-bc57-9465b7df1117-4
+00:13:12.670 --> 00:13:19.480
+base que a gente tá falando. Por exemplo,
+o HSBC, que tem 40000000 de clientes.
+
+52256cba-8aa9-4c77-b838-5625a34104ff-0
+00:13:19.760 --> 00:13:25.437
+É espalhados aí pelo Globo,
+já está utilizando é IA e o big care pra
+
+52256cba-8aa9-4c77-b838-5625a34104ff-1
+00:13:25.437 --> 00:13:30.128
+organizar esses dados,
+principalmente pra reduzir crimes
+
+52256cba-8aa9-4c77-b838-5625a34104ff-2
+00:13:30.128 --> 00:13:34.572
+financeiros e estão tendo resultados
+impressionantes.
+
+52256cba-8aa9-4c77-b838-5625a34104ff-3
+00:13:34.572 --> 00:13:41.155
+O ATB Financial que é uma instituição
+financeira do Canadá é trouxe os dados do
+
+52256cba-8aa9-4c77-b838-5625a34104ff-4
+00:13:41.155 --> 00:13:44.200
+SAP pra pra Google, está processando.
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-0
+00:13:44.680 --> 00:13:50.581
+No big care para gerar insights e já está
+alcançando números interessantes. Ó,
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-1
+00:13:50.581 --> 00:13:56.483
+4000000 de receita operacional com esses
+insights que eles estavam gerando já,
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-2
+00:13:56.483 --> 00:14:01.489
+porque dados estruturados,
+não estruturados e bem governados é ali
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-3
+00:14:01.489 --> 00:14:05.224
+na plataforma big care.
+O PayPal é outro exemplo.
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-4
+00:14:05.224 --> 00:14:09.333
+É outro exemplo que ele tinha dados
+também espalhados.
+
+b2dc4042-f59d-462c-aa29-7b808345a96c-5
+00:14:09.333 --> 00:14:14.040
+É em multiprovider is on, pren, et cetera.
+Eles centralizaram.
+
+9065efcd-3f3c-4b8d-9bf8-f60e17871846-0
+00:14:14.360 --> 00:14:19.617
+No big care, bem governado.
+E já estão conseguindo resultados também.
+
+9065efcd-3f3c-4b8d-9bf8-f60e17871846-1
+00:14:19.617 --> 00:14:25.251
+Mais técnicos, né? Impressionantes?
+Estão conseguindo processamento desses
+
+9065efcd-3f3c-4b8d-9bf8-f60e17871846-2
+00:14:25.251 --> 00:14:30.283
+dados tanto pra ingestão,
+todo o ciclo de vida, ingestão, limpeza,
+
+9065efcd-3f3c-4b8d-9bf8-f60e17871846-3
+00:14:30.283 --> 00:14:36.217
+até deixar esses dados prontos 3 vezes é
+mais rápido do que eles faziam com as
+
+9065efcd-3f3c-4b8d-9bf8-f60e17871846-4
+00:14:36.217 --> 00:14:37.720
+tecnologias antigas.
+
+3d01a150-898e-4620-bb5d-a87e4255b605-0
+00:14:37.880 --> 00:14:45.236
+E fazendo o load desse dado carregamento
+pra eles serem úteis depois pra em sites
+
+3d01a150-898e-4620-bb5d-a87e4255b605-1
+00:14:45.236 --> 00:14:51.336
+e a 24 vezes mais rápido.
+Então é pra mostrar que tendo uma base de
+
+3d01a150-898e-4620-bb5d-a87e4255b605-2
+00:14:51.336 --> 00:14:56.450
+dados bem estruturada,
+a gente consegue gerar valores de
+
+3d01a150-898e-4620-bb5d-a87e4255b605-3
+00:14:56.450 --> 00:15:02.461
+negócios assim, absurdos.
+Só entrando um pouco mais de detalhe nas
+
+3d01a150-898e-4620-bb5d-a87e4255b605-4
+00:15:02.461 --> 00:15:05.959
+features do big care, é, você consegue?
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-0
+00:15:07.240 --> 00:15:12.734
+Desenvolver usando Python lá dentro,
+então você tem um conjunto de dados,
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-1
+00:15:12.734 --> 00:15:19.046
+você vai desenvolver um modelo de machine
+learn, você consegue usar Python notebook?
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-2
+00:15:19.046 --> 00:15:22.165
+É,
+você consegue desenvolver a esteira de
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-3
+00:15:22.165 --> 00:15:26.768
+tratamento de dados,
+ciclo de vida de dados, preparar o dado,
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-4
+00:15:26.768 --> 00:15:31.521
+limpar, fazer o fazer AO enriquecimento,
+até deixar ele pronto,
+
+3b35d2f2-4d7e-49cc-8212-273d6542af66-5
+00:15:31.521 --> 00:15:34.119
+tudo nessa plataforma centralizada.
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-0
+00:15:35.240 --> 00:15:39.147
+Além disso, pessoal,
+um ponto muito importante que eu vou
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-1
+00:15:39.147 --> 00:15:44.872
+entrar em detalhe mais para frente também,
+é que você consegue operar nesse dado não
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-2
+00:15:44.872 --> 00:15:49.453
+somente não somente com SQL.
+Se você tem expertises em SQL, beleza,
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-3
+00:15:49.453 --> 00:15:53.764
+você consegue fazer suas scarees de
+maneira muito performática,
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-4
+00:15:53.764 --> 00:15:57.874
+mas você também, Ah,
+quer usar uma tecnologia Spark? Beleza,
+
+2b8a70f0-0279-440e-960b-a63680bbd46a-5
+00:15:57.874 --> 00:16:02.319
+você pode usar essa engine pra processar
+os seus dados ou outros.
+
+6c8f9f77-fd0b-4e38-bafc-628aa2204de6-0
+00:16:02.560 --> 00:16:06.785
+Outras aplicações open sources que você
+tem preferência Ah,
+
+6c8f9f77-fd0b-4e38-bafc-628aa2204de6-1
+00:16:06.785 --> 00:16:11.574
+eu quero evitar a loquinha.
+Você consegue utilizar ferramentas open
+
+6c8f9f77-fd0b-4e38-bafc-628aa2204de6-2
+00:16:11.574 --> 00:16:17.490
+sources pra pra processar os seus dados e
+também processar dados tanto em bet tanto
+
+6c8f9f77-fd0b-4e38-bafc-628aa2204de6-3
+00:16:17.490 --> 00:16:20.800
+em streaming em tempo real?
+Isso tudo pessoal.
+
+f3fbd251-9e12-4a9a-93e6-472ef927b2f4-0
+00:16:21.600 --> 00:16:27.279
+Com uma base de governança,
+governança de catalogação de dados onde
+
+f3fbd251-9e12-4a9a-93e6-472ef927b2f4-1
+00:16:27.279 --> 00:16:31.204
+você é,
+organiza o seu dado pra quem vai usar,
+
+f3fbd251-9e12-4a9a-93e6-472ef927b2f4-2
+00:16:31.204 --> 00:16:37.801
+então pra deixar ele visível pra quem é
+necessário e invisível pra quem não é,
+
+f3fbd251-9e12-4a9a-93e6-472ef927b2f4-3
+00:16:37.801 --> 00:16:44.733
+então tem essa parte de segurança também
+e você consegue operar dados estruturados
+
+f3fbd251-9e12-4a9a-93e6-472ef927b2f4-4
+00:16:44.733 --> 00:16:49.160
+ou não estruturados dentro do do big care
+e pessoal.
+
+64d33e44-a896-4429-8f05-80436d8532e7-0
+00:16:49.400 --> 00:16:53.278
+A gente tá falando Ah e Ah, muito,
+muito legal.
+
+64d33e44-a896-4429-8f05-80436d8532e7-1
+00:16:53.278 --> 00:16:59.822
+Mas vamos pensar além desses casos dessas
+empresas que eu mostrei é outros casos
+
+64d33e44-a896-4429-8f05-80436d8532e7-2
+00:16:59.822 --> 00:17:04.589
+mais práticos, por exemplo,
+pra pra serviços financeiros é
+
+64d33e44-a896-4429-8f05-80436d8532e7-3
+00:17:04.589 --> 00:17:09.922
+financiamento imobiliário,
+que que a caixa é a líder Suprema, né?
+
+64d33e44-a896-4429-8f05-80436d8532e7-4
+00:17:09.922 --> 00:17:16.467
+E eu agradeço muito porque eu uso e uso
+bem, obrigado pessoal por todo trabalho.
+
+64d33e44-a896-4429-8f05-80436d8532e7-5
+00:17:16.467 --> 00:17:17.760
+A gente tem que.
+
+08d1a316-13d0-44e4-88e2-386431c06976-0
+00:17:18.400 --> 00:17:23.013
+Quando chega uma proposta,
+a proposta não vem só texto,
+
+08d1a316-13d0-44e4-88e2-386431c06976-1
+00:17:23.013 --> 00:17:26.721
+vem imagem da do imóvel,
+imagem de contrato,
+
+08d1a316-13d0-44e4-88e2-386431c06976-2
+00:17:26.721 --> 00:17:32.077
+imagem de documentos antigos,
+é talvez até áudios de WhatsApp se
+
+08d1a316-13d0-44e4-88e2-386431c06976-3
+00:17:32.077 --> 00:17:36.691
+envolver algum,
+algum processo judicial que tem que ser
+
+08d1a316-13d0-44e4-88e2-386431c06976-4
+00:17:36.691 --> 00:17:40.728
+analisado.
+E antes a gente tinha 11 esteira, né?
+
+08d1a316-13d0-44e4-88e2-386431c06976-5
+00:17:40.728 --> 00:17:43.200
+Pensando em há um tempo atrás?
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-0
+00:17:43.880 --> 00:17:48.541
+A gente tinha uma esteira, vamos humano,
+avalia, passa pro próximo,
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-1
+00:17:48.541 --> 00:17:53.752
+passa pro próximo, que vai avaliando,
+cada um tem uma parte e até chegar no
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-2
+00:17:53.752 --> 00:17:58.277
+resultado final com AEA multimodal,
+que a gente tanto tá falando,
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-3
+00:17:58.277 --> 00:18:03.761
+ela consegue processar esse conjunto de
+dados diferentes e dar 11 pré resultado
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-4
+00:18:03.761 --> 00:18:07.464
+pra gente humano tomar a decisão. Então,
+por exemplo,
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-5
+00:18:07.464 --> 00:18:13.085
+listar as propostas de financiamento que
+tem hoje, dados estruturados, tabela Ah,
+
+54d90dd7-05e6-4f02-9003-fe18779699b9-6
+00:18:13.085 --> 00:18:13.360
+mas.
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-0
+00:18:13.920 --> 00:18:18.336
+A gente quer analisar o laudo da vistoria
+desses imóveis.
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-1
+00:18:18.336 --> 00:18:23.895
+A gente consegue com modelo detectar
+problemas estruturais, por exemplo,
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-2
+00:18:23.895 --> 00:18:29.758
+No No imóvel e já indicar ali para o
+avaliador final desses ou que se tem ou
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-3
+00:18:29.758 --> 00:18:33.489
+não um problema.
+É divergências contratuais de n
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-4
+00:18:33.489 --> 00:18:38.438
+documentos do dono anterior, do próximo,
+dono do próprio imóvel.
+
+fa218dd3-1074-4494-9a3c-3c6325390e28-5
+00:18:38.438 --> 00:18:43.160
+Tem alguma divergência?
+Buscar em cartório isso tudo pessoal.
+
+eb101df0-695d-4bff-81d1-c6f0f3dc2120-0
+00:18:43.920 --> 00:18:50.501
+A IA já consegue nos ajudar com agentes,
+inclusive indo em entidades externas,
+
+eb101df0-695d-4bff-81d1-c6f0f3dc2120-1
+00:18:50.501 --> 00:18:57.083
+pegando dados e dando pra gente uma
+informação, ó, tem tais problemas? É aqui,
+
+eb101df0-695d-4bff-81d1-c6f0f3dc2120-2
+00:18:57.083 --> 00:18:57.999
+aqui, aqui.
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-0
+00:18:58.600 --> 00:19:03.686
+É, e tem um scor, por exemplo,
+o time aqui do do Rafa e do hélio utiliza
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-1
+00:19:03.686 --> 00:19:08.145
+essa metodologia de scor.
+Agora o decisor você é humano, tomou,
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-2
+00:19:08.145 --> 00:19:11.977
+pode tomar uma decisão e entrar, né?
+Em mais detalhes,
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-3
+00:19:11.977 --> 00:19:16.924
+se quiser do dessa avaliação,
+que aí ela tá fazendo esse processo todo
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-4
+00:19:16.924 --> 00:19:21.592
+agora é muito mais rápido até o decisor
+poder fazer uma avaliação.
+
+a423cf8f-68b2-4678-ad45-f5c87aa20dcc-5
+00:19:21.592 --> 00:19:26.400
+É final ou ou ou ou intermediário,
+que depois tem alguma outra ação.
+
+16fd4378-2bef-443a-b486-17ba910423f0-0
+00:19:26.920 --> 00:19:30.532
+Então acelera muito o desenvolvimento e o
+negócio.
+
+16fd4378-2bef-443a-b486-17ba910423f0-1
+00:19:30.532 --> 00:19:35.562
+Agora a gente consegue analisar
+financiamento muito mais rápido do que
+
+16fd4378-2bef-443a-b486-17ba910423f0-2
+00:19:35.562 --> 00:19:40.237
+antes e muito mais rápido se a gente
+adotar do que o concorrente.
+
+16fd4378-2bef-443a-b486-17ba910423f0-3
+00:19:40.237 --> 00:19:45.905
+E isso equivale para outros, outros,
+outras indústrias. Ecommerce, por exemplo.
+
+16fd4378-2bef-443a-b486-17ba910423f0-4
+00:19:45.905 --> 00:19:49.942
+Achei interessante um caso que a pessoa
+chega o produto,
+
+16fd4378-2bef-443a-b486-17ba910423f0-5
+00:19:49.942 --> 00:19:54.759
+a pessoa envia a foto falando que tá
+estragado ou um vídeo, e aí a.
+
+148deca1-387c-4b16-817b-b3422c388b4e-0
+00:19:55.400 --> 00:20:01.472
+Consegue, por multimodalidade,
+identificar também se se está estragado
+
+148deca1-387c-4b16-817b-b3422c388b4e-1
+00:20:01.472 --> 00:20:06.860
+porque a pessoa estragou,
+está estragado porque foi na viagem,
+
+148deca1-387c-4b16-817b-b3422c388b4e-2
+00:20:06.860 --> 00:20:11.393
+por exemplo.
+Ver AA como que o pacote está é um é um
+
+148deca1-387c-4b16-817b-b3422c388b4e-3
+00:20:11.393 --> 00:20:18.064
+ponto por imagem a vamos ver a frequência
+que esse comprador faz esse tipo de
+
+148deca1-387c-4b16-817b-b3422c388b4e-4
+00:20:18.064 --> 00:20:23.880
+alerta e vai identificando o histórico
+dele. E no final te dá um ó.
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-0
+00:20:24.400 --> 00:20:29.429
+Possivelmente não estava estragado,
+possivelmente foi na entrega.
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-1
+00:20:29.429 --> 00:20:35.069
+Então você já tem uma linha de pensamento
+para ou dar o ok ou continuar a
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-2
+00:20:35.069 --> 00:20:38.422
+investigação, mas não do zero.
+Marketing é,
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-3
+00:20:38.422 --> 00:20:42.309
+eu quero saber as campanhas que aí é mais
+simples,
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-4
+00:20:42.309 --> 00:20:48.254
+as campanhas que mais deram certo ou
+analisar a imagem é das campanhas que eu
+
+a3b2d91c-aa9f-429e-975d-5ca78d3930be-5
+00:20:48.254 --> 00:20:51.760
+estou enviando,
+se for de imagem ou de vídeo.
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-0
+00:20:53.040 --> 00:20:57.880
+E você consegue fazer isso de novo,
+de forma multimodal.
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-1
+00:20:57.880 --> 00:21:04.844
+E é fazendo o cruzamento das informações,
+tanto do arquivo ali que tá aparecendo,
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-2
+00:21:04.844 --> 00:21:09.769
+como da como das ações do usuário diante
+da sua campanha,
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-3
+00:21:09.769 --> 00:21:14.185
+além de analisar dados de CRM,
+como foi o caso ali,
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-4
+00:21:14.185 --> 00:21:20.215
+que eu trouxe do do do PayPal.
+E essa essa análise pessoal pode ser em
+
+004045dd-6c2a-49a0-a00a-761f6ce13ced-5
+00:21:20.215 --> 00:21:20.640
+Bete.
+
+23ac944b-51df-415d-aa09-cefa92ce0514-0
+00:21:20.920 --> 00:21:23.901
+Ah,
+eu vou rodar um modelo uma vez por mês de
+
+23ac944b-51df-415d-aa09-cefa92ce0514-1
+00:21:23.901 --> 00:21:28.114
+acordo com o histórico do usuário ou em
+tempo real, por exemplo,
+
+23ac944b-51df-415d-aa09-cefa92ce0514-2
+00:21:28.114 --> 00:21:31.549
+vou fazer um empréstimo,
+vou pedir um financiamento,
+
+23ac944b-51df-415d-aa09-cefa92ce0514-3
+00:21:31.549 --> 00:21:35.827
+é imobiliário pra caixa.
+Agora a gente consegue processar isso em
+
+23ac944b-51df-415d-aa09-cefa92ce0514-4
+00:21:35.827 --> 00:21:41.012
+tempo real pra já dar uma resposta ou um
+score ali pra quem tá avaliando ajudar
+
+23ac944b-51df-415d-aa09-cefa92ce0514-5
+00:21:41.012 --> 00:21:41.920
+nessa decisão.
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-0
+00:21:42.920 --> 00:21:46.002
+Ou para simplesmente alimentar outros
+sistemas,
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-1
+00:21:46.002 --> 00:21:50.562
+a gente pega esses n informações que
+estão chegando em tempo real para
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-2
+00:21:50.562 --> 00:21:55.701
+alimentar outros sistemas. Por exemplo,
+adicionar numa big table que é um banco
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-3
+00:21:55.701 --> 00:22:01.160
+de dados do gcp Wilde colum, ou o spam né?
+Que é um banco de dados relacional global
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-4
+00:22:01.160 --> 00:22:06.298
+pub sub é que que oferece ali sistema de
+tópico ou sistema de keywi ou integrar
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-5
+00:22:06.298 --> 00:22:09.317
+com outros sistemas. Ah,
+chegou em tempo real,
+
+fc87e585-c5c5-46db-b629-2d20026fc2d6-6
+00:22:09.317 --> 00:22:12.400
+mas eu preciso consultar por exemplo,
+o Serasa.
+
+bb516637-7056-4976-9e34-a8aeceb3bf08-0
+00:22:12.920 --> 00:22:18.855
+Vamos consultar já traz aqui informação
+junta e dou a resposta do score,
+
+bb516637-7056-4976-9e34-a8aeceb3bf08-1
+00:22:18.855 --> 00:22:23.490
+porque é uma informação viva,
+não tá treinada no modelo,
+
+bb516637-7056-4976-9e34-a8aeceb3bf08-2
+00:22:23.490 --> 00:22:28.856
+então a gente consegue com o big cary
+esses 2 sabores, tanto bet,
+
+bb516637-7056-4976-9e34-a8aeceb3bf08-3
+00:22:28.856 --> 00:22:33.979
+um dado mais estático,
+como um dado é streaming e isso tudo de
+
+bb516637-7056-4976-9e34-a8aeceb3bf08-4
+00:22:33.979 --> 00:22:35.280
+forma governada.
+
+50bdad27-c618-4644-a985-a73f24efb823-0
+00:22:36.080 --> 00:22:41.790
+Juntando o big care com data plex pessoal,
+a gente consegue fazer uma catalogação
+
+50bdad27-c618-4644-a985-a73f24efb823-1
+00:22:41.790 --> 00:22:45.272
+dos nossos dados,
+que estão inclusive espalhados,
+
+50bdad27-c618-4644-a985-a73f24efb823-2
+00:22:45.272 --> 00:22:50.146
+não só dados que estão no gcp.
+Você consegue dar uma descrição do que
+
+50bdad27-c618-4644-a985-a73f24efb823-3
+00:22:50.146 --> 00:22:51.400
+que é aquele dado?
+
+c2ba7698-40a8-4212-9297-649ab941700b-0
+00:22:51.920 --> 00:22:56.709
+Consegue falar quem pode acessar,
+quando pode acessar, e não só humano,
+
+c2ba7698-40a8-4212-9297-649ab941700b-1
+00:22:56.709 --> 00:23:00.501
+mas também agente,
+porque o agente também não acessa uma
+
+c2ba7698-40a8-4212-9297-649ab941700b-2
+00:23:00.501 --> 00:23:04.826
+base, o agente, por exemplo,
+eu estou criando um agente pessoal,
+
+c2ba7698-40a8-4212-9297-649ab941700b-3
+00:23:04.826 --> 00:23:09.749
+não posso acessar qualquer base.
+Então a gente precisa dessa governança e
+
+c2ba7698-40a8-4212-9297-649ab941700b-4
+00:23:09.749 --> 00:23:12.942
+é possível fazer nessa plataforma
+centralizada,
+
+c2ba7698-40a8-4212-9297-649ab941700b-5
+00:23:12.942 --> 00:23:17.200
+que é o big care e um ponto muito
+importante, muito importante.
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-0
+00:23:17.840 --> 00:23:22.399
+Eu falei, o big care,
+o seu dado não precisa estar só na Google,
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-1
+00:23:22.399 --> 00:23:26.607
+você consegue centralizar apontando o
+dado pra um ambiente,
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-2
+00:23:26.607 --> 00:23:30.465
+apontando ali uma visão do big care pra
+um e seu dado,
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-3
+00:23:30.465 --> 00:23:33.551
+estando por exemplo num ambient on
+premium,
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-4
+00:23:33.551 --> 00:23:39.022
+num ambiente em outro cloud provider ou
+até com outras empresas, por exemplo,
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-5
+00:23:39.022 --> 00:23:43.021
+dado na Oracle.
+Tablo teledata informática centralizado?
+
+50c056d5-6f01-494f-a101-aeffbf7f3095-6
+00:23:43.021 --> 00:23:47.439
+Então se você quiser governar esse seu
+dado, você não precisa.
+
+0eb03de3-2368-40e9-bf00-68e158427a67-0
+00:23:48.040 --> 00:23:52.879
+E de fonte em fonte você já tem,
+já está centralizado no big care e lá
+
+0eb03de3-2368-40e9-bf00-68e158427a67-1
+00:23:52.879 --> 00:23:58.060
+você faz os os controles necessários, Ah,
+precisa apertar um parafuso aqui,
+
+0eb03de3-2368-40e9-bf00-68e158427a67-2
+00:23:58.060 --> 00:24:01.673
+afrouxar outro ali, ixi,
+mas tem 30 Fontes de dados,
+
+0eb03de3-2368-40e9-bf00-68e158427a67-3
+00:24:01.673 --> 00:24:06.785
+vou ter que ir em um, em uma, não,
+no big care traz essa, essa facilidade,
+
+0eb03de3-2368-40e9-bf00-68e158427a67-4
+00:24:06.785 --> 00:24:12.307
+você conviver com os dados que você já tá,
+já tá utilizando em outra plataforma,
+
+0eb03de3-2368-40e9-bf00-68e158427a67-5
+00:24:12.307 --> 00:24:15.919
+mas governar aqui de forma centralizada,
+EE simples.
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-0
+00:24:18.960 --> 00:24:24.090
+E a especialidade também de você
+conseguir operar esses dados com
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-1
+00:24:24.090 --> 00:24:28.521
+multiplas engines, não só SQL,
+que é muito performático.
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-2
+00:24:28.521 --> 00:24:32.874
+Muita gente tem experiência e tudo bem,
+pode tranquilo.
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-3
+00:24:32.874 --> 00:24:39.249
+Mas se você quiser operar com tecnologias
+até open source, você pode Hive, Spark,
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-4
+00:24:39.249 --> 00:24:42.980
+flink,
+você consegue conectar ali no big care e
+
+7c15348a-ddab-4417-af5d-2052fc821f0a-5
+00:24:42.980 --> 00:24:43.679
+utilizar.
+
+41e093f1-5392-44bd-b2f6-969787532485-0
+00:24:50.600 --> 00:24:54.255
+Essa feature aqui,
+esse conjunto de feature muito
+
+41e093f1-5392-44bd-b2f6-969787532485-1
+00:24:54.255 --> 00:25:00.176
+interessante, é um dos meus favoritos.
+O big care já oferece alguns agentes para
+
+41e093f1-5392-44bd-b2f6-969787532485-2
+00:25:00.176 --> 00:25:05.440
+facilitar a vida de sua vida,
+cientista de dados sua vida desenvolvedor
+
+41e093f1-5392-44bd-b2f6-969787532485-3
+00:25:05.440 --> 00:25:09.606
+é engenheiro de dados porque você
+consegue, por exemplo,
+
+41e093f1-5392-44bd-b2f6-969787532485-4
+00:25:09.606 --> 00:25:11.800
+com dayting in genering agent.
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-0
+00:25:12.200 --> 00:25:15.600
+Você consegue criar pipeline de
+tratamento? Digamos,
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-1
+00:25:15.600 --> 00:25:19.258
+você tem uma base de dados ali que chegou,
+não tá limpa.
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-2
+00:25:19.258 --> 00:25:23.878
+Você precisa criar uma pipeline pra é
+anonimizar, tirar alguma sujeira,
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-3
+00:25:23.878 --> 00:25:26.958
+tirar alguns nus,
+você de forma conversacional,
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-4
+00:25:26.958 --> 00:25:31.706
+pode ir pedindo e ele por trás,
+esse agente vai gerando os o código que é
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-5
+00:25:31.706 --> 00:25:35.684
+necessário por trás,
+mas operando ali no seu dado pra fazer o
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-6
+00:25:35.684 --> 00:25:38.893
+que você tá pedindo.
+Então é AIA ajudando você no
+
+af875151-33e8-4ae2-b25c-c13d022aaf42-7
+00:25:38.893 --> 00:25:39.919
+desenvolvimento.
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-0
+00:25:40.320 --> 00:25:46.044
+A mesma coisa pro data scientist agent,
+ele também ajuda na criação de modelos.
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-1
+00:25:46.044 --> 00:25:51.196
+O conventional Analytica agents é
+interessante também. Você tem a base,
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-2
+00:25:51.196 --> 00:25:56.133
+você consegue conversar com a base,
+eu quero os top 10 clientes mais
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-3
+00:25:56.133 --> 00:26:01.356
+devedores, ele vai listar pra você.
+Então é como se aquela sua base toda
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-4
+00:26:01.356 --> 00:26:06.222
+fosse uma base de conhecimento pra você
+que está desenvolvendo ali,
+
+ad365ed3-769e-468d-b4cf-8423015a47b0-5
+00:26:06.222 --> 00:26:09.800
+operar e a gente pra você desenvolver
+aplicações.
+
+a5e90455-7646-4e61-8ece-35655bb169ba-0
+00:26:10.200 --> 00:26:14.915
+Que vão consumir dados também,
+criar API de forma conversacional,
+
+a5e90455-7646-4e61-8ece-35655bb169ba-1
+00:26:14.915 --> 00:26:19.631
+tudo ali centralizado na plataforma,
+ajudando você acelerar o seu
+
+a5e90455-7646-4e61-8ece-35655bb169ba-2
+00:26:19.631 --> 00:26:23.703
+desenvolvimento,
+que no final vai acelerar o que a gente
+
+a5e90455-7646-4e61-8ece-35655bb169ba-3
+00:26:23.703 --> 00:26:27.990
+quer, que é o negócio.
+E tem 11 componente bem interessante
+
+a5e90455-7646-4e61-8ece-35655bb169ba-4
+00:26:27.990 --> 00:26:30.920
+também é que é OMCP to box for data base.
+
+814e551c-736c-493b-9b91-76ef451bbdc3-0
+00:26:32.560 --> 00:26:38.595
+Se você quiser criar um agente autônomo
+que faz alguma tarefa e precisa conectar,
+
+814e551c-736c-493b-9b91-76ef451bbdc3-1
+00:26:38.595 --> 00:26:43.452
+por exemplo, com big cary,
+tem OMCP protocol, que é um protocolo.
+
+814e551c-736c-493b-9b91-76ef451bbdc3-2
+00:26:43.452 --> 00:26:48.457
+É adotado, né? Na Na indústria,
+onde você onde há a maneira de você
+
+814e551c-736c-493b-9b91-76ef451bbdc3-3
+00:26:48.457 --> 00:26:51.843
+conectar sua llm com o mundo exterior.
+Então,
+
+814e551c-736c-493b-9b91-76ef451bbdc3-4
+00:26:51.843 --> 00:26:57.142
+quando você vai desenvolver um agente,
+você conhece a com essa too box,
+
+814e551c-736c-493b-9b91-76ef451bbdc3-5
+00:26:57.142 --> 00:27:02.000
+você consegue conectar ali o seu agente
+com essas bases de dados.
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-0
+00:27:02.200 --> 00:27:05.231
+E ele,
+e de maneira fácil seu agente já vai é
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-1
+00:27:05.231 --> 00:27:09.250
+fazer, por exemplo,
+essas opções que os agentes que a Google
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-2
+00:27:09.250 --> 00:27:13.863
+traz no big care já faz. Ah,
+eu quero que ele conecta no big care pra
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-3
+00:27:13.863 --> 00:27:18.343
+listar é os clientes, beleza.
+Você consegue com o tobox criar o seu
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-4
+00:27:18.343 --> 00:27:22.165
+agente e falar,
+quero que ele conecte com com o big care,
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-5
+00:27:22.165 --> 00:27:25.328
+beleza,
+aí agora o seu agente já consegue fazer
+
+c3d4673e-55f7-4ecf-8d64-ed3bfeb3da1f-6
+00:27:25.328 --> 00:27:29.479
+as operações que o big care faz,
+não só o big care, big table.
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-0
+00:27:29.800 --> 00:27:33.592
+É Cláudia SQL e os outros serviços que
+são integrados.
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-1
+00:27:33.592 --> 00:27:39.315
+Então o big care tem essa vantagem também
+pessoal que ele é integrado com todos os
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-2
+00:27:39.315 --> 00:27:42.900
+outros serviços,
+inclusive serviços core da Google,
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-3
+00:27:42.900 --> 00:27:47.796
+por exemplo, o Ads é maps firebaise,
+que é a monitoração, por exemplo,
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-4
+00:27:47.796 --> 00:27:52.071
+do fire do super app.
+Você pode conectar é de forma fácil pro
+
+49e57f1f-8459-41c6-a9e5-6948e84d5a9f-5
+00:27:52.071 --> 00:27:56.760
+big care e depois lá trabalhar os dados
+pra gerar os seus insights.
+
+61b467bc-ac2a-4747-aad2-4a743330925a-0
+00:27:58.280 --> 00:28:05.634
+Já caminhando aqui para minha parte
+pessoal é com muito orgulho. Esse.
+
+61b467bc-ac2a-4747-aad2-4a743330925a-1
+00:28:05.634 --> 00:28:10.400
+Nesse mês é saiu 111 relatório da The
+Forest,
+
+61b467bc-ac2a-4747-aad2-4a743330925a-2
+00:28:10.400 --> 00:28:17.340
+rave que colocou a Google cloud como
+líder em plataforma soberana.
+
+61b467bc-ac2a-4747-aad2-4a743330925a-3
+00:28:17.340 --> 00:28:23.348
+Por que é soberana?
+Porque a gente é transparente de onde
+
+61b467bc-ac2a-4747-aad2-4a743330925a-4
+00:28:23.348 --> 00:28:26.560
+roda o seu dado, qual região é.
+
+d0b48d6e-a2ad-49ab-a350-967ed991b763-0
+00:28:29.160 --> 00:28:35.211
+Tem n certificações internacionais que
+vem entidades externas, né?
+
+d0b48d6e-a2ad-49ab-a350-967ed991b763-1
+00:28:35.211 --> 00:28:40.810
+Certificar que é tá de acordo,
+por exemplo, com lgpd, é leis,
+
+d0b48d6e-a2ad-49ab-a350-967ed991b763-2
+00:28:40.810 --> 00:28:47.042
+GDPR e outras leis que a gente
+principalmente No No mercado regular,
+
+d0b48d6e-a2ad-49ab-a350-967ed991b763-3
+00:28:47.042 --> 00:28:49.120
+igual o nosso, precisa.
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-0
+00:28:50.360 --> 00:28:56.022
+E por isso é e por essa Liberdade também
+de deixar vocês operarem não só com
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-1
+00:28:56.022 --> 00:29:00.875
+tecnologia proprietária,
+mas vocês viram que a todo momento eu tô
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-2
+00:29:00.875 --> 00:29:05.067
+falando que vocês podem utilizar em
+jeines ou pensource?
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-3
+00:29:05.067 --> 00:29:09.699
+Isso também faz parte.
+É dessa avaliação para declarar a nuvem
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-4
+00:29:09.699 --> 00:29:14.553
+soberana e, por último,
+colaborando com isso com essa informação.
+
+a9b86a97-2bb2-4798-8e1a-3eae530504b7-5
+00:29:14.553 --> 00:29:19.480
+Nesse mês a gente lançou o gema 4,
+que é o modelo de pesos aberto.
+
+345b522e-9641-42ec-bf9a-44e07bb07a85-0
+00:29:19.920 --> 00:29:25.154
+Onde você consegue baixar o modelo,
+rodar no seu um prêmio,
+
+345b522e-9641-42ec-bf9a-44e07bb07a85-1
+00:29:25.154 --> 00:29:30.127
+rodar em outro cloud provider,
+rodar onde você precisar.
+
+345b522e-9641-42ec-bf9a-44e07bb07a85-2
+00:29:30.127 --> 00:29:37.194
+E ele é super olha, olha algumas alguns,
+alguns detalhes dele. Ele é multimodal,
+
+345b522e-9641-42ec-bf9a-44e07bb07a85-3
+00:29:37.194 --> 00:29:44.000
+então processa texto, imagem, vídeo,
+OA janela de contexto de 256 k de tokens
+
+345b522e-9641-42ec-bf9a-44e07bb07a85-4
+00:29:44.000 --> 00:29:44.960
+e claro, é.
+
+7578f55c-8d3b-401f-adde-e71e46238241-0
+00:29:45.600 --> 00:29:50.605
+Com esse modelo você ainda roda aonde
+você achar necessário,
+
+7578f55c-8d3b-401f-adde-e71e46238241-1
+00:29:50.605 --> 00:29:54.626
+você tem esse poder é de de dessa
+portabilidade,
+
+7578f55c-8d3b-401f-adde-e71e46238241-2
+00:29:54.626 --> 00:30:00.780
+de rodar onde você preferir e isso também
+colabora pra Google ser líder em
+
+7578f55c-8d3b-401f-adde-e71e46238241-3
+00:30:00.780 --> 00:30:04.718
+soberania de é em plataformas de cloud,
+é isso?
+
+7578f55c-8d3b-401f-adde-e71e46238241-4
+00:30:04.718 --> 00:30:09.560
+Agora o time vai falar pra vocês se eu tô
+mentindo ou não.
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-0
+00:30:15.520 --> 00:30:19.795
+Bom, pessoal, é, o passador está aqui,
+como a gente já se apresentou, né?
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-1
+00:30:19.795 --> 00:30:23.031
+Eu e o hélio,
+a gente está fazendo parte de um grupo de
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-2
+00:30:23.031 --> 00:30:25.804
+trabalho,
+é o grupo de trabalho da Vitória e da
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-3
+00:30:25.804 --> 00:30:29.213
+vitech, tem mais colegas aqui,
+a Kelly estava aqui também,
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-4
+00:30:29.213 --> 00:30:33.662
+tem outros colegas aqui da vitech que
+também estão fazendo parte do grupo de
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-5
+00:30:33.662 --> 00:30:36.608
+trabalho,
+inclusive alguns colegas aqui da descer,
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-6
+00:30:36.608 --> 00:30:39.324
+né?
+Acho que aqui o público não é só a descer,
+
+94cc8dd1-a4c5-4889-b02c-fdda7d104454-7
+00:30:39.324 --> 00:30:42.040
+né, que está aqui. Eu mesmo sou da dessol,
+né?
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-0
+00:30:42.560 --> 00:30:46.213
+Então eu vou passar a palavra aqui para o
+hélio,
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-1
+00:30:46.213 --> 00:30:52.030
+a gente vai falar um pouquinho hoje.
+É do trabalho que esse grupo de trabalho
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-2
+00:30:52.030 --> 00:30:57.921
+está desenvolvendo, né? Hélio, por favor,
+oi, oi, pronto, imprensa bom, gente,
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-3
+00:30:57.921 --> 00:31:02.469
+mais uma vez, boa tarde, tá? É?
+Estou até um pouco acanhado,
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-4
+00:31:02.469 --> 00:31:08.360
+porque tanto termo técnico aqui que eu
+nunca ouvi falar e eu, como consumidor,
+
+ea7c8c02-4809-458e-9604-bf5b78053d9e-5
+00:31:08.360 --> 00:31:11.120
+falar um pouco do que a gente faz lá.
+
+58ec6988-19a1-4b00-a294-4d27af69bda2-0
+00:31:11.760 --> 00:31:16.164
+É, é até difícil, né? Mas assim,
+qual que é a ideia, né?
+
+58ec6988-19a1-4b00-a294-4d27af69bda2-1
+00:31:16.164 --> 00:31:22.732
+É porque que a gente tá falando de Google
+hoje, né? É, em 2019 a área de risco, viu?
+
+58ec6988-19a1-4b00-a294-4d27af69bda2-2
+00:31:22.732 --> 00:31:27.523
+A necessidade da gente evoluir esse
+processo que tá aqui, tá?
+
+58ec6988-19a1-4b00-a294-4d27af69bda2-3
+00:31:27.523 --> 00:31:33.628
+Se a gente observar bem essa tela, né,
+a gente consegue ver que é um processo,
+
+58ec6988-19a1-4b00-a294-4d27af69bda2-4
+00:31:33.628 --> 00:31:38.960
+de certa forma, bem estruturado, cíclico,
+né? Cada um com seu papel.
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-0
+00:31:39.240 --> 00:31:42.548
+Né?
+A gente está falando aqui de unidades
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-1
+00:31:42.548 --> 00:31:47.905
+modeladoras, né, que são as são as,
+as diversas áreas da caixa, né,
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-2
+00:31:47.905 --> 00:31:51.923
+lá no risco.
+E a gente tem uma área é de validação
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-3
+00:31:51.923 --> 00:31:56.334
+independente,
+responsável por essas caixinhas amarelas,
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-4
+00:31:56.334 --> 00:32:01.849
+né? É esse organograma, né?
+Ele é um organograma não só definido pela
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-5
+00:32:01.849 --> 00:32:05.630
+caixa,
+mas ele tem um arcabouço regulatório por
+
+2579afec-4ea7-4c46-ab8f-6ed53850bf6e-6
+00:32:05.630 --> 00:32:07.600
+trás, tá? É só que assim.
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-0
+00:32:08.840 --> 00:32:12.726
+Observando esse, esse organograma,
+esse processo, né?
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-1
+00:32:12.726 --> 00:32:18.557
+E o que a gente consome aqui em relação
+às ferramentas que a gente utiliza nesse
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-2
+00:32:18.557 --> 00:32:21.724
+processo?
+A gente tem uma Riqueza grande de
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-3
+00:32:21.724 --> 00:32:26.115
+ferramenta, porém,
+a gente está um pouco limitado em relação
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-4
+00:32:26.115 --> 00:32:30.002
+ao uso, tá?
+Porque quando a gente fala de desenvolver
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-5
+00:32:30.002 --> 00:32:34.824
+modelos, aí o pessoal já citou,
+por exemplo, modelos de score, né?
+
+7f138eb3-b052-4aa9-ad80-d8ec23dca97d-6
+00:32:34.824 --> 00:32:37.559
+A gente, por mais que a gente utilize.
+
+07164902-0f4e-47dd-ba1c-afba3205b720-0
+00:32:38.360 --> 00:32:43.927
+Essas várias ferramentas aqui a gente tem
+que se limitar a técnica ou algoritmos
+
+07164902-0f4e-47dd-ba1c-afba3205b720-1
+00:32:43.927 --> 00:32:48.532
+que eu tenha que implementar em baixo as
+plataformas, né? Por quê?
+
+07164902-0f4e-47dd-ba1c-afba3205b720-2
+00:32:48.532 --> 00:32:52.656
+Porque eu não consigo fazer implementação
+de muita técnica,
+
+07164902-0f4e-47dd-ba1c-afba3205b720-3
+00:32:52.656 --> 00:32:57.192
+muito algoritmo avançado,
+por conta de limitação tecnológica, né?
+
+07164902-0f4e-47dd-ba1c-afba3205b720-4
+00:32:57.192 --> 00:33:02.416
+E por conta do processamento que a gente
+necessita no dia a dia, tá? Então,
+
+07164902-0f4e-47dd-ba1c-afba3205b720-5
+00:33:02.416 --> 00:33:06.334
+em função disso,
+a gente viu essa necessidade de evoluir
+
+07164902-0f4e-47dd-ba1c-afba3205b720-6
+00:33:06.334 --> 00:33:07.640
+esse processo todo.
+
+71780f89-05be-4830-9e58-34449af96bf9-0
+00:33:07.840 --> 00:33:13.560
+Tá, e aí foi quando a gente, em 2019,
+startou esse processo, né?
+
+71780f89-05be-4830-9e58-34449af96bf9-1
+00:33:13.560 --> 00:33:18.664
+Chegando agora em 2026,
+utilizando essa ferramenta ainda,
+
+71780f89-05be-4830-9e58-34449af96bf9-2
+00:33:18.664 --> 00:33:25.792
+como assim a gente tá implementando, né?
+Mas ainda estamos em fase de teste, né?
+
+71780f89-05be-4830-9e58-34449af96bf9-3
+00:33:25.792 --> 00:33:32.920
+E aí quando a gente fala no processo, né?
+E o que a gente vê hoje da Google como
+
+71780f89-05be-4830-9e58-34449af96bf9-4
+00:33:32.920 --> 00:33:37.320
+ecossistema e o que a gente pretende
+evoluir, tá?
+
+32c66851-8fb3-454a-897b-85d261773b09-0
+00:33:38.960 --> 00:33:41.905
+É,
+eu vou falar um pouquinho de cada um
+
+32c66851-8fb3-454a-897b-85d261773b09-1
+00:33:41.905 --> 00:33:46.764
+desses elementos aqui, desses contêineres,
+vamos dizer assim, né,
+
+32c66851-8fb3-454a-897b-85d261773b09-2
+00:33:46.764 --> 00:33:50.298
+desses compartimentos, né,
+do ecossistema aqui.
+
+32c66851-8fb3-454a-897b-85d261773b09-3
+00:33:50.298 --> 00:33:53.611
+Mas Oo foco que eu vou dar é o big care,
+né?
+
+32c66851-8fb3-454a-897b-85d261773b09-4
+00:33:53.611 --> 00:33:59.280
+Que OOOO Maicon trouxe pra gente aí o
+potencial dele, tá? É a princípio, né?
+
+32c66851-8fb3-454a-897b-85d261773b09-5
+00:33:59.280 --> 00:34:05.023
+Hoje com a nossa plataforma de dados lá
+que a caixa divulgou utilizando da da
+
+32c66851-8fb3-454a-897b-85d261773b09-6
+00:34:05.023 --> 00:34:05.759
+brics, né?
+
+ee06929e-7746-485c-84ab-6e15d2d9aba6-0
+00:34:06.160 --> 00:34:13.031
+Esse dado databrix vai chegar para gente
+lá na área de risco através do cloud
+
+ee06929e-7746-485c-84ab-6e15d2d9aba6-1
+00:34:13.031 --> 00:34:19.022
+story, tá? É no cloud story.
+A gente precisa fazer alguns trabalhos
+
+ee06929e-7746-485c-84ab-6e15d2d9aba6-2
+00:34:19.022 --> 00:34:25.101
+relacionados antes de eu ter esse dado
+disponibilizado no big quero,
+
+ee06929e-7746-485c-84ab-6e15d2d9aba6-3
+00:34:25.101 --> 00:34:30.123
+para eu efetivamente poder usar, tá?
+E aí é no databrix.
+
+ee06929e-7746-485c-84ab-6e15d2d9aba6-4
+00:34:30.123 --> 00:34:34.000
+A gente tem algumas ferramentas
+associadas.
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-0
+00:34:34.520 --> 00:34:40.079
+E aí, gente, assim é, essas ferramentas,
+elas não são exatamente é pertencentes a
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-1
+00:34:40.079 --> 00:34:45.366
+cada um desses compartimentos, tá?
+Mas é onde elas conseguem conectar melhor,
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-2
+00:34:45.366 --> 00:34:48.214
+tá?
+E é onde a gente consegue tirar maior
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-3
+00:34:48.214 --> 00:34:52.553
+proveito disso. E aí nesse processo,
+a gente recebendo um dado,
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-4
+00:34:52.553 --> 00:34:57.705
+tá sendo ele estruturado ou não tá,
+porque hoje a gente já não não trabalha
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-5
+00:34:57.705 --> 00:35:01.162
+mais somente com dado estruturado lá no
+risco, tá?
+
+8204bbb6-e166-4099-ac9b-55b76e5d13c2-6
+00:35:01.162 --> 00:35:03.399
+A gente tá começando um trabalho.
+
+5d4c0afe-e502-4589-ae9e-97f715f413df-0
+00:35:03.720 --> 00:35:11.051
+Com alguns dados não estruturados, né?
+É com áudios, com imagens de texto, tá?
+
+5d4c0afe-e502-4589-ae9e-97f715f413df-1
+00:35:11.051 --> 00:35:15.506
+E aí é,
+depois dessa carga de dados a gente Vem
+
+5d4c0afe-e502-4589-ae9e-97f715f413df-2
+00:35:15.506 --> 00:35:20.146
+Pra Cá pra começar a fazer o trabalho de
+análise.
+
+5d4c0afe-e502-4589-ae9e-97f715f413df-3
+00:35:20.146 --> 00:35:24.972
+É deita analítica e desenvolvimento de
+modelos, né?
+
+5d4c0afe-e502-4589-ae9e-97f715f413df-4
+00:35:24.972 --> 00:35:31.840
+EEE os demais processos que a gente
+utiliza para consumo das informações.
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-0
+00:35:32.960 --> 00:35:36.596
+Posso só fazer um complemento, hélio,
+tem um como o hélio falou,
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-1
+00:35:36.596 --> 00:35:40.289
+a gente está ainda é implantando, né,
+implementando a plataforma,
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-2
+00:35:40.289 --> 00:35:44.597
+mas o eu até pedi para o hélio vir aqui
+comigo para dar esse testemunho, né,
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-3
+00:35:44.597 --> 00:35:48.961
+como usuários da da plataforma, né,
+porque é um caso muito interessante que a
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-4
+00:35:48.961 --> 00:35:53.436
+gente fez, a gente conseguiu exercitar.
+É é 11 modelo de provisão judicial, né?
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-5
+00:35:53.436 --> 00:35:56.178
+Hélio?
+O hélio lá dentro do GT é um cientista de
+
+df4b6407-42fc-4c1b-af4e-bffddea801f7-6
+00:35:56.178 --> 00:35:58.640
+dados que a gente tem lá ele falou que
+ele.
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-0
+00:35:58.920 --> 00:36:01.990
+É muitos? É.
+A gente usou muitos termos técnicos aqui,
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-1
+00:36:01.990 --> 00:36:06.065
+né, de deve ser aqui, Office e tal,
+mas eu lá no GT também sinto a mesma
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-2
+00:36:06.065 --> 00:36:09.470
+coisa, tá, hélio? Que vocês?
+Quando vocês começam a falar de
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-3
+00:36:09.470 --> 00:36:13.545
+algoritmos de regressão logística x de
+buscas técnicas, né, matemáticas,
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-4
+00:36:13.545 --> 00:36:18.123
+estatísticas que vocês implementam lá, é,
+elas foram testadas exaustivamente, né,
+
+aa1e0d9d-bf8c-4c20-b705-9d48fca89e8d-5
+00:36:18.123 --> 00:36:19.239
+hélio? Por vocês lá.
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-0
+00:36:19.480 --> 00:36:24.046
+O hélio é um grande usuário have user de
+big quer eu acho que ele é o usuário que
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-1
+00:36:24.046 --> 00:36:27.108
+tá mais avançado, é,
+fica aqui meu reconhecimento, tá,
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-2
+00:36:27.108 --> 00:36:31.619
+é o cara que tá mais avançado em relação
+ao uso da ferramenta, né? Do big query,
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-3
+00:36:31.619 --> 00:36:36.129
+dá pra gente ver pelos relatórios lá de
+consumo, né, de de de processamento, né,
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-4
+00:36:36.129 --> 00:36:39.136
+que o hélio faz bastante.
+Então a gente tem já assim,
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-5
+00:36:39.136 --> 00:36:43.201
+modelo é modelo de profissão, judicial,
+modelo pessoal já funcionando na
+
+0c713362-f95a-4ecb-8522-22c17c0e1bba-6
+00:36:43.201 --> 00:36:46.320
+plataforma tá do Google,
+ele utiliza os dados do sisur.
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-0
+00:36:46.640 --> 00:36:51.553
+Que é o sistema jurídico,
+ele é um modelo bet, ele roda mensal, né,
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-1
+00:36:51.553 --> 00:36:55.021
+hélio?
+E se você puder falar um pouquinho assim
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-2
+00:36:55.021 --> 00:37:00.007
+da sua experiência que você teve ali com
+esse modelo específico, né,
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-3
+00:37:00.007 --> 00:37:04.270
+do de provisão judicial, sim, claro, é,
+e aí gente, assim,
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-4
+00:37:04.270 --> 00:37:10.051
+quando a gente iniciou é a implantação
+desse dessa plataforma, né, lá no risco,
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-5
+00:37:10.051 --> 00:37:14.676
+qual que era a ideia, né?
+A gente além de trazer um modelo, né,
+
+80f076c6-8421-40eb-b4b4-615447d8aba3-6
+00:37:14.676 --> 00:37:15.760
+aplicável aqui.
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-0
+00:37:16.040 --> 00:37:20.226
+Era testar essas ferramentas, né?
+Como oOoOO, Rafa trouxe, né?
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-1
+00:37:20.226 --> 00:37:24.081
+A gente já tem um modelo implantado aqui
+em big quer, tá?
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-2
+00:37:24.081 --> 00:37:28.799
+É é uma ferramenta muito robusta,
+porque além de tudo que o Michael já
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-3
+00:37:28.799 --> 00:37:31.856
+trouxe,
+a gente tem por trás uma inteligência
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-4
+00:37:31.856 --> 00:37:36.973
+artificial da Google, que é o althemel,
+que ele é feito especificamente para
+
+12ac6fcc-06a9-4bab-b6a7-16a227128246-5
+00:37:36.973 --> 00:37:41.160
+machine learning. Tá, e aí é,
+é esse machine learning voltado.
+
+54062649-9ce3-4c41-bc0d-d7b30e4b8920-0
+00:37:41.400 --> 00:37:46.971
+Pro desenvolvimento de modelos
+estatísticos também, né? Não só modelos,
+
+54062649-9ce3-4c41-bc0d-d7b30e4b8920-1
+00:37:46.971 --> 00:37:53.395
+é, é não não com dados não estruturados,
+mas dados que a gente hoje em dia já está
+
+54062649-9ce3-4c41-bc0d-d7b30e4b8920-2
+00:37:53.395 --> 00:37:59.818
+muito acostumado a utilizar ali dentro do
+risco que são dados. É, é tabulados, né?
+
+54062649-9ce3-4c41-bc0d-d7b30e4b8920-3
+00:37:59.818 --> 00:38:03.920
+E aí o modelo a gente fez de 2 formas
+distintas, né?
+
+83501d2e-1324-4307-8ec8-b50f0e3ee35b-0
+00:38:04.400 --> 00:38:10.365
+Uma utilizando linguagem SQL dentro do bi,
+quer tá, que o altemel permite isso, tá?
+
+83501d2e-1324-4307-8ec8-b50f0e3ee35b-1
+00:38:10.365 --> 00:38:15.763
+A gente não precisa necessariamente usar
+a linguagem estatística para criar
+
+83501d2e-1324-4307-8ec8-b50f0e3ee35b-2
+00:38:15.763 --> 00:38:19.953
+modelos lá dentro.
+A gente tem ferramentas que fazem isso,
+
+83501d2e-1324-4307-8ec8-b50f0e3ee35b-3
+00:38:19.953 --> 00:38:24.569
+né? O altemel por trás,
+ele traz todos esses algoritmos aqui que
+
+83501d2e-1324-4307-8ec8-b50f0e3ee35b-4
+00:38:24.569 --> 00:38:28.760
+a gente pode usar com linguagem SQL, tá?
+É um facilitador.
+
+c162e27f-128c-42e4-80b4-913c974d6c06-0
+00:38:29.000 --> 00:38:33.401
+Bem grande pra Oo trabalho do do
+cientista de dados, tá?
+
+c162e27f-128c-42e4-80b4-913c974d6c06-1
+00:38:33.401 --> 00:38:36.799
+E a gente foi também pelo caminho do
+calab,
+
+c162e27f-128c-42e4-80b4-913c974d6c06-2
+00:38:36.799 --> 00:38:42.977
+pela facilidade que ele traz pra gente em
+relação às linguagens que ele que ele
+
+c162e27f-128c-42e4-80b4-913c974d6c06-3
+00:38:42.977 --> 00:38:46.992
+permite, né, o uso ali.
+E aí a gente em paralelo é,
+
+c162e27f-128c-42e4-80b4-913c974d6c06-4
+00:38:46.992 --> 00:38:52.630
+fizemos esse modelo de de provisão
+judicial usando as 2 ferramentas, né?
+
+c162e27f-128c-42e4-80b4-913c974d6c06-5
+00:38:52.630 --> 00:38:56.800
+Pra ver o qual que dava o melhor
+resultado pra gente.
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-0
+00:38:59.240 --> 00:39:02.046
+Esse esses algoritmos,
+eles não estavam disponíveis no
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-1
+00:39:02.046 --> 00:39:05.823
+ferramental que a gente tinha, né? Hélio,
+acho que isso é importante, né?
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-2
+00:39:05.823 --> 00:39:10.008
+A gente é uma das principais diferenciais,
+né, que a gente teve lá na plataforma,
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-3
+00:39:10.008 --> 00:39:13.529
+isso algum deles não. Assim,
+quando a gente olha as ferramentas, né,
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-4
+00:39:13.529 --> 00:39:16.795
+que a gente disponível,
+muitos dos algoritmos a gente conseguia
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-5
+00:39:16.795 --> 00:39:19.500
+desenvolver,
+só que a gente não conseguia implantar,
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-6
+00:39:19.500 --> 00:39:23.430
+dada essa necessidade que a gente tinha
+dessa de ter que fazer isso em baixa
+
+dfba82db-cbb3-4ecc-8030-30c83e116fc7-7
+00:39:23.430 --> 00:39:27.360
+plataforma, no departamental, né,
+em servidores, departamentais, exatamente.
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-0
+00:39:27.760 --> 00:39:33.372
+Diferente do que a gente vai ter aqui, né?
+Porque OCPML agora ele vai trazer para
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-1
+00:39:33.372 --> 00:39:38.574
+gente uma ferramenta que vai dar para
+gente essa autonomia da gente prestar
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-2
+00:39:38.574 --> 00:39:43.844
+tudo que está disponível aqui e fazer
+implantação sem necessidade de ter que
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-3
+00:39:43.844 --> 00:39:47.130
+fazer.
+É é é abrir demanda para tecnologia para
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-4
+00:39:47.130 --> 00:39:50.621
+ser implementado numa num sistema
+corporativo, né?
+
+499ad82f-3c3b-4acc-8600-cccb495fce54-5
+00:39:50.621 --> 00:39:55.960
+O sistema corporativo já vai consumir o
+resultado do que vai ser gerado aqui.
+
+56831b6b-a000-458c-a529-106c28e49a72-0
+00:39:56.200 --> 00:39:59.913
+Dentro desse ecossistema da Google,
+tá uma última pergunta, é ele,
+
+56831b6b-a000-458c-a529-106c28e49a72-1
+00:39:59.913 --> 00:40:02.961
+se você me permite,
+nesse modelo do provisão judicial,
+
+56831b6b-a000-458c-a529-106c28e49a72-2
+00:40:02.961 --> 00:40:07.339
+você estava contando pra gente que vocês
+utilizaram o alta ml, né? E enfim, é,
+
+56831b6b-a000-458c-a529-106c28e49a72-3
+00:40:07.339 --> 00:40:11.163
+testaram algoritmos diferentes,
+foram ali no Colab usando o notebook
+
+56831b6b-a000-458c-a529-106c28e49a72-4
+00:40:11.163 --> 00:40:14.377
+Python, né? E o big Kerry é,
+vocês conseguiram fazer ali,
+
+56831b6b-a000-458c-a529-106c28e49a72-5
+00:40:14.377 --> 00:40:18.478
+e acho que isso é um fato que é
+interessante a gente compartilhar com com
+
+56831b6b-a000-458c-a529-106c28e49a72-6
+00:40:18.478 --> 00:40:21.581
+o público aqui também.
+Vocês conseguiram testar vários,
+
+56831b6b-a000-458c-a529-106c28e49a72-7
+00:40:21.581 --> 00:40:25.738
+vários algoritmos diferentes, né?
+Uma coisa que hoje no ambiente que vocês
+
+56831b6b-a000-458c-a529-106c28e49a72-8
+00:40:25.738 --> 00:40:25.960
+têm.
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-0
+00:40:26.240 --> 00:40:29.678
+Sem o uso do alter mel,
+sem o uso dessas ferramentas,
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-1
+00:40:29.678 --> 00:40:34.580
+e isso eu acho que também representa um
+ganho certo da experiência que vocês
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-2
+00:40:34.580 --> 00:40:38.019
+tiveram, né?
+Quantos modelos vocês conseguiram testar
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-3
+00:40:38.019 --> 00:40:40.502
+aí?
+Exatamente hoje o nosso curso para
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-4
+00:40:40.502 --> 00:40:44.450
+desenvolver o modelo,
+a gente passa a maior parte do tempo na
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-5
+00:40:44.450 --> 00:40:48.779
+preparação dos dados, tá aqui,
+a gente gastou pouco tempo com isso.
+
+9c516709-e7c3-4ea8-bc50-9160488a544d-6
+00:40:48.779 --> 00:40:52.600
+A gente tem ajuda de tradutores, tá?
+Esse tradutor ele faz.
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-0
+00:40:53.240 --> 00:41:00.185
+Ele consegue identificar 18 dialetos
+específicos, né? É, é de de linguagem SQL,
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-1
+00:41:00.185 --> 00:41:04.092
+né? E ele traduz isso pro SQL da Google,
+tá?
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-2
+00:41:04.092 --> 00:41:10.865
+Isso facilitou pra gente o tempo que a
+gente gasta nessa análise inicial, tá?
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-3
+00:41:10.865 --> 00:41:15.466
+É além disso,
+quando a gente vai testar as técnicas,
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-4
+00:41:15.466 --> 00:41:20.242
+acaba que a gente,
+por ter um trabalho ali de fazer 11
+
+74598158-a1d9-464e-9a7b-4aad251b15b5-5
+00:41:20.242 --> 00:41:22.760
+avaliação, né, de do é, é, é.
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-0
+00:41:23.320 --> 00:41:27.476
+Do resultado do modelo,
+a gente não consegue testar muitas
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-1
+00:41:27.476 --> 00:41:30.999
+técnicas,
+além da gente ter essa restrição de não
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-2
+00:41:30.999 --> 00:41:35.367
+conseguir implantar,
+por ter essa questão da baixa plataforma
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-3
+00:41:35.367 --> 00:41:39.524
+e ela ter restrições aqui,
+a gente não tem essa limitação.
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-4
+00:41:39.524 --> 00:41:44.597
+Então a gente conseguiu sair de
+aproximadamente umas 1010 modelos que a
+
+7a1ba727-a3ad-426c-a53b-ea01191a0c62-5
+00:41:44.597 --> 00:41:49.600
+gente consegue testar num processo normal
+pra testar aqui mais de 200.
+
+1756466a-522f-4b20-b9f6-48c61cbb22dc-0
+00:41:50.200 --> 00:41:53.184
+É. E dos 200.
+É importante destacar que a gente
+
+1756466a-522f-4b20-b9f6-48c61cbb22dc-1
+00:41:53.184 --> 00:41:56.418
+conseguiu performance em aproximadamente
+40% deles.
+
+1756466a-522f-4b20-b9f6-48c61cbb22dc-2
+00:41:56.418 --> 00:42:00.024
+Quando ele fala performance é performance
+matemática, tá?
+
+1756466a-522f-4b20-b9f6-48c61cbb22dc-3
+00:42:00.024 --> 00:42:03.880
+O pessoal não confundo com a performance
+computacional nosso.
+
+7ace63dc-5191-4622-96d8-145b75617a5a-0
+00:42:04.120 --> 00:42:07.424
+É porque, como eu expliquei,
+o hélio é um cientista de dados, né?
+
+7ace63dc-5191-4622-96d8-145b75617a5a-1
+00:42:07.424 --> 00:42:10.528
+E a gente fica, ele fala em chinês,
+eu falo em em inglês, né?
+
+7ace63dc-5191-4622-96d8-145b75617a5a-2
+00:42:10.528 --> 00:42:13.583
+E aí a gente fica,
+ainda bem que traduz aí é uma performance
+
+7ace63dc-5191-4622-96d8-145b75617a5a-3
+00:42:13.583 --> 00:42:15.736
+assim,
+no sentido de o cálculo da provisão
+
+7ace63dc-5191-4622-96d8-145b75617a5a-4
+00:42:15.736 --> 00:42:19.891
+judicial foi aceitável pros parâmetros da
+caixa, porque tudo isso é governado, tá,
+
+7ace63dc-5191-4622-96d8-145b75617a5a-5
+00:42:19.891 --> 00:42:23.096
+pessoal? Os modelos de risco da caixa,
+eles têm uma governança,
+
+7ace63dc-5191-4622-96d8-145b75617a5a-6
+00:42:23.096 --> 00:42:25.599
+eles têm um colegiado que aprova isso, né?
+Então,
+
+7ace63dc-5191-4622-96d8-145b75617a5a-7
+00:42:25.599 --> 00:42:28.654
+desses 200 que o hélio conseguiu testar
+usando a plataforma,
+
+7ace63dc-5191-4622-96d8-145b75617a5a-8
+00:42:28.654 --> 00:42:32.208
+o big quer e o alto mel e todo esse
+ferramental que o Marco apresentou
+
+7ace63dc-5191-4622-96d8-145b75617a5a-9
+00:42:32.208 --> 00:42:32.960
+brilhantemente.
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-0
+00:42:33.400 --> 00:42:37.938
+Acho que a gente conseguiu aí pelo menos
+uns 30 né que você comentou né 3737 é é
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-1
+00:42:37.938 --> 00:42:42.365
+seria possível da da caixa utilizar né
+pra pra fazer Oo provisionamento mensal
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-2
+00:42:42.365 --> 00:42:45.335
+da caixa, tá,
+são e é isso aí pessoal representa pra
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-3
+00:42:45.335 --> 00:42:49.481
+caixa um ganho é é assim, é, é,
+é uma ordem assim de milhões, tá pessoal,
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-4
+00:42:49.481 --> 00:42:53.796
+esse esse provisionamento é um dinheiro
+que a caixa poderia estar usando pra
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-5
+00:42:53.796 --> 00:42:58.222
+fazer negócio e ao invés da gente estar
+loucando pra pra pra pagar processo na
+
+41ada6bd-fd24-4db2-b3b0-db801c817735-6
+00:42:58.222 --> 00:42:59.960
+justiça, a gente poderia estar.
+
+1f872b5c-690d-4f5b-a55d-a0368e75f4df-0
+00:43:00.160 --> 00:43:06.812
+Fazendo, gerando dinheiro, né? E aí, Rafa,
+pra não me alongar demais também, é,
+
+1f872b5c-690d-4f5b-a55d-a0368e75f4df-1
+00:43:06.812 --> 00:43:10.804
+é é como Oo Michael trouxe também,
+a gente tem,
+
+1f872b5c-690d-4f5b-a55d-a0368e75f4df-2
+00:43:10.804 --> 00:43:15.794
+é um ambiente regulatório também contido
+aqui por trás, tá?
+
+1f872b5c-690d-4f5b-a55d-a0368e75f4df-3
+00:43:15.794 --> 00:43:21.532
+Então a gente é por conta disso,
+a gente segue uma certa é estrutura
+
+1f872b5c-690d-4f5b-a55d-a0368e75f4df-4
+00:43:21.532 --> 00:43:24.360
+hermética que a gente não pode, é?
+
+94952c82-6c5d-47b1-be93-918119072aa7-0
+00:43:25.920 --> 00:43:31.903
+Fazer certas certos modelos aqui que que
+fujam essa estrutura e esse guard rail,
+
+94952c82-6c5d-47b1-be93-918119072aa7-1
+00:43:31.903 --> 00:43:34.932
+né?
+Que a gente tem tem estruturado aqui
+
+94952c82-6c5d-47b1-be93-918119072aa7-2
+00:43:34.932 --> 00:43:39.512
+dentro da ferramenta,
+mas outro ponto que eu queria trazer só
+
+94952c82-6c5d-47b1-be93-918119072aa7-3
+00:43:39.512 --> 00:43:45.052
+para finalizar é que hoje na caixa,
+por mais que a gente tenha ferramentas
+
+94952c82-6c5d-47b1-be93-918119072aa7-4
+00:43:45.052 --> 00:43:50.888
+boas e técnicas robustas para a gente
+prever ali 111 modelo estatístico que me
+
+94952c82-6c5d-47b1-be93-918119072aa7-5
+00:43:50.888 --> 00:43:52.440
+deu um resultado bom.
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-0
+00:43:52.960 --> 00:43:58.974
+A gente não consegue prever nenhum tipo
+de modelo para valor, tá? Ou seja, prever,
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-1
+00:43:58.974 --> 00:44:02.453
+por exemplo, renda.
+E aqui com o uso da Google,
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-2
+00:44:02.453 --> 00:44:06.439
+a gente conseguiu criar um modelo que
+prevê valor, tá?
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-3
+00:44:06.439 --> 00:44:12.526
+É um ganho extremamente importante porque
+esse case é um case que vai ser replicado
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-4
+00:44:12.526 --> 00:44:17.671
+para várias unidades da caixa ali que
+perpassa o risco, né CRM? Enfim,
+
+4e833ae1-3d23-45ec-bd09-728343caa8d5-5
+00:44:17.671 --> 00:44:21.440
+várias unidades que possam utilizar esse
+case para.
+
+6654858a-7a11-494f-87f0-25a99badc382-0
+00:44:21.960 --> 00:44:28.811
+Ter 111 elemento aí de suporte no
+desenvolvimento de modelos de valor, tá?
+
+6654858a-7a11-494f-87f0-25a99badc382-1
+00:44:28.811 --> 00:44:33.835
+Obrigado pessoal, só mais um slide, tá?
+Eu prometo aí,
+
+6654858a-7a11-494f-87f0-25a99badc382-2
+00:44:33.835 --> 00:44:40.595
+tenho apresentação dos meus amigos da IBM,
+ainda vou ficar aqui, não sei.
+
+6654858a-7a11-494f-87f0-25a99badc382-3
+00:44:40.595 --> 00:44:42.240
+Cadê o pessoal aí?
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-0
+00:44:45.880 --> 00:44:50.555
+Então, como o hélio falou, pessoal,
+é esse gancho que ele deixou aí, né,
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-1
+00:44:50.555 --> 00:44:55.680
+nós é AAA nuvem esse projeto aqui, né?
+A plataforma não é uma plataforma Oo não
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-2
+00:44:55.680 --> 00:45:00.804
+é a nuvem da vicor, tá, não é isso, né?
+Então qual que é a mensagem que a gente
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-3
+00:45:00.804 --> 00:45:05.096
+quer passar pra vocês, né?
+A gente tá construindo essa plataforma,
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-4
+00:45:05.096 --> 00:45:10.028
+a gente tá chamando plataforma eniop,
+tá é eniop, é, é aplicar, nada mais é,
+
+52f02f47-cd94-4ac3-b651-0c3dba17a026-5
+00:45:10.028 --> 00:45:14.640
+vou resumir de uma forma aqui, bem,
+é leiga, né, vamos dizer assim, né?
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-0
+00:45:14.920 --> 00:45:17.911
+É você aplicar alguns conceitos que a
+gente já conhece,
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-1
+00:45:17.911 --> 00:45:21.811
+a gente aqui na TIA gente usa esses
+conceitos de déficits, eck, Ops, né,
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-2
+00:45:21.811 --> 00:45:26.084
+pra operações de machine learning, tá?
+Então é o hélio mostrou ali aquele caso,
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-3
+00:45:26.084 --> 00:45:29.557
+foi um caso bem simples,
+é um modelo que ele é um modelo servido
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-4
+00:45:29.557 --> 00:45:32.762
+em Beth, né hélio?
+O próprio big quer ali você pode agendar
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-5
+00:45:32.762 --> 00:45:35.807
+todo mês pra calcular a provisão judicial,
+calcular EEE,
+
+cd6fc0f8-afd7-4c52-8e1e-75698862f3ff-6
+00:45:35.807 --> 00:45:39.600
+encaminhar pra área que faz OA provisão
+judicial né pra área da caixa.
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-0
+00:45:40.040 --> 00:45:43.684
+É, mas aí a gente deu um passo adiante,
+tá, pessoal?
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-1
+00:45:43.684 --> 00:45:48.910
+E aqui é 11 ponto que eu quero trazer é,
+é esse gancho que o hélio colocou,
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-2
+00:45:48.910 --> 00:45:54.135
+ele é importante, não está restrito,
+não está restrito somente a vicor, tá,
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-3
+00:45:54.135 --> 00:45:58.399
+pessoal, é a plataforma CPML,
+é uma plataforma que a gente tá
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-4
+00:45:58.399 --> 00:46:02.249
+planejando Pra Ela ser agnótica,
+é qualquer área da ti,
+
+8b8961fe-beb4-4151-87c6-d42afa00f123-5
+00:46:02.249 --> 00:46:04.999
+vou trocar porque tá falhando. Alô, alô.
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-0
+00:46:10.320 --> 00:46:13.666
+Então, pessoal,
+a gente a gente é até criou a sigla,
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-1
+00:46:13.666 --> 00:46:18.024
+como tudo aqui na caixa, né?
+A gente precisa ter uma sigla pra gente
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-2
+00:46:18.024 --> 00:46:23.391
+organizar nossos processos, governar, né?
+Mudanças padronizar o desenvolvimento, né?
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-3
+00:46:23.391 --> 00:46:27.433
+Ter uma matriz de acesso que isso já tá,
+já tá funcionando, tá.
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-4
+00:46:27.433 --> 00:46:30.274
+Então a gente é é tá estruturando isso
+aqui,
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-5
+00:46:30.274 --> 00:46:34.947
+aproveitando alguns conceitos que vocês
+já conhecem de de uma plataforma,
+
+ff6c00fc-eb42-4e64-8108-dc70cad2ee18-6
+00:46:34.947 --> 00:46:36.400
+deve ser aqui, Ops, né?
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-0
+00:46:37.000 --> 00:46:40.908
+A gente tem hoje basicamente essas 2
+entradas de dados, são dados analíticos,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-1
+00:46:40.908 --> 00:46:43.413
+como o hélio falou,
+a gente recebe do data brics,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-2
+00:46:43.413 --> 00:46:46.871
+que é o data warehouse da caixa,
+plataforma única de dados da caixa,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-3
+00:46:46.871 --> 00:46:50.278
+fonte única da verdade, tá?
+E a gente também faz ingestão de alguns
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-4
+00:46:50.278 --> 00:46:53.735
+outros dados aqui que a gente tá chamando
+de dados operacionais, tá?
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-5
+00:46:53.735 --> 00:46:57.293
+Isso já tá funcionando aqui pro caso do
+do modelo de risco de crédito,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-6
+00:46:57.293 --> 00:47:01.051
+que é um risco, o risco de crédito,
+ele é diferente do risco do hélio, tá,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-7
+00:47:01.051 --> 00:47:03.506
+pessoal?
+O risco do hélio é o risco operacional,
+
+b8d1b08c-9af0-4de3-9030-7e347511ead0-8
+00:47:03.506 --> 00:47:04.960
+né, ali da provisão judicial.
+
+c520094c-417a-4846-bcd8-aaf251403a41-0
+00:47:05.360 --> 00:47:08.417
+O risco de crédito,
+ele tem cenários que a gente serve
+
+c520094c-417a-4846-bcd8-aaf251403a41-1
+00:47:08.417 --> 00:47:12.475
+modelos hoje no sirik, então o sirik,
+ele é uma plataforma que ele serve
+
+c520094c-417a-4846-bcd8-aaf251403a41-2
+00:47:12.475 --> 00:47:16.977
+modelos hoje, né, modelos online, né?
+E ele tem essa característica lá no sirik,
+
+c520094c-417a-4846-bcd8-aaf251403a41-3
+00:47:16.977 --> 00:47:20.368
+onde a gente precisa consumir dados
+online. Dados é que não,
+
+c520094c-417a-4846-bcd8-aaf251403a41-4
+00:47:20.368 --> 00:47:23.537
+eles não estão democratizados, né?
+Aqui é muito bet, né,
+
+c520094c-417a-4846-bcd8-aaf251403a41-5
+00:47:23.537 --> 00:47:28.040
+que a gente tá falando aqui no data brics,
+né? Então a gente conseguiu já fazer.
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-0
+00:47:28.760 --> 00:47:32.694
+Esse caminho aqui é um caminho onde a
+gente pegou alguns dados do ceara,
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-1
+00:47:32.694 --> 00:47:36.951
+que isso foi alinhado lá com a ggodi,
+que é a área de governança de dados, tá?
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-2
+00:47:36.951 --> 00:47:41.209
+A gente tá disponibilizando esses dados
+lá já lá no gcp pra gente poder servir
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-3
+00:47:41.209 --> 00:47:45.520
+esses modelos online. Modelos de risco,
+de crédito, nós estamos trabalhando na,
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-4
+00:47:45.520 --> 00:47:48.592
+no, no desenvolvimento,
+no consumo aqui dessas APIs, né?
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-5
+00:47:48.592 --> 00:47:52.903
+Dos serviços que a gente tem aqui, do SCR,
+do banco central, Boa Vista, Serasa,
+
+b9574a18-9038-46ea-9aa0-84b60ca65dfb-6
+00:47:52.903 --> 00:47:55.759
+que são os birôs de informação,
+é que a caixa opera.
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-0
+00:47:56.280 --> 00:47:59.238
+É uma plataforma multicloud,
+como vocês estão vendo, né?
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-1
+00:47:59.238 --> 00:48:02.352
+É o próprio integração aqui do databrix
+com o Google cloud.
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-2
+00:48:02.352 --> 00:48:06.141
+Isso aqui já está bem estabelecido, tá,
+pessoal? É os produtos de dados,
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-3
+00:48:06.141 --> 00:48:09.671
+quando eles são tagueados,
+eles eles estão aqui na camada silver ou
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-4
+00:48:09.671 --> 00:48:12.006
+Gold,
+já você tagueia aqui gcp e um processo
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-5
+00:48:12.006 --> 00:48:15.276
+que os nossos amigos aqui do coad nuvem
+construíram muito bem,
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-6
+00:48:15.276 --> 00:48:18.339
+tá funcionando muito bem,
+esses dados são copiados e ficam
+
+93851f0d-cca8-42d5-bb6b-508d636adf7e-7
+00:48:18.339 --> 00:48:20.000
+disponíveis aqui no big quer tá?
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-0
+00:48:21.160 --> 00:48:24.180
+É bom.
+Pra pra finalizar é qual que é a ideia,
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-1
+00:48:24.180 --> 00:48:28.679
+né? A ideia principal aqui, né,
+a gente usar o mesmo modelo que vocês
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-2
+00:48:28.679 --> 00:48:31.828
+também já conhecem,
+de engenharia de plataforma,
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-3
+00:48:31.828 --> 00:48:35.362
+é esse grupo de trabalho.
+Eu cheguei lá em outubro, é,
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-4
+00:48:35.362 --> 00:48:38.961
+mas vocês aqui,
+o time da da g sti da suporte já estava
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-5
+00:48:38.961 --> 00:48:42.432
+trabalhando brilhantemente aqui No No,
+no terraforme,
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-6
+00:48:42.432 --> 00:48:47.445
+então a gente já tem é alguns scrips
+terraforme aqui através desse terraforme
+
+6d5ed456-f48c-475a-a714-1f9cec0da482-7
+00:48:47.445 --> 00:48:50.080
+que já vem sido amadurecido muito, muito.
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-0
+00:48:50.640 --> 00:48:53.435
+De forma muito,
+é sênior aqui pelo time tapiau,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-1
+00:48:53.435 --> 00:48:56.114
+fica aqui meu reconhecimento aí.
+Matheuzinho,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-2
+00:48:56.114 --> 00:49:00.424
+não sei se está aqui com a gente,
+parabéns Matheus, Palmas para o Mateus,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-3
+00:49:00.424 --> 00:49:03.219
+gente, obrigado Matheus, é um cara, é.
+E assim,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-4
+00:49:03.219 --> 00:49:07.995
+eu fiquei impressionado quando eu cheguei,
+porque esse terraforme já existia, né,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-5
+00:49:07.995 --> 00:49:11.839
+Matheus, e está em constante evolução, né,
+todo dia praticamente.
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-6
+00:49:11.839 --> 00:49:15.974
+E assim foi muito rápido a forma como
+eles criaram esses projetos, tá,
+
+f5c7e569-6328-4015-9797-fe54ac7fe442-7
+00:49:15.974 --> 00:49:19.760
+eles realmente aplicaram o conceito de
+engenharia de plataforma.
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-0
+00:49:20.200 --> 00:49:23.692
+EOCIPML, tá, tá tá bebendo,
+tá ganhando os louros disso, né?
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-1
+00:49:23.692 --> 00:49:26.383
+Tá se beneficiando desse, dessa, dessa,
+dessa,
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-2
+00:49:26.383 --> 00:49:29.303
+dessa fundação que vocês construíram, tá,
+pessoal,
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-3
+00:49:29.303 --> 00:49:33.654
+quero aqui realmente reconhecer aqui,
+o Mateus criou 18 projetos aqui muito
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-4
+00:49:33.654 --> 00:49:37.833
+rápido, né? Mateus recente, tá,
+então a ideia aqui do CIPML é exatamente
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-5
+00:49:37.833 --> 00:49:42.356
+isso, cada área, cada gerência nacional,
+parecido com o que a gente faz ali no
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-6
+00:49:42.356 --> 00:49:45.276
+data, brics, né,
+que tem as áreas de trabalho, né?
+
+2a8cb745-6e21-40f6-a095-afe9918e7dac-7
+00:49:45.276 --> 00:49:47.280
+Aqui a gente chama de projetos, tá?
+
+daff85c7-0c50-4755-b2aa-f67db851f860-0
+00:49:47.760 --> 00:49:50.814
+Então o hélio tem a área de projeto dele
+aqui da gerope,
+
+daff85c7-0c50-4755-b2aa-f67db851f860-1
+00:49:50.814 --> 00:49:54.189
+o fulano tem a área da grcr,
+que é a área de risco de crédito.
+
+daff85c7-0c50-4755-b2aa-f67db851f860-2
+00:49:54.189 --> 00:49:58.100
+Cada área vai trabalhar dentro do seu,
+do seu ambiente de modelagem, tá,
+
+daff85c7-0c50-4755-b2aa-f67db851f860-3
+00:49:58.100 --> 00:50:02.119
+e fica aqui a minha meu convite, né?
+Porque não a gente não criar aqui uma
+
+daff85c7-0c50-4755-b2aa-f67db851f860-4
+00:50:02.119 --> 00:50:04.851
+área de trabalho pra ser mote ou pra ser
+pipe, né?
+
+daff85c7-0c50-4755-b2aa-f67db851f860-5
+00:50:04.851 --> 00:50:08.923
+Porque não a gente construir modelos aqui
+pra gente fazer inferência de uma
+
+daff85c7-0c50-4755-b2aa-f67db851f860-6
+00:50:08.923 --> 00:50:10.960
+aplicação que está se comportando mal.
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-0
+00:50:11.360 --> 00:50:15.328
+Ou de de repente um sorteio da mega da
+virada que tá saindo da mega da virada.
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-1
+00:50:15.328 --> 00:50:17.990
+Não perdão.
+Um sorteio da mega aqui que não não seja
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-2
+00:50:17.990 --> 00:50:21.255
+mega da virada, por exemplo.
+Mas é um sorteio que tende a ter um
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-3
+00:50:21.255 --> 00:50:23.616
+comportamento anômalo ali que a gente
+precisa,
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-4
+00:50:23.616 --> 00:50:27.735
+uma máquina que tá se comportando mal, né?
+Então existem muitos casos de uso, tá,
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-5
+00:50:27.735 --> 00:50:30.096
+pessoal,
+que a gente poderia fazer uso aqui na
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-6
+00:50:30.096 --> 00:50:32.306
+vite,
+que realmente eu queria convidá Los a
+
+52f27fec-25ee-48ce-b7bb-e7e046b59f50-7
+00:50:32.306 --> 00:50:32.960
+gente pensar.
+
+62464c13-a40e-4a2a-9596-c095b7b138af-0
+00:50:33.280 --> 00:50:36.546
+Fora da caixa, né?
+Imaginar que essa plataforma que OCPML
+
+62464c13-a40e-4a2a-9596-c095b7b138af-1
+00:50:36.546 --> 00:50:40.037
+não é uma plataforma só,
+não é uma plataforma só da vcor, tá?
+
+62464c13-a40e-4a2a-9596-c095b7b138af-2
+00:50:40.037 --> 00:50:44.599
+É uma plataforma que tá aqui pra gente
+construir a operação de machine learning,
+
+62464c13-a40e-4a2a-9596-c095b7b138af-3
+00:50:44.599 --> 00:50:48.597
+tá com os agentes, com tudo isso,
+que o que o Maicon colocou o foco da
+
+62464c13-a40e-4a2a-9596-c095b7b138af-4
+00:50:48.597 --> 00:50:53.327
+apresentação aqui hoje é no big query, né,
+Maicon? Mas a gente tem outros produtos,
+
+62464c13-a40e-4a2a-9596-c095b7b138af-5
+00:50:53.327 --> 00:50:55.467
+né,
+outras ferramentas que a gente tá
+
+62464c13-a40e-4a2a-9596-c095b7b138af-6
+00:50:55.467 --> 00:50:58.733
+utilizando aqui,
+que eu acho que são ferramentas baseadas
+
+62464c13-a40e-4a2a-9596-c095b7b138af-7
+00:50:58.733 --> 00:51:02.000
+nessa linha que você comentou, né,
+de software livre, né?
+
+eb790776-0997-46ec-9c6e-233d05878412-0
+00:51:02.760 --> 00:51:06.938
+E a gente está com uma mentalidade lá na
+comunidade de risco muito forte de de
+
+eb790776-0997-46ec-9c6e-233d05878412-1
+00:51:06.938 --> 00:51:10.112
+utilizar essas questões de software livre,
+né? Por exemplo,
+
+eb790776-0997-46ec-9c6e-233d05878412-2
+00:51:10.112 --> 00:51:14.397
+algumas automações que a gente tem que
+fazer no processo de engenharia de dados,
+
+eb790776-0997-46ec-9c6e-233d05878412-3
+00:51:14.397 --> 00:51:18.153
+eu tenho que fazer tratamento desses
+dados. Todo dia chega um arquivo,
+
+eb790776-0997-46ec-9c6e-233d05878412-4
+00:51:18.153 --> 00:51:21.433
+eu tenho que fazer um validação do
+Heather de um trailer, né?
+
+eb790776-0997-46ec-9c6e-233d05878412-5
+00:51:21.433 --> 00:51:25.400
+Então o composer, que é o Apache airflow,
+é muito bacana isso, tá? Maicon?
+
+eb790776-0997-46ec-9c6e-233d05878412-6
+00:51:25.400 --> 00:51:27.886
+A gente é um produto Google, abraça muito,
+né?
+
+eb790776-0997-46ec-9c6e-233d05878412-7
+00:51:27.886 --> 00:51:30.320
+Esse produto não só o Google headhead
+também.
+
+62f952ab-6626-4da1-8c30-a83b09811079-0
+00:51:30.800 --> 00:51:35.117
+A as big techs aqui tem muito abraçada
+essa questão do software live,
+
+62f952ab-6626-4da1-8c30-a83b09811079-1
+00:51:35.117 --> 00:51:38.880
+que é legal pra gente.
+É interessante da gente ter esse essa
+
+62f952ab-6626-4da1-8c30-a83b09811079-2
+00:51:38.880 --> 00:51:42.642
+questão do login, né,
+utilizando a parte Bing também aqui no
+
+62f952ab-6626-4da1-8c30-a83b09811079-3
+00:51:42.642 --> 00:51:47.638
+data flow que tá aqui em algum lugar a
+gente também pode fazer é processamentos,
+
+62f952ab-6626-4da1-8c30-a83b09811079-4
+00:51:47.638 --> 00:51:50.537
+né,
+aqui pra poder fazer ingestão de dados né?
+
+62f952ab-6626-4da1-8c30-a83b09811079-5
+00:51:50.537 --> 00:51:54.917
+Tanto bad quanto streaming, né? É, enfim,
+de uma forma geral, pessoal,
+
+62f952ab-6626-4da1-8c30-a83b09811079-6
+00:51:54.917 --> 00:51:58.432
+a experiência tem sido muito, muito,
+muito aprendizagem,
+
+62f952ab-6626-4da1-8c30-a83b09811079-7
+00:51:58.432 --> 00:52:00.160
+muito gratificante e é isso.
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-0
+00:52:00.640 --> 00:52:04.789
+Só pra finalizar, perdão,
+eu esqueci de mencionar o vértex também,
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-1
+00:52:04.789 --> 00:52:07.762
+né? É,
+é uma plataforma também que vale a pena,
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-2
+00:52:07.762 --> 00:52:12.654
+queria convidar vocês também pra pra
+depois de repente passar lá na comunidade
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-3
+00:52:12.654 --> 00:52:15.875
+do risco,
+a gente tomar um café e trocar uma ideia,
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-4
+00:52:15.875 --> 00:52:19.157
+vai ser um prazer compartilhar,
+tem nespress lá, Ah,
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-5
+00:52:19.157 --> 00:52:23.183
+você tá falando lá no Google, né? Ah,
+na comunidade, né, Ah, tá,
+
+8f83ae24-dcf1-429d-9d4e-0a4f52dce5a8-6
+00:52:23.183 --> 00:52:28.200
+porque na comunidade do risco não tem não
+é café Pelé, Ah não, ela lá no GT tem.
+
+746f68d8-bb09-4995-9b57-50ba060a59c3-0
+00:52:30.200 --> 00:52:38.496
+É isso, gente. Obrigado a todos aí,
+Rafael e hélio, eu queria.
+
+746f68d8-bb09-4995-9b57-50ba060a59c3-1
+00:52:38.496 --> 00:52:47.451
+Eu tava ali acompanhando.
+É óbvio que vocês falaram ali em chinês e
+
+746f68d8-bb09-4995-9b57-50ba060a59c3-2
+00:52:47.451 --> 00:52:50.480
+inglês. Pra mim isso é.
+
+2c930594-1128-46ae-9c6a-860bc01797ac-0
+00:52:50.800 --> 00:52:54.149
+É grego?
+Mas eu estava acompanhando e refletindo
+
+2c930594-1128-46ae-9c6a-860bc01797ac-1
+00:52:54.149 --> 00:52:59.001
+que a gente ainda não tinha tido
+oportunidade de ver um case dentro da
+
+2c930594-1128-46ae-9c6a-860bc01797ac-2
+00:52:59.001 --> 00:53:02.555
+empresa e a gente ter o cliente aqui
+falando sobre.
+
+2c930594-1128-46ae-9c6a-860bc01797ac-3
+00:53:02.555 --> 00:53:06.998
+A gente já teve várias oportunidades de
+falar com alguns outros.
+
+2c930594-1128-46ae-9c6a-860bc01797ac-4
+00:53:06.998 --> 00:53:11.851
+É fornecedores e parceiros da caixa e é
+muito comum trazer se né, 111,
+
+2c930594-1128-46ae-9c6a-860bc01797ac-5
+00:53:11.851 --> 00:53:15.678
+caso de uma outra instituição financeira,
+um benchmark.
+
+2c930594-1128-46ae-9c6a-860bc01797ac-6
+00:53:15.678 --> 00:53:20.600
+E a gente aqui hoje teve a oportunidade
+de ver algo dentro de casa, né?
+
+01d52773-d0e6-4fec-be9e-3856a5f2369c-0
+00:53:20.880 --> 00:53:25.779
+Então eu achei que foi muito inteligente
+a forma como vocês conduziram isso.
+
+01d52773-d0e6-4fec-be9e-3856a5f2369c-1
+00:53:25.779 --> 00:53:30.105
+E teve Oo Michael que fez aí essa essa
+introdução super bacana, né?
+
+01d52773-d0e6-4fec-be9e-3856a5f2369c-2
+00:53:30.105 --> 00:53:31.760
+Obrigada mais uma vez, tá?
