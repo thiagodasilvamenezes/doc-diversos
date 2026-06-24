@@ -95,4 +95,4 @@ Ao final da correção individual, faça uma comparação cruzada entre os candi
 - quem teve maior consistência;
 - quem cobriu melhor os itens exigidos;
 
-Faça uma tabela para melhor visualização da comparação.
+Faça uma tabela para melhor visualização da comparação, itens pedidos e se foi abordado e nota por item.

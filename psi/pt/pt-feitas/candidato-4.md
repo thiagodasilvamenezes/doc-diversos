@@ -73,4 +73,4 @@ Estabilidade da Base de Trabalho: Ausência completa de commits de "correção d
 
 Previsibilidade Operacional: As implantações em ambiente produtivo ocorrem de forma fluida, sem a necessidade de acionamento de planos de retorno (rollback) motivados por falhas de empacotamento, lógicas corrompidas ou pacotes fora de paridade.
 
-Por meio dessa abordagem integrada — que conecta arquitetura de versionamento, automação de esteiras de validação, barreiras de proteção sistêmicas e aculturamento técnico —, o Integrador de Código deixa de atuar como um resolvedor reativo de conflitos e assume sua posição de pilar estratégico na consolidação de uma engenharia de software previsível, escalável e de alta confiabilidade.
+Por meio dessa abordagem integrada — que conecta arquitetura de versionamento, automação de esteiras de validação, barreiras de proteção sistêmicas e aculturamento técnico —, o Integrador de Código deixa de atuar como um resolvedor reativo de conflitos e assume sua posição de pilar estratégico na consolidação de uma engenharia de software previsível, escalável e de alta confiabilidade.opa 
