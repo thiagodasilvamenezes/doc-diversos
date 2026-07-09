@@ -1,0 +1,85 @@
+{
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.chat.codeGeneration.instructions": [],
+    "editor.minimap.enabled": false,
+    "@azure.argTenant": "",
+    "hediet.vscode-drawio.resizeImages": null,
+    "github.copilot.nextEditSuggestions.enabled": true,
+
+    "terminal.integrated.profiles.windows": {
+        "PowerShell 7": {
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "args": []
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell 7",
+    "terminal.integrated.bellDuration": 10000,
+
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
+    "explorer.confirmDragAndDrop": false,
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    "docker.host": "unix:///var/run/docker.sock",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "redhat.telemetry.enabled": true,
+
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "C:\\Sistemas\\Java\\jdk\\atual"
+        }
+    ],
+
+    "java.jdt.ls.java.home": "C:\\Sistemas\\Java\\jdk\\atual",
+    "chat.viewSessions.orientation": "stacked",
+
+    "azure-event-hub-explorer.eventHubConnectionString": "Endpoint=sb://ehnamespace-hab-des.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=B03TEeZ1pBSv8muzaVIoYYQM95xaWpcnx+AEhB7Vij4=",
+    "azure-event-hub-explorer.eventHubEntityName": "eh-sisph-des-java",
+
+    "sonarlint.connectedMode.connections.sonarqube": [
+        {
+            "connectionId": "caixa-esteira",
+            "serverUrl": "https://sonar-esteira.apps.produtos4.caixa"
+        }
+    ],
+
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "ROOT"
+        }
+    ],
+
+    "chat.tools.terminal.autoApprove": {
+        "/^cd api-auditoria\\\\banco\\\\cosmo; \\.\\\\04-SCRIPT-CRIACAO-REST\\.ps1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+
+    "markdown-preview-enhanced.usePandocParser": true,
+    "markdown-preview-enhanced.pandocPath": "C:\\Desenvolvimento\\tools\\python\\pandoc-3.7.0.2\\pandoc.exe",
+    "markdown-preview-enhanced.exportPdfUsingPandoc": true,
+
+    "chat.agent.maxRequests": 100,
+    "github.copilot.chat.anthropic.contextEditing.enabled": true,
+    "remote.WSL.useHostProxy": false,
+    "git.confirmSync": false,
+    "sonarlint.focusOnNewCode": false,
+    "explorer.confirmDelete": false
+}

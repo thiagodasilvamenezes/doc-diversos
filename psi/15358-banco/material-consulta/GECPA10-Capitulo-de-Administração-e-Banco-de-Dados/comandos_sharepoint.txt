@@ -1,0 +1,51 @@
+# Lista de Comandos para Cópia de Portais SharePoint
+# Data: 2026-07-09
+# Total de URLs: 12
+
+# 1. ADI - Comece Aqui - Fundamentos
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ADI-ComeceAqui-Fundamentos.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 2. Como Baixar e Configurar o PowerDesigner
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/Como-baixar-e-configurar-o-PowerDesigner.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 3. Solicitação de Acessos
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/Solicita%C3%A7%C3%A3o-de-acessos.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 4. Normativos - AD
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/Normativos---AD.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 5. ABD na CAIXA
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ABD_na_CAIXA.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 6. ABD Capacitação
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ABD_Capacitacao.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 7. DataTypes - SGBD
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/5141/SitePages/Datatypes-SGBD.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 8. ADI Capacitação
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ADI_Capacitacao.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 9. ADI - Comece Aqui - Fundamentos (DUPLICADO)
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ADI-ComeceAqui-Fundamentos.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 10. ADI na CAIXA
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ADI-na-CAIXA.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 11. Normativos - AD (DUPLICADO)
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/Normativos---AD.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# 12. ADI Comunicados
+copiar_portal_sharepoint_auto.bat https://caixa.sharepoint.com/sites/NPRD/SitePages/ADI_Comunicados.aspx C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados --browser edge --ie-mode --export md --max-depth 0
+
+# ==========================================
+# RESUMO
+# ==========================================
+# Total de comandos: 12
+# URLs únicas: 10 (com 2 duplicatas)
+# Parâmetros padrão:
+#   - Browser: edge
+#   - Modo IE: ativo
+#   - Exportar como: markdown
+#   - Profundidade máxima: 0
+# Destino: C:\Desenvolvimento\repositorio\github-thiago\doc-diversos\psi\15358-banco\material-consulta\GECPA10-Capitulo-de-Administração-e-Banco-de-Dados
