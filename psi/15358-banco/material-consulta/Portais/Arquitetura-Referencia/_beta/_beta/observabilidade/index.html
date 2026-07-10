@@ -1,0 +1,4103 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Observabilidade - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#observabilidade" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="../../latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Observabilidade
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api/api/" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../infraestrutura/ilha-de-digitalizacao/" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nuvem/infraestrutura_nuvem/" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../seguranca/seguranca/" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dados/introducao/" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../telecom/telecom/" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../frontend/plataforma-unificada/" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../departamental/departamental/" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Observabilidade
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notas-versao/" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/api/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/swagger/" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../desenvolvimento-caixa/" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependencias/" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/logs/" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/consumo-logs/" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracoes/integracoes/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracoes/cicsws/" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanArchitecture/design/" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanArchitecture/desacoplamento/" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanArchitecture/cleanArchitecture/" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanArchitecture/domainDrivenDesign/" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cleanArchitecture/repositorioProjetos/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monolito/" class="md-nav__link">
+        Aplicações Monoliticas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/microsservicos/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/quarkus/" class="md-nav__link">
+        Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/spring/" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/jwt/" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/cofre-senhas-quarkus/" class="md-nav__link">
+        Secrets como Arquivos no Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsservicos/arquitetura/" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobilidade/mobilidade/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobilidade/archetype/" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobilidade/mobilidade-v2/" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobilidade/mobilidade_seguranca/" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_1" type="checkbox" id="__nav_2_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_1">
+          Sigle Page Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sigle Page Applications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Sigle Page Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/spa/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_2" type="checkbox" id="__nav_2_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_2">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/microfrontend/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/guia-desenvolvimento-mf/" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          Processamento Batch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Processamento Batch" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Processamento Batch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/batch/" class="md-nav__link">
+        Aplicações Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/spring-batch/" class="md-nav__link">
+        Spring Batch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpa/rpa/" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zOSconnect/" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15_1" type="checkbox" id="__nav_2_15_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_15_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eventos/kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eventos/kafka-quarkus/" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eventos/kafka-spring/" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/ilha-de-digitalizacao/" class="md-nav__link">
+        Ilha de Digitalização
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/transmissao_arquivos/" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/transmissao_arquivos_nuvem/" class="md-nav__link">
+        Transmissão de Arquivos para Nuvem Pública
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/exadata/" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/sincronismo_tempo/" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/software/uso-jdk/" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/openblock/" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/san-ficon/as-is/" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" type="checkbox" id="__nav_3_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/backup-multiplataforma/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/backup-multiplataforma/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_4" type="checkbox" id="__nav_3_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/san-open/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/hardware/san-open/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/unisys/" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/sharepoint/" class="md-nav__link">
+        Sharepoint
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/intelvpro/" class="md-nav__link">
+        Intel V Pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura/software/autopilot/" class="md-nav__link">
+        Windows Autopilot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/infraestrutura_nuvem/" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/avd/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/orquestracao-container/" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/power/" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/key-vault/" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/esteirascicd/" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nuvem/RedHat_Keycloak/" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/seguranca/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/criptografia/" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/identidade/" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/operacoes/" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/desenvolvimento/" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/dados_endpoints/" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/redes_comunicacao/" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/nuvem/" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/casos_de_uso/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/casos_uso/openbanking/" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/casos_uso/seguranca_api/" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/casos_uso/integracao_parceiros_openid/" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguranca/casos_uso/novo_atm/" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/introducao/" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/gateway/" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/oracle/oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/nosql/nosql/" class="md-nav__link">
+        Quando usar NoSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2" type="checkbox" id="__nav_6_2_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2_3" type="checkbox" id="__nav_6_2_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_3" type="checkbox" id="__nav_6_2_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_3">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/banco_de_dados/nosql/cosmosdb/" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/governanca_de_dados/categorizacao_de_dados/categorizacao-dados-bronze-prata-ouro/" class="md-nav__link">
+        Categorização de Dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/governanca_de_dados/categorizacao_de_dados/anexo_I-especificacao_do_arquivo_do_processo_de_carga_do_data_lake/" class="md-nav__link">
+        Categorização de Dados - Anexo I - Especificação do arquivo do processo de carga do data lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/governanca_de_dados/metadados/" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/governanca_de_dados/powerdesign/" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/etl_oracle_data_pump/" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dados/big_data/big_data_e_analytics-visao_arquitetura/" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/telecom/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/switching_datacenter/" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede1/" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede2/" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede3/" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede4/" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede5/" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede6/" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede7/" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/rede-local/" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/financeira/" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/webproxy/" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/call_center_nuvem/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/wifi/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/Balanceamento/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/interconexoes_multicloud/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/sdwan/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/contact/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/micro/" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/mesa-operacoes/" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/plataforma-unificada/" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linhas_negocio/canais_fisicos/dossie_digital/" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linhas_negocio/contabilidade_integrada/contabilidade_integrada/" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../departamental/departamental/" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../departamental/solucoes_existentes/" class="md-nav__link">
+        Soluções Existentes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Observabilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observabilidade" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Observabilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Observabilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Observabilidade
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observabilidade-na-evolucao-de-sistemas" class="md-nav__link">
+    Observabilidade na Evolução de Sistemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-da-observabilidade" class="md-nav__link">
+    Fundamentos da Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios-na-implementacao" class="md-nav__link">
+    Desafios na Implementação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coleta-de-dados-para-provisionamento" class="md-nav__link">
+    Coleta de Dados para Provisionamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materializando-a-observabilidade" class="md-nav__link">
+    Materializando a Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-observabilidade-to-be" class="md-nav__link">
+    Arquitetura de Observabilidade TO-BE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-uso-evoluindo-do-monitoramento-para-a-observabilidade" class="md-nav__link">
+    Caso de Uso: Evoluindo do Monitoramento para a Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observabilidade-na-evolucao-de-sistemas" class="md-nav__link">
+    Observabilidade na Evolução de Sistemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-da-observabilidade" class="md-nav__link">
+    Fundamentos da Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios-na-implementacao" class="md-nav__link">
+    Desafios na Implementação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coleta-de-dados-para-provisionamento" class="md-nav__link">
+    Coleta de Dados para Provisionamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materializando-a-observabilidade" class="md-nav__link">
+    Materializando a Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitetura-de-observabilidade-to-be" class="md-nav__link">
+    Arquitetura de Observabilidade TO-BE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-de-uso-evoluindo-do-monitoramento-para-a-observabilidade" class="md-nav__link">
+    Caso de Uso: Evoluindo do Monitoramento para a Observabilidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="observabilidade">Observabilidade</h1>
+<h2 id="observabilidade-na-evolucao-de-sistemas">Observabilidade na Evolução de Sistemas</h2>
+<p>A crescente complexidade dos sistemas de tecnologia da informação, impulsionada pela transformação digital, exige novas abordagens para garantir a saúde e o desempenho das aplicações. Nesse contexto, a observabilidade emerge como um paradigma conceitual que vai além do monitoramento tradicional, oferecendo uma visão integrada e proativa dos sistemas. Enquanto o monitoramento se limita à coleta de métricas pré-definidas por meio de ferramentas externas, a observabilidade propõe que os sistemas sejam projetados para gerar dados que permitam inferir seu estado internamente a partir de saídas externas. Essa capacidade, originalmente definida pelo engenheiro Rudolf E. Kálmán em 1960 como a medida de quão bem os estados internos de um sistema podem ser compreendidos, torna-se essencial em ambientes distribuídos e dinâmicos.
+Historicamente, as práticas de monitoramento evoluíram de soluções simples, como comandos vmstat e syslogs, para ferramentas mais avançadas que gerenciam o desempenho de aplicativos e monitoram/analisam dados gerados. No entanto, mesmo com esses avanços, persistem desafios, como a fragmentação da análise por tecnologia e a incapacidade de correlacionar problemas entre componentes interdependentes.</p>
+<p><img alt="" src="../img/observability/imagem1.png" /></p>
+<p>A observabilidade não se resume a uma ferramenta ou tecnologia, mas a uma capacidade sistêmica que integra arquitetura, práticas de desenvolvimento e gestão de dados. Seu principal diferencial é a capacidade de antecipar problemas e possibilitar a automação de correções, um conceito conhecido como autocura. Isso é particularmente relevante em ambientes complexos, nos quais a intervenção humana pode ser lenta ou insuficiente para evitar impactos nos usuários. Além disso, ao contrário do monitoramento tradicional, que focava em métricas técnicas isoladas, a observabilidade incorpora análises de comportamento do usuário e insights acionáveis, essenciais para a tomada de decisão em tempo real.
+Em um contexto em que a velocidade e a confiabilidade são diferenciais competitivos, a observabilidade não é um luxo, mas uma necessidade estratégica. Seu sucesso depende da combinação entre tecnologia avançada e uma mentalidade centrada no cliente, capaz de transformar desafios complexos em oportunidades de inovação e resiliência.</p>
+<h2 id="fundamentos-da-observabilidade">Fundamentos da Observabilidade</h2>
+<p>A observabilidade é construída sobre três pilares fundamentais: logs, métricas e traces (rastros), que, juntos, formam a base da telemetria de dados em sistemas modernos. Embora não seja obrigatório implementar os três simultaneamente, a combinação desses elementos oferece uma visão abrangente e detalhada do estado e do desempenho das aplicações, permitindo identificar problemas, antecipar falhas e otimizar processos.
+Os logs são registros em formato de texto que documentam eventos em um sistema, variando de estruturados a não estruturados. Eles são essenciais para diagnosticar erros, monitorar a saúde de aplicações e infraestrutura, e identificar os padrões ou anomalias. Por exemplo, logs de empresas de transporte podem revelar atrasos em rotas ou ineficiências logísticas. No entanto o volume e a granularidade dos logs exigem estratégias de armazenamento e processamento eficientes, como agregação ou arquivamento de dados antigos, além do uso de ferramentas de mercado analíticas.</p>
+<p>Exemplo de mensagem de log bruta:
+<div class="highlight"><pre><span></span><code>Sep 20 08:01:13: &lt;10.0.0.10&gt; %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/5, changed to state to up
+</code></pre></div></p>
+<p>Exemplo de mensagem de log estruturada:
+<div class="highlight"><pre><span></span><code>{
+    “source_ip”: “10.0.0.10”,
+    “severity”: “5”,
+    “facility”: “LINEPROTO”,
+    “facility_process”: “UPDOWN”,
+    “message”: “Line protocol on Interface GigabitEthernet0/5, changed to state to up”
+}
+</code></pre></div></p>
+<p>As métricas, por sua vez, são valores numéricos que medem aspectos específicos de um sistema, organizados por dimensões como região, hardware ou identificador de máquina. Sua estrutura padronizada facilita o armazenamento, a análise e a geração de alertas baseados em limites pré-definidos. Métricas como o volume de café processado por uma máquina ou seu estado operacional permitem monitorar tendências ao longo do tempo, identificar gargalos e avaliar a capacidade do sistema. Ferramentas de mercado são comumente usadas para coletar e processar essas métricas, que são ideais para criar gráficos de séries temporais e analisar o desempenho de forma contínua.</p>
+<p>Formato de métrica do Prometheus</p>
+<p><img alt="" src="../img/observability/imagem7.png" /></p>
+<ul>
+<li>
+<p>Nome da métrica: interface_out_octets - Essa métrica representa o número de octetos (bytes) que foram enviados pela interface de rede. É uma métrica comum em monitoramento de tráfego de rede.</p>
+</li>
+<li>
+<p>Labels (rótulos): Esses rótulos ajudam a identificar de onde vem a métrica: device="spine1" → o nome do equipamento de rede (neste caso, um switch ou roteador chamado "spine1").
+interface="et-0/0/4" → a interface específica do dispositivo (porta física ou lógica).</p>
+</li>
+<li>
+<p>Valor: 70077 -    Esse é o valor da métrica naquele momento: 70077 octetos enviados pela interface et-0/0/4 do dispositivo spine1.</p>
+</li>
+<li>
+<p>Timestamp: @1675634055 - Esse número é um timestamp Unix, que representa o momento em que essa métrica foi coletada. 1675634055 corresponde a 05 de fevereiro de 2023, às 11:14:15 UTC.</p>
+</li>
+</ul>
+<p>Já os traces são cruciais para rastrear o fluxo de requisições em sistemas distribuídos, identificando onde e por que ocorrem problemas. Ao contrário dos logs, que registram eventos isolados, os traces conectam interações entre serviços por meio de identificadores únicos, permitindo mapear a jornada de uma transação desde sua origem até o destino. No entanto, sua implementação é desafiadora, especialmente em sistemas legados ou arquiteturas híbridas, onde </p>
+<p><img alt="" src="../img/observability/imagem2.png" /></p>
+<p>a falta de padronização pode resultar na perda de rastreabilidade. Ferramentas de APM (Application Performance Monitoring) e padrões de observabilidade – como o OpenTelemetry – facilitam a instrumentação de traces mas exigem coordenação entre equipes e adaptação de códigos ou infraestrutura.</p>
+<p>Uma transação completa é chamada de trace, operações singulares que formam uma transação são chamadas de span, então é seguro dizer que um ou mais spans formam um trace.</p>
+<p><img alt="" src="../img/observability/imagem3.png" /></p>
+<p>Além desses três pilares, a observabilidade também pode se utilizar de service views e CMDBs (Configuration Management Databases). As service views decompõem aplicações em seus componentes e dependências, oferecendo mapas que variam desde a experiência do usuário até a saúde de sistemas individuais. Esses mapas dão entendimento do fluxo de dados e o impacto de falhas em diferentes níveis, como a jornada do cliente ou a saúde de servidores em um ambiente de TI.
+O CMDB, por sua vez, é um repositório central que armazena metadados sobre itens de configuração (CIs) e seus relacionamentos. Ele permite identificar dependências entre componentes, priorizar a resolução de incidentes e automatizar processos, como atualizações de software, além de ser uma alternativa para a construção de mapas de serviço precisos e para a gestão eficiente de incidentes.
+Por fim os KPIs (Key Performance Indicators) são métricas quantificáveis que avaliam a saúde e o desempenho de sistemas e serviços. Eles podem variar desde indicadores técnicos, como latência e taxa de erros, até métricas de negócio, como satisfação do cliente ou taxa de conversão. É importante buscar definir KPIs universais que ajudam a monitorar a saúde agregada de serviços, independentemente da infraestrutura subjacente.</p>
+<h2 id="desafios-na-implementacao">Desafios na Implementação</h2>
+<p>A implementação da observabilidade em organizações modernas representa muito mais do que a simples adoção de novas ferramentas tecnológicas, configurando-se como um processo de transformação profunda que abrange desde a infraestrutura até a cultura organizacional. Embora seus benefícios – como maior estabilidade dos sistemas, confiabilidade aprimorada e automação inteligente – sejam inegáveis, a jornada para alcançá-los é repleta de desafios que exigem uma abordagem estratégica e integrada. Um dos principais obstáculos reside na complexidade inerente às arquiteturas contemporâneas, que combinam ambientes on-premises, nuvens públicas e privadas, microsserviços e containers. Essa diversidade gera um volume massivo de dados em alta velocidade, tornando difícil não apenas a coleta e o armazenamento, mas também a correlação desses dados para extrair insights acionáveis em tempo real. Sem uma estratégia clara para definir quais dados são relevantes, como serão armazenados e por quanto tempo, as organizações correm o risco de se afogar em informações irrelevantes, perdendo a capacidade de identificar problemas críticos.</p>
+<p>Além disso, a cultura organizacional frequentemente se torna uma barreira significativa. A observabilidade não pode ser tratada como um projeto isolado ou ume mera exigência de conformidade; ela demanda uma mudança de mentalidade, onde equipes de desenvolvimento, operações e gestão estejam verdadeiramente engajadas em uma cultura de melhoria contínua e tomada de decisão baseada em dados. A resistência à mudança, a falta de habilidades especializadas e a tendência de enxergar a observabilidade como um “acréscimo” – em vez de um componente essencial do ciclo de vida do desenvolvimento – são desafios que precisam ser superados. Para isso, é fundamental investir em treinamentos, promover a colaboração entre as equipes e demonstrar, por meio de casos de sucesso internos, o valor tangível que a observabilidade pode trazer para o dia a dia operacional.</p>
+<p>Outro ponto crítico é a necessidade de apoio executivo. Sem o comprometimento da alta liderança, a observabilidade dificilmente receberá os recursos e a priorização necessários para ser implementada com sucesso. Os executivos devem atuar como patrocinadores, alinhando a iniciativa aos objetivos estratégicos do negócio e garantindo que as equipes tenham o tempo e o espaço necessários para experimentar, aprender e aprimorar as soluções. Sem esse apoio, a observabilidade corre o risco de ser vista como um custo adicional, em vez de um investimento estratégico que pode impulsionar a inovação e a criatividade.</p>
+<p>A proliferação descontrolada de ferramentas também representa um desafio significativo. Muitas organizações acumulam dezenas de soluções de monitoramento, muitas vezes sobrepostas ou subutilizadas, o que gera custos desnecessários e fragmentação dos dados. Essa situação não apenas dificulta a obtenção de uma visão unificada dos sistemas, mas também sobrecarrega as equipes com a manutenção de múltiplas plataformas. </p>
+<p>A racionalização dessas ferramentas, com foco na integração e padronização, é um passo essencial para reduzir a complexidade operacional e melhorar a eficiência. </p>
+<p>A escolha deve priorizar soluções que sejam compatíveis com a stack tecnológica existente e capazes de compartilhar dados de forma fluida, evitando a criação de “ilhas de informação” que limitam a visibilidade e a colaboração.</p>
+<p>Por fim, medir o sucesso da observabilidade é um aspecto crucial para garantir seu apoio contínuo e justificar os investimentos realizados. Métricas tradicionais, como o tempo médio de detecção (MTTD) e o tempo médio de recuperação (MTTR), embora importantes, não são suficientes para capturar todo o valor gerado pela iniciativa. É necessário também avaliar o impacto na experiência do usuário, a redução de alertas falsos, a adoção de ferramentas pelas equipes e a capacidade de automação e autocura dos sistemas. Demonstrar esses resultados de maneira clara e contínua não apenas fortalece o caso de negócio para a observabilidade, mas também ajuda a construir uma cultura de melhoria contínua, onde os dados são usados para impulsionar decisões estratégias.</p>
+<h2 id="coleta-de-dados-para-provisionamento">Coleta de Dados para Provisionamento</h2>
+<p>A observabilidade, como motor essencial de gestão de TI, é fundamentalmente impulsionada pela coleta sistemática de dados – logs, métricas e traces – que transformam informações brutas em insights acionáveis e permitem decisões proativas. Para uma implementação eficaz, essa coleta de dados deve abranger três camadas distintas e interdependentes: infraestrutura, aplicação e serviço de negócio.</p>
+<p>Na camada de infraestrutura, o foco é a monitorização da saúde e desempenho de componentes como servidores, bases de dados e contêineres, através de métricas de CPU, memória e rede. Essa coleta, frequentemente realizada via agentes ou protocolos específicos, é crucial para identificar falhas, estabelecer alertas proativos com limiares adaptativos e auxiliar no planejamento de capacidade, permitindo isolar rapidamente problemas ou descartar questões relacionadas à infraestrutura.</p>
+<p>A camada de aplicação se concentra na saúde geral dos serviços e no cumprimento de SLAs/SLOs. Os dados são obtidos de logs detalhados, de plataformas de APM – que instrumentam o código para rastrear transações ponta a ponta, identificar gargalos e criar baselines de comportamento – e de telemetria, que oferece uma medição consciente de dados operacionais, muitas vezes integrada com AIOps para detecção automática de anomalias e melhoria da experiência do usuário.</p>
+<p>A terceira camada, de serviço de negócio, eleva a observabilidade ao adicionar o contexto empresarial. Ela monitora indicadores-chave de desempenho (KPIs) como volume de vendas e taxas de conversão, além da experiência do cliente, por meio de abordagens como Digital Experience Monitoring (DEM), Synthetic Transaction Monitoring (STM) e Real User Monitoring (RUM). Ferramentas como o OpenTelemetry padronizam o tracing da jornada do cliente ao utilizar trace-ids para correlacionar todas as funções de um serviço, mesmo em arquiteturas distribuídas e terceirizadas. </p>
+<p>Essa estrutura em camadas, que aumenta em complexidade e abrangência, é vital para construir um sistema de observabilidade maduro, garantindo que os dados não apenas mostrem o que estão acontecendo, mas também ofereçam a visibilidade necessária para o impacto no negócio e a proatividade operacional.</p>
+<h2 id="materializando-a-observabilidade">Materializando a Observabilidade</h2>
+<p>A observabilidade, consolidada na gestão de TI, materializa-se em dashboards, alertas e incidentes, resultados essenciais que transformam dados brutos em inteligência acionável e proativa.</p>
+<p>Os dashboards funcionam como representações visuais coletivas do ambiente de TI, exibindo desempenho de aplicações, métricas de negócio e experiência do cliente. Eles permitem analisar, rastrear e visualizar dados de forma eficaz. Podem ser estáticos ou interativos, oferecendo a funcionalidade de “drill down” para aprofundamento em métricas específicas. O valor de um dashboard depende diretamente da qualidade dos dados (logs, métricas, traces) e da capacidade do desenvolvedor em entender as necessidades do cliente, apresentando informações relevantes para o público específico. As equipes de aplicação são as principais responsáveis pela criação e manutenção dos dashboards, com apoio da equipe de observabilidade, sendo crucial a revisão e otimização periódica para evitar obsolescência. Importante notar que dashboards podem ser retidos e reutilizados de setups de monitoramento tradicionais ao migrar para a observabilidade.</p>
+<p>No entanto, dashboards são ferramentas passivas, exigindo monitoramento humano constante. É aqui que alertas e incidentes se tornam cruciais, notificando proativamente as equipes sobre problemas para que ações corretivas sejam tomadas antes que escalem. Um evento é a causa que ocorre no ambiente de TI. Um alerta é uma mensagem informativa ou proativa indica uma anomalia. Um incidente, por sua vez, sinaliza uma interrupção não planejada, seguindo processos ITIL. As ferramentas de observabilidade geram esses eventos que são convertidos em alertas ou incidentes por ferramentas de Gerenciamento de Serviços de TI (ITSM), com base na criticidade e impacto. A definição de alertas deve cobrir qualquer evento que requeira atenção, tanto técnico (erros, queda de throughput) quanto de negócio (queda nas vendas esperadas), utilizando KPIs como base. A frequência e os limiares dos alertas devem ser cuidadosamente definidos em conjunto com os especialistas da aplicação, considerando a tolerância do sistema e o tempo de resolução, evitando o excesso de notificação que consomem recursos e são ineficazes.</p>
+<p>A gestão de um grande volume de alertas e incidentes é um desafio. Para mitigar o “ruído”, empregam-se estratégias como a correlação de eventos ITSM, que identifica relacionamentos entre alertas para priorizar aqueles com maior impacto nos serviços. A supressão e estrangulamento de alertas/incidentes reduzem disparos repetitivos, usando regras baseadas em tempo, tipo ou fonte, e podem ser vinculadas a registros de gerenciamento de mudanças.  Além disso, a revisão e otimização regulares por parte das equipes operacionais são fundamentais para ajustar limiares, cobrir pontos cegos e calibrar modelos de machine learning para alertas preditivos.</p>
+<p>Arquitetura de Monitoramento AS-IS</p>
+<p><img alt="" src="../img/observability/imagem4.png" /></p>
+<p>A arquitetura atual parte de um gateway central, o APPGTW, – monitoracao.az.cloud.caixa –  que recebe todas as requisições de usuários e as distribui de forma inteligente entre três componentes críticos: o Grafana, responsável pela visualização de métricas; a API Web, – /ZabbixAPI/ – dedicada à automação; e a interface Web – /Zabbix/ – voltada ao controle humano. Essa convergência inicial assegura um ponto único de entrada para políticas de segurança e otimização de tráfego, estabelecendo o alicerce da plataforma.</p>
+<p>No fluxo interno o Grafana consulta três bancos de dados especializados em séries temporais, um PostgreSQL e um cache Nginx, combinando flexibilidade para consultas ad-hoc com baixa latência em leituras recorrentes. O cache Nginx, por sua vez, não só acelera a interface do Grafana como encaminha eventos de desempenho para o Azure Data Explorer (ADX). Paralelamente, a API Web e a interface Web direcionam solicitações ao Zabbix, que é o verdadeiro núcleo da monitoração de infraestrutura. Embora o Zabbix não tenha sido originalmente projetado para lidar com telemetria visual, alertas e incidentes, ele cumpre esse papel, sendo responsável por gerar imagens de estado, disparar alertas e registrar eventos críticos. Em conjunto com o Prometheus, que pode atuar como coletor complementar, o Zabbix forma a espinha dorsal do monitoramento de infraestrutura.</p>
+<p>A coleta de dados é distribuída por meio de quatro servidores ou VMs que enviam informações a quatro proxies Zabbix distintos. Esses proxies, por sua vez, encaminham os dados ao Zabbix, essa separação de responsabilidades e a adoção de proxies Zabbix garantem modularidade e resiliência: cada segmento pode falhar ou ser escalado de forma independente, sem comprometer o sistema como um todo. A partir do Zabbix, os dados são armazenados em um banco PostgreSQL dedicado e, também, enviados ao ADX que assume a responsabilidade pela análise da camada de aplicação. Por ser um banco de dados semelhante ao não relacional, o ADX é ideal para processar grandes volumes de logs, eventos e métricas de forma flexível e performática.</p>
+<p>Além disso, o ADX recebe dados de múltiplas fontes externas, como Event Hubs de AzAPIM, APIM, Azion e logs HTTP, consolidando informações que vão além da infraestrutura e abrangem o comportamento das aplicações. Essa separação de responsabilidade entre Zabbix e ADX é estratégica, pois permite que cada ferramenta opere dentro da sua especialidade, sem sobrecarregar ou comprometer a eficiência do sistema. </p>
+<p>A crescente complexidade dos sistemas de tecnologia da informação exige uma transformação profunda na forma de montagem e gerenciamento de ambientes digitais. A arquitetura AS-IS baseada exclusivamente em monitoramento, embora tenha sido eficaz em contextos menos dinâmicos, mostra-se insuficiente diante das demandas atuais. Nesse cenário, torna-se imperativo migrar para uma arquitetura de observabilidade proativa, capaz de antecipar falhas, correlacionar eventos complexos e promover ações preventivas.</p>
+<p>O monitoramento atual limita-se a detectar falhas e emitir alertas, sem oferecer contexto suficiente para entender a causa dos problemas. Essa abordagem reativa compromete a agilidade das equipes e aumenta o tempo de resposta a incidentes. Em contraste, a observabilidade — especialmente em seus níveis mais avançados — permite uma análise mais profunda do comportamento dos sistemas, utilizando métricas, logs e rastreamentos para identificar padrões e inferir causas. A evolução para a observabilidade causal, por exemplo, já representa um avanço significativo ao correlacionar eventos e mudanças na topologia da infraestrutura, reduzindo o tempo de diagnóstico.</p>
+<p>No entanto, é com a adoção da observabilidade proativa, apoiada por tecnologias de AIOps (Operações Inteligentes Assistidas por IA), que se alcança o verdadeiro potencial da gestão moderna de sistemas. Ao aplicar inteligência artificial e machine learning sobre grandes volumes de dados, essa arquitetura TO-BE permite detectar anomalias precocemente, prever falhas e automatizar respostas. Isso não apenas melhora a confiabilidade dos sistemas, mas também libera as equipes para focarem em inovação, em vez de apenas resolução de problemas.</p>
+<h2 id="arquitetura-de-observabilidade-to-be">Arquitetura de Observabilidade TO-BE</h2>
+<p><img alt="" src="../img/observability/imagem5.png" /></p>
+<p>Este diagrama de arquitetura é dividido em dois grupos lógicos, cada um cercado por uma linha tracejada separada. O primeiro grupo representa a geração de telemetria. A telemetria a partir de pilhas de aplicativos abrange tanto software quanto infraestrutura.</p>
+<p>O segundo grupo representa a tecnologia para a coleta e compreensão de dados de telemetria. Os fluxos de dados entre o grupo Telemetria de Observabilidade e o Coletor de Telemetria representam dados brutos coletados de fontes de telemetria. Os fluxos de dados entre recursos/componentes dentro do grupo Solução de Observabilidade representam dados de telemetria processados. O processamento de dados de telemetria pode ocorrer em um ou mais pontos ao longo do caminho do fluxo de dados, começando com o Coletor de Telemetria.</p>
+<p>As caixas com tampa preta representam os recursos fundamentais necessários para a observabilidade de software. Cada capacidade possui diversos subcomponentes que oferecem suporte à capacidade/componente abrangente.</p>
+<p>Os dois endpoints representam usuários e sistemas, que interagem ou recebem dados gerados por meio da observabilidade de software. O fluxo de dados entre o grupo de Soluções de Observabilidade e as equipes de DevOps, SRE ou operação representa o entendimento obtido a partir das interações do usuário com os dados de telemetria. O fluxo de dados entre o grupo de Soluções de Observabilidade e AIOps, gerenciamento de operações de TI (ITOM) ou gerenciamento de serviços de TI (ITSM) representa eventos detectados e enviados a esses endpoints.</p>
+<p>A instrumentação a nível de código gera telemetria sobre o estado ou performance de uma aplicação. O código pode ser instrumentalizado manualmente através do uso de um Software Development Kit (SDK) com uma API ou agente, ou instrumentalizado automaticamente através de bibliotecas de software, agentes ou operadores.</p>
+<p>A instrumentação do kernel fornece visibilidade de baixo nível do sistema operacional com uso de módulos do kernel ou eBPF. Um módulo do kernel é um código que estende as funções do kernel conforme necessário. O eBPF é uma tecnologia que permite a execução segura de programas em sandbox dentro do kernel, sem a necessidade de alterações no código-fonte do kernel. Ferramentas e soluções que utilizam a instrumentação do kernel podem gerar dados de telemetria de observabilidade tanto do kernel quanto do espaço do usuário.</p>
+<p>A visibilidade da infraestrutura utiliza um conjunto de métodos e tecnologias para entender como a integridade e o desempenho da infraestrutura podem impactar uma aplicação suportada. Os agentes normalmente residem na infraestrutura ou próximo a ela e executam ações que geram telemetria, eles coletam e encaminham essa telemetria para um endpoint de coleta. Os exportadores integram-se à infraestrutura e aos sistemas para expor a telemetria por meio de métodos push ou pull para coleta. Os encaminhadores coletam a telemetria e a repassam para um endpoint de coleta, normalmente possuem recursos de processamento para suportar a transformação de dados de telemetria para ingestão do coletor.</p>
+<p>Coletores de telemetria enviam ou recebem dados de telemetria de software ou infraestrutura instrumentalizada. Coletores guardam temporariamente, processam e exportam telemetria para endpoints. Eles devem ser implantados como mecanismos que encaminham telemetria para o core da solução, ou como um kit de funções interno ao core.</p>
+<p>Armazenadores de dados de telemetria são bases de dados ou repositórios de soluções. Como em qualquer decisão de armazenamento, a escolha varia baseada em requisitos de volume, tipo, performance e custo. Bases de dados relacionais são suportadas por muitas plataformas tradicionais e continuam a ser um pilar para analytics. Bases de dados não relacionais suportam um bom número de casos de uso, especialmente os de grande volume e de dados dinâmicos. Bases de dados especializadas são desenhadas para suportar uma atividade particular ou tipo de dado. No contexto da observabilidade, bases de dados especiais incluem aquelas com suporte a buscas (logs) e séries temporais (métricas).</p>
+<p>Análise de telemetria dão suporte a compreensão da saúde e performance dos sistemas e softwares. A consulta (Query) da telemetria permite que os times de operações determinem a causa raiz dos incidentes. Programadores podem aproveitar os dados de telemetria para dar suporte à resolução de problemas, aumentar performance ou testar o impacto de mudanças e atualizações. Profissionais de qualidade do sistema podem utilizar analytics para entender a arquitetura e necessidade de recursos de aplicações distribuídas. A análise de telemetria pode também enriquecer o monitoramento existente com um contexto adicional da resolução do problema.</p>
+<p>A visualização de telemetria assiste a compreensão da telemetria através de gráficos, histogramas, mapas de calor, relatórios e outras representações. Visualizações podem incluir telemetria bruta ou agregada, medidas ou KPIs e podem ser geradas sob demanda (ad-hoc) durante a análise da causa raiz com utilização de dashboards de tempo real, ou em relatórios para análise histórica.
+Princípios e Padrões da Arquitetura:</p>
+<ul>
+<li>Automatizar Instrumentação — Reduzir a sobrecarga de desenvolvimento escolhendo a autoinstrumentação para o código de software.</li>
+<li>Aplicar Instrumentação no Kernel — Fechar lacunas de observabilidade com ampla cobertura implementando instrumentação no kernel.</li>
+<li>Coletar Telemetria da Infraestrutura — Enriquecer os dados de observabilidade do software coletando telemetria da infraestrutura de suporte.</li>
+<li>Centralidade na Experiência do Usuário — Implementar uma solução que priorize a experiência do usuário, oferecendo interfaces intuitivas, respostas rápidas e insights acionáveis para facilitar a tomada de decisão.</li>
+<li>Otimizar o Número de Coletores — Simplificar a arquitetura de observabilidade com coletores que ingerem múltiplos tipos e fontes de telemetria.</li>
+<li>Garantir Visibilidade Fim-a-Fim — Adote uma solução que forneça observabilidade completa, da aplicação ao mainframe, sem depender de integrações com ferramentas de terceiros, incluindo visão de negócio e correlação de eventos para conectar métricas técnicas aos impactos nos processos corporativos.</li>
+<li>Adotar Especificações Padrão de Dados — Aumentar a qualidade e a usabilidade dos dados processando-os com uma especificação aberta e padronizada.</li>
+<li>Reduzir Custos de Armazenamento — Reduzir os custos de armazenamento com repositórios de dados que abordem os desafios de volume e escala da telemetria.</li>
+<li>Implementar Tracing Distribuído — Garantir rastreamento detalhado de transações e chamadas entre serviços em arquiteturas distribuídas, permitindo identificar gargalos, dependências e pontos de falha com precisão.</li>
+<li>Correlacionar Telemetria — Permitir a compreensão analisando dados com uma solução capaz de correlacionar múltiplos tipos de telemetria.</li>
+<li>Aproveitar Visualizações — Esclarecer a importância dos dados por meio de visualizações e dashboards.</li>
+<li>Unificar Coleta e Análise em uma Plataforma — Centralizar a coleta, processamento e análise de telemetria em uma única solução para reduzir complexidade, evitar silos e acelerar insights.</li>
+</ul>
+<h2 id="caso-de-uso-evoluindo-do-monitoramento-para-a-observabilidade">Caso de Uso: Evoluindo do Monitoramento para a Observabilidade</h2>
+<p>A transformação digital no setor financeiro exige muito mais do que garantir que sistemas estejam disponíveis; é necessário assegurar que eles entreguem uma experiência consistente e de alta qualidade para clientes e colaboradores. Nesse cenário, uma instituição financeira percebeu que o monitoramento tradicional, focado apenas em indicadores técnicos, não era suficiente para atender às demandas de um ambiente cada vez mais complexo e orientado ao usuário. Para superar essa limitação, a instituição adotou uma abordagem inovadora, estruturando uma arquitetura de observabilidade centrada na experiência e nos resultados de negócio. Conforme destacado por Amol Nadkarni no estudo Case Study: Evolve Infrastructure Monitoring to Observability, publicado pela Gartner em 21 de outubro de 2024, essa mudança permitiu a evolução de um modelo reativo para uma prática proativa e preditiva, conectando métricas técnicas ao impacto real no negócio. </p>
+<p>As jornadas digitais em instituições financeiras são altamente complexas, envolvendo múltiplos sistemas e tecnologias. Uma única operação, como solicitar um crédito ou realizar uma transferência, pode atravessar aplicativos móveis, APIs, microsserviços e, finalmente, subsistemas críticos do mainframe. Sem tracing distribuído, essa cadeia de execução fica parcialmente invisível, dificultando a identificação precisa de gargalos ou falhas que impactam diretamente a experiência do cliente. </p>
+<p>Para responder à pergunta “quão bem o sistema está funcionando”, não basta saber se ele está disponível; é necessário correlacionar cada etapa da jornada do usuário. Isso inclui medir tempos de resposta no aplicativo, latência nas APIs e, no caso da CAIXA, execução em CICS e IMS, e consultas ao DB2. Essa correlação ponta a ponta é fundamental para conectar métricas técnicas ao impacto real no negócio, permitindo que equipes de produto e infraestrutura atuem de forma integrada para garantir SLOs.  </p>
+<p>A visibilidade completa proporcionada pelo tracing distribuído é um habilitador para automação e redução do tempo médio de recuperação (MTTR). Com dados detalhados de cada transação, é possível aplicar inteligência artificial e AIOps para realizar análises de causa raiz, identificar padrões e executar remediações automáticas. Essa capacidade foi essencial para a empresa reduzir seu MTTR em 45% e aumentar a automação na resolução de incidentes, tornando a operação mais proativa e eficiente. </p>
+<p><img alt="" src="../img/observability/imagem6.png" /></p>
+<p>Garantir SLOs que reflitam a experiência real do cliente é impossível sem tracing distribuído fim-a-fim. Se uma transação demora, por exemplo, cinco segundos porque um sistema está sobrecarregado, isso impacta diretamente indicadores como NPS e satisfação do usuário. O tracing distribuído permite que esses problemas sejam detectados e corrigidos rapidamente, alinhando a performance técnica aos objetivos estratégicos do negócio. </p>
+<h2 id="historico-da-revisao">Histórico da revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>05/12/2025</td>
+<td>1</td>
+<td>Criação da Arquitetura de Referência.</td>
+<td>Pedro Paulo Souza Silva Júnior</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../departamental/solucoes_existentes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Soluções Existentes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Soluções Existentes
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../js/medium-zoom.js"></script>
+      
+        <script src="../js/site.js"></script>
+      
+    
+  </body>
+</html>

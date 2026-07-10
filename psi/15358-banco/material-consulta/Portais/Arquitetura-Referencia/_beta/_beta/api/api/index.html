@@ -1,0 +1,5106 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Visão Geral - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apis" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="../../../latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão Geral
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/ilha-de-digitalizacao/" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telecom/telecom/" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../observabilidade/" class="md-tabs__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Visão Geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Visão Geral
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+    <nav class="md-nav" aria-label="Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-padrao-rest" class="md-nav__link">
+    O Padrão REST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-padrao-rest-na-caixa" class="md-nav__link">
+    O Padrão REST na CAIXA
+  </a>
+  
+    <nav class="md-nav" aria-label="O Padrão REST na CAIXA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-padronizada-e-inteligivel" class="md-nav__link">
+    URL Padronizada e Inteligível
+  </a>
+  
+    <nav class="md-nav" aria-label="URL Padronizada e Inteligível">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-negocio" class="md-nav__link">
+    Domínio de negócio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-e-colecoes" class="md-nav__link">
+    Recursos e Coleções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versao" class="md-nav__link">
+    Versão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo-canonico-e-apis-canonicas" class="md-nav__link">
+    Modelo Canônico e APIS Canônicas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-correto-dos-metodos-http" class="md-nav__link">
+    Uso correto dos Métodos HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso correto dos Métodos HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-excecao" class="md-nav__link">
+    Casos de exceção
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis-rest-vs-apis-rpc" class="md-nav__link">
+    APIs REST vs APIs RPC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-query-strings" class="md-nav__link">
+    Uso de Query Strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso de Query Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros" class="md-nav__link">
+    Filtros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conteudo-parcial" class="md-nav__link">
+    Conteúdo Parcial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    Paginação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenacao" class="md-nav__link">
+    Ordenação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-retorno-de-dados" class="md-nav__link">
+    Tipo de Retorno de Dados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-status-http" class="md-nav__link">
+    Códigos de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-de-requisicoes" class="md-nav__link">
+    Limites de Requisições
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-cache" class="md-nav__link">
+    Uso de Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypermedia" class="md-nav__link">
+    Hypermedia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-governanca-de-apis" class="md-nav__link">
+    Boas Práticas de Governança de APIs
+  </a>
+  
+    <nav class="md-nav" aria-label="Boas Práticas de Governança de APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-de-sandbox" class="md-nav__link">
+    Ambiente de Sandbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-de-health-check" class="md-nav__link">
+    Endpoint de Health Check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguranca" class="md-nav__link">
+    Segurança
+  </a>
+  
+    <nav class="md-nav" aria-label="Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cors-cross-origin-resource-sharing" class="md-nav__link">
+    CORS (Cross-Origin Resource Sharing)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilizacao-de-ssl" class="md-nav__link">
+    Utilização de SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controle-de-acesso" class="md-nav__link">
+    Controle de Acesso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-das-apis" class="md-nav__link">
+    Documentação das APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swagger/" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monolito/" class="md-nav__link">
+        Aplicações Monoliticas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quarkus/" class="md-nav__link">
+        Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/cofre-senhas-quarkus/" class="md-nav__link">
+        Secrets como Arquivos no Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_1" type="checkbox" id="__nav_2_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_1">
+          Sigle Page Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sigle Page Applications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Sigle Page Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_2" type="checkbox" id="__nav_2_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_2">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          Processamento Batch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Processamento Batch" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Processamento Batch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/batch/" class="md-nav__link">
+        Aplicações Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/" class="md-nav__link">
+        Spring Batch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15_1" type="checkbox" id="__nav_2_15_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_15_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/ilha-de-digitalizacao/" class="md-nav__link">
+        Ilha de Digitalização
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos_nuvem/" class="md-nav__link">
+        Transmissão de Arquivos para Nuvem Pública
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" type="checkbox" id="__nav_3_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_4" type="checkbox" id="__nav_3_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sharepoint/" class="md-nav__link">
+        Sharepoint
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/intelvpro/" class="md-nav__link">
+        Intel V Pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/autopilot/" class="md-nav__link">
+        Windows Autopilot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/nosql/" class="md-nav__link">
+        Quando usar NoSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2" type="checkbox" id="__nav_6_2_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2_3" type="checkbox" id="__nav_6_2_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_3" type="checkbox" id="__nav_6_2_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_3">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cosmosdb/" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/categorizacao_de_dados/categorizacao-dados-bronze-prata-ouro/" class="md-nav__link">
+        Categorização de Dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/categorizacao_de_dados/anexo_I-especificacao_do_arquivo_do_processo_de_carga_do_data_lake/" class="md-nav__link">
+        Categorização de Dados - Anexo I - Especificação do arquivo do processo de carga do data lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/telecom/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/switching_datacenter/" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede1/" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede2/" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede3/" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede4/" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede5/" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede6/" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede7/" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede-local/" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/financeira/" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/webproxy/" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/call_center_nuvem/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/wifi/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/Balanceamento/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/interconexoes_multicloud/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/sdwan/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/contact/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/micro/" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/mesa-operacoes/" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/solucoes_existentes/" class="md-nav__link">
+        Soluções Existentes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Observabilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observabilidade" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Observabilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../observabilidade/" class="md-nav__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+    <nav class="md-nav" aria-label="Introdução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-padrao-rest" class="md-nav__link">
+    O Padrão REST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-padrao-rest-na-caixa" class="md-nav__link">
+    O Padrão REST na CAIXA
+  </a>
+  
+    <nav class="md-nav" aria-label="O Padrão REST na CAIXA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-padronizada-e-inteligivel" class="md-nav__link">
+    URL Padronizada e Inteligível
+  </a>
+  
+    <nav class="md-nav" aria-label="URL Padronizada e Inteligível">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dominio-de-negocio" class="md-nav__link">
+    Domínio de negócio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursos-e-colecoes" class="md-nav__link">
+    Recursos e Coleções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versao" class="md-nav__link">
+    Versão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo-canonico-e-apis-canonicas" class="md-nav__link">
+    Modelo Canônico e APIS Canônicas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-correto-dos-metodos-http" class="md-nav__link">
+    Uso correto dos Métodos HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso correto dos Métodos HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-excecao" class="md-nav__link">
+    Casos de exceção
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis-rest-vs-apis-rpc" class="md-nav__link">
+    APIs REST vs APIs RPC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-query-strings" class="md-nav__link">
+    Uso de Query Strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso de Query Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros" class="md-nav__link">
+    Filtros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conteudo-parcial" class="md-nav__link">
+    Conteúdo Parcial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paginacao" class="md-nav__link">
+    Paginação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenacao" class="md-nav__link">
+    Ordenação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-retorno-de-dados" class="md-nav__link">
+    Tipo de Retorno de Dados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-status-http" class="md-nav__link">
+    Códigos de Status HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-de-requisicoes" class="md-nav__link">
+    Limites de Requisições
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-cache" class="md-nav__link">
+    Uso de Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypermedia" class="md-nav__link">
+    Hypermedia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boas-praticas-de-governanca-de-apis" class="md-nav__link">
+    Boas Práticas de Governança de APIs
+  </a>
+  
+    <nav class="md-nav" aria-label="Boas Práticas de Governança de APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ambiente-de-sandbox" class="md-nav__link">
+    Ambiente de Sandbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endpoint-de-health-check" class="md-nav__link">
+    Endpoint de Health Check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguranca" class="md-nav__link">
+    Segurança
+  </a>
+  
+    <nav class="md-nav" aria-label="Segurança">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cors-cross-origin-resource-sharing" class="md-nav__link">
+    CORS (Cross-Origin Resource Sharing)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilizacao-de-ssl" class="md-nav__link">
+    Utilização de SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controle-de-acesso" class="md-nav__link">
+    Controle de Acesso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacao-das-apis" class="md-nav__link">
+    Documentação das APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="apis">API's</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Uma Web API é um tipo de serviço (web service) que é exposto utilizando basicamente o protocolo HTTP.</p>
+<p>Portanto, o protocolo HTTP é o alicerce das Web APIs, o que significa que durante o design de uma API, devemos lidar com todos os aspectos do protocolo.</p>
+<p>O padrão arquitetural que utiliza o protocolo HTTP para o desenvolvimento de Web APIs é chamado de REST (Representational State Transfer) e as APIs desenvolvidas utilizando esse padrão arquitetural são chamadas de APIs REST.</p>
+<p>O termo RESTful é relacionado à aderência da API ao padrão REST.</p>
+<p>A seguir serão descritos os principais padrões e melhores práticas que envolvem o desenvolvimento de APIs REST.</p>
+<h3 id="o-padrao-rest">O Padrão REST</h3>
+<p>A Representational State Transfer (REST), em português Transferência de Estado Representacional, é um estilo de arquitetura que define um conjunto de restrições e propriedades baseados em HTTP.</p>
+<p>Em web services compatíveis com REST, como as APIs RESTful, os componentes do protocolo HTTP (URL, métodos, códigos de status e cabeçalhos) são usados de forma semântica para acessar e manipular recursos expostos na Web.</p>
+<p>Outros tipos de web services, como web services SOAP, expõem seus próprios conjuntos arbitrários de operações.</p>
+<p>O termo REST foi apresentado no ano de 2000 por Roy Fielding, um dos principais autores da especificação do protocolo HTTP, em uma tese de doutorado (PHD) na UC Irvine.</p>
+<p>Você pode ler mais sobre a tese de Roy Fielding <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">aqui</a>.</p>
+<h2 id="o-padrao-rest-na-caixa">O Padrão REST na CAIXA</h2>
+<p>Para o desenvolvimento de APIs REST na CAIXA, foi adotado grande parte do modelo de Roy Fielding, porém, como de praxe na web, algumas definições foram flexibilizadas ou ignoradas para ficarem mais próximas à realidade da empresa.</p>
+<p>A seguir vamos detalhar as características que as APIs REST da CAIXA devem ter para atender aos padrões de qualidade esperados.</p>
+<h3 id="url-padronizada-e-inteligivel">URL Padronizada e Inteligível</h3>
+<p>A definição da URL é uma das partes mais importantes do design de uma API, pois boa parte do entendimento de como a API funciona pode ser obtido interpretando a sua URL.</p>
+<p>Portanto, a URL deve expressar de maneira clara quais recursos estão sendo acessados e de que forma eles são manipulados.</p>
+<p>Em uma API REST, a URL pode ser dividida em 4 componentes:</p>
+<ul>
+<li>HOST: É o endereço onde está hospedada a API. É importante que uma organização tenha um host dedicado para suas APIs.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p><strong>http://api.caixa</strong><br />
+<strong>https://api.caixa.gov.br</strong></p>
+</div>
+<ul>
+<li>BASE PATH: Representa o domínio de negócio da API, permitindo que a API seja agrupada e organizada. </li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p>http://api.caixa/<strong>loterias</strong><br />
+https://api.caixa.gov.br/<strong>habitacao</strong></p>
+</div>
+<ul>
+<li>PATHS: Representam os recursos disponibilizados pela API.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p>http://api.caixa/loterias/<strong>resultados</strong><br />
+https://api.caixa.gov.br/habitacao/<strong>contratos</strong></p>
+</div>
+<ul>
+<li>QUERY STRING: São utilizadas para enviar parâmetros nas requisições.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p>http://api.caixa/loterias/resultados/mega-sena<strong>?concurso=2569</strong><br />
+https://api.caixa.gov.br/habitacao/contratos<strong>?cpf=00100200344</strong></p>
+</div>
+<h4 id="dominio-de-negocio">Domínio de negócio</h4>
+<p>É importante que a URL tenha um domínio de negócio que permita agrupar e organizar as APIs de forma coerente.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p>https://api.caixa/<strong>cartao-credito</strong>/faturas<br />
+https://api.caixa/<strong>cadastro</strong>/clientes</p>
+</div>
+<p>Algumas APIs podem ter sub-domínios para melhorar a organização e a compreensão da sua finalidade.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplos</p>
+<p>https://api.caixa/<strong>seguranca/gestao-senhas</strong><br />
+https://api.caixa/<strong>seguranca/criptografia-senhas</strong></p>
+</div>
+<h4 id="recursos-e-colecoes">Recursos e Coleções</h4>
+<p>Uma API REST vai estar sempre manipulando ou consultando recursos/itens de uma coleção/lista e a URL deve representar essas coleções de recursos por meio de substantivos concretos. Por se tratar de uma coleção, os recursos devem ser representados sempre no plural.</p>
+<p>Por exemplo, uma API que trata da consulta e manipulação de clientes, deve apresentar em sua URL a coleção <strong>clientes</strong> como sendo um recurso.</p>
+<div class="admonition example">
+<p>https://api.caixa/<strong>cadastro/clientes</strong></p>
+</div>
+<p>O acesso um recurso de uma coleção na URL deve seguir o formato “coleção/item”, onde item é um identificador único para um determinado recurso de uma coleção.</p>
+<div class="admonition example">
+<p>.../credito-comercial/consignado/<strong>contratos/{id-contrato}</strong><br />
+.../cadastro/<strong>clientes/{id-cliente}</strong></p>
+</div>
+<p>O conceito de coleções para uma API REST vai além da questão semântica. Ao realizar uma consulta (GET) em uma URI de coleção sem identificar um recurso específico, devemos obter uma lista de itens dessa coleção.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<p><strong>GET</strong><br />
+https://api.caixa/cadastro/clientes</p>
+</div>
+<p>Essa consulta deveria retornar uma lista dos clientes da coleção. Posteriormente serão abordados os mecanismos para filtrar ou organizar os resultados da consulta de uma lista.</p>
+<p>Assim como na orientação a objetos ou em um modelo relacional de dados, os recursos podem estar relacionados a outros recursos, bem como um recurso pode ser dividido em sub-recursos.</p>
+<p>Ainda no exemplo anterior, um determinado cliente de uma coleção pode ter associado a ele uma coleção de <strong>endereços</strong> ou <strong>rendas</strong>.</p>
+<div class="admonition example">
+<p>https://api.caixa/<strong>cadastro/clientes/{id-cliente}/enderecos/{id-endereco}</strong><br />
+https://api.caixa/<strong>cadastro/clientes/{id-cliente}/rendas/{id-renda}</strong></p>
+</div>
+<p>O conjunto de recursos e sub-recursos de uma API é chamado de árvore de recursos. A árvore de recursos é uma diagrama que mostra como os recursos se relacionam e são acessados na URL. A construção dessa árvore de recursos é umas das atividades mais importantes da etapade design da API e deve ser feita com a devida atenção, pois impacta diretamente na qualidade da API.</p>
+<p>A seguir temos um exemplo de árvore da recursos para clientes:</p>
+<div class="admonition example">
+<p>clientes/{id_cliente}<br />
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/endereços/{id_endereco}<br />
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;/rendas/{id_renda}  </p>
+</div>
+<p>Para nomes compostos de recursos ou atributos na URL, deve-se utilizar o padrão <strong>spinal-case</strong> ou, caso exista algum impedimento, utilizar o padrão <strong>cramcase</strong>. A sintaxe das URL deve seguir a <strong>RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax</strong>.</p>
+<h4 id="versao">Versão</h4>
+<p>Outro componente importante da URL é a versão da API.</p>
+<p>Dentre as diversas formas de se controlar a versão de uma API, a Caixa optou por usar o versionamento na URL, por ser a forma mais utilizada atualmente no mercado, porém, cabe ressaltar que existem outras abordagens para essa funcionalidade.</p>
+<p>As APIs devem ser publicadas com um número de versão, pois o versionamento proporciona iterações mais rápidas, evita pedidos inválidos e mantém endpoints atualizados, além de permitir que as aplicações mais antigas consumam as primeiras versões da API e continuem funcionando corretamente.</p>
+<p>As versões devem utilizar números inteiros prefixados com 'v', como por exemplo: v1, v2, v3. O uso de versões fracionadas deve ser evitado e a versão só deve ser incrementada se houver mudança na interface. A versão da API deve ser independente da versão do provedor do serviço, seja ele uma aplicação Java ou um fluxo no Barramento de Serviços.</p>
+<p>Alguns projetos necessitam de versionamento a nível de recurso, podendo a API ter o mesmo recurso em versões diferente.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<p>.../loterias/<strong>v1</strong>/resultados/mega-sena<br />
+.../cadastro/<strong>v1</strong>/clientes<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;/<strong>v2</strong>/clientes</p>
+</div>
+<h3 id="modelo-canonico-e-apis-canonicas">Modelo Canônico e APIS Canônicas</h3>
+<p>Os recursos de uma API precisam ter uma representação ou modelo com seus atributos e relacionamentos muito bem definidos.</p>
+<p>Um recurso que é definido de forma global e completa dentro de uma organização de modo que seus atributos possam ser reconhecidos por qualquer aplicação possui o que chamamos de <strong>modelo canônico</strong>. Um recurso não pode ter mais de um modelo canônico.</p>
+<p>Em outras palavras, ter um modelo canônico para o recurso cliente, significa que em qualquer lugar onde a entidade cliente for referenciada ela deve ter os mesmos atributos, com os mesmo nomes e os mesmos relacionamentos.</p>
+<p>Cabe ressaltar que o modelo canônico não precisa ter uma relação direta com o modelo de dados onde o recurso é persistido.</p>
+<p>Da mesma forma, uma <strong>API canônica</strong> é aquela capaz de prover o acesso aos seus recursos de forma global, contemplando todos os cenários de utilização dos seus clientes de forma versátil, sem que haja a necessidade de criação de versões “customizadas” para atender particularidades de alguns consumidores.</p>
+<p>Por exemplo, uma API de pagamento de boleto mantida por mais de um sistema, com modelos canônicos e árvores de recursos distintos não pode ser considerada uma API canônica.</p>
+<h3 id="uso-correto-dos-metodos-http">Uso correto dos Métodos HTTP</h3>
+<p>Uma vez que as APIs na maioria dos casos representam recursos em vez de ações, devemos utilizar os verbos ou métodos HTTP para operar esses recursos. Os métodos HTTP permitem atribuir operações de CRUD (Create, Read, Update e Delete) aos recursos.</p>
+<p>Dentro do universo de métodos HTTP, os mais utilizados para as APIs são os seguintes:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Método HTTP</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td>Método utilizado para consultar uma lista ou um recurso específico, podendo encaminhar na URL da requisição filtros para recuperação dos dados.</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td>Método utilizado para incluir um recurso em uma coleção. Os dados do recurso a ser criado podem ser passados na URL como parâmetros ou no corpo da requisição em formatos como JSON, XML e outros.</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td>Método usado para atualizar um recurso específico. O corpo da requisição contém uma representação do registro podendo estar em formatos como XML, JSON e outros.</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>Método utilizado para excluir um recurso específico ou uma lista.</td>
+</tr>
+<tr>
+<td><strong>OPTIONS</strong></td>
+<td>Método utilizado para consultar ao servidor quais os métodos, cabeçalhos e origens aceitas para uma determinada API. Muito utilizado em requisições cross-origin (CORS).</td>
+</tr>
+<tr>
+<td><strong>HEAD</strong></td>
+<td>Método utilizado para consultar a disponibilidade de um recurso, sem retornar seus dados.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="casos-de-excecao">Casos de exceção</h4>
+<p>Apesar do padrão REST preconizar o uso dos métodos HTTP para representar as operações, existem casos em que será necessário adequar o modelo para atender alguma necessidade específica.</p>
+<p>Um exemplo muito comum que foge à regra é uma API de login que, além de conter um verbo na sua URL, ainda precisa utilizar o método POST para passar os dados sensíveis de autenticação dentro do corpo da requisição.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**POST**  
+https://api.caixa/login-caixa/v1/login  
+{  
+“usuário”:”x”,  
+”senha”:”y”  
+}
+</code></pre></div>
+</div>
+<p>Outra necessidade de utilização de métodos HTTP diferente do indicado é nos casos em que uma consulta precisa ser feita com um identificador ou filtro que contenha informações sensíveis. Nesse caso, deve-se utilizar o método POST, indicar na URL a ação que pretende fazer e passar os dados sensíveis no corpo da requisição.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**POST**  
+https://api.caixa/cartao-credito/v1/faturas/consultar  
+{  
+“numero-cartao”:”9999.9999.9999.9999”,  
+“mes”:”01”,  
+“ano”:”2017”  
+}
+</code></pre></div>
+</div>
+<p>É importante que nesses casos utilizemos o verbo no infinitivo para indicar a ação: <strong>consultar, cadastrar, excluir, transferir.</strong></p>
+<div class="admonition attention">
+<p class="admonition-title">ATENÇÃO:</p>
+<div class="highlight"><pre><span></span><code>É necessário consultar um designer de API para verificar se seu recurso pode ser enquadrado em um caso de exceção ou se é necessário se adequar aos verbos HTTP conforme padrão.
+</code></pre></div>
+</div>
+<h4 id="apis-rest-vs-apis-rpc">APIs REST vs APIs RPC</h4>
+<p>Existem outros padrões de desenvolvimento de APIs além do padrão REST. Dentre esses, o mais comum é o RPC (Remote Procedure Call).</p>
+<p>APIs RPC surgiram como uma alternativa aos Web Services SOAP, porém, sem abrir mão da orientação a operações. Elas utilizam verbos representando funções nas URLs e basicamente os métodos GET e POST.</p>
+<p>Em um exemplo prático, uma consulta de um cliente em chamada RPC seria:</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**POST**  
+https://api.caixa/cadastro/v1/**consultarCliente**  
+Body:  
+{  
+&quot;cpf&quot;:&quot;10020030088&quot;  
+}
+</code></pre></div>
+</div>
+<p>A mesma função sendo chamada em uma API REST:</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<p><strong>GET</strong><br />
+    https://api.caixa/cadastro/v1/clientes/10020030088 </p>
+</div>
+<p>Ao analisar o padrão de API REST, o verbo HTTP utilizado nos mostra qual a intenção do usuário e a URL mostra o recurso ligado a esta ação.</p>
+<p>Para deixar mais claro as diferenças entre os padrões vamos analisar mais alguns exemplos:</p>
+<div class="admonition example">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">API RPC</label><div class="tabbed-content">
+<p><strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>incluirCliente</strong><br />
+Body:<br />
+{<br />
+“cpf”:”10020030088”,<br />
+“nome”:“João”,<br />
+“data-nascimento”:“1990-01-01”<br />
+}</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">API REST</label><div class="tabbed-content">
+<p><strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>clientes</strong><br />
+Body:<br />
+{<br />
+“cpf”:”10020030088”,<br />
+“nome”:“João”,<br />
+“data-nascimento”:“1990-01-01”<br />
+}</p>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">API RPC</label><div class="tabbed-content">
+<p><strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>alterarCliente</strong><br />
+Body:<br />
+{<br />
+“cpf”:”10020030088”,<br />
+“nome”:“João da Silva”,<br />
+“data-nascimento”:“1990-01-01”<br />
+}</p>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">API REST</label><div class="tabbed-content">
+<p><strong>PUT</strong><br />
+https://api.caixa/cadastro/v1/<strong>clientes/10020030088</strong><br />
+Body:<br />
+{<br />
+“nome”:“João”,<br />
+“data-nascimento”:“1990-01-01”<br />
+} </p>
+</div>
+</div>
+</div>
+<p>Analisando um cenário onde aplicamos o modelo CRUD para clientes, teríamos as seguintes URLs para as API RPC e REST:</p>
+<div class="admonition example">
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">API RPC</label><div class="tabbed-content">
+<p><strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>incluirCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>consultarCliente</strong><br />
+<strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>alterarCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>excluirCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>listarClientes</strong></p>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">API REST</label><div class="tabbed-content">
+<p>https://api.caixa/cadastro/v1/clientes<br />
+&emsp;&emsp;(incluir:<strong>POST</strong>, listar:<strong>GET</strong>)<br />
+https://api.caixa/cadastro/v1/clientes/<strong>00100200344</strong><br />
+&emsp;&emsp;(consultar:<strong>GET</strong>, alterar:<strong>PUT</strong>, excluir:<strong>DELETE</strong>)</p>
+</div>
+</div>
+</div>
+<p>O padrão REST define uma forma intuitiva de interação com a coleção de clientes, permitindo que tenhamos apenas 2 URLs para atender as 5 operações propostas. Além disso, o desenvolvedor não precisa saber quais nomes foram dados para as operações, pois o uso dos métodos HTTP em conjunto com as coleções torna-se intuitivo na medida que conhecemos o padrão.</p>
+<p>Uma API REST ainda permite que o desenvolvedor navegue pela árvore de recursos explorando sub-recursos de forma igualmente intuitiva.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">API RPC</label><div class="tabbed-content">
+<p><strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>incluirTelefoneCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>consultarTelefoneCliente</strong><br />
+<strong>POST</strong><br />
+https://api.caixa/cadastro/v1/<strong>alterarTelefoneCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>excluirTelefoneCliente</strong><br />
+<strong>POST/GET</strong><br />
+https://api.caixa/cadastro/v1/<strong>listarTelefoneCliente</strong></p>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">API REST</label><div class="tabbed-content">
+<p>https://api.caixa/cadastro/v1/clientes/<strong>00100200344/telefones</strong><br />
+&emsp;&emsp;(incluir:<strong>POST</strong>, listar:<strong>GET</strong>)<br />
+https://api.caixa/cadastro/v1/clientes/<strong>00100200344/telefones/001</strong><br />
+&emsp;&emsp;(consultar:<strong>GET</strong>, alterar:<strong>PUT</strong>, excluir:<strong>DELETE</strong>)</p>
+</div>
+</div>
+</div>
+<p>Aqui podemos notar, o padrão REST é muito mais simples, intuitivo e inteligível, reduzindo a curva de aprendizado dos desenvolvedores que vão consumir o serviço.</p>
+<p>Essa simplicidade e a grande popularidade do padrão REST no mercado, fez com que a CAIXA adotasse esse padrão para a exposição e consumo de APIs.</p>
+<h3 id="uso-de-query-strings">Uso de Query Strings</h3>
+<p>As query strings são componentes importantes das APIs, permitindo a inserção de parâmetros que podem ser utilizados em diferentes situações.</p>
+<p>É caracterizada pelo sinal de interrogação ao final da URI e o uso de &amp; para adicionar mais parâmetros à requisição:</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>https://api.caixa/{domínio-de-negócio}/{versão}/{coleção}**?parametro1={valor1}&amp;parametro2={valor2}**
+</code></pre></div>
+</div>
+<p>Query strings podem ter diversas funções em uma API REST, como veremos a seguir.</p>
+<h4 id="filtros">Filtros</h4>
+<p>Em APIs de consulta, os filtros possibilitam que apenas os registros necessários para a aplicação consumidora sejam trafegados.</p>
+<p>É possível filtrar uma lista por vários atributos ao mesmo tempo e filtrar mais de um valor para um atributo.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>http://api.caixa/informacoes/v1/unidades**?uf=DF,MG&amp;penhor=sim**
+</code></pre></div>
+</div>
+<h4 id="conteudo-parcial">Conteúdo Parcial</h4>
+<p>A função de trazer conteúdo parcial é uma das mais importantes de uma query string, pois permite ao cliente de nossa API limitar o tráfego de informação apenas ao que ele precisa.</p>
+<p>Nesse caso é comum o uso de uma variável chamada “fields” nas APIs de mercado. Aqui na CAIXA, decidimos por usar essa mesma variável, em sua tradução para o português: campos.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>https://api.caixa/cadastro/v1/clientes/id_cliente**?campos=nome,idade**
+</code></pre></div>
+</div>
+<p>Nos casos em que um recurso possui muitos atributos, devemos permitir a consulta de conteúdo parcial.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**GET**  
+https://api.caixa/corporativo/v1/unidades/5404**?campos=nome,sigla,uf**
+&lt;br&gt;  
+HTTP 200 OK  
+{  
+“nome”:”ARQUITETURAS DE TI”,  
+”sigla”:”GEARQ”,  
+“uf”:”DF”  
+}
+</code></pre></div>
+</div>
+<p>Em alguns casos, podemos prover conteúdo parcial com base em grupos de atributos. Essa abordagem diminui a complexidade de implementação da API.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**GET**  
+https://api.caixa/cadastro/v1/clientes/11122233344**?campos=dados-basicos**  
+&lt;br&gt;
+HTTP 200 OK  
+{  
+“dados-basicos”:  
+    &amp;emsp;&amp;emsp;{  
+    &amp;emsp;&amp;emsp;“nome”:”João da Silva”,  
+    &amp;emsp;&amp;emsp;”data-nascimento”:”25-12-1980”,  
+    &amp;emsp;&amp;emsp;“nome-mae”:”Maria da Silva”  
+    &amp;emsp;&amp;emsp;}  
+}
+</code></pre></div>
+</div>
+<h4 id="paginacao">Paginação</h4>
+<p>A paginação de resultados é uma opção quando o volume de registros de uma consulta for muito grande.</p>
+<p>Para a paginação, deve-se utilizar os parâmetros <strong>offset</strong> e <strong>limit</strong>, onde offset representa o índice do primeiro elemento da lista e limit a quantidade de elementos a serem retornados na lista.</p>
+<p>A resposta da API para uma lista paginada poderá utilizar o status HTTP <strong>206 – Partial Content</strong>. É importante que a resposta também contenha referências para a página anterior e a próxima página.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**GET**  
+http://api.caixa/informacoes/v1/unidades?limit=3  
+&lt;br&gt;
+HTTP 206 OK  
+{  
+“unidades”:  
+&amp;emsp;[  
+&amp;emsp;{&quot;Codigo&quot;:&quot;0002&quot;,&quot;nome&quot;:&quot;PLANALTO, DF&quot;},  
+&amp;emsp;{&quot;Codigo&quot;:&quot;0003&quot;,&quot;nome&quot;:&quot;AEROPORTO PRESIDENTE JK, DF&quot;},  
+&amp;emsp;{&quot;Codigo&quot;:&quot;0004&quot;,&quot;nome&quot;:&quot;BERNARDO SAYAO, DF&quot;}  
+&amp;emsp;],
+</code></pre></div>
+<p>“paginacao”:<br />
+    &emsp;{<br />
+    &emsp;“count”:100,<br />
+    &emsp;“next”:”http://api.caixa/v1/unidades?offset=3,limit=3”<br />
+    &emsp;}<br />
+    }</p>
+</div>
+<h4 id="ordenacao">Ordenação</h4>
+<p>Deve-se evitar o uso de ordenação no servidor e dar preferência, sempre que possível, para que a ordenação dos resultados seja feita no cliente.</p>
+<p>Caso seja necessária a implementação de ordenação de resultados no servidor, deve-se usar os parâmetros <strong>sort</strong> e <strong>desc</strong>, onde sort contém o nome do atributo usado para ordenar a lista e desc indica que a ordem será descendente ou decrescente (por padrão a ordem é ascendente ou crescente).</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>https://api.caixa/cadastro/v1/clientes**?sort=nome**
+</code></pre></div>
+</div>
+<h3 id="tipo-de-retorno-de-dados">Tipo de Retorno de Dados</h3>
+<p>Uma API pode trocar mensagens em qualquer formato suportado pelo protocolo HTTP, porém o formato JSON é o formato mais utilizado por ser mais leve, menos verborrágico e mais aderente ao padrão de documentação.</p>
+<p>Na CAIXA, o formato padrão é o JSON, mas por questões de compatibilidade, uma API pode ser capaz de responder em mais de um formato (como o XML).</p>
+<p>Para definir o tipo de dados que a API deverá retornar a partir de uma requisição, o cliente deverá passar o cabeçalho <strong>Accept</strong> na requisição com o tipo de retorno que o mesmo deseja (<strong>application/xml</strong> ou <strong>text/xml</strong> para o tipo de retorno XML ou <strong>application/json</strong> para o tipo de retorno JSON). Caso o tipo de dado informado pelo cliente não seja suportado pela API, deve-se retornar o código de status HTTP <strong>415 - Unsupported Media Type</strong> ou <strong>400 – Bad Request</strong> e se o cabeçalho não for informado deve-se retornar o formato JSON por padrão.</p>
+<p>Na resposta da requisição é necessário informar no cabeçalho <strong>Content-Type</strong> o tipo da resposta que a API está enviando.</p>
+<h3 id="codigos-de-status-http">Códigos de Status HTTP</h3>
+<p>As respostas devem incluir, além da mensagem, o código de status HTTP de acordo com o tipo de resposta.</p>
+<p>O uso correto de códigos de status nas respostas ajuda os desenvolvedores de aplicações, portanto, evite utilizar o status 200 para todos os tipos de resposta. Por outro lado, muitos códigos de status podem aumentar a complexidade da API desnecessariamente.</p>
+<p>Em respostas com erro, sempre complemente o status com mensagens de retorno explicativas.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>HTTP 400 Bad Request  
+{  
+“msg_erro”:”o formato de mensagem solicitado não é suportado”  
+}
+</code></pre></div>
+</div>
+<p>Utilize os três grupos de códigos de resposta para indicar: sucesso (2xx), falha devido a algum problema do lado do cliente (4xx) ou falha devido a algum problema do lado do servidor (5xx). A seguir são listados os códigos HTTP mais comuns:</p>
+<table>
+<thead>
+<tr>
+<th>Código de Status<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sucesso</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>200 - OK</td>
+<td>Código de sucesso geral. Pode ser utilizado em qualquer situação bem                                         sucedida.</td>
+</tr>
+<tr>
+<td>201 - Created</td>
+<td>Indica que um recurso foi criado. Usado como resposta para uma requisição                                    POST.</td>
+</tr>
+<tr>
+<td>204 – No Content</td>
+<td>A requisição teve sucesso, mas não existe mensagem de resposta. Geralmente                                   usado após uma requisição de DELETE.</td>
+</tr>
+<tr>
+<td>206 – Partial Content</td>
+<td>A resposta está incompleta. Usada com lista de recursos paginada.</td>
+</tr>
+<tr>
+<td><strong>Erro do Cliente</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>400 – Bad Request</td>
+<td>Código de erro geral, causado por uma requisição feita de maneira indevida.</td>
+</tr>
+<tr>
+<td>401 – Unauthorized</td>
+<td>Cliente/usuário não reconhecido. Utilizado quando a requisição para uma API                                  protegida não contém uma credencial ou contém uma credencial inválida.</td>
+</tr>
+<tr>
+<td>403 – Forbidden</td>
+<td>O cliente/usuário informado não possui os privilégios necessários para                                       acessar o recurso.</td>
+</tr>
+<tr>
+<td>404 – Not Found</td>
+<td>O recurso solicitado não existe.</td>
+</tr>
+<tr>
+<td>415 – Unsupported Media Type</td>
+<td>O tipo de dado solicitado não é suportado pela API.</td>
+</tr>
+<tr>
+<td>429 – Too Many Requests</td>
+<td>O usuário atingiu o limite de requisições.</td>
+</tr>
+<tr>
+<td><strong>Erro do Servidor</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>500 – Internal Server Error</td>
+<td>A requisição está formatada corretamente, mas um problema ocorreu no                                         servidor.</td>
+</tr>
+</tbody>
+</table>
+<p>Os códigos de status as serem utilizados devem ser definidos durante o design da API de acordo com a necessidade e as características das aplicações consumidoras.</p>
+<h3 id="limites-de-requisicoes">Limites de Requisições</h3>
+<p>As informações sobre os limites de requisições e contagem total definidas para uma API ou cliente devem estar disponíveis para os consumidores/clientes.</p>
+<p>Caso um cliente extrapole o limite de requisições definido para uma determinada API, o servidor deve retornar o status HTTP <strong>429 - Too Many Requests.</strong> O servidor poderá retornar no header <strong>(Retry-After)</strong> o número de segundos que se deve esperar até realizar a próxima requisição.</p>
+<h3 id="uso-de-cache">Uso de Cache</h3>
+<p>Dependendo do tipo de requisição e da periodicidade da atualização dos dados, podemos utilizar soluções de cache para evitar requisições desnecessárias ao backend ou ao banco de dados, diminuindo, assim, o tempo de resposta da API.</p>
+<p>O cache deve ser utilizado apenas em requisições de consulta e o tempo de validade do cache dependerá da validade da informação no backend. A chave de registro do cache (identificador único da requisição) deve ser a URL de requisição, contendo todos os seus elementos (host, path e query string).</p>
+<p>Algumas soluções de API Management possuem recurso de cache nativo, o que diminui o volume de consultas ao backend quando ativado.</p>
+<h3 id="hypermedia">Hypermedia</h3>
+<p>A API poderá oferecer links de hypermedia para facilitar a descoberta de recursos e operações por parte dos clientes. Cada chamada para a API pode retornar no corpo da mensagem de resposta todos os possíveis estados da aplicação a partir do estado atual.</p>
+<p>HATEOAS (Hypermedia as the Engine of Application State) é o estilo arquitetural que define como implementar o uso de links em APIs REST.</p>
+<p>Para implementar, links pode-se utilizar as anotações de Link da <strong>RFC5988</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**GET**  
+https://api.caixa/cadastro/v1/clientes/002  
+&lt;br&gt;
+HTTP 200 OK  
+{  
+“cliente”:  
+    &amp;emsp;{  
+    &amp;emsp;&quot;id&quot;:&quot;002&quot;,  
+    &amp;emsp;&quot;firstname&quot;:&quot; Ana&quot;  
+    &amp;emsp;},  
+“links”:  
+    &amp;emsp;[  
+        &amp;emsp;&amp;emsp;{  
+        &amp;emsp;&amp;emsp;“href”:“https://api.caixa/cadastro/v1/clientes/002/enderecos”,  
+        &amp;emsp;&amp;emsp;“rel”:”endereços”  
+        &amp;emsp;&amp;emsp;}  
+    &amp;emsp;]  
+}
+</code></pre></div>
+</div>
+<h2 id="boas-praticas-de-governanca-de-apis">Boas Práticas de Governança de APIs</h2>
+<h3 id="ambiente-de-sandbox">Ambiente de Sandbox</h3>
+<p>Tão importante quanto o ambiente de produção de uma API é o ambiente de não produção (sandbox), pois é nesse ambiente que todos os desenvolvedores de aplicações consumidoras vão conectar suas aplicações durante as fases de implementação.</p>
+<p>O ambiente de sandbox é caminho crítico do desenvolvimento das aplicações e, portanto, precisa ter as seguintes características:</p>
+<ul>
+<li>
+<p>Possuir alta disponibilidade, de forma que as equipes possam desenvolver, testar e homologar suas aplicações a qualquer momento.</p>
+</li>
+<li>
+<p>Ser consistente, ou seja, as características de uma determinada versão de uma API em sandbox (árvore de recursos, mensagens, códigos de status etc.) devem ser as mesmas no ambiente de produção, de forma que os desenvolvedores tenham segurança durante o processo de implementação e implantação.</p>
+</li>
+</ul>
+<p>Dessa forma, não é recomendada a publicação de uma API de sandbox a partir do seu ambiente de desenvolvimento, pois trata-se de um ambiente sujeito a indisponibilidade e a inconsistência.</p>
+<p>Na Caixa, recomendamos a utilização do ambiente de homologação (HMP) para a publicação das APIs de sandbox, por ser um ambiente consistente, mas é importante que esse ambiente se mantenha disponível.</p>
+<p>Dependendo da criticidade da API, poderá ser criado um ambiente específico para o sandbox, utilizando, inclusive, a infraestrutura de produção.</p>
+<h3 id="endpoint-de-health-check">Endpoint de Health Check</h3>
+<p>Uma boa prática para no desenvolvimento de APIs é a inclusão de um endpoint de <strong>health check</strong> que permita que, tanto aplicações consumidoras, quanto ferramentas de monitoração possam verificar a saúde da API a atuar de forma mais rápida na resolução de problemas.</p>
+<p>É importante que o endpoint de health check implemente a verificação dos itens mais críticos da infraestrutura da API antes de responder com a situação do serviço.</p>
+<p>O path <strong>/health</strong> deve ser utilizado de forma padronizada para todas as APIs, de forma a facilitar a descoberta pelas ferramentas de monitoração.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>**GET**  
+https://api.caixa/cadastro/**health**
+</code></pre></div>
+</div>
+<p>Alguns frameworks também utilizam os endpoints <strong>/live</strong> e <strong>/ready</strong>, que tem finalidades distintas e que podem ser utilizados em conjunto com o endpoint de health check.</p>
+<h2 id="seguranca">Segurança</h2>
+<h3 id="cors-cross-origin-resource-sharing">CORS (Cross-Origin Resource Sharing)</h3>
+<p>Uma política de mesma origem <strong>(same-origin policy)</strong> é uma restrição que tem como objetivo impedir que aplicações Web pertencentes a um determinado domínio façam requisições para um recurso em outro domínio.</p>
+<p>Os navegadores web possuem essa restrição, portanto, aplicações Web ou Móveis que utilizam AJAX para acessar APIs Web de outros domínios não irão funcionar a menos que as APIs implementem o padrão CORS. O CORS (Cross-Origin Resource Sharing) é um padrão W3C que permite que o servidor flexibilize o acesso aos seus recursos oriundos de outras origens.</p>
+<p>Durante o fluxo do CORS, a aplicação encaminha uma pré-requisição para a API utilizando método HTTP OPTIONS e informando a origem, os cabeçalhos e o método HTTP da requisição original. Para tal, são utilizados os cabeçalhos HTTP <strong>Origin, Access-Control-Request-Headers</strong> e <strong>Access-Control-Request-Method</strong>, respectivamente.</p>
+<p>Do outro lado, o provedor da API deve tratar a requisição e responder com as origens, cabeçalhos e métodos autorizados utilizando os cabeçalhos HTTP <strong>Access-Control-Allow-Origin, Access-Control-Allow-Headers</strong> e <strong>Access-Control-Allow-Methods</strong>, respectivamente.</p>
+<p>Caso todos os aspectos da requisição original sejam autorizados, a requisição é finalmente encaminhada para o provedor da API.</p>
+<p>No acesso às APIs que são expostas por meio de gateways de APIs, como é o caso do API Manager na Caixa, o uso de CORS não será permitido, pois o seu uso pode expor chaves de acesso e demais componentes de segurança utilizados para autorizar a aplicação cliente junto ao gateway.</p>
+<h3 id="utilizacao-de-ssl">Utilização de SSL</h3>
+<p>Ao usar SSL, que é uma comunicação criptografada, simplificam-se os esforços de autenticação sendo possível trabalhar com tokens de acesso simples ao invés de ter que assinar ou criptografar as mensagens a cada solicitação à API.</p>
+<p>É importante que os desenvolvedores de aplicações consumidoras das APIs estejam cientes das implicações de se utilizar SSL, como por exemplo, a necessidade de importação dos certificados do servidor de API para dentro da aplicação consumidora.</p>
+<h3 id="controle-de-acesso">Controle de Acesso</h3>
+<p>Caso a API seja de acesso restrito, deve-se utilizar mecanismos de segurança para controlar o acesso aos recursos.</p>
+<p>O protocolo a ser utilizado para a segurança das API é o <strong>OAuth2 (Open Authentication)</strong>, que trabalha com tokens de acesso no formato <strong>JWT (JSON Web Token)</strong>.</p>
+<p>Cada requisição deve conter no cabeçalho HTTP <strong>Authorization</strong> um token que foi concedido ao cliente por um provedor de identidade mediante autenticação prévia.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>Authorization Bearer YHD678983GHJGKUD.GDUKHDIYHDTUYTKHGA.JASTYUDAJDG
+</code></pre></div>
+</div>
+<p>O provedor do recurso deve ser capaz de validar os tokens internamente (assinatura, data de expiração, emissor, aplicação cliente e usuário) ou pode submeter o token recebido para ser validado no provedor de identidade que o emitiu.</p>
+<p>Caso o cliente faça uma requisição para um recurso protegido sem o token ou com um token inválido, o servidor deve retornar o status <strong>HTTP 401 – Unauthorized</strong>. Caso o token seja válido, porém o usuário informado não tem acesso ao recurso, o servidor deve retornar o status HTTP <strong>403 – Forbidden</strong>.</p>
+<p>Como alternativa à utilização do protocolo oAuth2, poderá ser usado o tipo Basic. Nesse caso, cada requisição deve conter no cabeçalho HTTP Authorization o usuário e a senha. O usuário e a senha devem estar entre chaves, concatenados por “:” (dois pontos) e convertidos para Base64, conforme abaixo:</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>Authorization Basic Base64({usuario}:{senha})
+</code></pre></div>
+</div>
+<p>O uso de autenticação do tipo Basic não é recomendado e deve ser destinada apenas para identificação de usuário de serviço e nunca com usuário e senha de pessoas.</p>
+<p>Outra forma de identificação das aplicações consumidoras das APIs é por meio de API Key, as quais são fornecidas e geridas por uma solução de API Management. Geralmente as API Keys trafegam dentro do cabeçalho HTTP Apikey.</p>
+<h2 id="documentacao-das-apis">Documentação das APIs</h2>
+<p>A documentação é parte essencial de uma API, pois permite que usuários e desenvolvedores possam conhecer e se engajar mais facilmente com ela.</p>
+<p>Ela deve ser fácil de encontrar, de acesso público e conter exemplos completos de utilização (requisição/resposta).</p>
+<p>O padrão a ser adotado para documentar as APIs é o OpenAPI, mas conhecido como Swagger. Análogo ao WSDL e XSD, o padrão Swagger define uma notação para documentar APIs RESTful.</p>
+<p>O padrão OpenAPI é mantido pelo consórcio OAI (OpenAPI Initiative), sob coordenação da Linux Foundation e atualmente está na versão 3.0.</p>
+<p>Um documento OpenAPI pode ser escrito no formato JSON ou YAML e a sua estrutura deve conter:</p>
+<ul>
+<li>Informações básicas da API – <strong>info</strong></li>
+<li>Localização – <strong>host</strong></li>
+<li>Protocolo – <strong>schemes</strong></li>
+<li>Caminho base/domínio de negócio – <strong>basePath</strong></li>
+<li>Recursos – <strong>paths</strong></li>
+<li>Modelos de Dados – <strong>definitions</strong></li>
+<li>Etiquetas – <strong>tags</strong></li>
+</ul>
+<p>Detalhamento das especificações pode ser encontrado em <a href="http://spec.openapis.org/oas/v3.0.3">http://spec.openapis.org/oas/v3.0.3</a> e a sua leitura é extremamente recomendada.</p>
+<p>Por ser um padrão adotado em amplamente pelo mercado, existem ferramentas que geram uma visão amigável e interativa de uma API a partir de um documento Swagger, além de editores que auxiliam na construção do documento.</p>
+<p>A CAIXA disponibiliza uma ferramenta interativa para a criação dos documentos no formato OpenAPI. A ferramenta, disponível em <a href="https://design.portalapi.caixa/dashboard">https://design.portalapi.caixa/dashboard</a>, permite a edição simultânea, o compartilhamento de documentos, a geração de código fonte e vários outros recursos.</p>
+<p>Algumas linguagens e IDEs também permitem a geração de documentos a partir do código fonte da API. Um exemplo é a especificação JSR 311 - JAX-RS <a href="http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html">http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html</a>, que permite ao desenvolvedor implementar APIs Web em Java de maneira fácil e ainda documenta-las no padrão Swagger.</p>
+<p>A seguir temos um exemplo de documento Swagger no formato YAML:</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<div class="highlight"><pre><span></span><code>Info:  
+    &amp;emsp;title: API de Loterias  
+    &amp;emsp;description: API para a aposta de loterias  
+    &amp;emsp;version: &#39;1.0.0&#39;  
+    &amp;emsp;termsOfService: https:\\api.caixa\terms  
+    &amp;emsp;contact:  
+        &amp;emsp;&amp;emsp;name: Fulano de Tal  
+        &amp;emsp;&amp;emsp;email: apicaixa@caixa.gov.br  
+host: api.caixa  
+basePath: loterias/v1  
+schemes:  
+    &amp;emsp;- https  
+consumes:  
+    &amp;emsp;- application/json  
+produces:  
+    &amp;emsp;- application/json  
+paths:  
+    &amp;emsp;/mega_sena:  
+        &amp;emsp;&amp;emsp;post:  
+                &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;summary: Incluir uma aposta de mega-sena  
+        &amp;emsp;&amp;emsp;consumes:  
+            &amp;emsp;&amp;emsp;&amp;emsp;- application/json  
+        &amp;emsp;&amp;emsp;produces:  
+            &amp;emsp;&amp;emsp;&amp;emsp;- application/json  
+            &amp;emsp;&amp;emsp;&amp;emsp;- application/xml  
+        &amp;emsp;&amp;emsp;parameters:  
+            &amp;emsp;&amp;emsp;&amp;emsp;- in: body  
+            &amp;emsp;&amp;emsp;&amp;emsp;name: body  
+            &amp;emsp;&amp;emsp;&amp;emsp;schema:  
+                &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;$ref: “#/definitions/mega-sena”  
+        &amp;emsp;&amp;emsp;responses:  
+            &amp;emsp;&amp;emsp;&amp;emsp;&#39;200&#39;:  
+                &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;description: Aposta incluída  
+            &amp;emsp;&amp;emsp;&amp;emsp;‘400’:  
+                &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;description: Parâmetros de aposta inválidos  
+definitions:
+    &amp;emsp;mega-sena: 
+        &amp;emsp;&amp;emsp;type: object  
+        &amp;emsp;&amp;emsp;properties:  
+        &amp;emsp;&amp;emsp;qtde-numeros:  
+            &amp;emsp;&amp;emsp;&amp;emsp;type: int  
+        &amp;emsp;&amp;emsp;numero:  
+            &amp;emsp;&amp;emsp;&amp;emsp;type: int
+</code></pre></div>
+</div>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>Web API Design. Acesso em Março de 2017, disponível em:<a href="https://pages.apigee.com/rs/351-WXY-166/images/ebook-2013-03-wad.pdf">https://pages.apigee.com/rs/351-WXY-166/images/ebook-2013-03-wad.pdf</a></li>
+<li>API Facade Pattern. Acesso em Março de2017, disponível em: <a href="https://pages.apigee.com/rs/351-WXY-166/images/api-facade-pattern-ebook-2012-06.pdf">https://pages.apigee.com/rs/351-WXY-166/images/api-facade-pattern-ebook-2012-06.pdf</a></li>
+<li>A World About Microservice Architectures and SOA. Acesso em Março de 2017, disponível em: <a href="http://soacommunity.com/index.php/magazine/articles/236-articles-microservicesweir">http://soacommunity.com/index.php/magazine/articles/236-articles-microservicesweir</a></li>
+<li>Projeto de API RESTful – OCTO Guia de Referência Rápida. Acesso em Abril de 2017, disponível em: <a href="http://blog.octo.com/wp-content/uploads/2015/12/RESTful-API-design-OCTO-Quick-Reference-Card-PT-2.3.pdf">http://blog.octo.com/wp-content/uploads/2015/12/RESTful-API-design-OCTO-Quick-Reference-Card-PT-2.3.pdf</a></li>
+<li>Projetando uma API REST. Acesso em Abril de 2017, disponível em : <a href="http://blog.octo.com/pt-br/projetando-uma-api-rest/">http://blog.octo.com/pt-br/projetando-uma-api-rest/</a></li>
+<li>Web Link. Acesso em Abril de 2017 disponível em: <a href="https://tools.ietf.org/html/rfc5988">https://tools.ietf.org/html/rfc5988</a></li>
+<li>Swagger Specification. Acesso em Abril de 2017, disponível em: <a href="http://swagger.io/specification/">http://swagger.io/specification/</a></li>
+<li>Editor Swagger. Acesso em Abril de 2017, disponível em: <a href="http://editor.swagger.io">http://editor.swagger.io</a></li>
+<li>REST API Tutorial. Acesso em Dezembro de 2017, disponível em: <a href="http://restapitutorial.com">http://restapitutorial.com</a></li>
+</ul>
+<h2 id="historico-da-revisao">Histórico da Revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22/03/2017</td>
+<td>0.1</td>
+<td>Criação do documento</td>
+<td>ARQDIGITAL</td>
+</tr>
+<tr>
+<td>03/04/2017</td>
+<td>0.2</td>
+<td>Revisão</td>
+<td>ARQDIGITAL</td>
+</tr>
+<tr>
+<td>06/04/2017</td>
+<td>0.3</td>
+<td>Revisão</td>
+<td>ARQDIGITAL</td>
+</tr>
+<tr>
+<td>18/04/2017</td>
+<td>1.0</td>
+<td>Versão Final</td>
+<td>ARQDIGITAL</td>
+</tr>
+<tr>
+<td>28/12/2017</td>
+<td>1.1</td>
+<td>Revisão, inclusão e detalhamento dos padrões</td>
+<td>César Lima Piau</td>
+</tr>
+<tr>
+<td>26/10/2018</td>
+<td>2.0</td>
+<td>Reformulação do documento</td>
+<td>GEARQ</td>
+</tr>
+<tr>
+<td>16/06/2020</td>
+<td>2.1</td>
+<td>Inclusão boas práticas, revisões e atualizações</td>
+<td>César Lima Piau</td>
+</tr>
+<tr>
+<td>29/09/2021</td>
+<td>2.2</td>
+<td>Inclusão do arquétipo de Open API</td>
+<td>Élvis Elias</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Nomes e códigos seguem a RFC 7231 do IETF <a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../../notas-versao/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Notas da versão" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Notas da versão
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../swagger/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Swagger" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Swagger
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

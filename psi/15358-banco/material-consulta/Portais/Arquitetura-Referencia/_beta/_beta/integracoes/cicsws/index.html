@@ -1,0 +1,4993 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>CICS WS - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cics-ws" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="../../../latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CICS WS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/" class="md-tabs__link md-tabs__link--active">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/ilha-de-digitalizacao/" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telecom/telecom/" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../observabilidade/" class="md-tabs__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integracoes/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CICS WS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CICS WS
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-criar-pastas-no-zos-unix-jcl" class="md-nav__link">
+    1) CRIAR PASTAS no z/OS UNIX (JCL)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-criar-book-request-e-response" class="md-nav__link">
+    2) CRIAR BOOK REQUEST E RESPONSE
+  </a>
+  
+    <nav class="md-nav" aria-label="2) CRIAR BOOK REQUEST E RESPONSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-books" class="md-nav__link">
+    CRIAR BOOKS
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIAR BOOKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-book-legado" class="md-nav__link">
+    Exemplo book legado:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-criar-transacao-cics-associada-ao-dfhpidsh" class="md-nav__link">
+    3) CRIAR TRANSAÇÃO CICS ASSOCIADA AO DFHPIDSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-criar-pipeline" class="md-nav__link">
+    4) CRIAR PIPELINE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-criar-e-executar-jcl-dfhls2ws" class="md-nav__link">
+    5) CRIAR E EXECUTAR JCL DFHLS2WS
+  </a>
+  
+    <nav class="md-nav" aria-label="5) CRIAR E EXECUTAR JCL DFHLS2WS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-criar-o-jcl-dfhls2ws" class="md-nav__link">
+    5.1) Criar o JCL DFHLS2WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-executar-o-jcl-dfhls2ws" class="md-nav__link">
+    5.2) Executar o JCL DFHLS2WS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instalar-webservice" class="md-nav__link">
+    6) INSTALAR WEBSERVICE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-testar-wsdl" class="md-nav__link">
+    7) TESTAR WSDL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-testar-webservice-no-soapui" class="md-nav__link">
+    8) TESTAR WEBSERVICE NO SOAPUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-plataforma-distribuida-java" class="md-nav__link">
+    9) PLATAFORMA DISTRIBUÍDA JAVA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-usuario-de-servico" class="md-nav__link">
+    10) USUÁRIO DE SERVIÇO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-infra" class="md-nav__link">
+    11) INFRA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-de-referencia" class="md-nav__link">
+    MATERIAL DE REFERÊNCIA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../monolito/" class="md-nav__link">
+        Aplicações Monoliticas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quarkus/" class="md-nav__link">
+        Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/cofre-senhas-quarkus/" class="md-nav__link">
+        Secrets como Arquivos no Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_1" type="checkbox" id="__nav_2_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_1">
+          Sigle Page Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sigle Page Applications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Sigle Page Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_2" type="checkbox" id="__nav_2_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_2">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          Processamento Batch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Processamento Batch" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Processamento Batch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/batch/" class="md-nav__link">
+        Aplicações Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/" class="md-nav__link">
+        Spring Batch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15_1" type="checkbox" id="__nav_2_15_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_15_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/ilha-de-digitalizacao/" class="md-nav__link">
+        Ilha de Digitalização
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos_nuvem/" class="md-nav__link">
+        Transmissão de Arquivos para Nuvem Pública
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" type="checkbox" id="__nav_3_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_4" type="checkbox" id="__nav_3_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sharepoint/" class="md-nav__link">
+        Sharepoint
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/intelvpro/" class="md-nav__link">
+        Intel V Pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/autopilot/" class="md-nav__link">
+        Windows Autopilot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/nosql/" class="md-nav__link">
+        Quando usar NoSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2" type="checkbox" id="__nav_6_2_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2_3" type="checkbox" id="__nav_6_2_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_3" type="checkbox" id="__nav_6_2_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_3">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cosmosdb/" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/categorizacao_de_dados/categorizacao-dados-bronze-prata-ouro/" class="md-nav__link">
+        Categorização de Dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/categorizacao_de_dados/anexo_I-especificacao_do_arquivo_do_processo_de_carga_do_data_lake/" class="md-nav__link">
+        Categorização de Dados - Anexo I - Especificação do arquivo do processo de carga do data lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/telecom/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/switching_datacenter/" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede1/" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede2/" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede3/" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede4/" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede5/" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede6/" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede7/" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede-local/" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/financeira/" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/webproxy/" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/call_center_nuvem/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/wifi/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/Balanceamento/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/interconexoes_multicloud/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/sdwan/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/contact/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/micro/" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/mesa-operacoes/" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/solucoes_existentes/" class="md-nav__link">
+        Soluções Existentes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Observabilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observabilidade" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Observabilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../observabilidade/" class="md-nav__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-criar-pastas-no-zos-unix-jcl" class="md-nav__link">
+    1) CRIAR PASTAS no z/OS UNIX (JCL)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-criar-book-request-e-response" class="md-nav__link">
+    2) CRIAR BOOK REQUEST E RESPONSE
+  </a>
+  
+    <nav class="md-nav" aria-label="2) CRIAR BOOK REQUEST E RESPONSE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#criar-books" class="md-nav__link">
+    CRIAR BOOKS
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIAR BOOKS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-book-legado" class="md-nav__link">
+    Exemplo book legado:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-criar-transacao-cics-associada-ao-dfhpidsh" class="md-nav__link">
+    3) CRIAR TRANSAÇÃO CICS ASSOCIADA AO DFHPIDSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-criar-pipeline" class="md-nav__link">
+    4) CRIAR PIPELINE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-criar-e-executar-jcl-dfhls2ws" class="md-nav__link">
+    5) CRIAR E EXECUTAR JCL DFHLS2WS
+  </a>
+  
+    <nav class="md-nav" aria-label="5) CRIAR E EXECUTAR JCL DFHLS2WS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-criar-o-jcl-dfhls2ws" class="md-nav__link">
+    5.1) Criar o JCL DFHLS2WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-executar-o-jcl-dfhls2ws" class="md-nav__link">
+    5.2) Executar o JCL DFHLS2WS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instalar-webservice" class="md-nav__link">
+    6) INSTALAR WEBSERVICE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-testar-wsdl" class="md-nav__link">
+    7) TESTAR WSDL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-testar-webservice-no-soapui" class="md-nav__link">
+    8) TESTAR WEBSERVICE NO SOAPUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-plataforma-distribuida-java" class="md-nav__link">
+    9) PLATAFORMA DISTRIBUÍDA JAVA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-usuario-de-servico" class="md-nav__link">
+    10) USUÁRIO DE SERVIÇO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-infra" class="md-nav__link">
+    11) INFRA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-de-referencia" class="md-nav__link">
+    MATERIAL DE REFERÊNCIA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="cics-ws">CICS WS</h1>
+<p>O objetivo deste documento é mostrar como disponibilizar um programa COBOL para ser consumido pela baixa plataforma, através de web service CICS.</p>
+<p>Para disponibilizar um programa COBOL online através de Web Service Cics, siga os passos abaixo:</p>
+<h3 id="1-criar-pastas-no-zos-unix-jcl">1) CRIAR PASTAS no z/OS UNIX (JCL)</h3>
+<p>As seguintes pastas devem ser criadas no z/OS Unix:<br />
+/u/webservices/<sistema>/<pipeline>/config<br />
+/u/webservices/<sistema>/<pipeline>/shelf/<br />
+/u/webservices/<sistema>/<pipeline>/wsbind/<br />
+/u/webservices/<sistema>/<pipeline>/wslog/<br />
+/u/webservices/<sistema>/<pipeline>/tmp/<br />
+Para criar as pastas, copie o JCL que está em DES.SUD.V00.LIB.SAMPLE(WSCMKDIR), alterar o parâmetro e submeter o job.
+Informar o sistema e o nome do pipeline nos parâmetros, em letras minúsculas:<br />
+SISTEMA=’sixxx’ =&gt; sistema xxx<br />
+PIPELINE= ‘xxxspipe’ =&gt; nome sugerido para o pipeline soap do sistema xxx<br />
+JCL template =&gt; DES.SUD.V00.LIB.SAMPLE(WSCMKDIR)  </p>
+<div class="highlight"><pre><span></span><code><span class="kp">//</span><span class="nl">DESMKDIR</span><span class="w"> </span><span class="kr">JOB</span><span class="w"> </span><span class="p">(</span><span class="n">DES</span><span class="p">,</span><span class="n">SP</span><span class="p">,</span><span class="mi">72664</span><span class="p">,</span><span class="mi">09</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s">&#39;XXXWSC&#39;</span><span class="p">,</span><span class="n">REGION</span><span class="o">=</span><span class="mi">0</span><span class="n">M</span><span class="p">,</span>
+<span class="kp">//</span><span class="w"> </span><span class="n">TIME</span><span class="o">=</span><span class="mi">1440</span><span class="p">,</span><span class="n">MSGLEVEL</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">MSGCLASS</span><span class="o">=</span><span class="n">T</span><span class="p">,</span><span class="n">CLASS</span><span class="o">=</span><span class="n">N</span><span class="p">,</span><span class="n">NOTIFY</span><span class="o">=&amp;</span><span class="n">SYSUID</span>
+<span class="c1">//*********************************************************************</span>
+<span class="c1">//* SCRIPT PARA CRIAR AS PASTAS NO Z/OS UNIX PARA USO</span>
+<span class="c1">//* WEB SERVICE CICS</span>
+<span class="c1">//*********************************************************************</span>
+<span class="kp">//</span><span class="nv">PROCLIB</span><span class="kr"> JCLLIB </span><span class="n">ORDER</span><span class="o">=</span><span class="n">DES</span><span class="p">.</span><span class="n">V01</span><span class="p">.</span><span class="n">PROC</span>
+<span class="kp">//</span><span class="nv">JOBLIB</span><span class="kr"> DD </span><span class="n">DSN</span><span class="o">=</span><span class="n">DES</span><span class="p">.</span><span class="n">TESTEB</span><span class="p">.</span><span class="n">LINKLIB</span><span class="p">,</span><span class="n">DISP</span><span class="o">=</span><span class="n">SHR</span>
+<span class="kp">//</span><span class="w"> </span><span class="n">DD</span><span class="w"> </span><span class="c1">DSN=END.SPD.TQS00.LOAD,DISP=SHR</span>
+<span class="kp">//</span><span class="w"> </span><span class="n">DD</span><span class="w"> </span><span class="c1">DSN=END.SPD.HOMOL.LOAD,DISP=SHR</span>
+<span class="kp">//</span><span class="w"> </span><span class="n">DD</span><span class="w"> </span><span class="c1">DSN=END.V01.LOAD,DISP=SHR</span>
+<span class="c1">//*********************************************************************</span>
+<span class="c1">//* PARAMETROS</span>
+<span class="c1">//* INFORMAR OS PARAMETROS EM LETRAS MINUSCULAS</span>
+<span class="c1">//* SISTEMA EM SET SISTEMA=&#39;sixxx&#39;</span>
+<span class="c1">//* PIPELINE EM SET PIPELINE=&#39;xxxspipe&#39;</span>
+<span class="c1">//*********************************************************************</span>
+<span class="kp">//</span><span class="nv">PARM</span><span class="w"> </span><span class="c1">EXPORT SYMLIST=(SISTEMA,PIPELINE) // SET SISTEMA=&#39;sixxx&#39; // SET PIPELINE=&#39;xxxspipe&#39;</span>
+<span class="c1">//*********************************************************************</span>
+<span class="c1">//* EXECUTA SHELL SCRIPT Z/OS UNIX - CRIACAO DA PASTA DO SISTEMA</span>
+<span class="c1">//* no path /u/webservices/</span>
+<span class="c1">//* VISUALIZE AS MENSAGENS DO SCRIPT NA SYSOUT DO JOB - STDOUT MKDIR</span>
+<span class="c1">//*********************************************************************</span>
+<span class="kp">//</span><span class="nl">MKDIR</span><span class="w"> </span><span class="kr">EXEC</span><span class="w"> </span><span class="n">PGM</span><span class="o">=</span><span class="n">BPXBATCH</span><span class="p">,</span>
+<span class="kp">//</span><span class="w"> </span><span class="n">PARM</span><span class="o">=</span><span class="s">&#39;SH /u/webservices/scripts/scmkdir.sh &amp;SISTEMA &amp;PIPELINE&#39;</span>
+<span class="kp">//</span><span class="nv">STDIN</span><span class="kr"> DD </span><span class="n">DUMMY</span>
+<span class="kp">//</span><span class="nv">STDOUT</span><span class="kr"> DD </span><span class="n">SYSOUT</span><span class="o">=</span><span class="nb">*</span>
+<span class="kp">//</span><span class="nv">STDERR</span><span class="kr"> DD </span><span class="n">SYSOUT</span><span class="o">=</span><span class="nb">*</span>
+<span class="c1">//*</span>
+</code></pre></div>
+<p>Submeta o job. As mensagens geradas pelo script das pastas geradas, pode ser visualizada na SYSOUT: DD STDOUT step MKDIR</p>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<p>JCL exemplo do sistema SISUD =&gt; DES.SUD.V00.LIB.SAMPLE(SUDMKDIR)</p>
+</div>
+<h3 id="2-criar-book-request-e-response">2) CRIAR BOOK REQUEST E RESPONSE</h3>
+<p>Obter as seguintes informações do programa ou rotina COBOL, que será disponibilizado com o web service Cics:</p>
+<ul>
+<li>PGMNAME: Nome do programa</li>
+<li>Funcionalidade do programa</li>
+<li>PGMINT: Tipo COMMAREA ou CHANNEL</li>
+<li>Book(s)</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
+<p>PGMNAME: SUDPOT01 =&gt; DES.SUD.V00.LIB.SAMPLE(SUDPOT01)<br />
+Funcionalidade do programa: testesudpot01<br />
+PGMINT: CommonArea<br />
+Book: SUDWIT01 =&gt; DES.SUD.V00.LIB.SAMPLE(SUDWIT01)  </p>
+</div>
+<h4 id="criar-books">CRIAR BOOKS</h4>
+<div class="admonition attention">
+<p class="admonition-title">Atenção</p>
+<p>Os books criados não podem conter:<br />
+- Caracteres especiais, exceto - (hífen/traço)<br />
+- REDEFINES<br />
+- VALUE é ignorado  </p>
+</div>
+<p><strong>Programa novo:</strong> os books de entrada e saída devem conter apenas os campos necessários.  </p>
+<p><strong>Programa legado:</strong> que utiliza book único, devem ser criados books de entrada e saída com o mesmo tamanho do original. No book de entrada, substituir os campos de saída por FILLER. No book de saída, substituir os campos de entrada por FILLER. Veja exemplo a seguir*.</p>
+<p><strong>Programa que usa vários containeres:</strong> Deve ser gerado um book para cada container. Isto não será abordado neste tutorial.</p>
+<p>Mais informações podem ser obtidas em <a href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.4.0/applications/developing/web-services/dfhws_cobol2wsdl.html">COBOL to XML schema mapping</a></p>
+<h5 id="exemplo-book-legado">Exemplo book legado:</h5>
+<p>Neste exemplo, os books serão gerados a partir do book legado.<br />
+Criar book para cada chamada (entrada e saída).<br />
+Retirar os caracteres :, não pode ter REDEFINES, VALUE é ignorado.<br />
+Desmembrar este book.  </p>
+<p><strong>Book original do legado:</strong>  </p>
+<div class="highlight"><pre><span></span><code><span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">* SUDW</span><span class="nv">SYYY</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">BOOK</span><span class="w"> </span><span class="o">*</span>
+<span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">    02</span><span class="w"> </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">AREA</span><span class="p">.</span>
+<span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">ENTRADA</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">NU-CONTA</span><span class="w"> </span><span class="kt">PIC 9(012)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">DT-MOVIMENTO</span><span class="w"> </span><span class="kt">PIC 9(008)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">SAIDA</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">NU-CPF-TITULAR</span><span class="w"> </span><span class="kt">PIC 9(011)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">NU-TIPO-PESSOA</span><span class="w"> </span><span class="kt">PIC 9(001)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="p">:</span><span class="nv">SUDWSYYY</span><span class="p">:</span><span class="o">-</span><span class="nv">IC-TIPO-CONTA</span><span class="w"> </span><span class="kt">PIC 9(002)</span><span class="p">.</span>
+</code></pre></div>
+<p>Neste exemplo, foram criados dois books:</p>
+<p><strong>Book de entrada (REQMEM):</strong><br />
+Os campos da saída foram substituídos por FILLER<br />
+Sugestão: renomear o item principal do book como REQUEST e retirar o prefixo do book no nome dos campos  </p>
+<div class="highlight"><pre><span></span><code><span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">* SUDW</span><span class="nv">IYYY</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">BOOK</span><span class="w"> </span><span class="nv">ENTRADA</span><span class="w"> </span><span class="nv">DESMEMBRADO</span><span class="w"> </span><span class="nv">PARA</span><span class="w"> </span><span class="nv">WEB</span><span class="w"> </span><span class="nv">SERVICE</span><span class="w"> </span><span class="nv">CICS</span><span class="w"> </span><span class="o">*</span>
+<span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">    02</span><span class="w"> </span><span class="nv">REQUEST</span><span class="p">.</span>
+<span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="nv">ENTRADA</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="nv">NU-CONTA</span><span class="w"> </span><span class="kt">PIC 9(012)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="nv">DT-MOVIMENTO</span><span class="w"> </span><span class="kt">PIC 9(008)</span><span class="p">.</span>
+<span class="hll"><span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="kp">FILLER</span><span class="w"> </span><span class="kt">PIC X(014)</span><span class="p">.</span>
+</span></code></pre></div>
+<p><strong>BOOK SAÍDA (RESPMEM):</strong><br />
+Os campos da entrada foram substituídos por FILLER<br />
+Sugestão: renomear o item principal do book como RESPONSE e retirar o prefixo do book no nome dos campos  </p>
+<div class="highlight"><pre><span></span><code><span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">* SUDW</span><span class="nv">IYYY</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">BOOK</span><span class="w"> </span><span class="nv">ENTRADA</span><span class="w"> </span><span class="nv">DESMEMBRADO</span><span class="w"> </span><span class="nv">PARA</span><span class="w"> </span><span class="nv">WEB</span><span class="w"> </span><span class="nv">SERVICE</span><span class="w"> </span><span class="nv">CICS</span><span class="w"> </span><span class="o">*</span>
+<span class="c">*-----</span><span class="o">-----------------------------------------------------------*</span>
+<span class="c">    02</span><span class="w"> </span><span class="nv">RESPONSE</span><span class="p">.</span><span class="w"> </span>
+<span class="hll"><span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="kp">FILLER</span><span class="w"> </span><span class="kt">PIC X(020)</span><span class="p">.</span>
+</span>
+<span class="c">      </span><span class="w">  </span><span class="mi">03 </span><span class="nv">SAIDA</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="nv">NU-CPF-TITULAR</span><span class="w"> </span><span class="kt">PIC 9(011)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="nv">NU-TIPO-PESSOA</span><span class="w"> </span><span class="kt">PIC 9(001)</span><span class="p">.</span>
+<span class="c">      </span><span class="w">      </span><span class="mi">05 </span><span class="nv">IC-TIPO-CONTA</span><span class="w"> </span><span class="kt">PIC 9(002)</span><span class="p">.</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Dica</p>
+<p>Para facilitar a contagem das posições, existe a seguinte opção no TSO:<br />
+TSOSPDES<br />
+G – Produtos<br />
+FE - Tool Kit Desenvolvimento<br />
+13 - BE Converte BOOK COBOL  </p>
+</div>
+<h3 id="3-criar-transacao-cics-associada-ao-dfhpidsh">3) CRIAR TRANSAÇÃO CICS ASSOCIADA AO DFHPIDSH</h3>
+<p>Solicitar criação da Transação Cics.<br />
+Criar uma nova transação Cics para o webservice, no AOR e outra transação no TOR.  </p>
+<p>Exemplo:  </p>
+<table>
+<thead>
+<tr>
+<th>Transaction definitions</th>
+<th>AOR</th>
+<th>TOR</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>SUDW</td>
+<td>SUDW</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>TESTE SISUD WEBSERVICE -AOR-      DES-TQS- DFHPIDSH</td>
+<td>TESTE SISUD WEBSERVICE -TOR-      DES-TQS- DFHPIDSH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>First   program name</td>
+<td>DFHPIDSH</td>
+<td>DFHPIDSH</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Size in bytes of   transaction work area (TWA)</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction profile</td>
+<td>DFHCICST</td>
+<td>DFHCICST</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Default application partition set</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Enabled status</td>
+<td>Enabled</td>
+<td>Enabled</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Primed storage allocation</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Task data location</td>
+<td>Any</td>
+<td>Any</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Task data key</td>
+<td>User</td>
+<td>User</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Storage clearance status</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Runaway timeout value</td>
+<td>SYSTEM</td>
+<td>SYSTEM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Shutdown run status</td>
+<td>Disabled</td>
+<td>Disabled</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction isolation option</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bridge exit name</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Remote attributes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Dynamic routing option</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Dynamic routing status</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Remote system name</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Remote transaction name</td>
+<td></td>
+<td>SUDW</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction routing profile</td>
+<td>DFHCICSS</td>
+<td>DFHCICSS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Queueing on local system</td>
+<td>N_a</td>
+<td>N_a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction priority</td>
+<td>' 1'</td>
+<td>' 1'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction class number</td>
+<td>NO</td>
+<td>NO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction class name</td>
+<td>DFHCLASS</td>
+<td>DFHCLASS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Aliases</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alias name for transaction</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction initiation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternate name (in   hex) for initiating transaction</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>APPC partner transaction name</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alternate partner   transaction name (in hex)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Recovery</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Deadlock timeout value</td>
+<td>NO</td>
+<td>NO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction restart facility</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>System purgeable option</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Purgeable for terminal   error option</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction dump option</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Trace transaction activity option</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Suppress user data in   trace entries</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Object transaction   service (OTS) timeout (HHMMSS)</td>
+<td>NO</td>
+<td>NO</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Indoubt attributes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CICS failure action</td>
+<td>Backout</td>
+<td>Backout</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>In-doubt wait option</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>In-doubt wait time   (days)</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>In-doubt wait time   (hours)</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>In-doubt wait time   (minutes)</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>In-doubt failure   processing action</td>
+<td>Backout</td>
+<td>Backout</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Security</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Resource security checking</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Command level security option</td>
+<td>No</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>External security manager option</td>
+<td>N_a</td>
+<td>N_a</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction security value</td>
+<td>' 1'</td>
+<td>' 1'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Resource security value</td>
+<td>' 0'</td>
+<td>' 0'</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>INSTALAR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Resource group</td>
+<td>GRADES      GRATQS</td>
+<td>GRTDES      GRTQS</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-criar-pipeline">4) CRIAR PIPELINE</h3>
+<p>Caso ainda não exista, a criação do Pipeline deve ser solicitada para a equipe de suporte  </p>
+<p>Informar:<br />
+Nome do pipeline, path e arquivo do config, path do shelf, path do wsbind que foram gerados no item 1  </p>
+<p>Será incluído e instalado no grupo CICS WEB DESENVOLVIMENTO:<br />
+DES – GROUP GRCODWB<br />
+TQS – GROUP GRCQWAOR<br />
+Exemplo de criação e instalação de PIPELINE, através da ferramenta CMAS (somente equipe suporte tem acesso):  </p>
+<p><img alt="Exemplo de criação e instalação de PIPELINE" src="../../img/integracoes/cicsws/pipeline1.png" /></p>
+<p><img alt="Exemplo de criação e instalação de PIPELINE" src="../../img/integracoes/cicsws/pipeline2.png" /></p>
+<h3 id="5-criar-e-executar-jcl-dfhls2ws">5) CRIAR E EXECUTAR JCL DFHLS2WS</h3>
+<p>DFHLS2WS é um programa utilitário do CICS que gera os reursos URIMAP, WEBSERVICE (wsbind, wsdl), conforme parâmetros informados.<br />
+DFHWS2LS: LS = Language Structure (Cobol), 2 = To, WS = WSDL</p>
+<h4 id="51-criar-o-jcl-dfhls2ws">5.1) Criar o JCL DFHLS2WS</h4>
+<p>Copiar o JCL que está em DES.SUD.V00.LIB.SAMPLE(WSCLS2WS) e alterar os parâmetros. job.<br />
+Exemplo: DES.SUD.V00.LIB.SAMPLE(SUDLST01)  </p>
+<div class="highlight"><pre><span></span><code><span class="c">//DESL</span><span class="nv">ST01</span><span class="w"> </span><span class="nv">JOB</span><span class="w"> </span><span class="p">(</span><span class="nv">DES</span><span class="p">,</span><span class="nv">SP</span><span class="p">,</span><span class="mi">72664</span><span class="p">,</span><span class="mi">09</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;SUDWSC&#39;</span><span class="p">,</span><span class="nv">REGION</span><span class="o">=</span><span class="mi">0</span><span class="nv">M</span><span class="p">,</span>
+<span class="c">// TIM</span><span class="nv">E</span><span class="o">=</span><span class="mi">1440</span><span class="p">,</span><span class="nv">MSGLEVEL</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nv">MSGCLASS</span><span class="o">=</span><span class="nv">T</span><span class="p">,</span><span class="kp">CLASS</span><span class="o">=</span><span class="nv">N</span><span class="p">,</span><span class="nv">NOTIFY</span><span class="o">=</span><span class="p">&amp;</span><span class="nv">SYSUID</span>
+<span class="c">//PROC</span><span class="nv">LIB</span><span class="w"> </span><span class="nv">JCLLIB</span><span class="w"> </span><span class="kp">ORDER</span><span class="o">=</span><span class="nv">DES</span><span class="p">.</span><span class="nv">V01</span><span class="p">.</span><span class="nv">PROC</span><span class="w"> </span><span class="o">//</span><span class="nv">LS2WS</span><span class="w"> </span><span class="nv">EXEC</span><span class="w"> </span><span class="nv">DFHLS2WS</span><span class="p">,</span><span class="nv">TMPDIR</span><span class="o">=</span><span class="s1">&#39;/u/webservices/sisud/sudspipe/tmp&#39;</span><span class="p">,</span>
+<span class="c">// TMP</span><span class="nv">FILE</span><span class="o">=</span><span class="s1">&#39;LS2WS&#39;</span>
+<span class="c">//INPU</span><span class="nv">T</span><span class="p">.</span><span class="nv">SYSUT1</span><span class="w"> </span><span class="nv">DD</span><span class="w"> </span><span class="o">*</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+<span class="c"># ENTR</span><span class="nv">ADA</span><span class="w"> </span><span class="err">#</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+<span class="err">#</span>
+<span class="c">MAPPIN</span><span class="nv">G-LEVEL</span><span class="o">=</span><span class="mi">4</span><span class="p">.</span><span class="mi">3</span>
+<span class="c">MINIMU</span><span class="nv">M-RUNTIME-LEVEL</span><span class="o">=</span><span class="nv">CURRENT</span>
+<span class="c"># --&gt; </span><span class="nv">biblioteca</span><span class="w"> </span><span class="kp">de</span><span class="w"> </span><span class="nv">books</span>
+<span class="c">PDSLIB</span><span class="o">=//</span><span class="kr">END</span><span class="p">.</span><span class="nv">SPD</span><span class="p">.</span><span class="nv">TESTE</span><span class="p">.</span><span class="nv">BOOK</span>
+<span class="c"># --&gt; </span><span class="nv">books</span><span class="w"> </span><span class="kp">de</span><span class="w"> </span><span class="nv">entrada</span><span class="w"> </span><span class="nf">e</span><span class="w"> </span><span class="nv">saida</span><span class="w"> </span><span class="nv">REQMEM</span><span class="o">=</span><span class="nv">SUDWIT01</span>
+<span class="c">RESPME</span><span class="nv">M</span><span class="o">=</span><span class="nv">SUDWOT01</span>
+<span class="c"># --&gt; </span><span class="nv">tipo</span><span class="w"> </span><span class="kp">de</span><span class="w"> </span><span class="err">interface</span>
+<span class="c">PGMINT</span><span class="o">=</span><span class="nv">COMMAREA</span>
+<span class="c"># --&gt; </span><span class="nv">programa</span>
+<span class="c">LANG=C</span><span class="nv">OBOL</span><span class="w"> </span><span class="nv">PGMNAME</span><span class="o">=</span><span class="nv">SUDPOT01</span>
+<span class="c"># --&gt; </span><span class="nv">transacao</span><span class="w"> </span><span class="nv">TRANSACTION</span><span class="o">=</span><span class="nv">SUDW</span>
+<span class="c"># --&gt; </span><span class="nv">atributos</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="nv">Web</span><span class="w"> </span><span class="nv">Service</span><span class="w"> </span><span class="nv">SOAP</span>
+<span class="c">REQUES</span><span class="nv">T-NAMESPACE</span><span class="o">=*</span><span class="w"> </span><span class="nv">https</span><span class="p">:</span><span class="o">//</span><span class="nv">caixa</span><span class="p">.</span><span class="nv">gov</span><span class="p">.</span><span class="nv">br</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="o">/</span><span class="nv">req</span>
+<span class="c">RESPON</span><span class="nv">SE-NAMESPACE</span><span class="o">=*</span><span class="w"> </span><span class="nv">https</span><span class="p">:</span><span class="o">//</span><span class="nv">caixa</span><span class="p">.</span><span class="nv">gov</span><span class="p">.</span><span class="nv">br</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="o">/</span><span class="nv">resp</span><span class="w"> </span><span class="nv">URI</span><span class="o">=/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="w"> </span><span class="nv">OPERATION-NAME</span><span class="o">=</span><span class="nv">testesudpot01</span><span class="w"> </span><span class="nv">WSDL-NAMESPACE</span><span class="o">=</span><span class="nv">https</span><span class="p">:</span><span class="o">//</span><span class="nv">caixa</span><span class="p">.</span><span class="nv">gov</span><span class="p">.</span><span class="nv">br</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span>
+<span class="c">SOAPVE</span><span class="nv">R</span><span class="o">=</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+<span class="c"># --&gt; </span><span class="nv">encoding</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="nv">WSDL</span>
+<span class="c">WSDLCP</span><span class="o">=</span><span class="err">UTF-8</span>
+<span class="c"># --&gt; </span><span class="nv">omitir</span><span class="w"> </span><span class="nv">espacos</span><span class="w"> </span><span class="nv">em</span><span class="w"> </span><span class="nv">branco</span><span class="w"> </span><span class="nv">nas</span><span class="w"> </span><span class="nv">strings</span><span class="w"> </span><span class="kp">de</span><span class="w"> </span><span class="nv">saida</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="nv">XML</span><span class="w"> </span><span class="kp">de</span><span class="w"> </span><span class="nv">resposta</span>
+<span class="c">CHAR-V</span><span class="nv">ARYING</span><span class="o">=</span><span class="nv">COLLAPSE</span>
+<span class="c"># --&gt; </span><span class="nv">executar</span><span class="w"> </span><span class="nv">syncpoint</span>
+<span class="c">SYNCON</span><span class="nv">RETURN</span><span class="o">=</span><span class="nv">YES</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+<span class="c"># SAID</span><span class="nv">A</span><span class="w"> </span><span class="p">(</span><span class="nv">WSDL</span><span class="w"> </span><span class="nf">E</span><span class="w"> </span><span class="nv">BIND</span><span class="p">)</span><span class="w"> </span><span class="err">#</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+<span class="c"># WSBI</span><span class="nv">ND</span><span class="o">=/</span><span class="nv">u</span><span class="o">/</span><span class="nv">webservices</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">sudspipe</span><span class="o">/</span><span class="nv">wsbind</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="p">.</span><span class="nv">wsbind</span><span class="w"> </span><span class="nv">WSDL</span><span class="o">=/</span><span class="nv">u</span><span class="o">/</span><span class="nv">webservices</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">sudspipe</span><span class="o">/</span><span class="nv">wsbind</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="p">.</span><span class="nv">wsdl</span><span class="w"> </span><span class="nv">LOGFILE</span><span class="o">=/</span><span class="nv">u</span><span class="o">/</span><span class="nv">webservices</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">sudspipe</span><span class="o">/</span><span class="nv">wslog</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="p">.</span><span class="nf">log</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+<span class="c"># DICA</span><span class="nv">S</span><span class="p">:</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># - IN</span><span class="nv">STALACAO</span><span class="w"> </span><span class="nv">DO</span><span class="w"> </span><span class="nv">WEBSERVICE</span><span class="p">:</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># O PI</span><span class="nv">PELINE</span><span class="w"> </span><span class="nv">deve</span><span class="w"> </span><span class="nv">estar</span><span class="w"> </span><span class="nv">criado</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># O WE</span><span class="nv">BSERVICE</span><span class="w"> </span><span class="nv">sera</span><span class="w"> </span><span class="nv">instalado</span><span class="w"> </span><span class="nv">qdo</span><span class="w"> </span><span class="nv">o</span><span class="w"> </span><span class="nv">CICS</span><span class="w"> </span><span class="nv">inicializar</span><span class="w"> </span><span class="kp">no</span><span class="w"> </span><span class="nv">dia</span><span class="w"> </span><span class="nv">seguinte</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># Se d</span><span class="nv">esejar</span><span class="w"> </span><span class="nv">instalar</span><span class="w"> </span><span class="nv">antes</span><span class="w"> </span><span class="nv">disso</span><span class="p">,</span><span class="w"> </span><span class="nv">sera</span><span class="w"> </span><span class="nv">preciso</span><span class="w"> </span><span class="nv">entrar</span><span class="w"> </span><span class="nv">nos</span><span class="w"> </span><span class="nv">CICS</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># (CIC</span><span class="nv">DAWB1</span><span class="p">,</span><span class="w"> </span><span class="nv">CICDTWB1</span><span class="p">,</span><span class="w"> </span><span class="nv">CICDAWB2</span><span class="p">,</span><span class="w"> </span><span class="nv">CICDTWB2</span><span class="p">)</span><span class="w"> </span><span class="nf">e</span><span class="w"> </span><span class="nv">executar</span><span class="w"> </span><span class="nv">o</span><span class="w"> </span><span class="nv">comando</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># CEMT</span><span class="w"> </span><span class="kr">PERFORM</span><span class="w"> </span><span class="nv">PIPE</span><span class="p">(</span><span class="nv">sudspipe</span><span class="p">)</span><span class="w"> </span><span class="nv">SCAN</span><span class="w"> </span><span class="err">#</span>
+<span class="err">#</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># - CO</span><span class="nv">NSULTAR</span><span class="w"> </span><span class="nv">WEBSERVICE</span><span class="w"> </span><span class="kp">NO</span><span class="w"> </span><span class="nv">CICS</span><span class="p">:</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># exec</span><span class="nv">utar</span><span class="w"> </span><span class="nv">o</span><span class="w"> </span><span class="nv">comando</span><span class="w"> </span><span class="nv">CEMT</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="nv">WEBS</span><span class="w"> </span><span class="nv">PIPE</span><span class="p">(</span><span class="nv">sudspipe</span><span class="p">)</span><span class="w"> </span><span class="err">#</span>
+<span class="err">#</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># - CO</span><span class="nv">NSULTAR</span><span class="w"> </span><span class="nv">O</span><span class="w"> </span><span class="nv">WSDL</span><span class="w"> </span><span class="kp">NO</span><span class="w"> </span><span class="nv">BROWSER</span><span class="w"> </span><span class="p">(</span><span class="nv">CHROME</span><span class="w"> </span><span class="nv">ou</span><span class="w"> </span><span class="nv">FIREFOX</span><span class="p">),</span><span class="w"> </span><span class="nv">digitando</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># http</span><span class="nv">s</span><span class="p">:</span><span class="o">//</span><span class="nv">cicsweb</span><span class="p">.</span><span class="nv">des</span><span class="p">.</span><span class="nv">caixa</span><span class="p">:</span><span class="mi">32587</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="o">/</span><span class="err">?</span><span class="nv">wsdl</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># info</span><span class="nv">rme</span><span class="w"> </span><span class="nv">usuário</span><span class="w"> </span><span class="nf">e</span><span class="w"> </span><span class="nv">senha</span><span class="w"> </span><span class="err">#</span>
+<span class="err">#</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># - TE</span><span class="nv">STAR</span><span class="w"> </span><span class="nv">ACESSANDO</span><span class="w"> </span><span class="nv">SERVICO</span><span class="w"> </span><span class="nv">NA</span><span class="w"> </span><span class="nv">FERRAMENTA</span><span class="w"> </span><span class="nv">SOAPUI</span><span class="p">:</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># Em I</span><span class="nv">nitial</span><span class="w"> </span><span class="nv">WSDL</span><span class="p">,</span><span class="w"> </span><span class="nv">informar</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># http</span><span class="nv">s</span><span class="p">:</span><span class="o">//</span><span class="nv">cicsweb</span><span class="p">.</span><span class="nv">des</span><span class="p">.</span><span class="nv">caixa</span><span class="p">:</span><span class="mi">32587</span><span class="o">/</span><span class="nv">sisud</span><span class="o">/</span><span class="nv">testesudpot01</span><span class="err">?</span><span class="nv">wsdl</span><span class="w"> </span><span class="err">#</span>
+<span class="c"># depo</span><span class="nv">is</span><span class="w"> </span><span class="nv">alterar</span><span class="w"> </span><span class="nv">my-server</span><span class="p">:</span><span class="nv">my-port</span><span class="w"> </span><span class="nv">por</span><span class="w"> </span><span class="nv">cicsweb</span><span class="p">.</span><span class="nv">des</span><span class="p">.</span><span class="nv">caixa</span><span class="p">:</span><span class="mi">32587 </span><span class="err">#</span>
+<span class="c"># usar</span><span class="w"> </span><span class="nv">Basic</span><span class="w"> </span><span class="nv">authentication</span><span class="p">,</span><span class="w"> </span><span class="nv">informando</span><span class="w"> </span><span class="nv">usuário</span><span class="w"> </span><span class="nf">e</span><span class="w"> </span><span class="nv">senha</span><span class="w"> </span><span class="err">#</span>
+<span class="c">#-----</span><span class="o">----------------------------------------------------------------</span><span class="err">#</span>
+</code></pre></div>
+<h4 id="52-executar-o-jcl-dfhls2ws">5.2) Executar o JCL DFHLS2WS</h4>
+<p>Submeter o job<br />
+O resultado é exibido na sysout do job e também é gravado no arquivo .log na pasta u/webservices/sixxx/xxxspipe/wslog/<br />
+Obs.: Se ocorrer o seguinte erro FSUM1004 Cannot change to directory </U/C112233>. Onde C112233 é sua matrícula, significa que o usuário ainda não tem pasta criada no z/OS Unix<br />
+Executar o script de criação da pasta do usuário através do seguinte JCL:  </p>
+<div class="highlight"><pre><span></span><code><span class="c">//DESL</span><span class="nv">S2WS</span><span class="w"> </span><span class="nv">JOB</span><span class="w"> </span><span class="p">(</span><span class="nv">DES</span><span class="p">,</span><span class="nv">SP</span><span class="p">,</span><span class="mi">72664</span><span class="p">,</span><span class="mi">09</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;D02WSC&#39;</span><span class="p">,</span><span class="nv">REGION</span><span class="o">=</span><span class="mi">0</span><span class="nv">M</span><span class="p">,</span>
+<span class="c">// TIM</span><span class="nv">E</span><span class="o">=</span><span class="mi">1440</span><span class="p">,</span><span class="nv">MSGLEVEL</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="nv">MSGCLASS</span><span class="o">=</span><span class="nv">T</span><span class="p">,</span><span class="kp">CLASS</span><span class="o">=</span><span class="nv">N</span><span class="p">,</span><span class="nv">NOTIFY</span><span class="o">=</span><span class="p">&amp;</span><span class="nv">SYSUID</span>
+<span class="c">//PROC</span><span class="nv">LIB</span><span class="w"> </span><span class="nv">JCLLIB</span><span class="w"> </span><span class="kp">ORDER</span><span class="o">=</span><span class="nv">DES</span><span class="p">.</span><span class="nv">V01</span><span class="p">.</span><span class="nv">PROC</span>
+<span class="o">//*</span>
+<span class="c">//*---</span><span class="o">----------------------------------------------------------------*</span>
+<span class="c">//* WE</span><span class="nv">B</span><span class="w"> </span><span class="nv">SERVICE</span><span class="w"> </span><span class="nv">CICS</span><span class="w"> </span><span class="o">*</span>
+<span class="c">//*---</span><span class="o">----------------------------------------------------------------*</span>
+<span class="o">//*</span>
+<span class="c">//*********************************************************************</span>
+<span class="c">//* CR</span><span class="nv">IAR</span><span class="w"> </span><span class="nv">PASTA</span><span class="w"> </span><span class="nv">DO</span><span class="w"> </span><span class="nv">USUARIO</span><span class="w"> </span><span class="kp">NO</span><span class="w"> </span><span class="nv">Z</span><span class="o">/</span><span class="nv">OS</span><span class="w"> </span><span class="nv">UNIX</span><span class="w"> </span><span class="o">*</span>
+<span class="c">//*---</span><span class="o">----------------------------------------------------------------*</span>
+<span class="c">//* O </span><span class="nv">seguinte</span><span class="w"> </span><span class="nv">erro</span><span class="w"> </span><span class="nv">acontece</span><span class="w"> </span><span class="nv">quando</span><span class="w"> </span><span class="nv">não</span><span class="w"> </span><span class="nv">existir</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">pasta</span><span class="w"> </span><span class="nv">do</span><span class="w"> </span><span class="nv">usuário</span><span class="w"> </span><span class="o">*</span>
+<span class="c">//* FS</span><span class="nv">UM1004</span><span class="w"> </span><span class="nv">Cannot</span><span class="w"> </span><span class="nv">change</span><span class="w"> </span><span class="kp">to</span><span class="w"> </span><span class="nv">directory</span><span class="w"> </span><span class="o">&lt;/</span><span class="nv">U</span><span class="o">/</span><span class="nv">C123456</span><span class="o">&gt;</span><span class="p">.</span><span class="w"> </span><span class="o">*</span>
+<span class="c">//* No</span><span class="w"> </span><span class="err">step</span><span class="w"> </span><span class="nv">PARMUSER</span><span class="p">,</span><span class="w"> </span><span class="nv">substituir</span><span class="w"> </span><span class="nv">o</span><span class="w"> </span><span class="nv">usuario</span><span class="w"> </span><span class="s1">&#39;c123456&#39;</span><span class="w"> </span><span class="o">*</span>
+<span class="c">//*---</span><span class="o">----------------------------------------------------------------*</span>
+<span class="c">//PARM</span><span class="nv">USER</span><span class="w"> </span><span class="nv">EXPORT</span><span class="w"> </span><span class="nv">SYMLIST</span><span class="o">=</span><span class="p">(</span><span class="nv">USUARIO</span><span class="p">)</span>
+<span class="c">// SET</span><span class="w"> </span><span class="nv">USUARIO</span><span class="o">=</span><span class="s1">&#39;c123456&#39;</span>
+<span class="c">//*---</span><span class="o">----------------------------------------------------------------*</span>
+<span class="c">//MKUS</span><span class="nv">ER</span><span class="w"> </span><span class="nv">EXEC</span><span class="w"> </span><span class="nv">PGM</span><span class="o">=</span><span class="nv">BPXBATCH</span><span class="p">,</span>
+<span class="c">// PAR</span><span class="nv">M</span><span class="o">=</span><span class="s1">&#39;SH /u/webservices/scripts/scmkuser.sh &amp;USUARIO&#39;</span>
+<span class="c">//STDI</span><span class="nv">N</span><span class="w"> </span><span class="nv">DD</span><span class="w"> </span><span class="nv">DUMMY</span>
+<span class="c">//STDO</span><span class="nv">UT</span><span class="w"> </span><span class="nv">DD</span><span class="w"> </span><span class="nv">SYSOUT</span><span class="o">=*</span>
+<span class="c">//STDE</span><span class="nv">RR</span><span class="w"> </span><span class="nv">DD</span><span class="w"> </span><span class="nv">SYSOUT</span><span class="o">=*</span>
+<span class="o">//*</span>
+</code></pre></div>
+<h3 id="6-instalar-webservice">6) INSTALAR WEBSERVICE</h3>
+<p>A instalação do WEBSERVICE é feita automaticamente na reciclagem do CICS, que ocorre uma vez ao dia. Neste caso é necessário aguardar até o dia seguinte.<br />
+Caso deseje instalar antes disso, então acesse o CICS e execute o seguinte comando:<br />
+CEMT PERFORM PIPE(<pipeline>) SCAN<br />
+Exemplo:<br />
+Entrar nos CICS de desenvolvimento CICDAWB1, CICDTWB1, CICDAWB2, CICDTWB2 e executar CEMT PERFORM PIPE(SUDSPIPE) SCAN  </p>
+<p>Resultando em:</p>
+<div class="admonition example">
+<p>PERFORM PIPE(SUDSPIPE) SCAN<br />
+STATUS: RESULTS<br />
+Pip(SUDSPIPE) Sca<br />
+SYSID=AWB1 APPLID=CICDAWB1<br />
+RESPONSE: NORMAL TIME: 23.55.12 DATE: 20/11/20<br />
+PF 1 HELP 3 END 5 VAR 7 SBH 8 SFH 9 MSG 10 SB 11 SF SF</p>
+</div>
+<p>Obs.: Para verificar se o WEBSERVICE foi instalado, execute o seguinte commando:<br />
+CEMT I WEBS PIPE(SUDSPIPE)  </p>
+<p>Resultando em:  </p>
+<div class="admonition example">
+<p>I WEBS PIPE(SUDSPIPE)<br />
+STATUS: RESULTS - OVERTYPE TO MODIFY<br />
+Webs(testesudpot01 ) Pip(SUDSPIPE)<br />
+Ins Ccs(00000) Uri($353550 ) Pro(SUDPOT01) Com Xopsup Xopdir<br />
+I WEBS PIPE(SUDSPIPE)<br />
+RESULT - OVERTYPE TO MODIFY<br />
+Webservice(testesudpot01)<br />
+Pipeline(SUDSPIPE)<br />
+Validationst( Novalidation )<br />
+State(Inservice)<br />
+Ccsid(00000)<br />
+Urimap($353550)<br />
+Program(SUDPOT01)<br />
+Pgminterface(Commarea)<br />
+Xopsupportst(Xopsupport)<br />
+Xopdirectst(Xopdirect)<br />
+Mappinglevel(4.3)<br />
+Minrunlevel(4.3)<br />
+Datestamp(20201120)<br />
+Timestamp(23:53:55)<br />
+Container()<br />
+Wsdlfile(/u/webservices/sisud/sudspipe/wsbind/testesudpot01.wsdl)<br />
+Archivefile()<br />
++ Wsbind(/u/webservices/sisud/sudspipe/wsbind/testesudpot01.wsbind)<br />
+SYSID=AWB1 APPLID=CICDAWB1<br />
+TIME: 23.56.57 DATE: 20/11/20  </p>
+</div>
+<h3 id="7-testar-wsdl">7) TESTAR WSDL</h3>
+<p>No navegador web (Mozilla Firefox ou Chrome), digite a url do serviço criado, seguida de ?wsdl</p>
+<p>https://cicsweb.des.caixa:32587/sisud/testesudpot01?wsdl<br />
+informe seu usuário e senha da rede  </p>
+<p><img alt="Exemplo de teste WSDL" src="../../img/integracoes/cicsws/testarWSDL1.png" /></p>
+<p><img alt="Exemplo de teste WSDL" src="../../img/integracoes/cicsws/testarWSDL2.png" /></p>
+<h3 id="8-testar-webservice-no-soapui">8) TESTAR WEBSERVICE NO SOAPUI</h3>
+<p>Na ferramenta SOAPUI  </p>
+<p>Clique em SOAP  </p>
+<p>Na janela New SOAP Project:  </p>
+<p>Project Name: informe o nome do projeto<br />
+Initial WSDL: informe a url do wsdl serviço criado<br />
+https://cicsweb.des.caixa:32587/sisud/testesudpot01?wsdl  </p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI1.png" /></p>
+<p>Se aparecer a janela Basic Authentication, informe seu usuário e senha da rede</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI2.png" /></p>
+<p>Na pasta do projeto, clicar em Request 1</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI3.png" /></p>
+<p>Na janela Request,
+alterar http://my-server:my-port por https://cicsweb.des.caixa:32587</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI4.png" /></p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI5.png" /></p>
+<p>Inserir os dados de entrada (em &gt;?&lt;)<br />
+Clicar no botão de Submeter (triangulo verde)</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI6.png" /></p>
+<p>Após submeter, os dados de response (dados de saída), serão apresentados
+mas…</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI7.png" /></p>
+<p>Caso a resposta seja 401 Basic Authentication Basic, clicar em Auth …<br />
+Em Authorization, escolher Add New Authorization … Na janela Add Authorization, em Type escolher Basic ...</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI8.png" /></p>
+<p>Informe seu usuário e senha da rede e depois clique no triangulo verde para executar</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI9.png" /></p>
+<p>Atenção: Lembre-se de alterar a senha no SOAPUI quando a senha de rede for alterada.<br />
+Finalmente, a resposta do web service é mostrada !</p>
+<p><img alt="Exemplo SoapUI" src="../../img/integracoes/cicsws/SoapUI10.png" /></p>
+<h3 id="9-plataforma-distribuida-java">9) PLATAFORMA DISTRIBUÍDA JAVA</h3>
+<p>Gere o web service client, importando o wsdl através do wsimport.
+Serão geradas as seguintes classes</p>
+<p><img alt="Exemplo Plataforma Distribuída - Java" src="../../img/integracoes/cicsws/Java.png" /></p>
+<p>Se necessitar expor como API RESTFUL, gerar web service REST e expor no API Manager.</p>
+<h3 id="10-usuario-de-servico">10) USUÁRIO DE SERVIÇO</h3>
+<p>O usuário de serviço do sistema deve ser configurado no servidor Jboss.<br />
+Para testes unitários na máquina do desenvolvedor Java, pode ser utilizado Basic Authentication, usuário e senha da rede.</p>
+<h3 id="11-infra">11) INFRA</h3>
+<p>Mainframe: Cics<br />
+Plataforma Distribuída: Java, Jboss</p>
+<h3 id="material-de-referencia">MATERIAL DE REFERÊNCIA</h3>
+<p><a href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.4.0/applications/developing/web-services/dfhws_create_app.html">Creating a SOAP web service</a><br />
+<a href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.4.0/applications/developing/web-services/dfhws_ls2ws.html">DFHLS2WS: high-level language to WSDL conversion</a><br />
+Criação de usuário de serviço:
+<a href="http://sismn.caixa/sistema/asp/ConsultaPesquisa/pdf_comum.asp?id=NTE191">TE191 - USUÁRIO DE SERVIÇO -PADRÕES PARA CRIAÇÃO, GERENCIAMENTO E USO</a></p>
+<h2 id="historico-da-revisao">Histórico da Revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23/11/2020</td>
+<td>1.0</td>
+<td>Criação do tutorial</td>
+<td>SUART02</td>
+</tr>
+<tr>
+<td>05/03/2021</td>
+<td>2.0</td>
+<td>Substituir DES.SUD.V00.LIB.SAMPLE por DES.SUD.V00.LIB.SAMPLE, acerto books e soapui, inclusão itens 10,11,12</td>
+<td>SUART02</td>
+</tr>
+<tr>
+<td>25/10/2023</td>
+<td>2.1</td>
+<td>Revisão do tutorial</td>
+<td>SUART02</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../integracoes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Visão Geral" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Visão Geral
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../cleanArchitecture/design/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Padrões de Design" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Padrões de Design
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

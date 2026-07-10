@@ -1,0 +1,144 @@
+{
+  "start_url": "https://arquiteturati.dep.caixa/_beta",
+  "base_host": "arquiteturati.dep.caixa",
+  "pages_visited": 119,
+  "assets_downloaded": 403,
+  "failed_count": 27,
+  "failed": [
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/latest",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/latest",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/logs/logs/img/log/log_slf4j.jpg",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/logs/logs/img/log/log_slf4j.jpg",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/monolito/img\\aplicacao_monolitica.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/monolito/img%5Caplicacao_monolitica.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image2.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image2.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image3.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image3.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image4.jpeg",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image4.jpeg",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image5.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image5.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image6.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image6.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image7.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image7.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image8.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image8.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image9.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image9.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image10.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/as-is/image10.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/to-be/image2.jpeg",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/infraestrutura/hardware/img/infraestrutura/hardware/to-be/image2.jpeg",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/nuvem/RedHat_Keycloak/pastadeimagens/media/image1.jpeg",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/nuvem/RedHat_Keycloak/pastadeimagens/media/image1.jpeg",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/dados/img/dados/oracle/image6.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/dados/img/dados/oracle/image6.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/telecom/img/telecom/micro/image7.png",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/telecom/img/telecom/micro/image7.png",
+      "kind": "asset"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/latest",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/latest",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/dados/big_data/big_data_e_analytics-visao_arquitetura.md'",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/dados/big_data/big_data_e_analytics-visao_arquitetura.md'",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/dados/BigData_Analytics_Visao_Arquiteturas.md",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/dados/BigData_Analytics_Visao_Arquiteturas.md",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/nuvem/cosmos.md",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/nuvem/cosmos.md",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/telecom/sincronismo_tempo.md",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/telecom/sincronismo_tempo.md",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/infraestrutura/hardware/as-is.md",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/infraestrutura/hardware/as-is.md",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/notas-versao/logs.md",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/notas-versao/logs.md",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/24.03/infraestrutura/transmissao_arquivos/",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/24.03/infraestrutura/transmissao_arquivos/",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/dados/big_data/big_data_e_analytics-visao_arquitetura/acessologico.caixa/",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/dados/big_data/big_data_e_analytics-visao_arquitetura/acessologico.caixa/",
+      "kind": "page"
+    },
+    {
+      "url": "https://arquiteturati.dep.caixa/_beta/latest",
+      "error": "404 Client Error: The requested content does not exist. for url: https://arquiteturati.dep.caixa/_beta/latest",
+      "kind": "page"
+    },
+    {
+      "url": "http://arquiteturati.dep.caixa/_beta/latest/nuvem/infraestrutura_nuvem/",
+      "error": "HTTPConnectionPool(host='arquiteturati.dep.caixa', port=80): Max retries exceeded with url: /_beta/latest/nuvem/infraestrutura_nuvem/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000012ACDF3D400>, 'Connection to arquiteturati.dep.caixa timed out. (connect timeout=20)'))",
+      "kind": "page"
+    }
+  ]
+}

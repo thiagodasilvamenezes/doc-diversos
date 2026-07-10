@@ -1,0 +1,4703 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Uso futuro - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="index.html#sdwan-seguro" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="https://arquiteturati.dep.caixa/latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Uso futuro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/index.html" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/index.html" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../telecom/index.html" class="md-tabs__link md-tabs__link--active">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/index.html" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/index.html" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/index.html" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/index.html" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/index.html" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/index.html" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/index.html" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/index.html" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/index.html" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/index.html" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/index.html" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/index.html" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microprofile/index.html" class="md-nav__link">
+        Java Microprofile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/index.html" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/index.html" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/index.html" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_1" type="checkbox" id="__nav_2_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/index.html" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/index.html" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/index.html" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/index.html" class="md-nav__link">
+        Sigle Page Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2_1" type="checkbox" id="__nav_2_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2_1">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/index.html" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/index.html" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/index.html" class="md-nav__link">
+        Processamento Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/index.html" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/index.html" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14_1" type="checkbox" id="__nav_2_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/index.html" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/index.html" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/index.html" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/index.html" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/index.html" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/index.html" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/index.html" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/index.html" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_3" type="checkbox" id="__nav_3_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_4" type="checkbox" id="__nav_3_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/index.html" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/index.html" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arquiteturati.dep.caixa/25.06/nuvem/cosmos.md" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/index.html" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/index.html" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/index.html" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/index.html" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/index.html" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/index.html" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/index.html" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/index.html" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/index.html" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/index.html" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/index.html" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/index.html" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/index.html" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/index.html" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/index.html" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/index.html" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/index.html" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/index.html" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1" type="checkbox" id="__nav_6_2_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/index.html" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1_3" type="checkbox" id="__nav_6_2_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/index.html" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/index.html" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/index.html" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/index.html" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../switching_datacenter/index.html" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/index.html" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede1/index.html" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede2/index.html" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede3/index.html" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede4/index.html" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede5/index.html" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede6/index.html" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede7/index.html" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede-local/index.html" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financeira/index.html" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webproxy/index.html" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../call_center_nuvem/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wifi/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Balanceamento/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interconexoes_multicloud/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Uso futuro
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Uso futuro
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-de-solucao" class="md-nav__link">
+    Arquitetura de Solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#tecnologias" class="md-nav__link">
+    Tecnologias
+  </a>
+  
+    <nav class="md-nav" aria-label="Tecnologias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#sdwan-software-defined-wide-area-network" class="md-nav__link">
+    SDWAN (Software Defined Wide Area Network)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#seguranca-de-perimetro-e-criptografia" class="md-nav__link">
+    Segurança de Perímetro e Criptografia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#saida-direta-a-internet-breakout-internet-auditavel" class="md-nav__link">
+    Saída Direta à Internet (breakout internet) auditável.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#principios" class="md-nav__link">
+    PRINCÍPIOS
+  </a>
+  
+    <nav class="md-nav" aria-label="PRINCÍPIOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#principios-arquiteturais" class="md-nav__link">
+    PRINCÍPIOS ARQUITETURAIS
+  </a>
+  
+    <nav class="md-nav" aria-label="PRINCÍPIOS ARQUITETURAIS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#alta-disponibilidade" class="md-nav__link">
+    ALTA DISPONIBILIDADE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#alto-desempenho-baixa-latencia" class="md-nav__link">
+    ALTO DESEMPENHO: BAIXA LATÊNCIA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#seguranca" class="md-nav__link">
+    SEGURANÇA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida" class="md-nav__link">
+    ARQUITETURA DEFINIDA
+  </a>
+  
+    <nav class="md-nav" aria-label="ARQUITETURA DEFINIDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-macro" class="md-nav__link">
+    Arquitetura macro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#overlay-x-underlay" class="md-nav__link">
+    Overlay x Underlay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#roteamento-baseado-em-qualidade" class="md-nav__link">
+    Roteamento baseado em qualidade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#breakout-internet" class="md-nav__link">
+    Breakout Internet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micro/index.html" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/index.html" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mesa-operacoes/index.html" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/index.html" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/index.html" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/index.html" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-de-solucao" class="md-nav__link">
+    Arquitetura de Solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#tecnologias" class="md-nav__link">
+    Tecnologias
+  </a>
+  
+    <nav class="md-nav" aria-label="Tecnologias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#sdwan-software-defined-wide-area-network" class="md-nav__link">
+    SDWAN (Software Defined Wide Area Network)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#seguranca-de-perimetro-e-criptografia" class="md-nav__link">
+    Segurança de Perímetro e Criptografia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#saida-direta-a-internet-breakout-internet-auditavel" class="md-nav__link">
+    Saída Direta à Internet (breakout internet) auditável.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#principios" class="md-nav__link">
+    PRINCÍPIOS
+  </a>
+  
+    <nav class="md-nav" aria-label="PRINCÍPIOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#principios-arquiteturais" class="md-nav__link">
+    PRINCÍPIOS ARQUITETURAIS
+  </a>
+  
+    <nav class="md-nav" aria-label="PRINCÍPIOS ARQUITETURAIS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#alta-disponibilidade" class="md-nav__link">
+    ALTA DISPONIBILIDADE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#alto-desempenho-baixa-latencia" class="md-nav__link">
+    ALTO DESEMPENHO: BAIXA LATÊNCIA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#seguranca" class="md-nav__link">
+    SEGURANÇA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida" class="md-nav__link">
+    ARQUITETURA DEFINIDA
+  </a>
+  
+    <nav class="md-nav" aria-label="ARQUITETURA DEFINIDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-macro" class="md-nav__link">
+    Arquitetura macro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#overlay-x-underlay" class="md-nav__link">
+    Overlay x Underlay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#roteamento-baseado-em-qualidade" class="md-nav__link">
+    Roteamento baseado em qualidade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#breakout-internet" class="md-nav__link">
+    Breakout Internet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="sdwan-seguro">SDWAN SEGURO</h1>
+<blockquote>
+<p><strong>Importante:</strong> Essa arquitetura de referência se encontra em fase de prospecção e não possui nenhum indicativo de uso geral pelas equipes. </p>
+</blockquote>
+<h2 id="arquitetura-de-solucao">Arquitetura de Solução</h2>
+<p>Esta arquitetura de referência faz parte da Arquitetura completa
+        de rede de Comunicação da CAIXA.</p>
+<h2 id="objetivo">Objetivo</h2>
+<p>A ampliação de uso de tecnologias baseadas em Internet
+        disponibiliza aos negócios diversas oportunidades de redesenho e
+        evolução rápida de serviços.</p>
+<p>Neste sentido diversas empresas veem disponibilizando
+            ambientes robustos para disponibilização de serviços em
+            infraestrutura compartilhada, escalável e com grande
+            flexibilidade de provisionamento (inclusive auto
+            provisionamento).</p>
+<p>As áreas de negócio deverão fazer uso destas soluções de
+            forma cada vez mais ampla, para possibilitar o
+            acompanhamento das necessidades dos clientes bem como para
+            seu encantamento.</p>
+<p>Portanto, é fundamental, atualmente, que o segmento de
+            Tecnologia da Informação e Comunicação disponibilize às
+            áreas negociais modelos flexíveis e escaláveis para
+            implantação de seus produtos e serviços sem deixar de lado
+            os requisitos de segurança exigidos em quaisquer soluções.</p>
+<p>Por outro lado, deve-se salientar, os produtos Bancários são
+        totalmente relacionados a soluções de Tecnologia da Informação,
+        portanto dependem diretamente da qualidade e disponibilidade
+        destas soluções.</p>
+<p>Assim, é importante que os ambientes de tecnologia e
+            telecomunicações estejam adequados em termos de capacidade,
+            desempenho e segurança garantindo a melhor experiência para
+            o usuário/cliente.</p>
+<p>Neste contexto elaborou-se esta Definição da Arquitetura
+        Tecnológica de rede para guiar a implantação de projeto de rede
+        WAN segura definida por software com a apresentação das
+        tecnologias envolvidas, especificações preliminares da solução,
+        Topologias e cenários de utilização.</p>
+<p>Este documento de arquitetura visa delinear os aspectos
+        funcionais e organizacionais necessários para implantação de
+        Solução de rede com recursos de SDWAN seguro, sob uma ótica
+        abrangente ao mesmo tempo em que busca facilitar seu
+        entendimento e principais casos de uso.</p>
+<h2 id="tecnologias">Tecnologias</h2>
+<h4 id="introducao"><strong>Introdução</strong></h4>
+<p>O mercado de telecomunicações vem sofrendo mudanças
+            significativas nos últimos anos, impulsionado pela forte
+            migração de serviços para rede pública (internet) com o uso
+            de Datacenters em Nuvem e mobilidade.</p>
+<ul>
+<li>
+<p>Tais movimentos também atingem o setor bancário,
+                sobretudo pela abertura de mercado promovido pelo BACEN
+                em fomento a criação startups financeiras denominadas
+                FINTECHs.</p>
+</li>
+<li>
+<p>Este aumento de competitividade amplia a necessidade de
+                readequação de modelos de negócio buscando aderência ao
+                novo perfil do consumidor mantendo a necessidade de
+                melhores relações entre custo e benefício.</p>
+</li>
+</ul>
+<p>A rápida evolução tecnológica tem apresentado inovações em
+            tempos recordes a cada dia, exigindo das instituições grande
+            aumento na sua capacidade de reinvenção e agregação de novas
+            funcionalidades.</p>
+<ul>
+<li>
+<p>O mercado de tecnologia tem criado soluções que permitem
+                às empresas a adoção rápida dessas novas tecnologias.
+                Estes recursos, em sua grande maioria, encontram-se
+                disponíveis através de Plataformas e/ou Software como
+                Serviço (SaaS) em Datacenters em Nuvem podendo ser
+                consumidos através de APIs diretamente na Internet.</p>
+</li>
+<li>
+<p>Deve-se considerar, também, que as redes de dados
+                privadas no Brasil possuem custos significativamente
+                superiores em relação a conexões Internet. Desta forma,
+                a alteração da nossa matriz de conectividade ampliando o
+                uso de rede Internet poderá significar uma ampla redução
+                nos custos de Rede de Dados.</p>
+</li>
+</ul>
+<p>Por outro lado, há um aumento crescente de ações maliciosas
+            que visam encontrar fragilidades em ambientes tecnológicos
+            com o objetivo de atingir vantagens financeiras e/ou
+            simplesmente expor a Imagem das Instituições.</p>
+<ul>
+<li>Tal situação acarreta a necessidade de ampliação dos
+                mecanismos de detecção e mitigação em amplo espectro,
+                inclusive na estrutura de rede WAN.</li>
+</ul>
+<p>Dentre as tecnologias conceituadas neste tópico estão SDWAN
+            (<em>Software Defined Wide Area Network</em>), segurança de
+            perímetro e criptografia e saída direta à internet
+            (<em>breakout</em> internet) auditável.</p>
+<h4 id="sdwan-software-defined-wide-area-network"><strong>SDWAN (Software Defined Wide Area Network)</strong></h4>
+<p>A necessidade de entregas cada vez mais rápidas, associadas
+            a ambientes cada vez maiores e complexos, requisitos amplos
+            de padronização e mitigação de falhas operacionais fizeram
+            surgir tecnologias que permitem o provisionamento de
+            ambientes tecnológicos através de soluções centralizadas
+            baseadas em software.</p>
+<ul>
+<li>
+<p>Estas soluções refletem o início de um novo ciclo de
+                melhoria contínua nos processos de operações
+                tecnológicas, que até então estavam baseadas em ações
+                manuais e/ou automações pontuais.</p>
+</li>
+<li>
+<p>As soluções “<em>software defined</em>” (definidas por
+                software) visam aprimorar as tarefas de operações
+                trazendo às corporações maior robustez nos seus
+                processos de gestão permitindo melhorar a qualidade dos
+                serviços de tecnologia com redução de custos.</p>
+</li>
+</ul>
+<p>No âmbito de rede temos o termo mais abrangente denominado
+            SDN (<em>Software Defined Network</em>) que traz o conceito amplo
+            de gestão de rede baseada em software.</p>
+<ul>
+<li>Neste documento será tratado o segmento específico de
+                SDN que se refere a gestão de rede WAN baseada em
+                software (SDWAN).</li>
+</ul>
+<p>Características da tecnologia SDWAN</p>
+<ul>
+<li>
+<p>Dentre as características importantes da tecnologia
+                SDWAN temos:</p>
+</li>
+<li>
+<p>Provisionamento centralizado com ZTP (<em>zero touch
+                    provisioning</em>);</p>
+</li>
+<li>
+<p>Roteamento de tráfego dinâmico inteligente e
+                    balanceamento de carga;</p>
+</li>
+<li>
+<p>Medição de Qualidade de Rede e visão fim a fim;</p>
+</li>
+<li>
+<p>Mitigação de perda de pacotes;</p>
+</li>
+</ul>
+<p>Provisionamento Centralizado com ZTP (<em>zero touch
+            provisioning</em>)</p>
+<ul>
+<li>
+<p>Uma das grandes características das soluções de SDWAN é
+                a possibilidade de efetuar provisionamento dos
+                equipamentos de forma centralizada com nenhuma, ou
+                pouca, interação técnica nos equipamentos físicos.</p>
+</li>
+<li>
+<p>Esta funcionalidade é conhecida como provisionamento sem
+                contato (ZTP – <em>zero touch provisioning</em>) e visa evitar
+                a necessidade de pré-configuração dos equipamentos em
+                unidade de TI e/ou envio de técnico especializado para
+                campo para ativação de equipamento na unidade fim.</p>
+</li>
+<li>
+<p>Desta forma tem-se um ganho significativo de agilidade e
+                custo visto que os equipamentos podem ser encaminhados
+                diretamente para a unidade fim e sua instalação ser
+                feita por um profissional de menor conhecimento técnico.</p>
+</li>
+<li>
+<p>Existem algumas tecnologias que apoiam esta
+                funcionalidade, mas basicamente trata-se da criação de
+                templates de configuração na ferramenta centralizada de
+                provisionamento na qual o equipamento buscará sua
+                configuração específica.</p>
+</li>
+<li>
+<p>Para que este recurso funcione o equipamento deve
+                    possuir conectividade com a ferramenta de
+                    provisionamento, isto pode ser feito através de
+                    conexão via internet, através de recursos
+                    pré-definidos em DHCP (<em>Dynamic Host Configuration
+                    Protocol</em>) e/ou customizações efetuadas diretamente
+                    no fabricante.</p>
+</li>
+<li>
+<p>É comum atualmente que os fabricantes disponibilizem
+                    ambientes em nuvem para gestão dos ativos e suas
+                    configurações. O ponto de atenção neste caso é
+                    quanto a segurança visto que o gerenciamento dos
+                    equipamentos ocorrerá diretamente pela Internet.</p>
+</li>
+</ul>
+<p>Roteamento de tráfego dinâmico inteligente e balanceamento
+            de carga</p>
+<ul>
+<li>
+<p>Para permitir o entendimento deste recurso, é importante
+                esclarecer as diferentes formas de roteamento de tráfego
+                em rede de dados, baseadas em roteamento estático e
+                roteamento dinâmico.</p>
+</li>
+<li>
+<p>O roteamento estático é feito através da inclusão de
+                    rotas manualmente nos roteadores do ambiente de
+                    forma a direcionar o tráfego para a interface onde
+                    determinado serviço ou subrede poderá ser alcançada.
+                    Nesta situação, normalmente, a solução funciona na
+                    modalidade ativo-standby, e não é possui quaisquer
+                    mecanismos para detecção de qualidade do caminho de
+                    forma que a comutação para a contingência ocorre
+                    apenas com a indisponibilidade da interface
+                    diretamente conectada ao roteador.</p>
+</li>
+<li>
+<p>O roteamento dinâmico é um modo de distribuição do
+                    rotas de forma automática entre dois ou mais
+                    roteadores. Para esta funcionalidade são utilizados
+                    protocolos especializados que mantém adjacências
+                    entre roteadores diretamente conectados nos quais as
+                    rotas para os serviços são distribuídas de forma
+                    automática e bidirecional. O plano de roteamento é,
+                    normalmente, pré-definido através de métricas
+                    estáticas de forma que as comutações ocorrem quando
+                    as rotas deixam de ser propagadas em virtude de
+                    falhas nas conexões entre os equipamentos. Assim, da
+                    mesma forma como no roteamento estático não se
+                    costuma ter alterações no plano de encaminhamento de
+                    tráfego por problemas de qualidade uma vez que a
+                    criação e administração de probes é manual o que a
+                    torna bastante complexa em ambientes de grande
+                    porte.</p>
+</li>
+<li>
+<p>Já no caso das soluções de SDWAN, o roteamento é
+                associado diretamente aos serviços avaliando o caminho
+                de rede fim a fim.</p>
+</li>
+<li>
+<p>Em SDWAN o tráfego flui entre um equipamento de peer
+                    sdwan e um concentrador. Algumas soluções são
+                    baseadas em tuneis que são formados entre o peer
+                    remoto e o concentrador através de cada caminho
+                    possível.</p>
+</li>
+<li>
+<p>Os concentradores são instalados nos pontos de
+                    divulgação de serviços, assim cada concentrador
+                    divulga dinamicamente para os peers remotos os
+                    serviços que são alcançáveis através dele.</p>
+</li>
+<li>
+<p>Este modelo permite que a qualidade de rede fim a
+                    fim entre os pontos seja avaliado em conjunto com a
+                    alcançabilidade dos destinos, e isto possibilita que
+                    o tráfego seja encaminhado pelo melhor caminho para
+                    atendimento ao nível de serviço esperado para cada
+                    serviço.</p>
+</li>
+<li>
+<p>Além disto, é possível criar políticas de
+                    distribuição de tráfego com balanceamento dos
+                    serviços por caminhos distintos. Esta ação costuma
+                    ser complexa em se tratando de redes tradicionais
+                    visto que os fluxos bidirecionais acabam ficando
+                    assimétricos (envia por um circuito e recebe por
+                    outro).</p>
+</li>
+</ul>
+<p>Medição de Qualidade de Rede e visão fim a fim</p>
+<ul>
+<li>
+<p>Como comentado no item anterior, as soluções de SDWAN
+                são orientadas a encaminhar o tráfego através de um
+                concentrador.</p>
+</li>
+<li>
+<p>Esta condição possibilita que seja avaliado todo o
+                    caminho de rede entre o peer remoto e o
+                    concentrador.</p>
+</li>
+<li>
+<p>Assim, através de protocolos proprietários, as
+                    soluções efetuam medições de qualidade de cada
+                    caminho entre cada peer remoto e cada concentrador.</p>
+</li>
+<li>
+<p>Basicamente são avaliadas métricas de
+                    alcançabilidade, latência e perda de pacotes que
+                    permitem a tomada de decisão de roteamento de acordo
+                    com o melhor caminho para determinado serviço.</p>
+</li>
+</ul>
+<p>Mitigação de perda de pacotes</p>
+<ul>
+<li>
+<p>Outro recurso bastante comum em soluções de SDWAN é a
+                disponibilização de tecnologia para reduzir as perdas de
+                pacotes.</p>
+</li>
+<li>
+<p>Tal tecnologia foi desenvolvida, principalmente,
+                    para permitir o uso massivo de circuitos internet,
+                    visto que estes circuitos costumam possuir níveis de
+                    qualidade variáveis de acordo com horários,
+                    provedor, dia da semana, dentre outras condições.</p>
+</li>
+<li>
+<p>Normalmente trata-se de protocolo proprietário, mas
+                    que em geral funciona de forma semelhante entre
+                    diferentes fabricantes.</p>
+</li>
+<li>
+<p>Este mecanismo costuma ser chamado de FEC (<em>Forward
+                    Error Corretion</em>) que funciona incluindo pacotes de
+                    paridade na comunicação que permitem a restauração
+                    de pacotes perdidos na rede.</p>
+</li>
+<li>
+<p>O recurso dispõe de versões adaptativas, onde a
+                    quantidade de pacotes de paridade é variável de
+                    acordo com o índice de perda da conexão.</p>
+</li>
+<li>
+<p>Estendendo a funcionalidade de FEC existem soluções
+                    que permitem a duplicação de pacotes utilizando
+                    caminhos distintos, o que evidentemente deve ser
+                    utilizado com cautela uma vez que produz
+                    significativo aumento no consumo de rede.</p>
+</li>
+<li>
+<p>Em soluções mais avançadas, tanto o recurso de FEC
+                    quanto o de duplicação de pacotes pode ser
+                    habilitado por serviço, assim, pode ser habilitado
+                    para aplicações mais sensíveis como tráfego de tempo
+                    real (voz / imagem) e / ou que atendem a sistemas
+                    transacionais de missão crítica e desabilitado para
+                    os demais serviços.</p>
+</li>
+</ul>
+<h4 id="seguranca-de-perimetro-e-criptografia"><strong>Segurança de Perímetro e Criptografia</strong></h4>
+<p>As soluções de SDWAN buscam permitir o uso de circuitos
+            internet como meio de transmissão.</p>
+<ul>
+<li>
+<p>Esta característica agrega à solução uma necessidade de
+                aprimoramento dos requisitos de segurança.</p>
+</li>
+<li>
+<p>Uma solução convencional, onde a conectividade é provida
+                por circuitos de dados privados, a segurança é provida
+                pelo isolamento da rede pública no próprio provedor de
+                telecomunicações.</p>
+</li>
+<li>
+<p>Porém, quando se pretende fazer uso de Internet, onde
+                todos os computadores do mundo possuem acesso, há que se
+                observar o tamanho desta exposição e buscar mecanismos
+                para minimizar seus riscos.</p>
+</li>
+<li>
+<p>Neste contexto esta Arquitetura de Referência inclui
+                este tópico específico para explicar alguns itens de
+                segurança comuns nas soluções mais avançadas de SDWAN.</p>
+</li>
+</ul>
+<p>Criptografia entre <em>endpoints</em></p>
+<ul>
+<li>
+<p>Considerando a possibilidade do tráfego corporativo
+                através de circuitos internet é fundamental que seja
+                garantida a impossibilidade de leitura desses dados
+                durante este trânsito.</p>
+</li>
+<li>
+<p>Mecanismos de criptografia de pacotes criam uma camada
+                adicional de segurança que impede agentes maliciosos a
+                visualizarem os dados trafegados.</p>
+</li>
+<li>
+<p>As soluções de SDWAN já implementam nativamente soluções
+                de criptografia permitindo seu uso em redes públicas.</p>
+</li>
+</ul>
+<p>Proteção antiDDoS e anti intrusão</p>
+<ul>
+<li>
+<p>Da mesma forma, considerando a exposição à internet,
+                algumas ações maliciosas visam penetração nos ambientes
+                corporativos e outras apenas prejudicar o funcionamento
+                de seus ambientes.</p>
+</li>
+<li>
+<p>Para estes casos deve-se considerar funcionalidades de
+                proteção para minimizar a possibilidade de acesso
+                indevido ao ambiente interno ao mesmo tempo dispor de
+                recursos para suportar ataques de negação de serviço
+                (DDoS – <em>Distributed Denial of Service</em>) mantendo-se
+                operacional.</p>
+</li>
+<li>
+<p>Evidentemente que a disciplina de anti-DDoS é extensa e
+                não se espera que um equipamento de pequeno porte seja
+                totalmente imune a esses ataques, já que até mesmo os de
+                grande porte não são, porém é esperado que o equipamento
+                possua mecanismos para permanecer ativo e acessível para
+                implantação de contramedidas (ainda que manuais) mesmo
+                sob ataque.</p>
+</li>
+</ul>
+<p>SSL inspection</p>
+<ul>
+<li>
+<p>Com a expansão do uso de criptografia nos serviços,
+                qualquer análise detalhada sobre o tráfego que está
+                passando pelos equipamentos requer mecanismos de
+                decriptografia dos pacotes.</p>
+</li>
+<li>
+<p>As soluções utilizam tecnologias que permitem a abertura
+                dos pacotes através do registro do certificado no
+                equipamento ou simplesmente atuando como <em>man in the
+                middle</em>, neste caso a abertura conexão do cliente é
+                feita com o equipamento através de certificado próprio e
+                este efetua a conexão com o destino.</p>
+</li>
+<li>
+<p>Algumas aplicações impedem o uso das técnicas citadas o
+                que pode significar a impossibilidade de inspeção do seu
+                tráfego, nestes casos deve-se avaliar pelos times de
+                segurança se seu uso pode ser liberado.</p>
+</li>
+</ul>
+<p>Antivirus e antimalware</p>
+<ul>
+<li>
+<p>A partir das técnicas de inspeção supracitadas bem como
+                da análise de reputação dos sites/serviços acessados é
+                possível identificar situações em que há risco de
+                propagação de elementos maliciosos tais como vírus e
+                malwares.</p>
+</li>
+<li>
+<p>Neste caso existem diversas técnicas para mitigação
+                destes riscos, dentre as quais categorização de sites
+                com seu bloqueio em consultas DNS, inspeção de arquivos
+                e links através de <em>sandbox</em>, dentre outras.</p>
+</li>
+</ul>
+<p>Políticas baseadas em usuário</p>
+<ul>
+<li>
+<p>Por se tratar de uma solução que visa a melhoria da
+                experiência do usuário é importante que seja possível
+                implantar políticas correlacionadas ao usuário ou aos
+                perfis de usuário.</p>
+</li>
+<li>
+<p>Tais regras permitem que os acessos sejam
+                disponibilizados conforme a necessidade do usuário,
+                restringindo na origem as tentativas não permitidas.</p>
+</li>
+<li>
+<p>Além disto, é possível direcionar o tráfego conforme o
+                tipo de usuário bem como alocar limites de banda de
+                acordo com sua necessidade.</p>
+</li>
+<li>
+<p>A criação de políticas baseadas em usuário é um dos
+                pontos principais para implantação de acesso direto à
+                internet visto que as regras de permissão são
+                dependentes do perfil de cada um.</p>
+</li>
+</ul>
+<h4 id="saida-direta-a-internet-breakout-internet-auditavel"><strong>Saída Direta à Internet (<em>breakout</em> internet) auditável.</strong></h4>
+<p>Com a ampliação na disponibilização de serviços na internet,
+            sobretudo aqueles em nuvem tais como SaaS (<em>Software as a
+            Service</em>), deve-se rever o modelo de saída à Internet
+            centralizado. A rede Internet é uma rede onde todos os
+            dispositivos podem se conectar entre si diretamente.</p>
+<p>Os modelos com saída à Internet centralizada não são
+            otimizados, já que costumam consumir mais recursos da
+            corporação como links de Datacenter e provocam um aumento na
+            latência de rede para o usuário.</p>
+<p>Apesar de conceitualmente ser bastante desejável que os
+            acessos à internet ocorram diretamente das unidades fim,
+            isto deve ser feito considerando alguns aspectos:</p>
+<ul>
+<li>
+<p>Regras de Acesso: Capacidade para customizar quais
+                acessos cada usuário ou grupo de usuários pode ter;</p>
+</li>
+<li>
+<p>Rastreabilidade: Possibilidade de identificar qual
+                acesso cada usuário fez de forma a cumprir os requisitos
+                legais;</p>
+</li>
+<li>
+<p>Inspeção: Capacidade para habilitar e desabilitar a
+                inspeção de pacotes para sites / serviços específicos;</p>
+</li>
+</ul>
+<h2 id="principios">PRINCÍPIOS</h2>
+<h3 id="principios-arquiteturais">PRINCÍPIOS ARQUITETURAIS</h3>
+<p>A arquitetura do ambiente deve obedecer aos seguintes
+            princípios:</p>
+<ul>
+<li>
+<p>Alta disponibilidade</p>
+</li>
+<li>
+<p>Alto desempenho</p>
+</li>
+<li>
+<p>Baixa latência</p>
+</li>
+<li>
+<p>Segurança</p>
+</li>
+</ul>
+<h4 id="alta-disponibilidade"><strong>ALTA DISPONIBILIDADE</strong></h4>
+<p>A solução deve permitir a implantação de conexões por
+                múltiplos caminhos.</p>
+<p>Redundância de equipamentos pode ser utilizada em
+                unidades críticas.</p>
+<h4 id="alto-desempenho-baixa-latencia"><strong>ALTO DESEMPENHO: BAIXA LATÊNCIA</strong></h4>
+<p>O acesso a sistemas transacionais deve ocorrer por
+                conexões de menor latência quando comparada a outras
+                conexões com a mesma qualidade.</p>
+<p>As configurações devem ser otimizadas visando a redução
+                de <em>overheads</em>.</p>
+<h4 id="seguranca"><strong>SEGURANÇA</strong></h4>
+<p>Quanto ao quesito segurança, deve-se observar a
+                implantação das proteções citadas no item Tecnologia
+                sobretudo quando em uso de conexões internet.</p>
+<h2 id="arquitetura-definida">ARQUITETURA DEFINIDA</h2>
+<h4 id="arquitetura-macro"><strong>Arquitetura macro</strong></h4>
+<p><img alt="" src="../../img/telecom/sdwan/image1.png" /> </p>
+<p>Esta figura representa uma topologia macro da solução onde são
+    apresentados os componentes envolvidos e alguns elementos agregados
+    para entendimento geral.</p>
+<p>De modo global deseja-se que as unidades da Caixa (à esquerda)
+    possam se conectar aos Datacenters próprios (à direita) ou em Nuvem
+    (no centro acima) diretamente sem necessidade de transbordo por
+    alguma unidade intermediária.</p>
+<p>Dentro das unidades distribuídas foram inseridos elementos de
+    controle e encaminhamento de tráfego bem como recursos para criação
+    de políticas avançadas de melhoria de qualidade de rede (QoE –
+    Qualidade da experiência) e segurança (NGFw – <em>Next Generation
+    Firewall</em>).</p>
+<p>Na proposta de encaminhamento de tráfego encontram-se mecanismos
+        para criação de políticas de roteamento dos pacotes baseadas no
+        serviço acessado bem como do perfil do usuário que está
+        requisitando o acesso.</p>
+<p>Quanto as políticas avançadas de qualidade encontram-se funções
+        destinadas a buscar caminhos com menor latência e perda de
+        pacotes bem como protocolos que minimizam essas perdas.</p>
+<p>Dentro do item segurança são incluídas funções de UTM (<em>Unified
+        Threat Management</em> – gerenciamento unificado de ameaças) e NGFw
+        (firewall de camada 7) que permitem a identificação e eliminação
+        de ameaças, prevenção de intrusão, inspeção de pacotes, filtro
+        web e criação de políticas de controle e registro de acesso por
+        usuário.</p>
+<p>A inclusão das funcionalidades avançadas de segurança nas unidades
+    remotas traz flexibilidade de uso de integrações com a Internet.
+    Assim, consta na arquitetura a possibilidade de acesso à Internet
+    (<em>breakout</em> Internet) diretamente das unidades remotas. Este recurso
+    viabilizará tanto o acesso direto aos recursos em Nuvem (SaaS e
+    IaaS) quanto acesso a qualquer site na internet sem necessidade de
+    passagem por um Datacenter Caixa.</p>
+<p>A rede SDWAN é caracterizada pela distinção entre <em>underlay</em> e
+    <em>overlay</em>. O <em>underlay</em> é a estrutura convencional onde se dá a
+    conexão e configuração dos circuitos de dados contratados. O
+    overlay, por outro lado, é uma rede privada ponto a ponto criada
+    sobre o <em>underlay</em> na qual o tráfego é criptografado e onde são
+    aplicadas as políticas.</p>
+<ul>
+<li>Para criação deste overlay é necessário incluir equipamentos em
+        cada ponto da rede inclusive nos Datacenter privados e em Nuvem
+        (IaaS). Para estes casos, como o volume de conexões e tráfego
+        são grandes, faz-se necessário equipamentos de maior porte que
+        fazem a função de Concentrador. Estes elementos precisam
+        suportar o tráfego simultâneo de todas as unidades remotas.</li>
+</ul>
+<p>Espera-se que os equipamentos possam ser ativados com o recurso de
+    ZTP (<em>zero touch provisioning</em>), cuja função é eliminar a
+    necessidade de configuração ativo a ativo bem como a necessidade de
+    técnico especializado em campo.</p>
+<ul>
+<li>Este recurso é operacionalizado por um orquestrador centralizado
+        onde são incluídas todas as políticas a serem carregadas nos
+        ativos assim que eles forem conectados à rede.</li>
+</ul>
+<p>Para os ambientes de Cloud Edges, que são locais que permitem
+    conexões privadas aos ambientes de nuvem com alta capacidade de
+    baixa latência, devem ser aplicadas funcionalidades destinadas a
+    garantir a escalabilidade da solução tanto no aspecto SDWAN quanto
+    UTM.</p>
+<p>Por se tratar de uma solução com que agrega mais de 4 mil elementos
+    distribuídos, que se conectarão a mais de 8 mil circuitos de dados,
+    2 Datacenters próprios, dois pontos de presença em Cloud Edges e
+    virtualmente em alguns Datacenters em Nuvem, deve-se considerar
+    também elementos de orquestração e gerenciamento.</p>
+<p>Este gerenciamento deve suportar funcionalidades sob às óticas de
+    falhas, configuração, capacidade/desempenho, contabilização,
+    segurança e analíticos.</p>
+<ul>
+<li>
+<p>A solução deve ser operacionalizada com ferramenta centralizada
+        que agregue métricas de acordo com cada funcionalidade e que
+        forneçam dados para atuação de todos os níveis de suporte.</p>
+</li>
+<li>
+<p>Desta forma deve-se possuir, por exemplo, desde dashboards para
+        identificação rápida de falhas bem como relatórios sofisticados
+        de consumo e desempenho da rede.</p>
+</li>
+</ul>
+<h4 id="overlay-x-underlay">Overlay<em> x </em>Underlay</h4>
+<p>A rede SDWAN é caracterizada pela distinção entre <em>underlay</em> e
+        <em>overlay</em>. O <em>underlay</em> é a estrutura de rede convencional onde
+        se dá a conexão e configuração dos circuitos de dados
+        contratados. O <em>overlay</em>, por outro lado, é uma rede privada
+        ponto a ponto criada sobre o <em>underlay</em> na qual o tráfego é
+        criptografado e onde são aplicadas as políticas de roteamento.</p>
+<p>Para criação deste overlay é necessário incluir equipamentos em
+        cada ponto da rede inclusive nos Datacenter privados e em Nuvem
+        (IaaS). Para estes casos, como o volume de conexões é grande e
+        sua função é de agregação, tais equipamentos são chamados de
+        concentradores. Estes elementos precisam suportar o tráfego
+        simultâneo de todas as unidades remotas.</p>
+<p>A arquitetura de referência para o <em>underlay</em> não é tratada
+        neste documento, mas sim nos documentos de arquitetura
+        referentes às Redes 1 a 7.</p>
+<p>Neste documento cabe informar que essas arquiteturas
+            sofrerão algumas mudanças pois o tráfego de serviço deixará
+            de divulgado nas mesmas passando para o <em>overlay</em>. Abaixo as
+            principais mudanças a serem consideradas para cada Rede de
+            <em>underlay</em>:</p>
+<ul>
+<li>
+<p>Rede 1: Trata-se de uma rede MPLS originalmente criada
+                para contingência. Uma vez que no cenário de SDWAN não
+                há mais o conceito de contingência, mas sim de conexões
+                auxiliares (já que todas são ativas simultaneamente) e
+                que deve ser utilizado para esses casos acessos à
+                internet, essa Rede tende a ser descontinuada.</p>
+<ul>
+<li>
+<p>Por se tratar de uma rede de camada 3, desde sua
+                origem, foi implantada com criptografia através de
+                tunelamento IPSEC, esses tuneis deverão ser
+                eliminados e substituídos pelo <em>overlay</em>.</p>
+</li>
+<li>
+<p>Além da eliminação dos tuneis, deve-se eliminar
+                todas as rotas de serviço que eventualmente foram
+                incluídas nessa rede.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Rede 2: Da mesma forma que a rede 1, trata-se de uma
+                rede de camada 3 em MPLS, e, portanto, carece da mesma
+                preocupação dessa outra. Ou seja, eliminar os tuneis
+                IPSEC e todas as rotas de serviço que são divulgadas
+                para mesma.</p>
+<ul>
+<li>O único roteamento a ser incluído nessa rede é para
+                interconexão dos <em>peers</em> de sdwan, ou seja, endereço
+                dos equipamentos remotos e concentradores.</li>
+</ul>
+</li>
+<li>
+<p>Rede 3: É uma rede privada baseada em satélite. Essa
+                rede também deverá ser descontinuada com a expansão de
+                uso de acesso Internet. Enquanto permanecer ativa
+                deve-se considerar a exclusão das rotas de serviço e
+                inclusão do roteamento para interconexão dos <em>peers</em> de
+                SDWAN.</p>
+</li>
+<li>
+<p>Rede 5: É uma rede baseada em Internet. Por se tratar da
+                rede pública esse tráfego também é criptografado. No
+                cenário SDWAN deve-se eliminar o tunelamento existente
+                deixando essa função para o <em>overlay</em>.</p>
+</li>
+<li>
+<p>Rede 6: Trata-se da rede de backbone ótico da Caixa,
+                neste caso deve-se considerar a eliminação do roteamento
+                de serviço deixando apenas o roteamento para os
+                <em>endpoints</em> do SDWAN.</p>
+</li>
+<li>
+<p>Rede 7: Trata-se da rede Internet corporativa da Caixa.
+                Neste caso deve-se considerar que será utilizada para
+                publicação dos endereços dos concentradores <em>on
+                premisses</em>. Há que se considerar o uso da solução de
+                segurança de perímetro dessa arquitetura.</p>
+</li>
+</ul>
+<p>A arquitetura simplificada do overlay é apresentada abaixo:</p>
+<p><img alt="" src="../../img/telecom/sdwan/image3.png" /> </p>
+<p>Neste caso é demonstrado como deve ser feita a conexão overlay entre
+    a unidade remota e o concentrador. São criados diversos caminhos
+    (Path) entre essa unidade e um determinado concentrador.</p>
+<p>Esses caminhos lógicos podem ser construídos através de tunelamento
+    IPSEC ou sem túnel conforme tecnologia utilizada pelo fornecedor.</p>
+<p>Nos casos sem túnel deve-se observar eventuais
+        incompatibilidades com NAT, que normalmente necessitarão de
+        alguma solução de transversalidade de NAT para funcionar
+        corretamente.</p>
+<p>Para que estes caminhos sejam ativados é necessário que os endereços
+    do Concentrador sejam divulgados por cada circuito <em>underlay</em> que
+    suporta cada Path.</p>
+<p>Assim, para que haja separação lógica entre os Path, o
+        Concentrador deve dispor de endereços específicos em cada rota
+        de <em>underlay</em>. Em outras palavras, deve-se disponibilizar
+        diferentes endereços de <em>peer</em> para determinado Concentrador em
+        cada Rede permitindo que cada caminho entre a unidade remota e o
+        concentrador passe por percursos distintos.</p>
+<p>Da mesma forma, o endereço de <em>peer</em> da unidade remota deve ser
+        diferente por cada Rede do <em>underlay</em>.</p>
+<h4 id="roteamento-baseado-em-qualidade"><strong>Roteamento baseado em qualidade</strong></h4>
+<p>Para facilitar o entendimento desta funcionalidade na
+        arquitetura, observe a figura abaixo:</p>
+<p><img alt="" src="../../img/telecom/sdwan/image2.png" /> </p>
+<p>O princípio do roteamento baseado em qualidade é a medição de
+    parâmetros que representam a experiência do usuário no uso dos
+    serviços.</p>
+<p>As principais métricas utilizadas são Latência, Perda de Pacotes e
+    <em>Jitter</em>.</p>
+<p>Essas métricas, agregadas a necessidade do serviço permitem a
+    criação de políticas de encaminhamento de pacotes de forma a
+    garantir o atendimento à expectativa do usuário.</p>
+<p>Assim, a solução deverá ser parametrizada para determinar qual
+    caminho é mais adequado para cada serviço. Por exemplo, pode-se
+    parametrizar que o tráfego de tempo real (voz), deve fluir pelo
+    caminho com menor <em>Jitter</em> e latência inferior a 100ms.</p>
+<p>Além das configurações para garantia da qualidade, deve-se
+    considerar a possibilidade de separação de serviços para
+    balanceamento dos caminhos.</p>
+<p>Isto pode ser feito através da criação de políticas relacionadas
+        aos serviços, ou seja, serviços transacionais críticos podem
+        fluir preferencialmente pelo caminho 1, ao mesmo tempo que
+        serviços de transferência de arquivos pelo caminho 3 e serviços
+        de nuvem pelo caminho 2.</p>
+<h4 id="breakout-internet"><strong><em>Breakout</em> Internet</strong></h4>
+<p>Este recurso permite que o tráfego para Internet seja
+        encaminhado diretamente do ponto remoto ao seu destino na rede
+        pública sem a necessidade de passar por um gateway <em>on
+        premisses</em>.</p>
+<p>As políticas destinadas a esta funcionalidade só devem ser
+        aplicadas no caso da existência de recursos de Firewall de
+        camada 7 na solução.</p>
+<p>Além disto, a solução deverá estar integrada aos diretórios de
+        autenticação permitindo a identificação pessoal do usuário que
+        está tentando acessar o respectivo serviço.</p>
+<p>Estes requisitos podem ser flexibilizados nos casos em que o
+        serviço acessado seja da própria Caixa e possua rastreamento
+        embarcado ao mesmo.</p>
+<p>Nesta situação encontram-se os serviços administrativos tais
+            como aqueles fornecidos dentro do pacote Office (<em>outlook</em>,
+            <em>teams</em>, <em>sharepoint</em> dentre outros).</p>
+<p>Estes acessos devem ocorrer diretamente no <em>underlay</em>, sem
+        passar pela estrutura de Concentradores.</p>
+<p>Para tanto deve-se ativar os recursos avançados de
+            segurança, tais como inspeção de pacotes, categorização de
+            sites, filtro de conteúdo, <em>antivírus</em> e <em>antimalware</em>.</p>
+<h2 id="historico-da-revisao">Histórico da revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15/02/2022</td>
+<td>1.0</td>
+<td>Emissão inicial do documento</td>
+<td>Luiz Gilmar P de S e Silva</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../interconexoes_multicloud/index.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Uso futuro" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Uso futuro
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../contact/index.html" class="md-footer__link md-footer__link--next" aria-label="Próximo: Uso futuro" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Uso futuro
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="index.html#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

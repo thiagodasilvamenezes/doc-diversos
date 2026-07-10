@@ -1,0 +1,5298 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>ETL - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="index.html#extract-transform-load-etl" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="https://arquiteturati.dep.caixa/latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ETL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/index.html" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../introducao/index.html" class="md-tabs__link md-tabs__link--active">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telecom/telecom/index.html" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/index.html" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/index.html" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/index.html" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/index.html" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/index.html" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/index.html" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/index.html" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/index.html" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/index.html" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/index.html" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/index.html" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/index.html" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microprofile/index.html" class="md-nav__link">
+        Java Microprofile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/index.html" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/index.html" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/index.html" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_1" type="checkbox" id="__nav_2_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/index.html" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/index.html" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/index.html" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/index.html" class="md-nav__link">
+        Sigle Page Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2_1" type="checkbox" id="__nav_2_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2_1">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/index.html" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/index.html" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/index.html" class="md-nav__link">
+        Processamento Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/index.html" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/index.html" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14_1" type="checkbox" id="__nav_2_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/index.html" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/index.html" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/index.html" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/index.html" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/index.html" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/index.html" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/index.html" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/index.html" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_3" type="checkbox" id="__nav_3_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_4" type="checkbox" id="__nav_3_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/index.html" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/index.html" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arquiteturati.dep.caixa/25.06/nuvem/cosmos.md" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/index.html" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/index.html" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/index.html" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/index.html" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/index.html" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/index.html" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/index.html" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/index.html" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/index.html" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/index.html" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/index.html" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/index.html" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/index.html" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/index.html" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/index.html" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introducao/index.html" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gateway/index.html" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../banco_de_dados/oracle/oracle/index.html" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1" type="checkbox" id="__nav_6_2_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/index.html" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1_3" type="checkbox" id="__nav_6_2_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/index.html" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanca_de_dados/metadados/index.html" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governanca_de_dados/powerdesign/index.html" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ETL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        ETL
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#analise-de-solucao" class="md-nav__link">
+    Análise de Solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-implantada-atual" class="md-nav__link">
+    Arquitetura implantada (ATUAL)
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura implantada (ATUAL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#consideracoes-quanto-a-informatica-powercenter-28" class="md-nav__link">
+    Considerações quanto a Informatica PowerCenter [28]
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerações quanto a Informatica PowerCenter [28]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#opcoes-para-fontes-transacionais-origens-de-dados" class="md-nav__link">
+    Opções para fontes transacionais (origens de dados)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#opcoes-para-alvos-transacionais-destinos-de-dados" class="md-nav__link">
+    Opções para alvos transacionais (destinos de dados)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida-futura" class="md-nav__link">
+    Arquitetura definida (FUTURA)
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura definida (FUTURA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#oracle" class="md-nav__link">
+    Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#criterios" class="md-nav__link">
+    Critérios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#tecnologia" class="md-nav__link">
+    Tecnologia
+  </a>
+  
+    <nav class="md-nav" aria-label="Tecnologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#oracle-data-pump" class="md-nav__link">
+    Oracle Data Pump
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#case" class="md-nav__link">
+    Case
+  </a>
+  
+    <nav class="md-nav" aria-label="Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#sismpi-pix" class="md-nav__link">
+    SISMPI (PIX)
+  </a>
+  
+    <nav class="md-nav" aria-label="SISMPI (PIX)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#data-pump-export" class="md-nav__link">
+    Data Pump export
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#data-pump-import" class="md-nav__link">
+    Data Pump import
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/telecom/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/switching_datacenter/index.html" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/azure/index.html" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede1/index.html" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede2/index.html" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede3/index.html" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede4/index.html" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede5/index.html" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede6/index.html" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede7/index.html" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede-local/index.html" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/financeira/index.html" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/webproxy/index.html" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/call_center_nuvem/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/wifi/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/Balanceamento/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/interconexoes_multicloud/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/sdwan/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/contact/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/micro/index.html" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/dns/index.html" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/mesa-operacoes/index.html" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/index.html" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/index.html" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/index.html" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#analise-de-solucao" class="md-nav__link">
+    Análise de Solução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-implantada-atual" class="md-nav__link">
+    Arquitetura implantada (ATUAL)
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura implantada (ATUAL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#consideracoes-quanto-a-informatica-powercenter-28" class="md-nav__link">
+    Considerações quanto a Informatica PowerCenter [28]
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerações quanto a Informatica PowerCenter [28]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#opcoes-para-fontes-transacionais-origens-de-dados" class="md-nav__link">
+    Opções para fontes transacionais (origens de dados)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#opcoes-para-alvos-transacionais-destinos-de-dados" class="md-nav__link">
+    Opções para alvos transacionais (destinos de dados)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida-futura" class="md-nav__link">
+    Arquitetura definida (FUTURA)
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura definida (FUTURA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#oracle" class="md-nav__link">
+    Oracle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#criterios" class="md-nav__link">
+    Critérios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#tecnologia" class="md-nav__link">
+    Tecnologia
+  </a>
+  
+    <nav class="md-nav" aria-label="Tecnologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#oracle-data-pump" class="md-nav__link">
+    Oracle Data Pump
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#case" class="md-nav__link">
+    Case
+  </a>
+  
+    <nav class="md-nav" aria-label="Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#sismpi-pix" class="md-nav__link">
+    SISMPI (PIX)
+  </a>
+  
+    <nav class="md-nav" aria-label="SISMPI (PIX)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#data-pump-export" class="md-nav__link">
+    Data Pump export
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#data-pump-import" class="md-nav__link">
+    Data Pump import
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="extract-transform-load-etl">Extract-Transform-Load (ETL)</h1>
+<h2 id="analise-de-solucao">Análise de Solução</h2>
+<p>Processos de integração representam uma ou mais entidades cooperando
+e/ou interagindo para alcançar algum objetivo.</p>
+<p>Dentre esses processos, existem classes de problemas de cooperação que
+ocorrem por meio de troca de informações entre entidades; i.e.,
+<strong>integração de dados</strong> [1].</p>
+<p>Integração de dados pode ser definida como um problema de mapeamento de
+grupos:</p>
+<ul>
+<li>
+<p>Uma função de mapeamento <strong>t1</strong> (transformação) que mapeia todo o
+    conjunto <strong>o1</strong> (origem) para o conjunto <strong>d1</strong> (destino).</p>
+</li>
+<li>
+<p>Generalizado como um conjunto de funções de mapeamento <strong>T</strong>
+    (transformações) que mapeiam todo grupo <strong>O</strong> de fontes de dados
+    para todo grupo <strong>D</strong> de destinos de dados.</p>
+</li>
+</ul>
+<p>Que também são conhecidos como classes de problemas de
+Extract-Transform-Load (ETL) [2] [3] [4], resumidamente:</p>
+<ul>
+<li>
+<p><strong>E</strong>xtract: coleta de dados a partir de uma ou mais fontes de dados
+    (<strong>O</strong>);</p>
+</li>
+<li>
+<p><strong>T</strong>ransform: conjunto de funções (<strong>T</strong>) aplicada aos dados
+    coletados que podem incluir, mas não estão limitados a
+    reorganização, transformação, análise, enriquecimento, etc.</p>
+</li>
+<li>
+<p><strong>L</strong>oad: disponibilização de dados em um ou mais destinos de dados
+    (<strong>D</strong>).</p>
+</li>
+</ul>
+<p>Existindo variações:</p>
+<ul>
+<li>
+<p>E-L : processos de <em>extract</em> e de <em>load</em>, mas sem processos de
+    transformação; para cenários de replicação entre fontes de dados e
+    destinos de dados.</p>
+</li>
+<li>
+<p>ELT : extract, load then transform; separando o processo e/ou a
+    ferramenta de transformação dos processos de <em>extract</em> e de <em>load</em>.</p>
+<ul>
+<li>
+<p><strong>E</strong>xtract: Coleta de dados a partir de uma ou mais fontes de
+    dados (<strong>O</strong>);</p>
+</li>
+<li>
+<p><strong>L</strong>oad: disponibilização de dados em uma plataforma de dados
+    como destino de dados (<strong>D</strong>).</p>
+</li>
+<li>
+<p><strong>T</strong>ransform: utilizando a plataforma de dados de destino,
+    aplica conjunto de funções (<strong>T</strong>) aplicada aos dados coletados.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>A variação ELT em particular se destaca por essa separação entre os
+processos Extract-Load e Transform; tanto entre ferramentas quanto por
+estratégia.</p>
+<ul>
+<li>
+<p>O objetivo principal é transportar os dados das origens de dados
+    para os destinos de dados.</p>
+</li>
+<li>
+<p>A transformação somente ocorrerá em uma fase posterior e separada de
+    todo processo de <em>extract</em> e de <em>load</em>.</p>
+<ul>
+<li>
+<p>Toda transformação se valerá da infraestrutura e do ferramental
+    do destino ao invés das ferramentas do <em>pipeline</em> Extract-Load.</p>
+<ul>
+<li>
+<p>Estratégia que se popularizou com a disponibilidade de
+    ferramentas de Big Data que apresentam alta escalabilidade
+    [5], bem como a escalabilidade de infraestruturas em
+    cenários de nuvem;</p>
+</li>
+<li>
+<p>Tornando vantajoso realizar replicação para essas estruturas
+    escaláveis e somente realizar o processamento a posteriori.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Outra razão, é garantir a existência das réplicas de dados.</p>
+<ul>
+<li>
+<p>Réplicas das origens de dados devem estar disponíveis para
+    processos de <em>analytics</em>;</p>
+</li>
+<li>
+<p>Quaisquer transformações podem ocorrer e ser
+    disponibilizadas, mas não podem interferir nem alterar as
+    réplicas das origens de dados.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Ademais, devemos nos atentar que um ciclo ETL completo não se limita aos
+3 passos acima. Trata-se de um conjunto de processos que garantem
+controle, qualidade e gestão em um processo global de ETL.</p>
+<ul>
+<li>
+<p>Cycle initiation</p>
+</li>
+<li>
+<p>Build reference data</p>
+</li>
+<li>
+<p>Extract (from data sources)</p>
+</li>
+<li>
+<p>Validate</p>
+</li>
+<li>
+<p>Transform (clean, apply business rules, check for data integrity,
+    create aggregates or disaggregates)</p>
+</li>
+<li>
+<p>Stage (load into staging structures, if used)</p>
+</li>
+<li>
+<p>Audit reports (for example, on compliance with business rules. Also,
+    in case of failure, helps to diagnose/repair)</p>
+</li>
+<li>
+<p>Publish (to data targets)</p>
+</li>
+<li>
+<p>Archive</p>
+</li>
+</ul>
+<h2 id="arquitetura-implantada-atual">Arquitetura implantada (ATUAL)</h2>
+<p>Os processos de integração de dados ETL envolvem as mais diversas
+origens de dados e os mais diversos destinos de dados, que podem ser:</p>
+<ul>
+<li>
+<p>Arquivos: <em>flat file</em> [6] binários/textos com ou sem separadores;
+    ou, mais complexos como Apache ORC [7], Apache Parquet [8], IBM
+    Virtual Storage Access Method (VSAM) [9], etc;</p>
+</li>
+<li>
+<p>Sistemas Gerenciadores de Bancos de Dados (SGBD) [10]: IBM Db2
+    [11] for z/OS [12], Oracle Exadata [13]/RAC [14]/<em>stand
+    alone</em> [15], Microsoft SQL Server [16], SAP ASE [17], SAP IQ
+    [18], etc;</p>
+</li>
+<li>
+<p>Eventos: API [19], IBM MQ [20], etc;</p>
+</li>
+<li>
+<p>Formatos: estruturados, semiestruturados [21], não estruturados
+    [22], etc;</p>
+</li>
+<li>
+<p>Modelos de bancos de dados [23]: dimensional, multidimensional,
+    documento, grafo, hierárquico, rede, relacional, não-relacionais,
+    etc.</p>
+</li>
+</ul>
+<p>Envolvendo diversas funções de transformação. Por exemplo:</p>
+<ul>
+<li>
+<p>Conversão de campos negocialmente "vazios" (valor zero 00000) para
+    tecnologicamente "vazios" (tipo <em>null</em>);</p>
+</li>
+<li>
+<p>Remoção de caracteres invisíveis;</p>
+</li>
+<li>
+<p>Remoção de caracteres inválidos;</p>
+</li>
+<li>
+<p>Conversão entre tipos de codificação de caracteres [24]
+    diferentes; e.g., entre EBCDIC e UTF-8;</p>
+</li>
+<li>
+<p>Conversão entre tecnologias.</p>
+<ul>
+<li>Por exemplo, <strong>de</strong> arquivo VSAM sequencial EBCDIC em
+    arquitetura z [25] IBM mainframe [26] <strong>para</strong> banco de
+    dados Oracle Exadata com codificação UTF-8 em arquitetura
+    X86/X64.</li>
+</ul>
+</li>
+</ul>
+<p>As origens de dados e os destinos de dados mais comuns são:</p>
+<ul>
+<li>
+<p>Arquivos</p>
+</li>
+<li>
+<p>Bancos de dados relacionais</p>
+</li>
+</ul>
+<p>Envolvendo os seguintes cenários:</p>
+<p><strong>Cenários ETL   (fluxos)</strong>                                         </p>
+<table>
+<thead>
+<tr>
+<th><strong>Origem de Dados</strong></th>
+<th><strong>Ferramental entre Origem e  Destino</strong></th>
+<th><strong>Destino de Dados</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banco de dados relacional</td>
+<td>Ferramenta ETL[^1] relacional</td>
+<td>Banco de dados</td>
+</tr>
+<tr>
+<td>Banco de dados  relacional</td>
+<td>Ferramenta ETL</td>
+<td>Arquivo</td>
+</tr>
+<tr>
+<td>Banco de dados relacional</td>
+<td>Sistema (programas)</td>
+<td>Arquivo</td>
+</tr>
+<tr>
+<td>Arquivo</td>
+<td>Ferramenta ETL</td>
+<td>Banco de dados relacional</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Quando as origens de dados são bancos de dados relacionais:</p>
+<ul>
+<li>
+<p>Quando os destinos são arquivos, esses podem ser produzidos por
+    meio de ferramenta ETL ou por meio de programas da camada de
+    aplicação dos sistemas.</p>
+</li>
+<li>
+<p>Quando os destinos são bancos de dados, deve-se utilizar
+    ferramenta ETL.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Quando as origens de dados são arquivos:</p>
+<ul>
+<li>Deve-se utilizar ferramenta ETL.</li>
+</ul>
+</li>
+</ul>
+<p>Conforme o quadro de Cenários ETL, a suíte <strong>Informatica</strong> [27]
+<strong>PowerCenter</strong> [28] [29] [30] [31], é a ferramenta ETL definida
+para os processos de integração de dados <em>batch</em>.</p>
+<p>Entretanto, de modo particular, podem ser utilizados utilitários IBM Db2
+em cenários envolvendo plataforma IBM Db2 for z/OS [12] em arquitetura
+z.</p>
+<p><strong>Cenários ETL  (fluxos) IBM Db2    for z/OS</strong>                                           </p>
+<table>
+<thead>
+<tr>
+<th><strong>Origem de Dados</strong></th>
+<th><strong>Utilitário <em>online</em> Db2 entre Origem e Destino</strong></th>
+<th><strong>Destino de Dados</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banco de dados  relacional</td>
+<td>UNLOAD</td>
+<td>Arquivo</td>
+</tr>
+<tr>
+<td>Arquivo</td>
+<td>LOAD</td>
+<td>Banco de dados  relacional</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Utilitário <em>online</em> LOAD [32] realiza o processo <strong>L</strong>oad de
+    ET<strong>L</strong> para carga de banco de dados IBM Db2 for z/OS a partir de
+    arquivos disponíveis no ambiente de arquitetura z.</p>
+</li>
+<li>
+<p>Utilitário <em>online</em> UNLOAD [33] realiza o processo <strong>E</strong>xtract de
+    <strong>E</strong>TL para extração de banco de dados IBM Db2 for z/OS para
+    arquivos no ambiente de arquitetura Z.</p>
+</li>
+<li>
+<p>Os arquivos enquanto origem/destino devem estar disponíveis ou serem
+    armazenados em arquitetura z IBM mainframe.</p>
+</li>
+</ul>
+<p>Cenários que envolvem origem ou destinos de dados com arquivos podem ser
+descritos pelo diagrama UML de atividades a seguir.</p>
+<ul>
+<li>
+<p>Raia da esquerda <strong>Extração/Transformação</strong> referente a <strong>extração
+    de</strong> fontes de <strong>dados para</strong> destino de dados <strong>arquivos</strong>.</p>
+</li>
+<li>
+<p>Raia da direita Carga referente a <strong>carga</strong> de destinos de dados <strong>a
+    partir de</strong> fontes de dados <strong>arquivos</strong>.</p>
+</li>
+</ul>
+<p><img alt="" src="https://arquiteturati.dep.caixa/25.06/img/dados/datapump/Diagrama_de_atividades-Ingest%C3%83%C2%A3o_de_dados__extracao_para_arquivo__carga_de_arquivo.png" /></p>
+<h3 id="consideracoes-quanto-a-informatica-powercenter-28">Considerações quanto a Informatica PowerCenter [28]</h3>
+<h4 id="opcoes-para-fontes-transacionais-origens-de-dados">Opções para fontes transacionais (origens de dados)</h4>
+<p>PowerCenter oferece as seguintes opções para configurar qual será a
+operação realizada quando as <em>rows</em> forem disponibilizadas para os
+destinos de dados: (Informatica PowerCenter 10.5 - Workflow Basics
+Guide)</p>
+<p><img alt="" src="../../img/dados/datapump/Informatica_PowerCenter-How_to_treat_source_rows.png" /></p>
+<h3 id="opcoes-para-alvos-transacionais-destinos-de-dados">Opções para alvos transacionais (destinos de dados)</h3>
+<p>É possível realizar processos <em>Load</em> de alto desempenho com modo <em>bulk
+loading</em> - (Informatica PowerCenter 10.5 - Workflow Basics Guide).</p>
+<ul>
+<li>
+<p>Carga em blocos para bancos de dados Db2, Microsoft SQL Server,
+    Oracle e Sybase;</p>
+</li>
+<li>
+<p>Entretanto, modo de <em>bulk loading</em> também inativa <em>logging</em> tornando
+    irreversível as operações;</p>
+<ul>
+<li>
+<p>Caso <em>logging</em> esteja ativo, todas as operações serão
+    armazenadas nesse, de modo a permitir operação de <em>rollback</em>.</p>
+</li>
+<li>
+<p>Caso não esteja ativo, não será possível reverter as operações,
+    mas haverá ganho de desempenho na execução dessas.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Com relação a <em>commit</em>:</p>
+<ul>
+<li>
+<p>Para destinos de dados Db2 e Sybase, <em>commits</em> ocorrem quando
+    <em>writer block</em> estiver cheio, independente da configuração da
+    sessão.</p>
+</li>
+<li>
+<p>Para destinos Microsoft SQL Server e Oracle, o intervalo de
+    <em>commit</em> definido na sessão é respeitado.</p>
+<ul>
+<li>
+<p>Além disso, uma nova transação <em>bulk load</em> é criada após
+    cada <em>commit</em>.</p>
+</li>
+<li>
+<p>Recomenda-se definir um intervalo longo (maior) entre
+    <em>commits</em> para aumento de desempenho.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Operações DML (insert/delete/update) podem ser realizadas com <em>logging</em>
+ativo ou inativo.</p>
+<p>Deve-se notar que é possível realizar Load que respeite as <em>constraints</em>
+referenciais (<em>constrainst-based loading</em> ) da origem de dados: as
+tabelas pais dos relacionamento são carregadas antes das tabelas filhas.
+Entretanto, essa funcionalidade restringe o processo de carga para
+<strong>processamento linha (<em>row</em>) a linha</strong> ao invés de processo em bloco
+(<em>bulk</em>).</p>
+<p><em>Constrainst-based loading</em> permite um modo seguro e íntegro para
+processos de carga. Entretanto, apresenta impacto no desempenho.</p>
+<p>Antes do início de processamento, é possível realizar truncate de alvos
+conforme a seguir:</p>
+<p><img alt="" src="../../img/dados/datapump/Informatica_PowerCenter-Integration_Service_issues_per_database.png" /></p>
+<p>É possível apagar (drop) e recriar índices após o processo de Load.
+Operação importante após realização de grandes volumes de operações nos
+destinos de dados.</p>
+<p>Além dessas definições padrões, ainda existe possibilidade de melhoria
+de desempenho para o processo envolvendo PowerCenter por tecnologia de
+SGBD.</p>
+<h2 id="arquitetura-definida-futura">Arquitetura definida (FUTURA)</h2>
+<h3 id="oracle">Oracle</h3>
+<p>Adicionalmente, para novos cenários Oracle, pode-se analisar a
+utilização de utilitário Data Pump [34] para movimentação de dados,
+sem transformação, entre tabelas de mesma estrutura em instâncias
+diferentes, em que a origem de dados é uma partição.</p>
+<p>Na arquitetura proposta, o Data Pump será utilizado para propagação de
+dados em estrutura de bases de dados do Oracle, divididos em 4 passos:</p>
+<ul>
+<li>
+<p>Geração do arquivo de dump através do comando expdp.</p>
+</li>
+<li>
+<p>Carga do arquivo de dump no destino, através do impdp.</p>
+</li>
+<li>
+<p>Drop/truncate da partição na origem.</p>
+</li>
+<li>
+<p>Exclusão do arquivo utilizado para carga.</p>
+</li>
+</ul>
+<p>O Data Pump é composto de três partes distintas.</p>
+<ul>
+<li>
+<p>Utilitários de linha de comando.</p>
+<ul>
+<li>
+<p>expdp : Executa a exportação dos dados para arquivos.</p>
+</li>
+<li>
+<p>impdp: Executa a importação dos dados para o banco de dados.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pacote PL/SQL DBMS_DATA PUMP</p>
+<ul>
+<li>É responsável por prover todas as informações necessárias para
+    execução do utilitário, suportando desde as conexões de origem e
+    destino até o nome dos objetos manipulados.</li>
+</ul>
+</li>
+<li>
+<p>Pacote PL/SQL DBMS_METADATA.</p>
+<ul>
+<li>
+<p>É responsável recuperar os metadados dos objetos armazenados no
+    catalogo do banco de dados.</p>
+</li>
+<li>
+<p>É utilizada por todos os processos de carga e descarga dos
+    metadados.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Não deve ser utilizado <em>export</em> "using SYS as SYDBA". A permissão SYSDBA
+é usada internamente e tem funcionalidades especializadas; não se
+comportando como um usuário genérico.</p>
+<p>A utilização do parâmetro <strong>parfile</strong> (arquivo com os parâmetros
+separados) deve ser priorizada, pois limita o número de informações na
+linha de comando. O arquivo fornecerá os parâmetros para execução do
+utilitário, tornando o processo mais seguro, ágil e de fácil leitura dos
+critérios executados.</p>
+<p>Exemplo sem <strong>parfile</strong>:</p>
+<div class="highlight"><pre><span></span><code>expdp hr/hr@oracle directory=dir1 dumpfile=dump.dmp tables=Empregado,departamento 
+</code></pre></div>
+<p>Exemplo com <strong>parfile</strong>:</p>
+<div class="highlight"><pre><span></span><code>expdp hr/hr@oracle parfile=exp.par
+</code></pre></div>
+<ul>
+<li>Arquivo "exp.par":</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| directory=dir1                                                        |
+|                                                                       |
+| dumpfile=dump.dmp                                                     |
+|                                                                       |
+| Tables=Empregado,departamento                                         |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+O Data Pump deve ser utilizado somente com PARTITION no modo TABLE.</p>
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| expdp DB_USER/DB_PWD directory=DIR_DUMP dumpfile=dumpfile.dmp \\      |
+|                                                                       |
+| logfile=logfile.log tables=TABELA:PARTICAO EXCLUDE=STATISTICS         |
+| METRICS=YES                                                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
++-----------------------------------------------------------------------+
+| impdp DB_USER/DB_PWD directory=DIR_DUMP dumpfile=dumpfile.dmp \\      |
+|                                                                       |
+| logfile=logfile.log tables=TABELA:PARTICAO EXCLUDE=STATISTICS         |
+| METRICS=YES                                                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+<p>Por recomendação da Oracle, as estatísticas não devem ser exportadas
+durante o processo de <em>export</em> e de <em>import</em>. Isso irá garantir melhor
+performance na execução dos utilitários. A melhor prática deve ser a
+criação de novas estatísticas no <em>database</em> de destino utilizando o
+<em>package</em> DBMS_STATS.</p>
+<p>Os parâmetros de diagnóstico devem ser incluídos durante o <em>export</em> e o
+<em>import</em>. Para tanto, deve ser utilizado o parâmetro METRICS=YES, que
+traz um nível extra de detalhamento do trabalho executado pelo
+utilitário.</p>
+<p><img alt="" src="../../img/dados/datapump/Oracle_Data_Pump-Diagnostics_and__no_diagnostics__output_examples.png" /></p>
+<div class="rotulo-img">Fonte -- Oracle \[35\] (ORACLE; , A. Oracle Database Utilities - Oracle
+Data Pump Best Practices, ago. 2021)</div>
+
+<p>O paralelismo traz um ganho de performance para o utilitário Data Pump.
+O parâmetro PARALLEL=<strong>n</strong> especifica o número máximo de processos
+executados durante um <em>export</em> ou <em>import</em>. O valor de <strong>n</strong> recomendado
+é o dobro do número de cores CPU, mas pode ser ajustado de forma a
+melhorar a performance. O número <strong>n</strong> adequado deve ser avaliado em
+conjunto com os DBAs visto sua administração da infraestrutura de
+servidores Oracle.</p>
+<p>Com o paralelismo, é possível criar máscaras para a criação dos arquivos
+de <em>dump</em>, utilizando as variáveis de substituição %U ou %L na definição
+do nome de arquivo. Ainda, múltiplos arquivos de <em>dump</em> de menor tamanho
+facilitam a administração e a cópia.</p>
+<p>Após a carga com sucesso, o(s) arquivo(s) de carga <strong>.dmp</strong> devem ser
+removidos.</p>
+<h3 id="criterios">Critérios</h3>
+<p>A arquitetura de replicação por utilitário Oracle Data Pump busca
+incremento de desempenho, pela condição nativa da solução.</p>
+<p>Dessa forma, propomos os seguintes critérios para identificação de
+processos candidatos ao uso dessa arquitetura:</p>
+<ul>
+<li>
+<p><strong>As rotinas devem ser compatíveis e utilizadas em conjunto com a
+    ferramenta BMC Control-M</strong> [36]<strong>.</strong></p>
+<ul>
+<li>
+<p>O controle de fluxo de execução deve ser realizado pela
+    aplicação.</p>
+</li>
+<li>
+<p>O drop/truncate da partição só poderá ocorrer após a importação
+    &gt; do dado no database/objeto de destino com sinalização de
+    &gt; sucesso para o Control-M.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Deverá ocorrer apenas movimentação de dados entre um objeto Origem
+    e um Objeto Destino, sem transformação de dados.</strong></p>
+</li>
+<li>
+<p><strong>O objeto de destino deve conter a mesma estrutura da tabela de
+    origem.</strong></p>
+</li>
+<li>
+<p><strong>O charset do database de destino preferencialmente deve ser um
+    <em>superset</em> do <em>database</em> de origem.</strong></p>
+<ul>
+<li>
+<p>De forma que o destino contenha todos os caracteres da origem.</p>
+</li>
+<li>
+<p>Há risco de perda de dados, caso os charsets sejam
+    diferentes/incompatíveis.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Deve gerar log de saída com as seguintes informações:</strong></p>
+<ul>
+<li>
+<p>Usuário que executou a operação</p>
+</li>
+<li>
+<p>Nome do <em>script</em> executado</p>
+</li>
+<li>
+<p>echo (imprimir) do comando que será executado.</p>
+</li>
+<li>
+<p>Nome da [instancia].[schema].[objeto] manipulado</p>
+<ul>
+<li>
+<p>Quantidade de linhas previstas</p>
+</li>
+<li>
+<p>Quantidade de linhas manipuladas</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Hora de início e fim do processamento</p>
+</li>
+<li>
+<p>Erros ocorridos durante a execução (códigos e mensagens de erro
+    da ferramenta ETL)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="tecnologia">Tecnologia</h2>
+<h3 id="oracle-data-pump">Oracle Data Pump</h3>
+<p>O Oracle Data Pump é um utilitário, disponível no SGBD Oracle, utilizado
+para atividades de exportação e importação de dados de forma nativa.</p>
+<p>Deve-se observar que o utilitário não é uma ferramenta de ETL completa;</p>
+<ul>
+<li>
+<p>Trata-se de ferramenta E-L com processos de <em>extract</em> e de <em>load</em>;</p>
+</li>
+<li>
+<p>Não é possível realizar transformações. Por exemplo</p>
+<ul>
+<li>
+<p>Conversões adicionais de codificação de caracteres;</p>
+</li>
+<li>
+<p>Remoção de espaços em branco;</p>
+</li>
+<li>
+<p>Remoção de caracteres invisíveis;</p>
+</li>
+<li>
+<p>Conversão de 0000 (valor zero) para "<strong>null</strong>";</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Trata-se de uma ferramenta de <strong>cópia/movimentação</strong> de dados, com
+    alto desempenho, <strong>entre instâncias Oracle</strong>; dessa forma, não
+    permite interoperabilidade com outras tecnologias de SGBD (por
+    exemplo, IBM Db2 for z/OS);</p>
+</li>
+<li>
+<p>As extrações e importações somente podem ser realizadas entre
+    instâncias em que exista compatibilidade entre as versões dos
+    utilitários disponíveis em cada uma das instâncias;</p>
+</li>
+</ul>
+<p>O Data Pump Export (expdp) pode produzir os seguintes tipos de arquivos:</p>
+<ul>
+<li>
+<p>Dump:</p>
+<p>a.  Arquivo binário, com formato proprietário, que armazena os dados
+    e metadados exportados.</p>
+<p>b.  Possui a extensão <strong>.dmp</strong></p>
+</li>
+<li>
+<p>Log:</p>
+<p>a.  Arquivo de <em>log</em> que grava as mensagens associadas ao <em>job</em> em
+    execução.</p>
+<p>b.  Possui a extensão <strong>.log</strong></p>
+</li>
+<li>
+<p>SQL:</p>
+<p>a.  Todos os comandos Data Definition Language (DDL) [37] gravados
+    em um arquivo SQL.</p>
+<p>b.  Possui a extensão <strong>.sql</strong></p>
+<p>c.  É utilizado para geração de <em>scripts</em> DDL e migração de bases de
+    dados.</p>
+</li>
+</ul>
+<p>Interfaces de uso: A interação com o Oracle Data Pump pode ser realizada
+através de linha de comando, arquivo de parâmetro ou interface
+interativa.</p>
+<p>O Data Pump possui vários modos de utilização, a depender dos tipos de
+objetos a serem exportados/importados.</p>
+<p><img alt="" src="../../img/dados/datapump/Oracle_Data_Pump-Export_mode_options.png" /></p>
+<ul>
+<li>
+<p>FULL - Realização de um <em>full export</em> do database.</p>
+</li>
+<li>
+<p>SCHEMA - É o <em>default</em> do Data Pump. Realiza <em>export</em> dos <em>schemas</em>
+    informados.</p>
+</li>
+<li>
+<p>TABLE - São exportadas apenas as tabelas indicadas.</p>
+</li>
+<li>
+<p>TABLESPACE -- Arquivo físico que armazena um ou mais objetos.</p>
+</li>
+<li>
+<p>TRANSPORT_TABLESPACES -- Nesse modo, apenas os metadados das tabelas
+    (e seus objetos dependentes), dentro dos <em>tablespaces</em>
+    especificados, são exportados. Os arquivos físicos dos <em>tablespaces</em>
+    devem ser movidos manualmente entre os servidores.</p>
+</li>
+</ul>
+<p>As opções de filtro do Data Pump permitem limitar o tipo de informação a
+ser exportada, através do parâmetro CONTENT.</p>
+<p><strong>CONTENT</strong> -- Permite filtrar o tipo de informação em o que o <em>export</em>
+processará, da seguinte forma:</p>
+<ul>
+<li>
+<p><strong>CONTENT = ALL.</strong> Extrai tanto os dados quanto os metadados dos
+    objetos. É o <em>default</em>.</p>
+</li>
+<li>
+<p><strong>CONTENT</strong> <strong>= DATA_ONLY.</strong> Extrai somente os registros das
+    tabelas; nenhuma definição de objeto é extraída.</p>
+</li>
+<li>
+<p><strong>CONTENT = METADATA_ONLY</strong>. Extrai apenas as definições dos objetos
+    do <em>database</em>.</p>
+</li>
+</ul>
+<p>Antes de iniciar um Export e/ou Import, deve-se especificar em qual
+diretório no servidor de banco de dados serão mantidos os arquivos de
+Log, Dump e/ou SQL.</p>
+<p>No exemplo abaixo, criamos o diretório <strong>Data_Pump_diretorio</strong> que
+aponta para o diretório físico <strong>/migraBR/MIGRACAOEXA</strong>, depois
+indicamos os acessos (<em>grants</em>) concedidos para ler e escrever neste
+diretório.</p>
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| SQL\&gt; CREATE DIRECTORY Data_Pump_diretorio as &#39;/migraBR/MIGRACAOEXA&#39;; |
+|                                                                       |
+| SQL\&gt; GRANT READ, WRITE, ON DIRECTORY Data_Pump_diretorio to          |
+| SPCARTB1;                                                             |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+<p>O usuário executor do expdp e impdp requer privilégio nas <em>roles</em>
+DATA_PUMP_EXP_FULL_DATABASE e DATA_PUMP_IMP_FULL_DATABASE. Estas <em>roles</em>
+são criadas automaticamente na instalação do Oracle, permitem que o
+usuário realize <em>export</em> e <em>import</em> de objetos pertencentes a outros
+<em>schemas</em>; além de permitir monitoração de processos iniciados por
+outros usuários.</p>
+<p>As origens de dados e os destinos de dados mais comuns são:</p>
+<p><strong>Cenários ETL (fluxos)</strong>                                      </p>
+<table>
+<thead>
+<tr>
+<th><strong>Origem de Dados</strong></th>
+<th><strong>Ferramental entre Origem e Destino</strong></th>
+<th><strong>Destino de Dados</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banco de dados relacional</td>
+<td>Data Pump</td>
+<td>Arquivo</td>
+</tr>
+<tr>
+<td>Arquivo</td>
+<td>Data Pump</td>
+<td>Banco de dados relacional</td>
+</tr>
+<tr>
+<td>Banco de dados relacional</td>
+<td>Data Pump+DBLink</td>
+<td>Banco de dados relacional</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Oracle Data Pump -- Export</strong></p>
+<p>Parâmetros básicos de exportação utilizados no Data Pump
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+&lt;br/&gt;
+| expdp S12346/\*\*\*\*\*\*\*\*@orat01ng \\                             |&lt;br/&gt;
+|                                                                       |&lt;br/&gt;
+| DIRECTORY=DataPump_diretorio \\                                       |&lt;br/&gt;
+|                                                                       |&lt;br/&gt;
+| DUMPFILE=EFITB055_PART1\_.dmp \\                                      |&lt;br/&gt;
+|                                                                       |&lt;br/&gt;
+| TABLES                                                                |&lt;br/&gt;
+| =**\[**EFI**\]**.**\[**EFITB055_EVENTO_SPED**\]**:**\[**EVENTO_SPED_1 |&lt;br/&gt;
+| **\]** \\                                                             |&lt;br/&gt;
+|                                                                       |&lt;br/&gt;
+| LOGFILE=EFITB055_PART1.log                                            |&lt;br/&gt;
++=======================================================================+&lt;br/&gt;
++-----------------------------------------------------------------------+&lt;br/&gt;
+</code></pre></div></p>
+<ul>
+<li>
+<p><strong>expdp</strong></p>
+<ul>
+<li>
+<p>Comando de exportação do Data Pump;</p>
+</li>
+<li>
+<p>Usuário, Senha e instância de conexão.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DIRECTORY</strong></p>
+<ul>
+<li>
+<p>Nome do diretório utilizado pelo Oracle que faz referência a uma
+    localização física;</p>
+</li>
+<li>
+<p>No exemplo, foi utilizado o diretório Data_Pump_diretorio.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DUMPFILE</strong></p>
+<ul>
+<li>
+<p>Especifica o nome do arquivo que será gravado;</p>
+</li>
+<li>
+<p>O arquivo possui os metadados e os dados exportados.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>TABLES</strong></p>
+<ul>
+<li>
+<p>Sintaxe:
+    <strong>TABLES=[<em>schema_name</em>.]<em>table_name</em>[:<em>partition_name</em>]</strong></p>
+</li>
+<li>
+<p>Especifica que o Data Pump será realizado em modo de tabela.</p>
+</li>
+<li>
+<p>No exemplo, foi realizado o <em>export</em> da partição EVENTO_SPED_1
+    da tabela EFI.EFITB055_EVENTO_SPED.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>LOGFILE</strong></p>
+<ul>
+<li>Especifica o nome dos arquivos gerado que grava as mensagens de
+    execução do <em>job</em>.</li>
+</ul>
+</li>
+</ul>
+<p>Algumas <em>options</em> foram incorporadas à solução de Data Pump para
+incremento de desempenho e melhoria no gerenciamento:</p>
+<ul>
+<li>
+<p><strong>PARALLEL</strong> -- Capacidade de especificar o número máximo de
+    segmentos de execução ativos operando no Data Pump. Isso permite
+    ajustar o consumo de recursos conforme o tempo.</p>
+</li>
+<li>
+<p><strong>START_JOB</strong> -- Capacidade de reiniciar o comando em caso de falha.
+    Isso permite ao DBA e outros usuários a monitorar a execução de
+    JOBS.</p>
+</li>
+<li>
+<p><strong>NETWORK_LINK</strong> -- Oferece suporte para execuções remotas, nas
+    quais as fontes de informação são as próprias instâncias, sem a
+    necessidade de gerar arquivo físico em disco.</p>
+</li>
+<li>
+<p><strong>REMAP_DATAFILE</strong> e <strong>REMAP_TABLESPACE</strong> -- a capacidade de alterar
+    o nome dos arquivos de dados e armazenamento na origem para outro
+    destino, no caso de replicação de um ou mais bancos de dados.</p>
+</li>
+<li>
+<p><strong>ESTIMATE_ONLY -</strong> permite simular o tamanho do dump (quanto
+    ocuparia em disco, caso se optasse por essa opção) e até o tempo
+    necessário para o processo de exportação e importação do Data Pump.</p>
+</li>
+<li>
+<p><strong>VERSION</strong> -- capacidade de adequação à versão que se pretende
+    exportar/importar, utilizada para realizar o upgrade/downgrade de
+    versões.</p>
+</li>
+<li>
+<p><strong>QUERY -</strong> Permite especificar uma query para filtrar os dados a
+    serem exportados.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| expdp hr/hr SCHEMAS=ICO QUERY=(ICO.ICOTBU24_UNIDADES:\&quot;WHERE          |
+| NU_UNIDADE = 1000&quot;) \\                                                |
+|                                                                       |
+| dumpfile=ico.dmp logfile=ico.log                                      |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+<p>Os parâmetros apresentados não cobrem todas as opções disponibilizadas
+pelo fabricante, dessa forma, para mais opções acesse a documentação de
+referência do Oracle Data Pump [34] (ORACLE. Oracle Data Pump |
+Oracle Database Release 21 | Database Utilities. Oracle Help Center,
+2022).</p>
+<p><strong>Pontos de atenção</strong></p>
+<ul>
+<li>
+<p><strong>Utilização de NFS traz OVERHEAD e risco com utilização de estrutura externa ao Exadata.</strong></p>
+<ul>
+<li>
+<p>Indisponibilidades no meio intermediário de armazenamento impedirá a execução.</p>
+</li>
+<li>
+<p>O desempenho da exportação e importação pode ser impactado em função das características do <em>storage</em> utilizado.</p>
+<ul>
+<li>Bem como impactos de rede no processo: <em>throughput</em>, latência, tempo de resposta, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Dificuldade na utilização de DBLINK.</strong></p>
+<ul>
+<li>
+<p>Dificuldades de implementação de segurança e processo.</p>
+</li>
+<li>
+<p>Impacto entre as instâncias conectadas por DBLINK.</p>
+<ul>
+<li>Em que uma instância pode causar impacto em outra com
+    execução remota de <em>queries</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>A gestão da execução do processo do Data Pump é manualmente
+    construída.</strong></p>
+<ul>
+<li>A equipe de desenvolvimento deve planejar a estratégia de
+    movimentação, considerando os relacionamentos entre as tabelas.</li>
+</ul>
+</li>
+<li>
+<p><strong>As estatísticas devem ser executadas antes e depois das operações
+    de Data Pump.</strong></p>
+<ul>
+<li>
+<p>Na origem de dados, antes do início do processo para aumentar a
+    velocidade da exportação.</p>
+</li>
+<li>
+<p>No destino de dados, depois de finalizado o processo para
+    melhorar o desempenho das consultas.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="case"><em>Case</em></h2>
+<h3 id="sismpi-pix">SISMPI (PIX)</h3>
+<p>No SIMPI (PIX), são processados um volume superior a 15 milhões de
+transações PIX por dia. O banco de dados do SIMPI apresenta alto tempo
+de processamento devido à alta volumetria de dados em suas tabelas.</p>
+<p>Deste modo, há recomendação para movimentação de dados para outras
+tecnologias. Por exemplo, movimentação de dados históricos para Oracle
+<em>standalone</em>. Com a construção de base de dados apartada para
+movimentação de dados da base transacional <em>online</em> do sistema, buscando
+redução no tempo de resposta das transações e consequentemente redução
+de volumetria atual.</p>
+<p><strong>Condições para execução do cenário</strong></p>
+<ul>
+<li>
+<p><strong>O objeto de destino deve conter a mesma estrutura da tabela de
+    origem</strong></p>
+<ul>
+<li>
+<p>Não deverá ocorrer a execução de comandos do tipo DROP/TRUNCATE
+    &gt; na estrutura de destino.</p>
+</li>
+<li>
+<p>A carga de dados na estrutura de destino deverá ser no formato
+    &gt; APPEND.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Devem ser definidos os critérios da execução do Data Pump, como as
+    partições e objetos</strong></p>
+<ul>
+<li>As partições podem ser identificadas por meio de <em>query</em> e de
+    forma dinâmica compor o parâmetro do utilitário para execução do
+    export/import, conforme exemplo a seguir:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| SELECT partition_name, high_value, table_name                         |
+|                                                                       |
+| FROM dba_tab_partitions WHERE TABLE_owner = \&#39;EFI\&#39;;                  |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+<ul>
+<li>
+<p>Partição com grande volume de dados pode ser manipulada com a utilização de filtros para seleção de intervalo de dados associado com parâmetro QUERY.</p>
+</li>
+<li>
+<p><strong>Deverá executar processo de validação do arquivo de exportação</strong></p>
+<ul>
+<li>
+<p>Com o objetivo de garantir a integridade dos dados extraídos
+    deve ser executado o parâmetro CHECKSUM na instrução do
+    utilitário se esse apresentar suporte para o parâmetro.</p>
+</li>
+<li>
+<p>Nesse caso, recomendamos <em>digest</em> SHA-256 [38].</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  -----------------------------------------------------------------------
+  CHECKSUM=YES CHECKSUM_ALGORITHM=SHA256
+  -----------------------------------------------------------------------
+</code></pre></div>
+<ul>
+<li>
+<p><strong>É possível utilizar a ferramenta sem privilégios administrativos
+    elevados desde que aplicadas permissões adequadas. Abaixo seguem os
+    <em>grants</em> necessários para execução sem privilégios elevados:</strong></p>
+<ul>
+<li>
+<p>DATA_PUMP_EXP_FULL_DATABASE e DATA_PUMP_IMP_FULL_DATABASE</p>
+</li>
+<li>
+<p>Deve existir usuário de serviço específico e a senha será passada pelo Control-M.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Não exportar as estatísticas do objeto manipulado</strong></p>
+<ul>
+<li>
+<p>A melhor prática, recomendada pela Oracle, é a retirada das
+    estatísticas durante a execução do Data Pump para beneficiar o
+    desempenho;</p>
+</li>
+<li>
+<p>A estatística deve ser executa no objeto de destino com a
+    finalidade de melhorar o desempenho das consultas que serão
+    executadas;</p>
+</li>
+<li>
+<p>A execução de REINDEX é uma forma de atualização de estatística
+    e desfragmentação de índice e deve ser avaliada antes da
+    execução em função do tempo de execução, dependendo da
+    quantidade de registros e das contenções gerada no objeto</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>A proposta foi dividida em 4 fases:</p>
+<ol>
+<li>
+<p><strong>Exportação</strong> (Data Pump) a partir da base de dados do transacional
+    no <em>appliance</em> Exadata.</p>
+<ol>
+<li>
+<p>Deve ser utilizado formato de arquivo binário <strong>.dmp</strong> para
+    dump.</p>
+</li>
+<li>
+<p>O arquivo de dump deve ser gravado em estrutura NFS (Network
+    File System) compartilhada entre a instância de origem e a
+    instância de destino, e com acesso restrito.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Importação</strong> (Data Pump) na base de dados do ORACLE <em>standalone</em> a
+    partir do arquivo disponível no NFS.</p>
+<ol>
+<li>Após importação, deve ser realizada a atualização das
+    estatísticas.</li>
+</ol>
+</li>
+<li>
+<p><strong>truncate</strong> da partição na tabela de origem.</p>
+<ol>
+<li>
+<p>O drop gera necessidade de reconstrução de índices na origem de
+    dados;</p>
+</li>
+<li>
+<p>Para o truncate não há essa necessidade e o Oracle recupera o
+    espaço previamente alocado em <em>background</em>.</p>
+</li>
+<li>
+<p>O drop/truncate da partição só poderá ocorrer após a importação
+    do dado no database/objeto de destino com sinalização de sucesso
+    para o Control-M.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Apagar o arquivo de <em>dump</em> original após execução de todas as fases
+    anteriores com sucesso;</p>
+<ol>
+<li>Em caso de execução sem sucesso, os arquivos devem ser apagados
+    de forma manual.</li>
+</ol>
+</li>
+</ol>
+<p><img alt="" src="../../img/dados/datapump/Diagrama_de_processo_extract_load_com_Oracle_Data_Pump.png" /></p>
+<h4 id="data-pump-export">Data Pump <em>export</em></h4>
+<p>Segue <em>template</em> de <em>script</em> para <em>export</em> com os parâmetros necessários
+para o <em>case</em> apresentado.
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| expdp DB_USER/DB_PWD \\                                               |
+|                                                                       |
+| DIRECTORY=DIR_DUMP \\                                                 |
+|                                                                       |
+| DUMPFILE=dumpfile.dmp \\                                              |
+|                                                                       |
+| LOGFILE=logfile.log \\                                                |
+|                                                                       |
+| TABLES=TABELA:PARTICAO \\                                             |
+|                                                                       |
+| REUSE_DUMPFILES=NO \\                                                 |
+|                                                                       |
+| EXCLUDE=STATISTICS \\                                                 |
+|                                                                       |
+| METRICS=YES                                                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div>
+-   <strong>DB_USER:</strong> Usuário de conexão ao banco de dados.</p>
+<ul>
+<li>
+<p><strong>DB_PWD:</strong> Senha do usuário de conexão.</p>
+</li>
+<li>
+<p><strong>Directory</strong>: Nome do diretório utilizado pelo Oracle, que faz
+    referência a uma localização física.</p>
+</li>
+<li>
+<p><strong>Dumpfile</strong>: Especifica o(s) nome(s) do(s) arquivos(s) a serem
+    gerados, que contém os metadados e dados executados.</p>
+</li>
+<li>
+<p><strong>Logfile</strong> : Especifica o nome dos arquivos gerado que grava as
+    mensagens de execução do <em>job</em>.</p>
+</li>
+<li>
+<p><strong>TABLES:</strong> Especifica que o Data Pump será realizado em modo de
+    tabela.</p>
+<ul>
+<li>
+<p>TABELA: Nome da tabela a ser utilizada.</p>
+</li>
+<li>
+<p>PARTICAO: Nome da partição a ser utilizada.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>REUSE_DUMPFILES:</strong> Especifica se os arquivos de dump podem ser
+    reutilizados<strong>.</strong></p>
+<ul>
+<li>
+<p>DEFAULT: No. De modo a detectar se ocorreu execução anterior e
+    não reaproveitar arquivos remanescentes de execuções anteriores.</p>
+</li>
+<li>
+<p>YES: Utilizar os arquivos já existentes.</p>
+</li>
+<li>
+<p>NO: Caso os arquivos já existam, o Data Pump retorna erro de
+    arquivo duplicado.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>EXCLUDE:</strong> Permite a exclusão de determinados tipos de objetos.</p>
+<ul>
+<li><strong>STATISTICS:</strong> O EXCLUDE=STATISTICS utilizado exclui as
+    estatísticas utilizadas pela otimizador no banco de dados. Desta
+    forma, é necessário atualizar as estatísticas das bases de dados
+    após a execução, conforme recomendado pela Oracle.</li>
+</ul>
+</li>
+<li>
+<p><strong>METRICS:</strong> Grava no <strong>logfile</strong> informações sobre o número de
+    objetos e tempo de execução.</p>
+</li>
+</ul>
+<h4 id="data-pump-import">Data Pump <em>import</em></h4>
+<p>Segue <em>template</em> de <em>script</em> para <em>import</em> com os parâmetros necessários
+para o <em>case</em> apresentado.
+<div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------+
+| impdp DB_USER/DB_PWD \\                                               |
+|                                                                       |
+| directory=DIR_DUMP \\                                                 |
+|                                                                       |
+| dumpfile=dumpfile.dmp \\                                              |
+|                                                                       |
+| logfile=logfile.log \\                                                |
+|                                                                       |
+| tables=TABELA:PARTICAO \\                                             |
+|                                                                       |
+| EXCLUDE=STATISTICS \\                                                 |
+|                                                                       |
+| TABLE_EXISTS_ACTION=APPEND                                            |
++=======================================================================+
++-----------------------------------------------------------------------+
+</code></pre></div></p>
+<ul>
+<li>
+<p><strong>DB_USER:</strong> Usuário de conexão ao banco de dados.</p>
+</li>
+<li>
+<p><strong>DB_PWD:</strong> Senha do usuário de conexão.</p>
+</li>
+<li>
+<p><strong>Directory</strong>: Nome do diretório utilizado pelo Oracle, que faz
+    referência a uma localização física.</p>
+</li>
+<li>
+<p><strong>Dumpfile</strong>: Especifica o(s) nome(s) do(s) arquivos(s) que foram
+    gerados, que contém os metadados e dados executados.</p>
+</li>
+<li>
+<p><strong>Logfile</strong> : Especifica o nome dos arquivos gerado que grava as
+    mensagens de execução do <em>job</em>.</p>
+</li>
+<li>
+<p><strong>TABLES:</strong> Especifica que o Data Pump será realizado em modo de
+    tabela.</p>
+<ul>
+<li>
+<p>TABELA: Nome da tabela a ser utilizada.</p>
+</li>
+<li>
+<p>PARTICAO: Nome da partição a ser utilizada.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>EXCLUDE:</strong> Permite a exclusão de determinados tipos de objetos.</p>
+<ul>
+<li><strong>STATISTICS:</strong> O EXCLUDE=STATISTICS utilizado exclui as
+    estatísticas utilizadas pela otimizador no banco de dados. Desta
+    forma, é necessário atualizar as estatísticas das bases de dados
+    após a execução, conforme recomendado pela Oracle.</li>
+</ul>
+</li>
+<li>
+<p><strong>TABLE EXISTS ACTION:</strong> Cláusula para decisão caso a tabela já
+    exista.</p>
+<ul>
+<li>
+<p><strong>SKIP</strong>: Deixa a tabela como está e continua para o próximo
+    objeto. É o <em>default</em>.</p>
+</li>
+<li>
+<p><strong>APPEND</strong>: Carrega os dados da origem e mantém as linhas
+    existentes inalteradas.</p>
+</li>
+<li>
+<p><strong>TRUNCATE:</strong> Deleta as linhas da tabela e carrega os registros
+    da origem.</p>
+</li>
+<li>
+<p><strong>REPLACE</strong>: Exclui a tabela existente e recria a partir da
+    origem.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>
+<p>[1]  WIKIMEDIA FOUNDATION, INC. ET AL. Data integration. <strong>Wikipedia</strong>, 10 jul. 2022. Disponível em:
+  &lt;http://web.archive.org/web/20220807073443/https://en.wikipedia.org/wiki/Data_integration&gt;. Acesso em: 07 ago. 2022.</p>
+</li>
+<li>
+<p>[2]  WIKIMEDIA FOUNDATION, INC. ET AL. Extract, transform, load. <strong>Wikipedia</strong>, 07 jul. 2022. Disponível em:
+ &lt;http://web.archive.org/web/20220809034511/https://en.wikipedia.org/wiki/Extract,_transform,_load&gt;. Acesso em: 09 ago. 2022.</p>
+</li>
+<li>
+<p>[3] IBM CORPORATION. What is ETL (Extract, Transform, Load)? <strong>IBM Cloud Learn Hub</strong>, 28 abr. 2020. Disponível em: &lt;http://web.archive.org/web/20220802154217/http://www.ibm.com/cloud/learn/etl&gt;. Acesso em: 02 ago. 2022.</p>
+</li>
+<li>
+<p>[4] TALEND. What is ETL (Extract, Transform, Load)? Definition, Process, and Tools. <strong>Talend Knowledge center</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220701174425/https://www.talend.com/resources/what-is-etl/&gt;. Acesso em: 01 jul. 2022.</p>
+</li>
+<li>
+<p>[5] WIKIMEDIA FOUNDATION, INC. ET AL. Scalability - Horizontal and vertical scaling. <strong>Wikipedia</strong>, 07 maio 2022. Disponível em:  &lt;http://web.archive.org/web/20220514132248/https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)&gt;.
+           Acesso em: 14 maio 2022.</p>
+</li>
+<li>
+<p>[6]  WIKIMEDIA FOUNDATION, INC. ET AL. Flat-file database. <strong>Wikipedia</strong>, 06 dez. 2019. Disponível em: &lt;https://web.archive.org/web/20191217123542/https://en.wikipedia.org/wiki/Flat-file_database&gt;. Acesso em: 17 dez. 2019.</p>
+</li>
+<li>
+<p>[7]  WIKIMEDIA FOUNDATION, INC. ET AL. Apache ORC. <strong>Wikipedia</strong>, 29 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220703203453/https://en.wikipedia.org/wiki/Apache_ORC&gt;. Acesso em: 03 jul. 2022.</p>
+</li>
+<li>
+<p>[8]  WIKIMEDIA FOUNDATION, INC. ET AL. Apache Parquet. <strong>Wikipedia</strong>, 01 jun. 2022. Disponível em: &lt;http://web.archive.org/web/20220703203509/https://en.wikipedia.org/wiki/Apache_Parquet&gt;. Acesso em: 03 jul. 2022.</p>
+</li>
+<li>
+<p>[9] WIKIMEDIA FOUNDATION, INC. ET AL. Virtual Storage Access Method (VSAM). <strong>Wikipedia</strong>, 24 mar. 2022. Disponível em: &lt;http://web.archive.org/web/20220613132940/https://en.wikipedia.org/wiki/Virtual_Storage_Access_Method&gt;. Acesso em: 13 jun. 2022.</p>
+</li>
+<li>
+<p>[10]  WIKIMEDIA FOUNDATION, INC. ET AL. Sistema de gerenciamento de banco de dados. <strong>Wikipedia</strong>, 14 mar. 2022. Disponível em: &lt;http://web.archive.org/web/20220321135649/https://pt.wikipedia.org/wiki/Sistema_de_gerenciamento_de_banco_de_dados&gt;. Acesso em: 21 mar. 2022.</p>
+</li>
+<li>
+<p>[11] WIKIMEDIA FOUNDATION, INC. ET AL. IBM Db2. <strong>Wikipedia</strong>, 14 jul. 2022. Disponível em: &lt;http://web.archive.org/web/20220808212532/https://en.wikipedia.org/wiki/IBM_DB2&gt;. Acesso em: 08 ago. 2022.</p>
+</li>
+<li>
+<p>[12]  WIKIMEDIA FOUNDATION, INC. ET AL. z/OS. <strong>Wikipedia</strong>, 27 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220531134730/https://en.wikipedia.org/wiki/Z/OS&gt;. Acesso em: 31 maio 2022.</p>
+</li>
+<li>
+<p>[13]  WIKIMEDIA FOUNDATION, INC. ET AL. Oracle Exadata. <strong>Wikipedia</strong>, 28 set. 2021. Disponível em: &lt;http://web.archive.org/web/20220703205508/https://en.wikipedia.org/wiki/Oracle_Exadata&gt;. Acesso em: 03 jul. 2022.</p>
+</li>
+<li>
+<p>[14]   WIKIMEDIA FOUNDATION, INC. ET AL. Oracle RAC. <strong>Wikipedia</strong>, 20 mar. 2022. Disponível em: &lt;http://web.archive.org/web/20220801143913/https://en.wikipedia.org/wiki/Oracle_RAC&gt;. Acesso em: 01 ago. 2022.</p>
+</li>
+<li>
+<p>[15]  WIKIMEDIA FOUNDATION, INC. ET AL. Oracle Database. <strong>Wikipedia</strong>, 21 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220703203906/https://en.wikipedia.org/wiki/Oracle_Database&gt;. Acesso em: 03 jul. 2022.</p>
+</li>
+<li>
+<p>[16] WIKIMEDIA FOUNDATION, INC. ET AL. Microsoft SQL Server. <strong>Wikipedia</strong>, 28 jul. 2022. Disponível em: &lt;http://web.archive.org/web/20220808212622/https://en.wikipedia.org/wiki/Microsoft_SQL_Server&gt;. Acesso em: 08 ago. 2022.</p>
+</li>
+<li>
+<p>[17]  WIKIMEDIA FOUNDATION, INC. ET AL. SAP ASE (Adaptive Server Enterprise or Sybase ASE). <strong>Wikipedia</strong>, 09 abr. 2022. Disponível em:  &lt;http://web.archive.org/web/20220626183246/https://en.wikipedia.org/wiki/Adaptive_Server_Enterprise&gt;. Acesso em: 26 jun. 2022.</p>
+</li>
+<li>
+<p>[18]  WIKIMEDIA FOUNDATION, INC. ET AL. SAP IQ (SAP Sybase IQ). <strong>Wikipedia</strong>, 29 jun. 2022. Disponível em:
+ &lt;http://web.archive.org/web/20220711233742/https://en.wikipedia.org/wiki/SAP_IQ&gt;. Acesso em: 11 jul. 2022.</p>
+</li>
+<li>
+<p>[19] WIKIMEDIA FOUNDATION, INC. ET AL. API. <strong>Wikipedia</strong>, 11 ago. 2022. Disponível em: &lt;http://web.archive.org/web/20220812152950/https://en.wikipedia.org/wiki/API&gt;. Acesso em: 12 ago. 2022.</p>
+</li>
+<li>
+<p>[20] WIKIMEDIA FOUNDATION, INC. ET AL. IBM MQ. <strong>Wikipedia</strong>, 28 abr. 2022. Disponível em:  &lt;http://web.archive.org/web/20220428211644/https://en.wikipedia.org/wiki/IBM_MQ&gt;. Acesso em: 28 abr. 2022.</p>
+</li>
+<li>
+<p>[21] WIKIMEDIA FOUNDATION, INC. ET AL. Semi-structured data. <strong>Wikipedia</strong>, 10 mar. 2022. Disponível em:  &lt;http://web.archive.org/web/20220712053346/https://en.wikipedia.org/wiki/Semi-structured_data&gt;. Acesso em: 12 jul. 2022.</p>
+</li>
+<li>
+<p>[22]   WIKIMEDIA FOUNDATION, INC. ET AL. Unstructured data (or unstructured information). <strong>Wikipedia</strong>, 10 maio 2022. Disponível em:  &lt;http://web.archive.org/web/20220531154920/https://en.wikipedia.org/wiki/Unstructured_data&gt;. Acesso em: 31 maio 2022.</p>
+</li>
+<li>
+<p>[23]  WIKIMEDIA FOUNDATION, INC. ET AL. Database model. <strong>Wikipedia</strong>, 12 out. 2021. Disponível em: &lt;http://web.archive.org/web/20220730174214/https://en.wikipedia.org/wiki/Database_model&gt;. Acesso em: 30 jul. 2022.</p>
+</li>
+<li>
+<p>[24]   WIKIMEDIA FOUNDATION, INC. ET AL. Character encoding. <strong>Wikipedia</strong>, 26 jun. 2022. Disponível em: &lt;http://web.archive.org/web/20220814033358/https://en.wikipedia.org/wiki/Character_encoding&gt;. Acesso em: 14 ago. 2022.</p>
+</li>
+<li>
+<p>[25]  WIKIMEDIA FOUNDATION, INC. ET AL. z/Architecture. <strong>Wikipedia</strong>, 03 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220518223612/https://en.wikipedia.org/wiki/Z/Architecture&gt;. Acesso em: 18 maio 2022.</p>
+</li>
+<li>
+<p>[26]  WIKIMEDIA FOUNDATION, INC. ET AL. IBM mainframe. <strong>Wikipedia</strong>, 20 mar. 2022. Disponível em: &lt;http://web.archive.org/web/20220810220911/https://en.wikipedia.org/wiki/IBM_mainframe&gt;. Acesso em: 10 ago. 2022.</p>
+</li>
+<li>
+<p>[27]  WIKIMEDIA FOUNDATION, INC. ET AL. Informatica. <strong>Wikipedia</strong>, 20 jul. 2022. Disponível em: &lt;http://web.archive.org/web/20220720192106/https://en.wikipedia.org/wiki/Informatica&gt;. Acesso em: 20 jul. 2022.</p>
+</li>
+<li>
+<p>[28]   INFORMATICA, INC. PowerCenter | 10.5. <strong>Informatica | Documentation</strong>, ago. 2022. Disponível em: &lt;http://web.archive.org/web/20220812235628/https://docs.informatica.com/data-integration/powercenter/10-5.html&gt;. Acesso em: 12 ago. 2022.</p>
+</li>
+<li>
+<p>[29] INFORMATICA LLC. Informatica PowerCenter 10.5 - Workflow Basics Guide. <strong>Informatica | Documentation</strong>, 27 jul. 2022. Disponível em:  &lt;https://web.archive.org/web/20220818192308/https://docs.informatica.com/data-integration/powercenter/10-5/workflow-basics-guide/preface.html&gt;. Acesso em: 18 ago. 2022.</p>
+</li>
+<li>
+<p>[30]  INFORMATICA LLC. Informatica PowerCenter 10.5 - Advanced Workflow Guide. <strong>Informatica | Documentation</strong>, 12 ago. 2022. Disponível em: &lt;https://web.archive.org/web/20220818185408/https://docs.informatica.com/data-integration/powercenter/10-5/advanced-workflow-guide/preface.html&gt;. Acesso em: 18 ago. 2022.</p>
+</li>
+<li>
+<p>[31]  INFORMATICA LLC. Informatica PowerCenter 10.5.0 - Performance Tuning Guide. <strong>Informatica | Documentation</strong>, 29 mar. 2021. Disponível em: &lt;https://web.archive.org/web/20220818192102/https://docs.informatica.com/data-integration/powercenter/10-5/performance-tuning-guide/preface.html&gt;. Acesso em: 18 ago. 2022.</p>
+</li>
+<li>
+<p>[32] IBM CORPORATION. Db2 12 for z/OS - LOAD - Online utilities. <strong>IBM Documentation</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220530125151/https://www.ibm.com/docs/en/db2-for-zos/12?topic=utilities-load&gt;. Acesso em: 30 maio 2022.</p>
+</li>
+<li>
+<p>[33] IBM CORPORATION. Db2 12 for z/OS - UNLOAD - Online utilities. <strong>IBM Documentation</strong>, 10 ago. 2022. Disponível em: &lt;http://web.archive.org/web/20220405050059/https://www.ibm.com/docs/en/db2-for-zos/12?topic=utilities-unload&gt;. Acesso em: 05 abr. 2022.</p>
+</li>
+<li>
+<p>[34]   ORACLE. Oracle Data Pump | Oracle Database Release 21 | Database Utilities. <strong>Oracle Help Center</strong>, 2022. Disponível em:  &lt;http://web.archive.org/web/20220504170335/https://docs.oracle.com/en/database/oracle/oracle-database/21/sutil/oracle-data-pump.html&gt;. Acesso em: 04  maio 2022.</p>
+</li>
+<li>
+<p>[35]ORACLE; , A. Oracle Database Utilities - Oracle Data Pump Best Practices, ago. 2021. Disponível em:&lt;https://web.archive.org/web/20220519184517/https://www.oracle.com/a/ocom/docs/oracle-data-pump-best-practices.pdf&gt;. Acesso em: 19 maio 2022.</p>
+</li>
+<li>
+<p>[36]BMC SOFTWARE, INC. Control-M. <strong>BMC Software</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220809130500/https://www.bmc.com/it-solutions/control-m.html&gt;. Acesso em: 09 aug. 2022.</p>
+</li>
+<li>
+<p>[37] WIKIMEDIA FOUNDATION, INC. ET AL. SQL. <strong>Wikipedia</strong>, 19 dez. 2019. Disponível em: &lt;https://web.archive.org/web/20191220030105/https://en.wikipedia.org/wiki/SQL&gt;. Acesso em: 20 dez. 2019.</p>
+</li>
+<li>
+<p>[38]  WIKIMEDIA FOUNDATION, INC. ET AL. SHA-2. <strong>Wikipedia</strong>, 18 jun. 2022. Disponível em:  &lt;http://web.archive.org/web/20220813185531/https://en.wikipedia.org/wiki/SHA-2&gt;. Acesso em: 13 ago. 2022.</p>
+</li>
+</ul>
+<h2 id="historico-da-revisao">Histórico da Revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12/08/2022</td>
+<td>1.0</td>
+<td>Cenário para utilização de utilitário datapump em Oracle Exadata</td>
+<td>Luiz Oliveira (C090290) / Mário Ferreira  (C101038)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../governanca_de_dados/powerdesign/index.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: PowerDesign" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              PowerDesign
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-footer__link md-footer__link--next" aria-label="Próximo: Big Data e Analytics" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Big Data e Analytics
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="index.html#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

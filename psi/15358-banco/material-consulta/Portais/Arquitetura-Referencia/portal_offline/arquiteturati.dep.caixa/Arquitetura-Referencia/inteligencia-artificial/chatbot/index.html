@@ -1,0 +1,4291 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Chatbot - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="index.html#objetivo" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="https://arquiteturati.dep.caixa/latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chatbot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/index.html" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/index.html" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telecom/telecom/index.html" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/index.html" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/index.html" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/index.html" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/index.html" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/index.html" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/index.html" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/index.html" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/index.html" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/index.html" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/index.html" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/index.html" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/index.html" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microprofile/index.html" class="md-nav__link">
+        Java Microprofile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/index.html" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/index.html" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/index.html" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_1" type="checkbox" id="__nav_2_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/index.html" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/index.html" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/index.html" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/index.html" class="md-nav__link">
+        Sigle Page Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2_1" type="checkbox" id="__nav_2_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2_1">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/index.html" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/index.html" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/index.html" class="md-nav__link">
+        Processamento Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/index.html" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/index.html" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14_1" type="checkbox" id="__nav_2_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/index.html" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/index.html" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/index.html" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/index.html" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/index.html" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/index.html" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/index.html" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/index.html" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_3" type="checkbox" id="__nav_3_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_4" type="checkbox" id="__nav_3_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/index.html" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/index.html" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arquiteturati.dep.caixa/25.06/nuvem/cosmos.md" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/index.html" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/index.html" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/index.html" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/index.html" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/index.html" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/index.html" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/index.html" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/index.html" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/index.html" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/index.html" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/index.html" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/index.html" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/index.html" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/index.html" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/index.html" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/index.html" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/index.html" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/index.html" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1" type="checkbox" id="__nav_6_2_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/index.html" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1_3" type="checkbox" id="__nav_6_2_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/index.html" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/index.html" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/index.html" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/index.html" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/telecom/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/switching_datacenter/index.html" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/azure/index.html" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede1/index.html" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede2/index.html" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede3/index.html" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede4/index.html" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede5/index.html" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede6/index.html" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede7/index.html" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede-local/index.html" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/financeira/index.html" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/webproxy/index.html" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/call_center_nuvem/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/wifi/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/Balanceamento/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/interconexoes_multicloud/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/sdwan/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/contact/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/micro/index.html" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/dns/index.html" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/mesa-operacoes/index.html" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/index.html" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/index.html" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/index.html" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#objetivo" class="md-nav__link">
+    OBJETIVO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#chatbot" class="md-nav__link">
+    CHATBOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#inteligencia-artificial" class="md-nav__link">
+    Inteligência Artificial
+  </a>
+  
+    <nav class="md-nav" aria-label="Inteligência Artificial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#ia-generativa-textual" class="md-nav__link">
+    IA GENERATIVA TEXTUAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#ajuste-fino-de-modelos-de-ia-fine-tunning" class="md-nav__link">
+    Ajuste Fino de Modelos de IA - Fine-Tunning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#classificacao-do-chatbot-com-ia" class="md-nav__link">
+    Classificação do Chatbot com IA
+  </a>
+  
+    <nav class="md-nav" aria-label="Classificação do Chatbot com IA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#bloco-i-ias-como-motor-de-inteligencia" class="md-nav__link">
+    Bloco I -- IA's como motor de inteligência
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#bloco-ii-ias-especialistas-eou-utilizando-dados-especificos" class="md-nav__link">
+    Bloco II -- IA's especialistas e/ou utilizando dados específicos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquitetura-caixa" class="md-nav__link">
+    Arquitetura CAIXA
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitetura CAIXA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-microsoft" class="md-nav__link">
+    Arquitetura Microsoft
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-ibm" class="md-nav__link">
+    Arquitetura IBM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#ia-on-premisses" class="md-nav__link">
+    IA On-Premisses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#arquiteturas-correlatas" class="md-nav__link">
+    ARQUITETURAS CORRELATAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#observacoes" class="md-nav__link">
+    OBSERVAÇÕES
+  </a>
+  
+    <nav class="md-nav" aria-label="OBSERVAÇÕES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#legislacao" class="md-nav__link">
+    Legislação
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#aspectos-gerais" class="md-nav__link">
+    Aspectos Gerais
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#curadoria" class="md-nav__link">
+    Curadoria
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#historico" class="md-nav__link">
+    Histórico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#glossario" class="md-nav__link">
+    Glossário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Chatbot</h1>
+
+<blockquote>
+<p><strong>Importante:</strong> Arquitetura de Referência para uso RESTRITO sob gestão do COE de Inteligência Artificial – Caixa Postal CXIAR@CAIXA.GOV.BR</p>
+</blockquote>
+<h2 id="objetivo">OBJETIVO</h2>
+<p>O objetivo deste documento é definir a arquitetura referência para o
+desenvolvimento e utilização de Chatbots que utilizem <strong>Inteligência
+Artificial Generativa Textual</strong> na CAIXA, bem como, padrões e
+tecnologias a serem utilizados. O documento também deve servir como
+um guia para direcionar a tomada de decisões sobre quando utilizar
+cada arquétipo arquitetural e avaliar a viabilidade de novos
+componentes conforme as estratégias de negócios e premissas
+estabelecidas pela área responsável - SUART.</p>
+<h2 id="chatbot">CHATBOT</h2>
+<p>É um programa de computador que simula e processa conversas
+(escritas ou faladas), permitindo que as pessoas interajam como se
+estivessem se comunicando com uma pessoa real. Os chatbots podem ser
+tão simples quanto programas rudimentares que respondem a uma
+consulta com uma resposta de linha única ou tão sofisticados quanto
+assistentes digitais que aprendem e evoluem.</p>
+<h2 id="inteligencia-artificial">Inteligência Artificial</h2>
+<p>Segundo a empresa especializada Gartner em seu artigo “O que é inteligência artificial?”:</p>
+<ul>
+<li>A inteligência artificial pode ser definida como a aplicação de análises avançadas e técnicas baseadas em lógica, incluindo machine learning, para interpretar eventos, apoiar e automatizar decisões e realizar ações. </br></br> 
+ Essa definição está de acordo com o estado atual e emergente das tecnologias e recursos de IA e reconhece que a atual inteligência artificial geralmente envolve análise probabilística, ou seja, a probabilidade é combinada com a lógica para atribuir valor à incerteza. <br/> </br> Contudo, outras organizações e indivíduos podem usar definições diferentes. Não há uma descrição única para inteligência artificial porque existem inúmeras maneiras nas quais a IA pode apoiar e automatizar atividades humanas, aprender e agir independentemente</li>
+</ul>
+<p>Conceitualmente a inteligência artificial é um campo da Ciência da Computação que se dedica ao estudo e ao desenvolvimento de máquinas e programas computacionais capazes de reproduzir o comportamento humano na tomada de decisões e na realização de tarefas, desde as mais simples até as mais complexas.</p>
+<p><img alt="Figura 1- IA Visão Geral" src="../../img/chatbot/Imagem1.png" title="Figura 1- IA Visão Geral" /></p>
+<p>Pode-se classificar a IA é de acordo com o tipo de resultado que ela
+    produz, ou seja, se ela é capaz de gerar novos dados ou apenas
+    analisar dados existentes. Nesse sentido, tem-se duas categorias:
+    <strong>IA analítica e IA generativa</strong>.</p>
+<ul>
+<li>
+<p>A IA analítica é a que utiliza dados existentes para extrair
+    informações, fazer previsões, tomar decisões ou realizar ações. É a
+    forma mais comum e tradicional de IA, e abrangendo sistemas de
+    recomendação, diagnóstico médico, reconhecimento facial, detecção de
+    fraudes, dentre outros. Utiliza técnicas como aprendizado
+    supervisionado, aprendizado não supervisionado, aprendizado por
+    reforço, árvores de decisão e diversos outros.</p>
+</li>
+<li>
+<p>A IA generativa, por sua vez, é aquela que utiliza dados existentes
+    para criar novos dados, como texto, imagem, vídeo, música ou código.
+    Abrange aplicações como síntese de voz, tradução automática, geração
+    e análise de textos e imagens, composição musical, dentre outras.</p>
+</li>
+</ul>
+<p>A base da <strong>IA generativa</strong> é a aprendizagem profunda (Deep
+        Learning), um tipo de Machine Learning que imita o funcionamento
+        do cérebro humano no processamento de dados e na geração de
+        padrões para a tomada de decisões. Os modelos de aprendizagem
+        profunda utilizam arquiteturas complexas conhecidas como redes
+        neurais artificiais. Tais redes incluem diversas camadas
+        interconectadas que processam e transferem informações, imitando
+        o comportamento dos neurônios do cérebro humano;</p>
+<h3 id="ia-generativa-textual">IA GENERATIVA TEXTUAL</h3>
+<p>As <strong>inteligências artificiais generativas</strong> criam informações a
+    partir de conjuntos de dados pré-existentes. Essas IAs foram
+    "treinadas" a partir de grandes bases de dados, e se tornaram
+    capazes de entender o padrão de construção desses dados. A partir
+    deste momento, se tornam capazes de gerar novos dados, semelhantes
+    aos utilizados para ensinar a IA, mas que podem ser únicos e
+    originais.</p>
+<p>Quando o retorno fornecido por esta IA ocorre somente no formato de
+    texto, passamos a chamá-la de <strong>Inteligência Artificial Generativa
+    Textual</strong>;</p>
+<p>A interação do usuário com a IA é feita através de textos, ao texto
+    enviado pelo usuário à IA damos o nome de <strong><em>prompt</em></strong>;</p>
+<p>Os termos IA, IA Generativa e correlatos, deste ponto em diante do
+    documento estarão se referindo à <strong>Inteligência Artificial
+    Generativa Textual;</strong></p>
+<h3 id="ajuste-fino-de-modelos-de-ia-fine-tunning">Ajuste Fino de Modelos de IA - <em>Fine-Tunning</em></h3>
+<p>Os modelos de IA Generativa já estão treinados previamente pelo fabricante/fornecedor, no entanto pode-se achar necessário refazer
+    esse treinamento, para tornar o modelo mais adequado para aplicações
+    específicas, este treinamento requer um investimento de esforço (o
+    treinamento não é automático, exige dados extras e a participação de
+    especialistas técnicos dos elementos). A este treinamento
+    "customizado" damos o nome de Fine-Tunning (ajuste fino);</p>
+<p>É vedada a realização de Fine Tunning nos modelos de IA Generativa
+    utilizados na CAIXA, identificada necessidade de realização desse
+    procedimento para atendimento de caso de uso específico, a área de
+    arquitetura deverá ser acionada para avaliação.</p>
+<h2 id="classificacao-do-chatbot-com-ia">Classificação do Chatbot com IA</h2>
+<p><img alt="Figura 2 – Classificação dos Chatbots" src="../../img/chatbot/Imagem2.png" title="Figura 2 – Classificação dos Chatbots" /> </p>
+<p>Para fins de organização, as implementações de chatbot com IA dentro
+    da CAIXA devem considerar as classificações lógicas a seguir;</p>
+<h3 id="bloco-i-ias-como-motor-de-inteligencia">Bloco I -- IA's como motor de inteligência</h3>
+<p>Este bloco engloba os chatbots que utilizam a IA como um "motor de
+    inteligência". São IA's que fornecem respostas por meio de seus
+    modelos pré-treinados (sem Fine Tunning), a partir das perguntas
+    fornecidas pelo pelo usuário. Desta forma podem ser considerados
+    chatbots generalistas, pois utilizarão o conhecimento generalista
+    pré-treinado para fornecer respostas;</p>
+<p>São classificados neste bloco os modelos de Inteligência artificiais
+    generativas pré-treinados, que <strong>[não]</strong> precisem de:</p>
+<ul>
+<li>
+<p>Serem especializados em uma tarefa (treinamento - Fine Tunning);</p>
+</li>
+<li>
+<p>Utilizar em sua base de conhecimentos (pré-carregados) dados
+    específicos (Ex: Normativos, leis, bases de conhecimento, faqs,
+    bancos de dados de um sistema interno, dentre outros).</p>
+</li>
+</ul>
+<h3 id="bloco-ii-ias-especialistas-eou-utilizando-dados-especificos">Bloco II -- IA's especialistas e/ou utilizando dados específicos</h3>
+<p>Este bloco engloba os chatbots que, além da utilização do modelo de
+    IA pré-treinados, precisem de mais informações para alcançar seus
+    objetivos. Dessa forma serão chamados de Chatbots Especialistas;</p>
+<p>São classificados neste bloco os modelos de Inteligência artificiais
+    generativas pré-treinados que <strong>[necessitem]</strong> de um dos
+    itens abaixo:</p>
+<ul>
+<li>
+<p>Utilizar em sua base de conhecimentos (pré-carregados) dados
+    específicos (Ex: Normativos, leis, bases de conhecimento, faqs,
+    bancos de dados de um sistema interno, dentre outros);</p>
+</li>
+<li>
+<p>Utilizar em sua base de conhecimentos (pós-carregados) dados brutos
+    (Ex: índices, planilhas, documentos que não puderem ser colocados no
+    prompt, dentre outros);</p>
+</li>
+</ul>
+<p>Para as necessidades de IAs que se enquadrem em quaisquer dos
+        blocos, a área de negócio interessada deve procurar e realizar o
+        envolvimento das áreas de atendimento de TI, conforme os
+        procedimentos e normas internas da Caixa em vigor;</p>
+<h2 id="arquitetura-caixa">Arquitetura CAIXA</h2>
+<p>Esta arquitetura de referência prevê a utilização de chatbots com IA
+    Generativa Textual em aplicações que estejam devidamente
+    instanciadas em nuvem Microsoft ou IBM;</p>
+<p>As versões dos LLM's a serem utilizadas dependerão de
+    disponibilidade provida pelos fornecedores/fabricantes, no melhor
+    interesse da CAIXA, visando a economicidade de recursos e o
+    atendimento da necessidade do negócio.</p>
+<p>Aplicações CAIXA hospedadas Azure Microsoft deverão utilizar a
+    arquitetura Microsoft para implementação de chatbots para otimização
+    dos recursos e desempenho.</p>
+<p>Aplicações CAIXA hospedadas em Nuvem IBM deverão utilizar a
+    arquitetura IBM para implementação de chatbots para otimização dos
+    recursos e desempenho.</p>
+<p>A escolha da utilização de uma das arquiteturas descritas a seguir,
+    deve levar em conta o custo benefício com seus aspectos monetários e
+    as necessidades de cada projeto.</p>
+<p>As arquiteturas indicadas para a construção de aplicações de
+    chatbots com uso de IA Generativa Textual são as seguintes:</p>
+<h3 id="arquitetura-microsoft"><strong>Arquitetura Microsoft</strong></h3>
+<p>Apresentamos a seguir os elementos da arquitetura da
+            Microsoft que poderão ser utilizados, conforme segue:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Nome</strong></th>
+<th><strong>Elemento</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Ferramentas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat App</td>
+<td>Bot</td>
+<td>Web Application com lógica para o  Bot e acessos aos modelos do open   AI e documentos proprietários       através do mecanismo de busca do    search</td>
+<td>Azure Web   Application</td>
+</tr>
+<tr>
+<td>Azure Open AI</td>
+<td>LM</td>
+<td>Modelos LLM para uso de Gen AI</td>
+<td>Azure Open AI</td>
+</tr>
+<tr>
+<td>Teams</td>
+<td>UI</td>
+<td>Interface para conversação com o   Bot</td>
+<td>Teams</td>
+</tr>
+<tr>
+<td>Cosmos DB</td>
+<td>Base de dados</td>
+<td>Base para armazenamento do   histórico de conversas e estado    das interações</td>
+<td>Azure Cosmos DB</td>
+</tr>
+<tr>
+<td>Azure Search</td>
+<td>Mecanismo  de Busca</td>
+<td>Estrutura para indexação dos  ocumentos a serem utilizados   como origem para a AI Generativa</td>
+<td>Azure AI Search</td>
+</tr>
+<tr>
+<td>Az. Storage   Account</td>
+<td>Storage</td>
+<td>Estrutura para armazenar os    documentos que serão indexados   pelo AI Search e consumidos pelo    Bot + AI</td>
+<td>Azure Storage Account</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela 1- Elementos da Arquitetura - Microsoft</p>
+<p>A seguir apresenta-se cenário de combinação dos elementos aplicados
+    a um caso de utilização de Chatbot pelo Teams consumindo serviços de
+    IA GEN OpenAI:</p>
+<p><img alt="Figura 3 - Arquitetura de Chatbot - Microsoft" src="../../img/chatbot/Imagem3.png" title="Figura 3 - Arquitetura de Chatbot - Microsoft" /></p>
+<p>O item ChatApp representado na figura acima é constituído pelo ChatBot principal e o Chatbot Especialista. O ChatBot principal representa o Chatbot CAIXA solução que fará a concatenação de Chatbots especialistas que serão criados por linhas de negócio. </p>
+<p>O ChatBot CAIXA, arquitetura Microsoft, será de responsabilidade do COE de Inteligência Artificial.</p>
+<p>Dessa forma, privilegiando a melhor experiencia ao usuário que tratará em um mesmo chat as necessidades de linhas de negócio distintas, visto que o acionamento ao Chatbot especialista será automaticamente realizado pelo Chatbot CAIXA conforme representação a seguir:</p>
+<p><img alt="Figura 4- Chat App" src="../../img/chatbot/Imagem4.png" title="Figura 4- Chat App" /></p>
+<p>A arquitetura de solução poderá conter combinação diversa dos Elementos da Arquitetura – Microsoft constantes na Tabela 1- Elementos da Arquitetura - Microsoft, conforme necessidade de cada caso de uso e caberá ao Arquiteto responsável pelo projeto a sua composição.</p>
+<p>Para acesso a solução por outras aplicações deve-se fazê-lo via
+    HTTPS através de um endpoint de API autenticado, utilizando chaves
+    de API provisionadas na Azure Cloud pela Azure Open AI e Azure
+    Search;</p>
+<h3 id="arquitetura-ibm"><strong>Arquitetura IBM</strong></h3>
+<p>Para criação de Chatbot utilizando IA Generativa textual, deve-se utilizar a seguinte arquitetura:</p>
+<p><img alt="Figura 5- Arquitetura de Chatbot - IBM" src="../../img/chatbot/Imagem5.png" title="Figura 5- Arquitetura de Chatbot - IBM" /></p>
+<p>O item Watson Assistant representado na figura acima é constituído pelo ChatBot principal e o Chatbot Especialista. O ChatBot principal representa o Chatbot CAIXA solução que fará a concatenação de Chatbots especialistas que serão criados por linhas de negócio. </p>
+<p>O ChatBot CAIXA, arquitetura IBM, será de responsabilidade do COE de Inteligência Artificial</p>
+<p>Dessa forma, privilegiando a melhor experiencia ao usuário que tratará em um mesmo chat as necessidades de linhas de negócio distintas, visto que o acionamento ao Chatbot especialista será automaticamente realizado pelo Chatbot CAIXA conforme representação a seguir:</p>
+<p><img alt="Figura 6 - Watson Assistant" src="../../img/chatbot/Imagem6.png" title="Figura 6 - Watson Assistant" /></p>
+<p>Para acesso à arquitetura por outras aplicações deve-se fazê-lo via HTTPS através de um endpoint de API autenticado,utilizando chaves de API provisionadas na IBM Cloud;</p>
+<p>Como principais elementos dessa solução, serão utilizados os serviços conforme descritos na Tabela 2 - Elementos da Arquitetura -
+    IBM:</p>
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:495.35pt;background:white;border-collapse:collapse;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0cm 0cm 0cm 0cm">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:10.95pt">
+  <td width="94" valign="top" style="width:70.4pt;border:solid #999999 1.0pt;
+  background:#ffffff;mso-background-themecolor:text2;mso-background-themetint:
+  153;padding:0cm 5.4pt 0cm 5.4pt;height:10.95pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Nome</span></b><span style="font-family:&quot;Arial&quot;,sans-serif"><o:p></o:p></span></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border:solid #999999 1.0pt;
+  border-left:none;background:#ffffff;mso-background-themecolor:text2;
+  mso-background-themetint:153;padding:0cm 5.4pt 0cm 5.4pt;height:10.95pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Elemento</span></b><span style="font-family:&quot;Arial&quot;,sans-serif"><o:p></o:p></span></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border:solid #999999 1.0pt;
+  border-left:none;background:#ffffff;mso-background-themecolor:text2;
+  mso-background-themetint:153;padding:0cm 5.4pt 0cm 5.4pt;height:10.95pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Descrição</span></b><span style="font-family:&quot;Arial&quot;,sans-serif"><o:p></o:p></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border:solid #999999 1.0pt;
+  border-left:none;background:#ffffff;mso-background-themecolor:text2;
+  mso-background-themetint:153;padding:0cm 5.4pt 0cm 5.4pt;height:10.95pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Ferramentas</span></b><span style="font-family:&quot;Arial&quot;,sans-serif"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:54.1pt">
+  <td width="94" valign="top" style="width:70.4pt;border:solid #999999 1.0pt;
+  border-top:none;mso-border-top-alt:solid #999999 1.0pt;background:transparent;
+  padding:0cm 5.4pt 0cm 5.4pt;height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson <span class="SpellE">Assistant</span></span><b><span style="font-size:9.0pt;
+  font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border-top:none;border-left:none;
+  border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Estruturador<o:p></o:p></span></b></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Responsável por
+  gerenciar a estrutura da conversa, seu fluxo, identificação de intenções e
+  integrações com outros sistemas, incluindo Microsoft Teams, outros sistemas
+  da <span class="GramE">CAIXA, <span class="SpellE">etc</span></span><b><span style="color:black"><o:p></o:p></span></b></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson <span class="SpellE">Assistant</span><b><span style="color:black"><o:p></o:p></span></b></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:54.1pt">
+  <td width="94" valign="top" style="width:70.4pt;border:solid #999999 1.0pt;
+  border-top:none;mso-border-top-alt:solid #999999 1.0pt;background:transparent;
+  padding:0cm 5.4pt 0cm 5.4pt;height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span class="SpellE"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">NeuralSeek</span></span><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border-top:none;border-left:none;
+  border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Orquestrador
+  de perguntas<o:p></o:p></span></b></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Serviço da IBM Cloud
+  responsável por orquestrar as perguntas realizadas via Assistente Virtual,
+  integrando a base de conhecimento e o ambiente de IA Generativa.<b><span style="color:black"><o:p></o:p></span></b></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span class="SpellE"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">NeuralSeek</span></span><b><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;height:67.65pt">
+  <td width="94" valign="top" style="width:70.4pt;border:solid #999999 1.0pt;
+  border-top:none;mso-border-top-alt:solid #999999 1.0pt;background:transparent;
+  padding:0cm 5.4pt 0cm 5.4pt;height:67.65pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson Discovery</span><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border-top:none;border-left:none;
+  border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:67.65pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Gerenciador
+  de base de conhecimento<o:p></o:p></span></b></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:67.65pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Responsável por
+  manter a base de conhecimento, sendo capaz de entender documentos não
+  estruturados e extrair dados como <span class="GramE">palavras chave</span>,
+  entidades e identificar sessões de conteúdo<b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border-top:none;border-left:
+  none;border-bottom:solid #999999 1.0pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:67.65pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson Discovery<b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4;height:54.1pt">
+  <td width="94" valign="top" style="width:70.4pt;border-top:none;border-left:solid #999999 1.0pt;
+  border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watsonx.ai</span><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border-top:none;border-left:none;
+  border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span class="SpellE"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;
+  color:black">Executador</span></b></span><b><span style="font-size:9.0pt;
+  font-family:&quot;Arial&quot;,sans-serif;color:black"> de modelos<o:p></o:p></span></b></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border-top:none;border-left:
+  none;border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Responsável pela
+  execução de modelos Generativos. Neste ambiente é possível realizar a
+  preparação dos modelos, construir prompts, testar soluções <span class="GramE">generativas,
+  <span class="SpellE">etc</span></span><b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border-top:none;border-left:
+  none;border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:54.1pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watsonx.ai<b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5;mso-yfti-lastrow:yes;height:53.45pt">
+  <td width="94" valign="top" style="width:70.4pt;border-top:none;border-left:solid #999999 1.0pt;
+  border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:53.45pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson Studio</span><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black"><o:p></o:p></span></b></p>
+  </td>
+  <td width="113" valign="top" style="width:3.0cm;border-top:none;border-left:none;
+  border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:53.45pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><b><span style="font-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:black">Monitoração
+  e debug<o:p></o:p></span></b></p>
+  </td>
+  <td width="316" valign="top" style="width:236.7pt;border-top:none;border-left:
+  none;border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:53.45pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Ambiente de Ciência
+  de Dados que pode ser utilizado para investigar e analisar os dados gerados
+  pela monitoração e coleta de logs das conversas<b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+  <td width="138" valign="top" style="width:103.2pt;border-top:none;border-left:
+  none;border-bottom:solid #666666 1.5pt;border-right:solid #999999 1.0pt;
+  mso-border-top-alt:solid #999999 1.0pt;background:transparent;padding:0cm 5.4pt 0cm 5.4pt;
+  height:53.45pt">
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;text-align:justify;
+  page-break-after:avoid"><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,sans-serif">Watson
+  Studio<b><span style="color:red"><o:p></o:p></span></b></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p>Tabela 2 - Elementos da Arquitetura - IBM</p>
+<p>A arquitetura de solução poderá conter combinação diversa dos
+    Elementos da Arquitetura -- IBM constantes na tabela acima conforme
+    necessidade de cada caso de uso e caberá ao Arquiteto responsável
+    pelo projeto a sua combinação.</p>
+<h3 id="ia-on-premisses"><strong>IA On-Premisses</strong></h3>
+<p>Não há previsão de utilização de chatbot com IA Generativa
+        hospedadas nos Datacenters da CAIXA;</p>
+<h2 id="arquiteturas-correlatas">ARQUITETURAS CORRELATAS</h2>
+<p>Para sua implantação, devem ser observadas todas as arquiteturas de
+    referência em vigor, destacando as seguintes:</p>
+<ul>
+<li>
+<p><strong>Nuvem</strong>: conforme disponível em
+    <a href="http://arquiteturati.dep.caixa/latest/nuvem/infraestrutura_nuvem/">http://arquiteturati.dep.caixa/latest/nuvem/infraestrutura_nuvem/</a></p>
+</li>
+<li>
+<p><strong>Segurança:</strong> conforme disponível em
+    <a href="http://arquiteturati.caixa/arquitetura_referencia/23.10/seguranca/seguranca/">http://arquiteturati.dep.caixa/latest
+    /seguranca/seguranca/</a></p>
+</li>
+<li>
+<p><strong>Dados:</strong> conforme disponível em
+    <a href="http://arquiteturati.caixa/arquitetura_referencia/23.10/dados/introducao/">http://arquiteturati.dep.caixa/latest
+    0/dados/introducao/</a></p>
+</li>
+<li>
+<p><strong>Aplicação</strong>: conforme disponível em
+    <a href="http://arquiteturati.caixa/arquitetura_referencia/23.10/api/api/">http://arquiteturati.dep.caixa/latest
+    /api/api/</a></p>
+</li>
+</ul>
+<h2 id="observacoes">OBSERVAÇÕES</h2>
+<h3 id="legislacao"><strong>Legislação</strong></h3>
+<p>Até o presente momento não há legislação nacional específica
+        para o uso de inteligência artificial em vigor, diante deste
+        cenário devem ser observadas as normas CAIXA.</p>
+<h3 id="aspectos-gerais"><strong>Aspectos Gerais</strong></h3>
+<p>Demais ferramentas, componentes, elementos não constantes desta
+        arquitetura de referência estão vedados e em caso de necessidade
+        de utilização deverá ser submetida justificativa para análise e
+        autorização da área de arquitetura TI.</p>
+<p>As IA's generativas não devem ser confundidas com RPA's
+        (Automação Robótica de Processos). As IA's generativas não devem
+        ser utilizadas para gerar, sem a interferência humana ou de um
+        RPA, ações em aplicações terceiras;</p>
+<p>Antes da implementação de qualquer projeto ou solução que utilize chatbots com IA Generativa deve se avaliar previsão contratual de créditos ou equivalente, que permitam a utilização da solução em produção, sendo responsabilidade do gestor, o levantamento de volumetrias atuais e projetadas, bem como encaminhamento das seguintes informações acompanhadas do caso de negócio para o COE de Inteligência Artificial CXIAR@CAIXA.GOV.BR.</p>
+<ul>
+<li>
+<p>As volumetrias levantadas devem trazer obrigatoriamente, no
+            mínimo:</p>
+<ul>
+<li>
+<p>Quantidade de usuários finais, escalonada por períodos
+se for o caso;</p>
+</li>
+<li>
+<p>Quantidade de chamadas por usuário/por período;</p>
+</li>
+<li>
+<p>Extensão média e máxima dos prompts enviados;</p>
+</li>
+<li>
+<p>Extensão média e máxima dos prompts recebidos;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Para que um sistema que utilize chatbots com IA Generativa entre
+        em produção, deve ser feito pelo gestor do sistema, uma bateria
+        de testes que evidencie o percentual de acerto das respostas bem
+        como a qualidade das mesmas. O gestor do sistema deve prever
+        testes periódicos, com intervalo máximo semestral, para avaliar
+        o desempenho de sua aplicação e a realização contínua da
+        curadoria e melhoria das respostas fornecidas pela IA;</p>
+<p>Não deverão ser utilizados chatbots com IA's
+        embarcados/acoplados em sistemas CAIXA pois poderão impactar o
+        fluxo do processo de negócio, devido aos fatores que seguem:</p>
+<ul>
+<li>
+<p>Indisponibilidade da IA impactando o funcionamento do
+    sistema;</p>
+</li>
+<li>
+<p>Limitação na quantidade de chamadas/respostas por parte da
+    IA;</p>
+</li>
+<li>
+<p>Falibilidade de respostas de uma IA;</p>
+</li>
+<li>
+<p>Possibilidade de chamadas automáticas recursivas
+    descontroladas em backend à IA, visto que estas chamadas
+    resultam em custos à CAIXA;</p>
+</li>
+</ul>
+<p>Casos de exceção deverão ser tratados mediante solicitação
+            de Avaliação de Arquitetura de Solução TI.</p>
+<p>A utilização de inteligência artificial deve ser tratada em
+        todos os casos como acessória ao ser humano.</p>
+<p>Casos típicos de aplicação: sínteses de textos, geração
+        automática de textos, análise e interpretação de documentos
+        extensos e/ou numerosos, e pesquisas textuais;</p>
+<p>A utilização de chatbots com IA Generativa dentro de
+        arquiteturas de solução para atendimento <strong>direto</strong> ao público
+        <strong>externo</strong> <strong>é vedada</strong>, ou seja, casos em que o cliente da
+        CAIXA se relacione diretamente com IA Generativa fornecida pela
+        CAIXA, sem a interpretação, intermediação e/ou análise de
+        funcionário ou prestador a serviço da CAIXA;</p>
+<h3 id="curadoria">Curadoria</h3>
+<p>Entende-se por curadoria a análise das respostas e interações
+    emitidas pela IA, a fim de verificar e validar as respostas
+    emitidas;</p>
+<p>O resultado obtido pela Inteligência Artificial Generativa Textual
+    deverá ser validado constantemente, com realização de curadoria
+    adequada pelo responsável da informação;</p>
+<p>A curadoria serve para controlar e dar visibilidade ao desempenho da
+    IA, de forma a mostrar rapidamente como a IA se comporta;</p>
+<p>A curadoria pode ser:</p>
+<ul>
+<li>
+<p>Automática/automatizada;</p>
+</li>
+<li>
+<p>Por feedback do usuário final;</p>
+</li>
+<li>
+<p>Por feedback de um especialista;</p>
+</li>
+</ul>
+<p>As aplicações que utilizem IA devem apresentar curadoria periódica
+    das respostas;</p>
+<p>Definimos ser obrigatória a curadoria por feedback de um
+    especialista;</p>
+<p>O gestor da aplicação deve implementar processos formais de
+    curadoria;</p>
+<p>A curadoria pode ser implementada através de processos dentro da
+    aplicação, do ambiente e/ou workaround manuais, utilizando a análise
+    de logs, históricos e intervenções humanas nas bases de dados e/ou
+    outros métodos que se mostrem efetivos;</p>
+<p>É papel do gestor instituir uma periodicidade para a curadoria, associada aos testes tratados neste tópico.</p>
+<h3 id="historico">Histórico</h3>
+<p>As aplicações que utilizem chatbots com IA Generativa devem guardar
+    trilha de auditoria, sendo o período de guarda aderente às
+    necessidades normativas e legais de cada sistema;</p>
+<p>A trilha de auditoria guardada deve incluir os prompts enviados e
+    suas respostas, associados ao usuário e marca temporal, de forma que
+    possam ser associadas a todas estas informações;</p>
+<p>As soluções de chatbots com IA Generativa deverão prever, obter,
+    armazenar e arquivar a expressa declaração do usuário, no sentido de
+    se responsabilizar pelas tomadas de decisão indicadas/sugeridas pela
+    IA.</p>
+<h2 id="glossario">Glossário</h2>
+<p><strong>Ciência de dados [3]:</strong> A ciência de dados é o estudo dos dados para extrair insights significativos para os negócios. Ela é uma abordagem multidisciplinar que combina princípios e práticas das áreas de matemática, estatística, inteligência artificial e engenharia da computação para analisar grandes quantidades de dados. Essa análise ajuda os cientistas de dados a fazer e responder perguntas como o que aconteceu, por que aconteceu, o que acontecerá e o que pode ser feito com os resultados.</p>
+<p><strong>IA [1]:</strong> inteligência artificial pode ser definida como a aplicação de análises avançadas e técnicas baseadas em lógica, incluindo machine learning, para interpretar eventos, apoiar e automatizar decisões e realizar ações.</p>
+<p><strong>Aprendizado de Máquina (Machine Learning) [1]:</strong> uma disciplina puramente analítica, que aplica modelos matemáticos aos dados, para extrair conhecimento e encontrar padrões que os humanos provavelmente não notariam. Além disso, o ML recomenda ações, mas não direciona sistemas a tomarem medidas sem a intervenção humana. 
+Mais especificamente, o machine learning cria um algoritmo ou fórmula estatística, chamada de “modelo”, que converte uma série de pontos de dados em um único resultado. Algoritmos de ML “aprendem” por meio de “treinamento,” no qual eles identificam padrões e correlações em dados e os utilizam para fornecer novos insights e previsões, sem serem explicitamente programados para isso.</p>
+<p><strong>Aprendizado Profundo (Deep Learning) [1]:</strong> uma variante dos algoritmos de machine learning, usa várias camadas de algoritmos para solucionar problemas, extraindo conhecimento de dados brutos e transformando-os em todos os níveis.</p>
+<p><strong>IA Generativa [1]:</strong> A IA generativa (generative AI) aprende sobre artefatos a partir de dados e gera novos produtos inovadores, semelhantes ao original.</p>
+<p><strong>IA Generativa Textual:</strong> É o retorno fornecido por IA Generativa que ocorre somente no formato de texto.</p>
+<p><strong>Chat GPT [4]:</strong> ChatGPT é um modelo irmão do InstructGPT, que é treinado para seguir uma instrução em um prompt e fornecer uma resposta detalhada.</p>
+<p><strong>GPT [2]:</strong> Transformadores pré-treinados generativos, comumente conhecidos como GPT, são uma família de modelos de rede neural que usa a arquitetura de transformadores e são um avanço fundamental na inteligência artificial (IA) que impulsiona aplicações de IA generativa, como o ChatGPT. Os modelos GPT oferecem às aplicações a capacidade de criar texto e conteúdo semelhantes aos humanos (imagens, músicas e muito mais) e responder perguntas de forma conversacional. Organizações de todos os setores estão usando modelos GPT e IA generativa para bots de perguntas e respostas, resumo de texto, geração de conteúdo e pesquisa.</p>
+<h2 id="referencias">Referências</h2>
+<p>[1] “O que é inteligência artificial?”, Gartner, disponível em: https://www.gartner.com.br/pt-br/temas/inteligencia-artificial#:~:text=A%20IA%20generativa%20tem%20o,medicina%20ao%20desenvolvimento%20de%20produtos.</p>
+<p>[2] “O que é GPT?”, disponível em: https://aws.amazon.com/pt/what-is/gpt/</p>
+<p>[3] “O que é ciência de dados?”, disponível em: https://aws.amazon.com/pt/what-is/data-science/</p>
+<p>[4] “Introducing ChatGPT”, disponível em: https://openai.com/blog/chatgpt</p>
+<h2 id="historico-da-revisao">Histórico da revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25/03/2024</td>
+<td>1.0.0</td>
+<td>Criação do documento</td>
+<td>SUART12</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="index.html#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

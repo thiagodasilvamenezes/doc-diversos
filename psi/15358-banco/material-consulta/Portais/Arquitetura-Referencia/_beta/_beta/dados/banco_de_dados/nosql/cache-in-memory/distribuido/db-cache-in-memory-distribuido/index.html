@@ -1,0 +1,5377 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Distribuído - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cache-distribuido-simtx-pagamento-de-boleto" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="../../../../../../../latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../../../../.." title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../../../../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Distribuído
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../.." class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../api/api/" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../infraestrutura/ilha-de-digitalizacao/" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../nuvem/infraestrutura_nuvem/" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../seguranca/seguranca/" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../introducao/" class="md-tabs__link md-tabs__link--active">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../telecom/telecom/" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../frontend/plataforma-unificada/" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../departamental/departamental/" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../../observabilidade/" class="md-tabs__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../../../../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../.." class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../notas-versao/" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../api/api/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../api/swagger/" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../desenvolvimento-caixa/" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../dependencias/" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../logs/logs/" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../logs/consumo-logs/" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../integracoes/integracoes/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../integracoes/cicsws/" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../cleanArchitecture/design/" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../cleanArchitecture/desacoplamento/" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../cleanArchitecture/cleanArchitecture/" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../cleanArchitecture/domainDrivenDesign/" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../cleanArchitecture/repositorioProjetos/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../monolito/" class="md-nav__link">
+        Aplicações Monoliticas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/microsservicos/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/quarkus/" class="md-nav__link">
+        Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/spring/" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/jwt/" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/cofre-senhas-quarkus/" class="md-nav__link">
+        Secrets como Arquivos no Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../microsservicos/arquitetura/" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../mobilidade/mobilidade/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../mobilidade/archetype/" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../mobilidade/mobilidade-v2/" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../mobilidade/mobilidade_seguranca/" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_1" type="checkbox" id="__nav_2_11_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_1">
+          Sigle Page Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sigle Page Applications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          Sigle Page Applications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../frontend/spa/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../frontend/quickstarts/" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11_2" type="checkbox" id="__nav_2_11_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11_2">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../frontend/microfrontend/" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../frontend/guia-desenvolvimento-mf/" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          Processamento Batch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Processamento Batch" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Processamento Batch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../batch/batch/" class="md-nav__link">
+        Aplicações Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../batch/spring-batch/" class="md-nav__link">
+        Spring Batch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../rpa/rpa/" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../zOSconnect/" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15_1" type="checkbox" id="__nav_2_15_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_15_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../eventos/kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../eventos/kafka-quarkus/" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../eventos/kafka-spring/" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/ilha-de-digitalizacao/" class="md-nav__link">
+        Ilha de Digitalização
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/transmissao_arquivos/" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/transmissao_arquivos_nuvem/" class="md-nav__link">
+        Transmissão de Arquivos para Nuvem Pública
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/exadata/" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/sincronismo_tempo/" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/software/uso-jdk/" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/openblock/" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/san-ficon/as-is/" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_3" type="checkbox" id="__nav_3_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/backup-multiplataforma/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/backup-multiplataforma/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_4" type="checkbox" id="__nav_3_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/san-open/as-is/" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/hardware/san-open/to-be/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_8" type="checkbox" id="__nav_3_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_8">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_8">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/unisys/" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/sharepoint/" class="md-nav__link">
+        Sharepoint
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/intelvpro/" class="md-nav__link">
+        Intel V Pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../infraestrutura/software/autopilot/" class="md-nav__link">
+        Windows Autopilot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/infraestrutura_nuvem/" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/avd/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/orquestracao-container/" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/power/" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/key-vault/" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/esteirascicd/" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../nuvem/RedHat_Keycloak/" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/seguranca/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/criptografia/" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/identidade/" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/operacoes/" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/desenvolvimento/" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/dados_endpoints/" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/redes_comunicacao/" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/nuvem/" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/casos_de_uso/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/casos_uso/openbanking/" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/casos_uso/seguranca_api/" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/casos_uso/integracao_parceiros_openid/" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../seguranca/casos_uso/novo_atm/" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../introducao/" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../gateway/" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../oracle/oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nosql/" class="md-nav__link">
+        Quando usar NoSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2" type="checkbox" id="__nav_6_2_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../db-cache-in-memory/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../replicado/db-cache-in-memory-replicado/" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_2_3" type="checkbox" id="__nav_6_2_3_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_2_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Distribuído
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Distribuído
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analise-do-processo-de-pagamento-de-boleto" class="md-nav__link">
+    Análise do processo de Pagamento de Boleto
+  </a>
+  
+    <nav class="md-nav" aria-label="Análise do processo de Pagamento de Boleto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transacao-consultar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Consultar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transacao-validar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Validar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transacao-pagar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Pagar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-do-cache" class="md-nav__link">
+    Características do cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimativa-de-sizing-do-cache" class="md-nav__link">
+    Estimativa de sizing do cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-das-revisoes" class="md-nav__link">
+    Histórico das Revisões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_3" type="checkbox" id="__nav_6_2_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_3">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cosmosdb/" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../governanca_de_dados/categorizacao_de_dados/categorizacao-dados-bronze-prata-ouro/" class="md-nav__link">
+        Categorização de Dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../governanca_de_dados/categorizacao_de_dados/anexo_I-especificacao_do_arquivo_do_processo_de_carga_do_data_lake/" class="md-nav__link">
+        Categorização de Dados - Anexo I - Especificação do arquivo do processo de carga do data lake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../governanca_de_dados/metadados/" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../governanca_de_dados/powerdesign/" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../etl_oracle_data_pump/" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../big_data/big_data_e_analytics-visao_arquitetura/" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/telecom/" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/switching_datacenter/" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/azure/" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede1/" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede2/" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede3/" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede4/" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede5/" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede6/" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede7/" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/rede-local/" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/financeira/" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/webproxy/" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/call_center_nuvem/" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/wifi/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/Balanceamento/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/interconexoes_multicloud/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/sdwan/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/contact/" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/micro/" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../telecom/mesa-operacoes/" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../frontend/plataforma-unificada/" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../linhas_negocio/canais_fisicos/dossie_digital/" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../departamental/departamental/" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../departamental/solucoes_existentes/" class="md-nav__link">
+        Soluções Existentes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Observabilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Observabilidade" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Observabilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../observabilidade/" class="md-nav__link">
+        Observabilidade
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analise-do-processo-de-pagamento-de-boleto" class="md-nav__link">
+    Análise do processo de Pagamento de Boleto
+  </a>
+  
+    <nav class="md-nav" aria-label="Análise do processo de Pagamento de Boleto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transacao-consultar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Consultar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transacao-validar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Validar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transacao-pagar-boleto-fragmento-incluindo-somente-essa-transacao" class="md-nav__link">
+    Transação Pagar Boleto (fragmento incluindo somente essa transação)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-do-cache" class="md-nav__link">
+    Características do cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimativa-de-sizing-do-cache" class="md-nav__link">
+    Estimativa de sizing do cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-das-revisoes" class="md-nav__link">
+    Histórico das Revisões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="cache-distribuido-simtx-pagamento-de-boleto">Cache distribuído - SIMTX (Pagamento de Boleto)</h1>
+<div class="admonition warning">
+<p class="admonition-title">Arquitetura de referência de uso restrito</p>
+<p><strong>Importante:</strong> Essa arquitetura de referência se encontra em fase de validação e não possui nenhum indicativo de uso geral pelas equipes. Havendo entendimento que ela se encaixa nas necessidades de seu sistema, a SUART deve ser acionada.</p>
+</div>
+<p>A arquitetura de <em>cache</em> do SIMTX é <em>Distributed Cache</em>:</p>
+<ul>
+<li>
+<p>Os nós não serão réplicas idênticas.</p>
+</li>
+<li>
+<p>Os dados estarão disponíveis somente em uma parcela das instâncias.</p>
+<ul>
+<li>Visto que há necessidade de <em>cache</em> com volume de dados superior a quantidade possível para um único nó de processamento (os objetos precisam ser "espalhados" pelo <em>cluster</em>).</li>
+</ul>
+</li>
+<li>
+<p>Além disso, característica da arquitetura do SIMTX indica necessidade de construção de estrutura de cache horizontal maior (várias outros processos SIMTX) que não é possível com arquitetura <em>Replicated Cache</em>.</p>
+</li>
+<li>
+<p>Deve-se atentar que os dados estarão disponíveis somente em uma parcela dos servidores. Essa parcela representa o grau de durabilidade da informação.</p>
+<ul>
+<li>
+<p>Quantidade mínima de 3 instâncias para garantir durabilidade.</p>
+</li>
+<li>
+<p>Com quantidade mínima de 2 cópias de dados devido a possibilidade de <em>fallback</em>.</p>
+</li>
+<li>
+<p>Todas essas quantidades podem e devem ser maiores caso o <em>cache</em> seja a única fonte de dados.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>No SIMTX, o case analisado e implantado foi arquitetura de <em>cache</em> para processamento de Pagamento de Boleto.</p>
+<p>No contexto do SIMTX, todos os processos são organizados em transações. Cada transação atua em protocolo <em>stateless</em> [1], sem armazenar informações de quaisquer outras operações, contendo somente chaves para acesso das informações necessárias as transações no SIMTX.</p>
+<p>Num exemplo resumido com <strong>Caixa TEM</strong>:</p>
+<ol>
+<li>
+<p><strong>Transação Consultar Boleto</strong></p>
+<ol>
+<li>
+<p><strong>Caixa TEM</strong> solicita ao SIMTX a transação Consultar Boleto;</p>
+</li>
+<li>
+<p>SIMTX realiza ação Consultar do Boleto na Câmara Interbancária de Pagamentos (CIP) [2];</p>
+</li>
+<li>
+<p>SIMTX armazena, na camada de persistência, as informações do boleto;</p>
+</li>
+<li>
+<p>SIMTX retorna a informação do Boleto e identificador CHAVE_NSU_CONSULTA_BOLETO para o <strong>CAIXA TEM</strong>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Transação Validar Boleto</strong> (<strong>Caixa TEM</strong> não tem as informações consultadas anteriormente, somente CHAVE_NSU_CONSULTA_BOLETO para consulta das informações do boleto armazenadas na <strong>Transação Consultar Boleto</strong>)</p>
+<ol>
+<li>
+<p><strong>Caixa TEM</strong> solicita ao SIMTX a transação Validar Boleto informando a CHAVE_NSU_CONSULTA_BOLETO para consulta das informações do boleto;</p>
+</li>
+<li>
+<p>SIMTX consulta, na camada de persistência, os dados do boleto anteriormente obtidos na <strong>Transação Consulta Boleto</strong>.</p>
+</li>
+<li>
+<p>SIMTX realiza ação Validar Boleto;</p>
+</li>
+<li>
+<p>SIMTX armazena, na camada de persistência, as informações de resultado da ação Validar Boleto;</p>
+</li>
+<li>
+<p>SIMTX retorna as informações resultantes apropriadas e identificador CHAVE_NSU_VALIDA_BOLETO para <strong>Caixa TEM</strong>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Transação Pagar Boleto</strong> (<strong>Caixa TEM</strong> não tem as informações de resultado da ação Validar Boleto anterior, somente CHAVE_NSU_VALIDA_BOLETO para consulta das informações do boleto armazenadas na <strong>Transação Consultar Boleto</strong>)</p>
+<ol>
+<li>
+<p><strong>Caixa TEM</strong> solicita ao SIMTX a transação Pagar Boleto informando a CHAVE_NSU_VALIDA_BOLETO para consulta das informações de validação do boleto;</p>
+</li>
+<li>
+<p>SIMTX consulta, na camada de persistência, os dados de validação do boleto anteriormente obtidos na <strong>Transação Valida Boleto</strong>.</p>
+</li>
+<li>
+<p>SIMTX realiza ação Pagar Boleto;</p>
+</li>
+<li>
+<p>SIMTX armazena, na camada de persistência, o identificador do código de barras do boleto pago;</p>
+</li>
+<li>
+<p>SIMTX retorna as informações resultantes apropriadas para <strong>Caixa TEM</strong>.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image2.png"
+style="width:5.7637795275590555in;height:7.594488188976378in" /></p>
+<!-- -->
+
+<ol>
+<li>
+<p>Os dados armazenados em <em>cache</em> ao final da <strong>Transação Consultar Boleto</strong> serão lidos no início da <strong>Transação Validar Boleto</strong> utilizando como chave NSU<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> da <strong>Transação Consultar Boleto</strong>;</p>
+</li>
+<li>
+<p>Os dados armazenados em <em>cache</em> ao final da <strong>Transação Validar Boleto</strong> serão lidos no início da <strong>Transação Pagar (ou, Agendar) Boleto</strong> utilizando como chave NSU da <strong>Transação Validar Boleto</strong>;</p>
+</li>
+<li>
+<p>Na <strong>Transação Pagar Boleto</strong> serão gravadas no banco de dados todas as informações de boleto necessárias para processamentos posteriores, como por exemplo, para emissão de comprovantes. Entretanto, no <em>cache</em> será gravado apenas a chave de consulta, que é o código de barras dos boletos efetivamente pagos. Essa lista de códigos de barras em <em>cache</em> será consultada no início da <strong>Transação Consultar Boleto</strong> e <strong>Transação Validar Boleto</strong>.</p>
+</li>
+</ol>
+<p>Todas as informações armazenadas são consecutivamente e estaticamente (sem alterações) consultadas. Para continuidade das transações seguintes, que também armazenam seus resultados. De forma recorrente.</p>
+<p>Percebe-se um sequenciamento de operações em um processo de <em>workflow</em> [3]. Em que a aplicação realiza escrita de informação com sequencial leitura dessa mesma sem qualquer alteração.</p>
+<p>Que podem apresentar uso significativo da camada de persistência de banco de dados transacional do SIMTX.</p>
+<p>O cenário atende aos critérios identificados para uso de <em>cache</em>:</p>
+<ul>
+<li><strong>Existe informação que pode ser reaproveitada</strong>: informações "trafegadas" entre Consultar Boleto, Validar Boleto e Pagar Boleto. Entretanto, as informações armazenadas de modo geral serão recuperadas somente uma vez. Não obstante, todos os processos do SIMTX apresentam esse comportamento de informações anteriores necessários para as próximas transações desse processo;</li>
+</ul>
+<!-- -->
+
+<ul>
+<li><strong>Existe potencial custo elevado</strong>: acesso constante à camada de persistência com escrita e leituras sequenciais a cada etapa do processo de Pagamento de Boleto devido ao protocolo <em>stateless</em> adotado. O custo deve ser analisado visto que todos os processos do SIMTX apresentam esse comportamento;</li>
+</ul>
+<!-- -->
+
+<ul>
+<li>
+<p><strong>O resultado não se altera para operações subsequentes</strong>: informações armazenas para Consultar Boleto, Validar Boleto e Pagar Boleto armazenadas podem ser reaproveitadas por até <strong>N</strong> segundos/minutos/horas/etc;</p>
+</li>
+<li>
+<p><strong>Em situações em que o custo da operação f(x) justifique a estrutura e em que a redução do custo apresenta resultado significativo</strong>: área responsável por infraestrutura de banco de dados identificou alto consumo de recursos de banco de dados da aplicação com operações que não requerem processamento transacional posterior (após INSERT, não sofrem DELETE ou UPDATE) [4] em um processo de "escreve para logo ler novamente".</p>
+<ul>
+<li>
+<p>A utilização de <em>cache</em> vem atender ao crescimento de volumetria de operações no SIMTX com a expansão do portfólio dos serviços prestados por esse; além da migração projetada de operações de outros sistema para o SIMTX. Além disso, a arquitetura de <em>cache</em> para o processo de boleto do SIMTX pode se expandir para os demais processos que apresentam o mesmo cenário.</p>
+<ul>
+<li>
+<p>Há volume diário de 700 mil transações diárias para processamento de Pagamento de Boletos apenas para contas NSGD: sociais, poupança e conta salário.</p>
+<ul>
+<li>Há previsão de migração de 4 milhões de contas SIDEC para NSGD com impacto direto no volume de Pagamento de Boletos.</li>
+</ul>
+</li>
+<li>
+<p>Além disso, SIMTX processa transações relacionadas ao PIX que apresentou crescimento de 2 milhões de transações no período de 1 ano.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Desta forma, as informações necessárias para execução de transações subsequentes no processo de Pagamento de Boleto serão armazenadas em <em>cache</em> pelo período de tempo <strong>N</strong> (segundos/minutos/horas/etc).</p>
+<ul>
+<li>
+<p>Haverá redução nos acessos de leitura ao banco de dados.</p>
+<ul>
+<li>
+<p>Reduzindo o impacto do protocolo <em>stateless</em> na infraestrutura.</p>
+<ul>
+<li>Reduzindo a carga concorrente das escritas de informações transacionais com as leituras de dados inalterados.</li>
+</ul>
+</li>
+<li>
+<p>Especialmente considerando-se a expectativa de expansão e crescimento do SIMTX.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>O tempo de vida <strong>N</strong> da informação no <em>cache</em> deve ser definido negocialmente.</p>
+<ul>
+<li>
+<p>Por exemplo, pode ser definido tempo <strong>N</strong> padrão por tipo de informação armazenada no <em>cache</em>.</p>
+<ul>
+<li>Ou, um tempo <strong>N</strong> diferente para cada informação recuperada independentemente do tipo.</li>
+</ul>
+</li>
+<li>
+<p>O tempo <strong>N</strong> deve ser o maior possível negocialmente de modo a maximizar o comportamento desejado do <em>cache</em>.</p>
+</li>
+<li>
+<p>Segundo definição da equipe da comunidade do SIMTX, os tempos de vida N definidos são:</p>
+<ul>
+<li>
+<p>2 minutos para <strong>Transação Consultar Boleto</strong> e <strong>Transação Validar Boleto</strong>;</p>
+</li>
+<li>
+<p>15 minutos para <strong>Transação Pagar Boleto</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Um <em>cache</em> compartilhado de dados reduziria tanto o volume quanto a frequência de acesso por essas informações repetidas.</p>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image3.png"
+style="width:6.34251968503937in;height:4.574803149606299in" /></p>
+<h2 id="analise-do-processo-de-pagamento-de-boleto">Análise do processo de Pagamento de Boleto</h2>
+<p>No SIMTX, identificamos os seguintes 3 cenários para utilização de estrutura de <em>cache</em> para troca de informações entre as transações do processo de pagamento de boleto:</p>
+<ol>
+<li>
+<p>Consultar Boleto</p>
+</li>
+<li>
+<p>Validar Boleto</p>
+</li>
+<li>
+<p>Pagar Boleto</p>
+</li>
+</ol>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image4.png"
+style="width:5.173228346456693in;height:7.4015748031496065in" /></p>
+<h3 id="transacao-consultar-boleto-fragmento-incluindo-somente-essa-transacao">Transação Consultar Boleto (fragmento incluindo somente essa transação)</h3>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image5.png"
+style="width:7.086614173228346in;height:6.744094488188976in" /></p>
+<p>Características de <strong>Transação Consultar Boleto</strong>:</p>
+<p>Tabela - Características da Transação Consultar Boleto</p>
+<table>
+<thead>
+<tr>
+<th><strong>Características</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Payload</em> (bytes)</td>
+<td>2.112</td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Tolerância a <em>cache</em> MISS</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td><em>Fallback</em> em <em>cache</em> MISS</td>
+<td>Banco de dados</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em></td>
+<td>500.000</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em> em período de pico</td>
+<td>970.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>14.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para escrita ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>7.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para leitura ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>7.000</td>
+</tr>
+<tr>
+<td>Objetos simultâneos em <em>cache</em></td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Tempo de resposta (entre escrita e disponibilidade para leitura) (segundos)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><em>Payload</em>: 3 kibibytes em formato texto JSON.</p>
+<ul>
+<li>
+<p><em>Key</em>: Chave será o NSU criado no processo de consulta (diferente do NSU do processo de validação): formato numérico com comprimento de 15 caracteres (bytes).</p>
+</li>
+<li>
+<p><em>Value</em>: Tamanho máximo de 2.097 caracteres (bytes) incluindo todos os caracteres separadores JSON.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><em>Time to Live</em>: objetos podem ser removidos após 120 segundos.</p>
+</li>
+<li>
+<p>Existe tolerância de <em>cache</em> MISS, mesmo que indesejável.</p>
+<ul>
+<li>
+<p><em>Cache</em> MISS com <em>fallback</em> para consulta ao banco de dados.</p>
+</li>
+<li>
+<p><em>Cache</em> não precisa ser persistente (as informações não precisam ser armazenadas em banco de dados).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Volume diário de 500 mil objetos gravados no <em>cache</em>.</p>
+<ul>
+<li>Com pico de 970 mil objetos ao longo do mês (Volume observado em 09/01/2023).</li>
+</ul>
+</li>
+<li>
+<p>Volume de acessos simultâneos.</p>
+<ul>
+<li>
+<p>Volume aproximado de 14.000 acessos a cada 5 minutos no horário de maior movimento.</p>
+</li>
+<li>
+<p>7000 acessos para leitura e 7.000 acessos para escrita.</p>
+</li>
+<li>
+<p>Pico de aproximadamente 1.000 objetos simultâneos no <em>cache</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Tempo de resposta</p>
+<ul>
+<li>
+<p>Objetos devem estar disponível ("prontos") para leitura em tempo inferior a 4 segundos após gravação no <em>cache</em>.</p>
+<ul>
+<li>Desejável em tempo inferior a 2 segundos.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="transacao-validar-boleto-fragmento-incluindo-somente-essa-transacao">Transação Validar Boleto (fragmento incluindo somente essa transação)</h3>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image6.png"
+style="width:7.086614173228346in;height:8.015748031496063in" /></p>
+<p>Características de <strong>Transação Validar Boleto</strong>:</p>
+<p>Tabela - Características da Transação Validar Boleto</p>
+<table>
+<thead>
+<tr>
+<th><strong>Características</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Payload</em> (bytes)</td>
+<td>2.228</td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Tolerância a <em>cache</em> MISS</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td><em>Fallback</em> em <em>cache</em> MISS</td>
+<td>Banco de dados</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em></td>
+<td>500.000</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em> em período de pico</td>
+<td>970.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>14.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para escrita ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>7.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para leitura ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>7.000</td>
+</tr>
+<tr>
+<td>Objetos simultâneos em <em>cache</em></td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Tempo de resposta (entre escrita e disponibilidade para leitura) (segundos)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><em>Payload</em>: 3 kibibytes em formato texto JSON.</p>
+<ul>
+<li>
+<p><em>Key</em>: Chave será o NSU criado no processo de validação (diferente do NSU do processo de consulta): formato numérico com comprimento de 15 caracteres (bytes).</p>
+</li>
+<li>
+<p><em>Value</em>: Tamanho máximo de 2.213 caracteres (bytes) incluindo todos os caracteres separadores JSON.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><em>Time to Live</em>: objetos podem ser removidos após 120 segundos.</p>
+</li>
+<li>
+<p>Existe tolerância de <em>cache</em> MISS, mesmo que indesejável.</p>
+<ul>
+<li>
+<p><em>Cache</em> MISS com <em>fallback</em> para consulta ao banco de dados.</p>
+</li>
+<li>
+<p><em>Cache</em> não precisa ser persistente (as informações não precisam ser armazenadas em banco de dados).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Volume diário de 500 mil objetos gravados no <em>cache.</em></p>
+<ul>
+<li>Com pico de 970 mil objetos ao longo do mês (Volume observado em 09/01/2023).</li>
+</ul>
+</li>
+<li>
+<p>Volume de acessos simultâneos.</p>
+<ul>
+<li>
+<p>Volume aproximado de 14.000 acessos a cada 5 minutos no horário de maior movimento.</p>
+</li>
+<li>
+<p>7000 acessos para leitura e 7.000 acessos para escrita.</p>
+</li>
+<li>
+<p>Pico de aproximadamente 1.000 de objetos simultâneos no <em>cache</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Tempo de resposta</p>
+<ul>
+<li>
+<p>Objetos devem estar disponível ("prontos") para leitura em tempo inferior a 4 segundos após gravação no <em>cache</em>.</p>
+<ul>
+<li>Desejável em tempo inferior a 2 segundos.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="transacao-pagar-boleto-fragmento-incluindo-somente-essa-transacao">Transação Pagar Boleto (fragmento incluindo somente essa transação)</h3>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image7.png"
+style="width:7.086614173228346in;height:6.692913385826771in" /></p>
+<p>Características de <strong>Transação Pagar Boleto</strong>:</p>
+<p>Tabela - Características da Transação Pagar Boleto</p>
+<table>
+<thead>
+<tr>
+<th><strong>Características</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Payload</em> (bytes)</td>
+<td>44</td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td>900</td>
+</tr>
+<tr>
+<td>Tolerância a <em>cache</em> MISS</td>
+<td>Não</td>
+</tr>
+<tr>
+<td><em>Fallback</em> em <em>cache</em> MISS</td>
+<td>Não há. Aplicação prosseguirá sem a informação</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em></td>
+<td>500.000</td>
+</tr>
+<tr>
+<td>Volume diário de objetos escritos em <em>cache</em> em período de pico</td>
+<td>970.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>21.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para escrita ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>14.000</td>
+</tr>
+<tr>
+<td>Volume de acessos simultâneos para leitura ao <em>cache</em> em um intervalo de 5 minutos em período de pico</td>
+<td>7.000</td>
+</tr>
+<tr>
+<td>Objetos simultâneos em <em>cache</em></td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Tempo de resposta (entre escrita e disponibilidade para leitura) (segundos)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><em>Payload</em>:</p>
+<ul>
+<li>
+<p><em>Key</em>: Chave será o identificador do código de barras do boleto (diferente do NSU do processo de consulta/validação): formato alfanumérico com comprimento de 44 caracteres (bytes).</p>
+</li>
+<li>
+<p><em>Value</em>: não serão armazenados objetos no <em>cache</em>.</p>
+</li>
+<li>
+<p>O <em>cache</em> será utilizado como uma <em>skip list</em> (teste de existência no <em>cache</em>) <em>flat</em> simplificada.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><em>Time to Live</em>: objetos podem ser removidos após 15 minutos</p>
+</li>
+<li>
+<p>Não existe tolerância de <em>cache</em> MISS.</p>
+<ul>
+<li>
+<p><em>Cache</em> MISS com <em>fallback</em> para consulta ao banco de dados.</p>
+</li>
+<li>
+<p><em>Cache</em> não precisa ser persistente (as informações não precisam ser armazenadas em banco de dados).</p>
+</li>
+<li>
+<p>Entretanto, <em>cache</em> para <strong>Transação Pagar Boleto</strong> não admite <em>cache</em> MISS para objetos que não teriam ultrapassado o TTL de 15 minutos.</p>
+<ul>
+<li>Não há risco de perda, pois as informações da Transação Pagar Boleto são sempre armazenadas no banco de dados exatamente como as demais transações.</li>
+</ul>
+</li>
+<li>
+<p>Entretanto, dentro dos 15 minutos em que o pagamento boleto pode não ter sido ainda enviado para a CIP, o SIMTX poderá realizar pagamento de boleto em duplicidade se não encontrá-lo no <em>cache</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Volume diário de 500 mil objetos gravados no <em>cache</em>.</p>
+<ul>
+<li>Com pico de 970 mil objetos ao longo do mês (Volume observado em 09/01/2023).</li>
+</ul>
+</li>
+<li>
+<p>Volume de acessos simultâneos</p>
+<ul>
+<li>
+<p>Volume aproximado de 21.000 acessos a cada 5 minutos no horário de maior movimento.</p>
+</li>
+<li>
+<p>7000 acessos para leitura e 14.000 acessos para escrita.</p>
+</li>
+<li>
+<p>Pico de aproximadamente 1.000 de objetos simultâneos no <em>cache</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Tempo de resposta</p>
+<ul>
+<li>
+<p>Objetos devem estar disponível ("prontos") para leitura em tempo inferior a 2 segundos após gravação no <em>cache</em>.</p>
+<ul>
+<li>Desejável em tempo inferior a 1 segundo.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="caracteristicas-do-cache">Características do <em>cache</em></h2>
+<p>Recomendamos construção de ambiente com OKD 3.11 e Red Hat Data Grid 8.1.</p>
+<ul>
+<li>
+<p>Em vista da criticidade: necessidade de implantação imediata da solução em produção;</p>
+<ul>
+<li>
+<p>Apesar da recomendação do fornecedor, o OKD 4 ainda se encontra em fase de implantação.</p>
+</li>
+<li>
+<p>Há ampla disponibilidade de OKD 3.11 no ambiente CAIXA.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Não obstante, deve-se explorar utilização futura de OKD 4 considerando as vantagens identificadas pelo fornecedor.</p>
+<p>O cenário de cache do SIMTX se apresenta diferente ao do SISPI:</p>
+<ul>
+<li>
+<p>Há necessidade de 3 <em>caches</em> diferentes para atender seu fluxo de transações devido as diferenças de comportamento (<em>workloads</em>) entre as transações,</p>
+<ul>
+<li>Em contraste ao cache único do SISPI para o processo DICT BACEN.</li>
+</ul>
+</li>
+<li>
+<p>A arquitetura de <em>cache</em> do SIMTX é <em>Distributed Cache</em> , pois há necessidade de <em>cache</em> com volume de dados superior a quantidade possível para um único nó de processamento (os objetos precisam ser "espalhados" pelo <em>cluster</em>).</p>
+<ul>
+<li>Arquitetura em <em>cluster</em> aumenta a disponibilidade e capacidade de processamento/armazenamento.</li>
+</ul>
+</li>
+</ul>
+<p>3 <em>caches,</em> um por tipo de Transação (Consultar/Validar/Pagar Boleto) com as seguintes características comuns de configuração da ferramenta:</p>
+<p>Tabela - Características comuns dos caches para o processo Pagamento de Boleto.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Cache</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ferramenta</td>
+<td>Red Hat Data Grid</td>
+</tr>
+<tr>
+<td>Clustered Mode</td>
+<td><em>Distributed cache</em></td>
+</tr>
+<tr>
+<td>Nodes</td>
+<td>Quantidade dependente dos critérios de replicação e quantidade de objetos</td>
+</tr>
+<tr>
+<td>Owners</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Replication</td>
+<td>Síncrona (blocante) para escrita inicial e assíncrona nas réplicas</td>
+</tr>
+<tr>
+<td>Transaction</td>
+<td><em>Write lock</em></td>
+</tr>
+<tr>
+<td>Política de exclusão automática</td>
+<td><em>Time aware least recently used</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Ferramenta</strong>: Red Hat Data Grid</p>
+</li>
+<li>
+<p><strong>Cliente Data Grid</strong>: somente pode ser desenvolvido em Java <em>framework</em> Quarkus com protocolo Hot Rod.</p>
+<ul>
+<li>Configurações alternativas apresentaram desempenhos 10 vezes a 100 vezes inferiores em testes de stress.</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Clustered Mode</em></strong>: Distributed Cache</p>
+<ul>
+<li>
+<p>Os objetos não estão replicados em todos os nós do <em>cluster</em>.</p>
+</li>
+<li>
+<p>Arquitetura em <em>cluster</em> aumenta a disponibilidade e capacidade de processamento/armazenamento.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../../../../img/dados/cache-in-memory/distribuido/image8.png"
+style="width:6.767716535433071in;height:3.0039370078740157in" /></p>
+<ul>
+<li>
+<p><strong><em>Nodes</em></strong>: quantidade será definida pela memória requerida para o cluster.</p>
+<ul>
+<li>Quantidade de servidores no <em>cache</em> distribuído.</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Owners</em></strong>: 2</p>
+<ul>
+<li>
+<p>Quantidade de cópias/réplicas de um objeto no <em>cache</em> distribuído.</p>
+</li>
+<li>
+<p>Representa o grau de tolerância a falhas.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Replication</strong>: síncrona com replicação assíncrona</p>
+<ul>
+<li>
+<p>Serviço do <em>cache</em> somente informa sucesso na escrita de objetos quando ocorrer a escrita síncrona no nó do cache que foi acessado.</p>
+</li>
+<li>
+<p>Entretanto, serão criadas no mínimo NUMERO_OWNERS réplicas de forma assíncrona. Ou seja, no mínimo 2 réplicas.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Transaction</strong>: <em>Write lock</em></p>
+<ul>
+<li>Serviço do <em>cache</em> garante que somente uma operação de escrita ocorre por vez para uma <em>key</em> (chave), ou seja, <em>lock</em> de escrita.</li>
+</ul>
+</li>
+<li>
+<p><strong>Política de exclusão automática</strong>: <em>time aware least recently used</em> (TLRU) [5]</p>
+<ul>
+<li>
+<p>Exclusão automática de mensagens que ultrapassarem TTL de N minutos.</p>
+<ul>
+<li>
+<p>No qual N é no mínimo:</p>
+<ul>
+<li>
+<p>2 minutos para <strong>Transação Consultar Boleto</strong> e <strong>Transação Validar Boleto</strong>;</p>
+</li>
+<li>
+<p>15 minutos para <strong>Transação Pagar Boleto</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Recomendado TLRU ou similar para tratamento de evento de <em>cache</em> "cheio".</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="estimativa-de-sizing-do-cache">Estimativa de <em>sizing</em> do <em>cache</em></h2>
+<p>Estimaremos <em>sizing</em> de cada um dos 3 caches com as informações compiladas. Tratam-se de estimativas de configurações iniciais para construção das estruturas de <em>cache</em> conforme documentação "Red Hat Data Grid 8.4 - Data Grid Performance and Sizing Guide, 2023" [6].</p>
+<p>Para definição definitiva das configurações, também devem-se considerar requisitos de desempenho. Bem como evoluções de uso com crescimento no volume de dados e crescimento no volume de acessos.</p>
+<p>Deve-se considerar configuração de <em>automatic scaling</em> para atendimento dinâmico a necessidades do ambiente.</p>
+<p>Estimativas iniciais de <em>sizing</em> de cada um dos 3 <em>caches</em> com as informações compiladas a seguir por tipo de <em>cache</em>:</p>
+<p>Tabela - Sizing para Red Hat Data Grid caches para o SIMTX</p>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Transação</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Consultar</strong></td>
+<td><strong>Validar</strong></td>
+<td><strong>Pagar</strong></td>
+</tr>
+<tr>
+<td>Memória disponível por nó como definimos (mebibytes)</td>
+<td>1.250</td>
+<td>1.250</td>
+<td>1.250</td>
+</tr>
+<tr>
+<td>Payload (bytes)</td>
+<td>2.312</td>
+<td>2.428</td>
+<td>244</td>
+</tr>
+<tr>
+<td>Objetos simultâneos</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td>120</td>
+<td>120</td>
+<td>900</td>
+</tr>
+<tr>
+<td>Memória necessária para uma cópia completa do <em>cache</em> (mebibytes) (Data set size)</td>
+<td>265</td>
+<td>278</td>
+<td>209</td>
+</tr>
+<tr>
+<td>Quantidade mínima de réplicas por objeto como definimos (<em>owners</em>)</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Memória necessária para o <em>cache</em> ajustada para quantidade de réplicas (mebibytes) (Distributed data set size)</td>
+<td>795</td>
+<td>834</td>
+<td>627</td>
+</tr>
+<tr>
+<td>Número mínimo de nós</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Segue tabela com as fórmulas para estimativa de <em>sizing</em> conforme documentação:</p>
+<p>Tabela - Sizing, fórmulas para cálculo para Red Hat Data Grid caches</p>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memória disponível para armazenamento por nó como definimos (mebibytes) (<strong>memória disponível</strong>)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image9.png" style="width:1.468503937007874in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Payload (bytes)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image10.png" style="width:1.374015748031496in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Objetos simultâneos</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image11.png" style="width:1.468503937007874in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image12.png" style="width:1.0551181102362204in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Memória necessária para uma cópia completa do <em>cache</em> (mebibytes) (<strong>Data set size</strong>)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image13.png" style="width:3.421259842519685in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Quantidade mínima de réplicas por objeto como definimos (<em>owners</em>)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image14.png" style="width:0.5669291338582677in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Memória necessária para o <em>cache</em> ajustada para quantidade de réplicas (<strong>Distributed data set size</strong>)</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image15.png" style="width:2.0393700787401574in;height:0.16141732283464566" /></td>
+</tr>
+<tr>
+<td>Número mínimo de nós</td>
+<td><img src="../../../../../../img/dados/cache-in-memory/distribuido/image16.png" style="width:3.161417322834646in;height:0.3858267716535433" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>CPU</strong></p>
+<ul>
+<li>Recomendação do fabricante Red Hat de 4 CPUs por nó.</li>
+</ul>
+</li>
+<li>
+<p><strong>Memória disponível por nó</strong></p>
+<ul>
+<li>
+<p>3 gibibytes na mesma configuração do SISPI.</p>
+</li>
+<li>
+<p>De acordo com documentação do Red Hat Data Grid 8.4, JVM Heap deve ser configurado para ao menos o dobro do espaço requerido para os objetos do <em>cache</em>.</p>
+<ul>
+<li>
+<p>Logo, 1.500 mebibytes seria o tamanho máximo para armazenamento de objetos no <em>cache</em> por nó.</p>
+</li>
+<li>
+<p>Entretanto, será ajustado para 1.250 mebibytes de tamanho máximo de armazenamento de objetos.</p>
+<ul>
+<li>
+<p>Desse modo, cada nó apresentará 512 mebibytes para uso interno do nó: <em>overhead</em> de JVM, memória alocada para <em>shell script</em>, etc.</p>
+</li>
+<li>
+<p>O JVM Heap deverá ser configurado para ao menos 2.500 mebibytes.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Transação</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Consultar</strong></td>
+<td><strong>Validar</strong></td>
+<td><strong>Pagar</strong></td>
+</tr>
+<tr>
+<td>Memória disponível para armazenamento por nó como definimos (mebibytes) (<strong>memória disponível</strong>)</td>
+<td>1.250</td>
+<td>1.250</td>
+<td>1.250</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong><em>Payload</em></strong> (objeto para <em>cache</em>)</p>
+<ul>
+<li>
+<p>É calculado com composição (soma) do tamanho da chave (<em>key</em>) e do valor (<em>value</em>).</p>
+<ul>
+<li>
+<p>Deve ser calculado <em>payload</em> médio detectado no ambiente real proposto.</p>
+<ul>
+<li>Caso contrário, o tamanho máximo possível.</li>
+</ul>
+</li>
+<li>
+<p>Além da adição de <em>overhead</em> de 200 bytes por objeto (métrica do Red Hat Data Grid) em JVM Heap ou overhead de 60 bytes por objeto em memória "<em>off-heap</em>". Esses são valores aproximados de <em>overhead</em>. Valores precisos exigem análise de <em>heap dumps</em> em cada projeto específico.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Tamanho da chave em bytes MAIS tamanho do valor em bytes MAIS 200 bytes.</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Quantidade</strong></td>
+</tr>
+<tr>
+<td>Payload (bytes)</td>
+<td>KEY + VALUE + 200</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Por exemplo, para <strong>Transação Consultar Boleto</strong>: <em>Key</em> + <em>Value</em> = 15 + 2097 + 200 = 2.312 bytes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Transação</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Consultar</strong></td>
+<td><strong>Validar</strong></td>
+<td><strong>Pagar</strong></td>
+</tr>
+<tr>
+<td>Payload (bytes)</td>
+<td>2.312</td>
+<td>2.428</td>
+<td>244</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Memória necessária para uma cópia completa do <em>cache</em> (data set size)</strong></p>
+<ul>
+<li>
+<p>Para estimativa da memória necessária e consequentemente da quantidade de nós necessários para o cluster, primeiro identificaremos quantos objetos simultâneos deverão estar disponíveis na memória.</p>
+</li>
+<li>
+<p>Na ausência de quantidade negocial específica, utilizaremos a quantidade de objetos no pico de processamento.</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Transação</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Consultar</strong></td>
+<td><strong>Validar</strong></td>
+<td><strong>Pagar</strong></td>
+</tr>
+<tr>
+<td>Objetos simultâneos</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Depois, analisaremos o tempo de vida dos objetos. Quanto objetos simultâneos deverão estar armazenados no <em>cache</em>, e por quanto tempo, para identificarmos a capacidade (profundidade).</p>
+<ul>
+<li>Por exemplo, para <strong>Transação Consultar Boleto:</strong> TLL de 120 segundos com 1.000 objetos simultâneos resulta em capacidade de 120.000 objetos.</li>
+</ul>
+</li>
+<li>
+<p>Consequentemente, podemos calcular o tamanho do <em>cache</em> mínimo necessário para armazenar essa quantidade de objetos. Ou seja, a memória necessária para armazenar uma cópia completa do <em>cache</em>. Iremos identificar esse valor como "<em>data set size</em>" para manter o padrão de nomenclatura da documentação oficial do produto.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Quantidade</strong></td>
+</tr>
+<tr>
+<td>Memória necessária para uma cópia completa do <em>cache</em> (mebibytes) (Data set size)</td>
+<td>Payload * ObjetosSimultaneos * TempoDeVida</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Por exemplo, para <strong>Transação Consultar Boleto:</strong> 120.000 objetos com <em>payload</em> 2.312 bytes resultam em 277.440.000 bytes; ou, 265 mebibytes.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong><em>Sizing</em></strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informação</strong></td>
+<td><strong>Transação</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Consultar</strong></td>
+<td><strong>Validar</strong></td>
+<td><strong>Pagar</strong></td>
+</tr>
+<tr>
+<td>Payload (bytes)</td>
+<td>2.312</td>
+<td>2.428</td>
+<td>244</td>
+</tr>
+<tr>
+<td>Objetos simultâneos</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Tempo de vida (segundos)</td>
+<td>120</td>
+<td>120</td>
+<td>900</td>
+</tr>
+<tr>
+<td>Memória necessária para uma cópia completa do <em>cache</em> (mebibytes) (<strong>Data set size</strong>)</td>
+<td>265</td>
+<td>278</td>
+<td>209</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>A memória necessária, para execução simultânea dos 3 <em>caches</em> (752 mebibytes), é inferior a memória disponível por nó de 1.250 mebibytes para armazenamento de objetos.</p>
+<ul>
+<li>
+<p>A memória necessária para execução de qualquer um dos <em>cache</em>s é inferior a memória disponível por nó.</p>
+<ul>
+<li>Deve-se investigar redimensionamento dos nós.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Tanto o tempo de vida quanto a quantidade de objetos simultâneos devem ser identificados de modo apropriado pela equipe de projeto visto o impacto direto na infraestrutura necessário e no desempenho da arquitetura de <em>cache</em>.</p>
+</li>
+</ul>
+<!-- -->
+
+<ul>
+<li>
+<p><strong>Número mínimo de nós para cluster Data Grid</strong></p>
+<ul>
+<li>
+<p>Conforme documentação "Red Hat Data Grid 8.4 - Data Grid Performance and <em>Sizing</em> Guide, 2023", o número mínimo de nós para cada <em>cache</em> é dependente:</p>
+<ul>
+<li>
+<p>Do tamanho total de <em>cache</em> calculado acima (<em>data set size</em>);</p>
+</li>
+<li>
+<p>Do número de réplicas mínimas para cada objeto (<em>owners</em> definidos como 2 para esse <em>case</em>);</p>
+</li>
+<li>
+<p>Da memória disponível por nó para armazenamento de objetos (definidos como 1.250 mebibytes para esse <em>case</em>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Para o case do SIMTX, são necessários no mínimo 2 nós por tipo de <em>cache</em> para garantir 2 réplicas (2 <em>owners</em>) para cada objeto.</p>
+<ul>
+<li>O cálculo não seria necessário para a memória definida de 1.250 mebibytes por nó, visto que o tamanho total do <em>cache</em> é inferior ao espaço disponível em cada nó.</li>
+</ul>
+</li>
+<li>
+<p>Por exemplo, para <strong>Transação Consultar Boleto</strong>:</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="referencias">Referências</h2>
+<table>
+<thead>
+<tr>
+<th>[1]      </th>
+<th>WIKIMEDIA FOUNDATION, INC. ET AL. Stateless protocol. <strong>Wikipedia</strong>, 07 fev. 2023. Disponível em: &lt;http://web.archive.org/web/20230208211059/https://en.wikipedia.org/wiki/Stateless_protocol&gt;. Acesso em: 08 fev. 2023.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[2]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Câmara Interbancária de Pagamentos. <strong>Wikipedia</strong>, 12 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20230211003541/https://pt.wikipedia.org/wiki/C%C3%A2mara_Interbanc%C3%A1ria_de_Pagamentos&gt;. Acesso em: 11 fev. 2023.</td>
+</tr>
+<tr>
+<td>[3]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Workflow pattern. <strong>Wikipedia</strong>, 25 out. 2022. Disponível em: &lt;http://web.archive.org/web/20230211000422/https://en.wikipedia.org/wiki/Workflow_pattern&gt;. Acesso em: 11 fev. 2023.</td>
+</tr>
+<tr>
+<td>[4]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. SQL. <strong>Wikipedia</strong>, 18 dez. 2022. Disponível em: &lt;https://web.archive.org/web/20221227201651/https://en.wikipedia.org/wiki/SQL&gt;. Acesso em: 27 dez. 2022.</td>
+</tr>
+<tr>
+<td>[5]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Cache replacement policies. <strong>Wikipedia</strong>, 23 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220602011929/https://en.wikipedia.org/wiki/Cache_replacement_policies&gt;. Acesso em: 02 jun. 2022.</td>
+</tr>
+<tr>
+<td>[6]      </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.4 | Data Grid Performance and Sizing Guide. <strong>Red Hat Customer Portal</strong>, 2023. Disponível em: &lt;http://web.archive.org/web/20230216195710/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.4/html-single/data_grid_performance_and_sizing_guide/index&gt;. Acesso em: 16 fev. 2023.</td>
+</tr>
+<tr>
+<td>[7]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Time to live. <strong>Wikipedia</strong>, 09 fev. 2022. Disponível em: &lt;http://web.archive.org/web/20220525090804/https://en.wikipedia.org/wiki/Time_to_live&gt;. Acesso em: 25 maio 2022.</td>
+</tr>
+<tr>
+<td>[8]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Database caching. <strong>Wikipedia</strong>, 24 mar. 2022. Disponível em: &lt;http://web.archive.org/web/20220403044948/https://en.wikipedia.org/wiki/Database_caching&gt;. Acesso em: 03 abr. 2022.</td>
+</tr>
+<tr>
+<td>[9]      </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Scalability - Horizontal and vertical scaling. <strong>Wikipedia</strong>, 07 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220514132248/https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)&gt;. Acesso em: 14 maio 2022.</td>
+</tr>
+<tr>
+<td>[10]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Distributed cache. <strong>Wikipedia</strong>, 21 fev. 2022. Disponível em: &lt;http://web.archive.org/web/20220511131635/https://en.wikipedia.org/wiki/Distributed_cache&gt;. Acesso em: 11 maio 2022.</td>
+</tr>
+<tr>
+<td>[11]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Key--value database. <strong>Wikipedia</strong>, 23 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220531010718/https://en.wikipedia.org/wiki/Key%E2%80%93value_database&gt;. Acesso em: 31 maio 2022.</td>
+</tr>
+<tr>
+<td>[12]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Latency (engineering). <strong>Wikipedia</strong>, 26 fev. 2022. Disponível em: &lt;http://web.archive.org/web/20220531021919/https://en.wikipedia.org/wiki/Latency_(engineering)&gt;. Acesso em: 31 maio 2022.</td>
+</tr>
+<tr>
+<td>[13]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. High-availability cluster. <strong>Wikipedia</strong>, 28 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220512143649/https://en.wikipedia.org/wiki/High-availability_cluster&gt;. Acesso em: 12 maio 2022.</td>
+</tr>
+<tr>
+<td>[14]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Openshift. <strong>Wikipedia</strong>, 19 abr. 2022. Disponível em: &lt;http://web.archive.org/web/20220423134519/https://en.wikipedia.org/wiki/OpenShift&gt;. Acesso em: 23 abr. 2022.</td>
+</tr>
+<tr>
+<td>[15]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.3 | Setting up Data Grid services. <strong>Red Hat Customer Portal</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220606145147/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.3/guide/62f95f80-cb6c-4a5d-8019-9c2fdb46e818&gt;. Acesso em: 06 jun. 2022.</td>
+</tr>
+<tr>
+<td>[16]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.3 | Installing Data Grid Operator. <strong>Red Hat Customer Portal</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220606144222/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.3/guide/fd77665b-d6df-4e25-a9cd-45fbed6dd6c1&gt;. Acesso em: 06 jun. 2022.</td>
+</tr>
+<tr>
+<td>[17]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 7.3. <strong>Red Hat Customer Portal</strong>, 2021. Disponível em: &lt;http://web.archive.org/web/20211024025546/https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.3&gt;. Acesso em: 24 out. 2021.</td>
+</tr>
+<tr>
+<td>[18]        </td>
+<td>RED HAT, INC. Red Hat Data Grid. <strong>Red Hat</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220603194629/https://www.redhat.com/en/technologies/jboss-middleware/data-grid&gt;. Acesso em: 03 jun. 2022.</td>
+</tr>
+<tr>
+<td>[19]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Cache (computing). <strong>Wikipedia</strong>, 21 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220528143923/https://en.wikipedia.org/wiki/Cache_(computing)&gt;. Acesso em: 21 maio 2022.</td>
+</tr>
+<tr>
+<td>[20]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Replication (computing). <strong>Wikipedia</strong>, 04 jun. 2022. Disponível em: &lt;http://web.archive.org/web/20220604085135/https://en.wikipedia.org/wiki/Replication_(computing)&gt;. Acesso em: 02 abr. 2022.</td>
+</tr>
+<tr>
+<td>[21]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. NoSQL. <strong>Wikipedia</strong>, 13 maio 2022. Disponível em: &lt;https://web.archive.org/web/20191219225427/https://en.wikipedia.org/wiki/NoSQL&gt;. Acesso em: 17 maio 2022.</td>
+</tr>
+<tr>
+<td>[22]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.4. <strong>Red Hat Customer Portal</strong>, 2023. Disponível em: &lt;http://web.archive.org/web/20230117145046/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.4&gt;. Acesso em: 17 jan. 2023.</td>
+</tr>
+<tr>
+<td>[23]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.3. <strong>Red Hat Customer Portal</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20211024025546/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.3&gt;. Acesso em: 01 jun. 2022.</td>
+</tr>
+<tr>
+<td>[24]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Disk storage. <strong>Wikipedia</strong>, 06 nov. 2022. Disponível em: &lt;http://web.archive.org/web/20221125184318/https://en.wikipedia.org/wiki/Disk_storage&gt;. Acesso em: 25 nov. 2022.</td>
+</tr>
+<tr>
+<td>[25]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. In-memory database. <strong>Wikipedia</strong>, 22 nov. 2022. Disponível em: &lt;http://web.archive.org/web/20221231193251/https://en.wikipedia.org/wiki/In-memory_database&gt;. Acesso em: 31 dez. 2022.</td>
+</tr>
+<tr>
+<td>[26]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Database (Data base management system). <strong>Wikipedia</strong>, 20 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220520072042/https://en.wikipedia.org/wiki/Database&gt;. Acesso em: 19 maio 2022.</td>
+</tr>
+<tr>
+<td>[27]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Durability (database systems). <strong>Wikipedia</strong>, 16 out. 2021. Disponível em: &lt;https://web.archive.org/web/20221223083131/http://en.wikipedia.org/wiki/Durability_(database_systems)&gt;. Acesso em: 23 dez. 2022.</td>
+</tr>
+<tr>
+<td>[28]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Two-phase commit protocol. <strong>Wikipedia</strong>, 04 dez. 2022. Disponível em: &lt;https://web.archive.org/web/20221227230944/https://en.wikipedia.org/wiki/Two-phase_commit_protocol&gt;. Acesso em: 27 dez. 2022.</td>
+</tr>
+<tr>
+<td>[29]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Three-phase commit protocol. <strong>Wikipedia</strong>, 06 jul. 2021. Disponível em: &lt;http://web.archive.org/web/20221225060505/http://en.wikipedia.org/wiki/Three-phase_commit_protocol&gt;. Acesso em: 25 dez. 2022.</td>
+</tr>
+<tr>
+<td>[30]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Transaction log. <strong>Wikipedia</strong>, 18 jul. 2022. Disponível em: &lt;https://web.archive.org/web/20230109221403/https://en.wikipedia.org/wiki/Transaction_log&gt;. Acesso em: 09 jan. 2023.</td>
+</tr>
+<tr>
+<td>[31]        </td>
+<td>OKD: The Community Distribution of Kubernetes that powers Red Hat\'s OpenShift. <strong>OKD.io</strong>, 2023. Disponível em: &lt;http://web.archive.org/web/20230129230830/https://www.okd.io/&gt;. Acesso em: 29 jan. 2023.</td>
+</tr>
+<tr>
+<td>[32]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Java virtual machine. <strong>Wikipedia</strong>, 28 jan. 2023. Disponível em: &lt;http://web.archive.org/web/20230210113936/https://en.wikipedia.org/wiki/Java_virtual_machine&gt;. Acesso em: 10 fev. 2023.</td>
+</tr>
+<tr>
+<td>[33]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Kubernetes. <strong>Wikipedia</strong>, 23 maio 2022. Disponível em: &lt;http://web.archive.org/web/20220511225236/https://en.wikipedia.org/wiki/Kubernetes&gt;. Acesso em: 11 maio 2022.</td>
+</tr>
+<tr>
+<td>[34]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Byte. <strong>Wikipedia</strong>, 03 jun. 2022. Disponível em: &lt;http://web.archive.org/web/20220608014918/https://en.wikipedia.org/wiki/Byte&gt;. Acesso em: 08 jun. 2022.</td>
+</tr>
+<tr>
+<td>[35]        </td>
+<td>RED HAT, INC. Red Hat Data Grid 8.3 | Creating Data Grid clusters. <strong>Red Hat Customer Portal</strong>, 2022. Disponível em: &lt;http://web.archive.org/web/20220606144812/https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.3/guide/442c5930-a3b9-4090-aad0-28a877d0644c&gt;. Acesso em: 06 jun. 2022.</td>
+</tr>
+<tr>
+<td>[36]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Quarkus. <strong>Wikipedia</strong>, 22 ago. 2022. Disponível em: &lt;http://web.archive.org/web/20220823153345/https://en.wikipedia.org/wiki/Quarkus&gt;. Acesso em: 23 ago. 2022.</td>
+</tr>
+<tr>
+<td>[37]        </td>
+<td>WIKIMEDIA FOUNDATION, INC. ET AL. Circuit breaker design pattern. <strong>Wikipedia</strong>, 23 jan. 2023. Disponível em: &lt;http://web.archive.org/web/20230130120430/https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern&gt;. Acesso em: 30 jan. 2023.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="historico-das-revisoes">Histórico das Revisões</h2>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 9%" />
+<col style="width: 44%" />
+<col style="width: 21%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Responsável</th>
+<th>RTC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>02/06/2022</td>
+<td>1.0</td>
+<td><em>Cache</em> para aceleração de consultas usando <em>Key-Value Database In-memory</em>: Red Hat Data Grid</td>
+<td>Mário Ferreira (C101038) SUART13</td>
+<td>19886299</td>
+</tr>
+<tr class="even">
+<td>03/01/2023</td>
+<td>1.1</td>
+<td>Adicionar legenda nas imagens</td>
+<td>Mário Ferreira (C101038) SUART13</td>
+<td>n.a.</td>
+</tr>
+<tr class="odd">
+<td>17/02/2023</td>
+<td>1.2</td>
+<td><ul>
+<li><p>Incluir mais características e possibilidade de tecnologias de banco de dados distribuídos e <em>in-memory</em>.</p></li>
+<li><p>Incluir <em>case</em> SIMTX.</p></li>
+</ul></td>
+<td>Mário Ferreira (C101038) SUART13</td>
+<td>20250718</td>
+</tr>
+</tbody>
+</table>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Número Sequencial Único.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../../replicado/db-cache-in-memory-replicado/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Replicado" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Replicado
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../cosmosdb/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Cosmos DB" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Cosmos DB
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../../../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../../../../../js/medium-zoom.js"></script>
+      
+        <script src="../../../../../../js/site.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,64 @@
+Conceito e Cenário
+
+Arquitetura Limpa, do termo inglês Clean Architecture, é um padrão arquitetural usado na engenharia de software. Esse padrão foi conceituado por Robert Martin, mais conhecido como Uncle Bob, um engenheiro de software famoso e um dos autores do Manifesto Ágil, além de diversos livros na área. O conceito foi apresentado no artigo em seu blog em 2012 e foi baseado em uma arquitetura já conhecida, a Arquitetura Hexagonal, conceituada em 2005.
+
+A ideia dessa arquitetura é criar componentes fracamente acoplados que possam ser conectados através de portas e adaptadores, o que permite o isolamento das regras de negócio da aplicação (ex: entidades, casos de uso) de preocupações externas (ex: frameworks, banco de dados). A lógica de negócios não deve depender de GraphQL ou REST por exemplo, ou se os dados estão sendo obtidos por um banco de dados ou um arquivo CSV simples. Essa separação tem, dentre outros benefícios, auxiliar na mudança de componentes e facilitar testes automatizados.
+
+--> Colocar a imagem C:\Desenvolvimento\Analise\Arquitetura-Referencia\diversos\image\clean-achitecture-model.png
+
+
+Na imagem acima, que é a principal representação dessa arquitetura, pode-se notar uma separação por camadas em círculos, com algumas setas apontando do círculo mais externo ao mais interno. Essas setas demonstram o fluxo de dependências, em que os círculos externos podem depender dos círculos internos sem que o contrário se aplique. Ou seja, mudanças na entidade por exemplo podem ter efeito em todas as outras camadas da aplicação, mas mudanças nos drivers e frameworks são isoladas do resto da aplicação, já que não devem existir dependências entre elas.
+
+
+DDD - Domain-Driven Design
+DDD (Domain-Driven Design)
+
+A Arquitetura Limpa casa muito bem com o DDD (Domain-Driven Design). Irei utilizar a notação usada pelo DDD para definir as camadas da aplicação, que são: Domínio, Aplicação, Interfaces e Infraestrutura. Cada uma dessas camadas é definida da seguinte maneira:
+
+    Domínio: A camada de domínio é o coração do software, reunindo as regras cruciais de negócios da empresa inteira. É o local onde as entidades e objetos de valor viverão. De acordo com Uncle Bob: “Uma entidade pode ser um objeto com métodos ou um conjunto de estruturas de dados e funções. Isso não importa, contanto que as entidades possam ser usadas por muitas aplicações diferentes na empresa.”.
+
+    Aplicação: Essa camada contém as regras de negócio específicas da aplicação. Na Arquitetura Limpa, Uncle Bob descreve os casos de uso como sendo as principais funcionalidades da aplicação. Esses casos de uso utilizam as entidades a fim de atingir seus objetivos, criando assim uma dependência nelas.
+
+    Interfaces: Aqui estão os adaptadores. Adaptadores são criados para isolar as entidades e casos de uso das ferramentas utilizadas na aplicação (frameworks e drivers), convertendo os dados para o formato que mais convém às camadas mais externas. Esses adaptadores, de acordo com Uncle Bob, devem funcionar pelo conceito de Interfaces de programação orientada a objetos (link) nos casos de uso, como apresentado no diagrama do canto inferior da imagem acima. Como em Javascript não existem interfaces, isso pode ser feito através de injeção de dependência , que será explicado melhor nas seções seguintes.
+
+    Infraestrutura: A infraestrutura consiste em tudo o que existe independentemente da aplicação: bibliotecas externas, mecanismo de banco de dados, servidor de aplicação, filas de mensagens e assim por diante. Aplicação pode ser arquitetada usando esses conceitos na prática, com códigos escritos em JAVA
+
+Domínio
+
+--> Colocar a imagem C:\Desenvolvimento\Analise\Arquitetura-Referencia\diversos\image\clean-achitecture-domain.png
+
+No nosso exemplo, uma entidade para cadastro pessoa séria modelada da seguinte forma:
+
+--> Colocar a imagem C:\Desenvolvimento\Analise\Arquitetura-Referencia\diversos\image\domain.png
+
+A primeira coisa que dá para perceber é que não existe nenhuma declaração “implement” ou “import de outros classes” no começo do código. Isso é importante já que as entidades fazem parte da camada de domínio, onde não deve existir dependências sobre outras camadas.
+
+Cada pessoa possui um CPF único. Cada pessoa possui também uma função “adicionarTelefones”, que adicionar telefones a entidade. Essas funcionalidades podem fazer parte de qualquer biblioteca, ou podem até ser implementadas pelo próprio desenvolvedor do código, isso não importa para a entidade. A adicionarTefone será realizada pela função (ou a classe/objeto que possui a função) passada por parâmetro no momento da construção do Pessoa. Isso faz com que seja muito fácil alterar as funções de validações e que cria CPF nesse caso, criando um fraco acoplamento da entidade sobre esses componentes. Outro benefício é uma melhora na testabilidade dessas entidades, já que fica fácil criar interfaces para cada uma das funções, sendo assim possível testar esse código independentemente de qualquer implementação, possibilitando então uma análise comparativa entre diversas implementações dessas funções. Esse padrão é basicamente a injeção de dependência, muito utilizado nesse tipo de arquitetura. Ao final do código acima, é retornado um objeto “congelado”, com diversos getters dos atributos da entidade. Esse Object Value faz com que todos os objetos dentro dele tornam-se imutáveis, impedindo que novas propriedades sejam adicionadas a eles. Isso permite que, caso o código falhe, ele irá falhar na criação da entidade e não na chamada dessas funções.
+
+A entidade pessoa é exposta ao resto da aplicação através de um interface RepositorioDePessoa, apresentado a seguir:
+
+Diagrama é uma tentativa de integrar todas essas arquiteturas
+
+--> Colocar a imagem C:\Desenvolvimento\Analise\Arquitetura-Referencia\diversos\image\interface-domain.png e interface-domain-2.png
+
+Aplicação
+
+Esse é o lugar onde todas as dependências internas da entidade são chamadas e onde a entidade é construída e exportada para o restante da aplicação, com todas as dependências embutidas. Caso o código passe a utilizar outra classe cadastrar ou buscar as Pessoas dos cadastro por exemplo, a única alteração que deve ser feita nessa parte do código é na importação da classe (ou nem isso caso ela mantenha o mesmo caminho da implementação anterior), sem qualquer interferência na entidade.
+
+aplication.png
+
+Nesse arquivo, a primeira coisa que dá para perceber é o “repositório” no começo do código. Esse “repositório” serve para importar a nossa entidade “RepositorioPessoa”, a única dependência direta desse caso de uso, que deve fazer parte da camada de domínio, claro. Recebe as dependências externas por injeção de dependência (que nesse caso é apenas o implementação banco vindo da infra). Como será visto mais a frente, esse banco de dados é um adaptador, que vem da camada de interfaces da aplicação. isso é importante já que na Arquitetura Limpa, a aplicação deve passar dados entre camadas no formato ou estrutura que é mais conveniente a camada que está recebendo os dados.
+
+Como na camada de domínio, nossos casos de uso são expostos ao resto da aplicação pelo RepositorioDePessoa.java
+
+aplication-2.png e aplication-3.png
+
+
+Esse arquivo importa todas as fábricas dos casos de uso desse serviço (que nesse caso é apenas do caso de uso de criação e execução, mas poderiam ter vários outros ali), e cria os casos de uso, passando as dependências externas por injeção de dependência. No final será retornado um objeto congelado, que é o serviço em si, com todos os casos de uso implementados.
+Interface
+
+Esse arquivo importa todas as fábricas dos casos de uso desse serviço (que nesse caso é apenas do caso de uso de criação e execução, mas poderiam ter vários outros ali), e cria os casos de uso, passando as dependências externas por injeção de dependência. No final será retornado um objeto congelado, que é o serviço em si, com todos os casos de uso implementados.
+Interface
+
+essa camada estão os adaptadores para os frameworks e drivers da aplicação. Um adaptador para o banco de dados dos posts da aplicação ficaria da seguinte forma:
+

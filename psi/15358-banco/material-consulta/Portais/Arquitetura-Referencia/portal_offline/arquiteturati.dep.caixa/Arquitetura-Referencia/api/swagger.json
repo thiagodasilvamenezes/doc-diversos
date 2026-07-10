@@ -1,0 +1,684 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Exemplo Swagger CAIXA",
+    "version": "1.0.0",
+    "description": "## *Orientações*\nAPI utilizada para acionamento dos canais internos de atendimento Caixa com o propósito de defesa contra possíveis ofertas de outras instituições financeiras em produtos já contratados pelo cliente junto à Caixa.\n\nEsta API deve ser utilizada após obtenção da informação de que o cliente consentiu em fornecer informações sobre seus produtos contratados junto à Caixa para outras instituições financeiras.\nPara cada um dos paths desta API, além dos escopos (`scopes`) indicados existem `permissions` que deverão ser observadas:\n\n### `/personal/identifications`\n  - permissions:\n    - GET: **CUSTOMERS_PERSONAL_IDENTIFICATIONS_READ**\n### `/personal/qualifications`\n  - permissions: **CUSTOMERS_PERSONAL_ADITTIONALINFO_READ**\n### `/personal/financial-relations`\n\n### `- API Segurança Nível III`\n\n`- Qual o timeout que deverá ser configurado para a API no API Manager?` **___ segundos**\n\n`- Existe um middleware integrando sua aplicação com outros sistemas?` **Sim / Não**\n\n`- Esse timeout está maior ou igual ao timeout da aplicação backend?`**Sim / Não**\n\n`- Esse timeout está menor ou igual ao timeout dos canais consumidores?`**Sim / Não**\n ",
+    "contact": {
+      "name": "Equipe de Desenvolvimento",
+      "email": "sudeb09@caixa.gov.br"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.des.caixa:8446/open-banking/defesa-interna",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/v1/ofertas": {
+      "description": "",
+      "get": {
+        "tags": [
+          "Ofertas"
+        ],
+        "parameters": [
+          {
+            "examples": {
+              "Exemplo": {
+                "value": "OF00001"
+              }
+            },
+            "name": "idCanalOferta",
+            "description": "Número indicador único da oferta cadastrada previamente.",
+            "schema": {
+              "type": "number"
+            },
+            "in": "query"
+          },
+          {
+            "examples": {
+              "Exemplo": {
+                "value": "CP00001"
+              }
+            },
+            "name": "idCampanha",
+            "description": "Identificador de uma campanha.",
+            "schema": {
+              "type": "string"
+            },
+            "in": "query"
+          },
+          {
+            "examples": {
+              "Exemplo": {
+                "value": "423542345324534"
+              }
+            },
+            "name": "idOferta",
+            "description": "Identificador de uma oferta.",
+            "schema": {
+              "type": "string"
+            },
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OfertaCanalType"
+                  }
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": "[\n    {\n        \"idCanalOferta\": 655644,\n        \"situacao\": \"Cadastrada\",\n        \"idCampanha\": \"CP0934029\",\n        \"idOferta\": \"OF293042309\",\n        \"dataInicioVigencia\": \"13-02-2021\",\n        \"dataFimVigencia\": \"13-09-2021\",\n        \"tipoProduto\": \"Empréstimo Consignado\",\n        \"unidadeContrato\": 0235,\n        \"carteiraCliente\": \"GV02\",\n        \"titulo\": \"Oferta OpenBanking - taxa reduzida\",\n        \"subTitulo\": \"Redução de taxa de juros\",\n        \"mensagem\": \"A taxa de juros para empréstimo consignado foi reduzida!\",\n        \"gerenteCarteira\": \"c999999\",\n        \"detalhes\": [\n            {\n                \"nome\": \"Taxa antiga\",\n                \"valor\": \"1.09% a.a.\"\n            },\n            {\n                \"nome\": \"Nova taxa\",\n                \"valor\": \"0,99% a.a.\"\n            }\n        ],\n        \"cpfcnpj\": \"48593825390\"\n    },\n    {\n        \"idCanalOferta\": 314343,\n        \"situacao\": \"Aceita\",\n        \"idCampanha\": \"CP52544\",\n        \"idOferta\": \"OF23242\",\n        \"dataInicioVigencia\": \"01-03-2021\",\n        \"dataFimVigencia\": \"31-12-2021\",\n        \"tipoProduto\": \"Crédito Giro Caixa\",\n        \"unidadeContrato\": 0242,\n        \"carteiraCliente\": \"GV01\",\n        \"titulo\": \"Oferta OpenBanking - taxa reduzida\",\n        \"subTitulo\": \"Redução de taxa de juros Giro Caixa\",\n        \"mensagem\": \"A taxa de juros para capital de giro foi reduzida!\",\n        \"gerenteCarteira\": \"c999999\",\n        \"detalhes\": [\n            {\n                \"nome\": \"Taxa antiga\",\n                \"valor\": \"1.09% a.a.\"\n            },\n            {\n                \"nome\": \"Nova taxa\",\n                \"valor\": \"0,99% a.a.\"\n            }\n        ],\n        \"cpfcnpj\": \"6567367567\"\n    }\n]"
+                  }
+                }
+              }
+            },
+            "description": "Consulta realizada com sucesso."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 401,
+                      "mensagem": "O token fornecido para acesso à API é inválido.",
+                      "detalhes": "Token não reconhecido/validado pelo realm do SSO."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Identificação provida pelo token aponta para usuário não autorizado a utilizar a API."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 403,
+                      "mensagem": "Usuário não autorizado a utilizar esta API",
+                      "detalhes": "Nome do usuário: cli-ser-xxx"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Token inválido"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 422,
+                      "mensagem": "Não foi especificado ao menos um parâmetro de busca.",
+                      "detalhes": "Deve haver ao menos um parâmetro de busca enviado via query parameter."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Erro negocial ou estrutural na chamada da API."
+          }
+        },
+        "security": [
+          {
+            "Intranet": [
+              "scope"
+            ],
+            "APIKey": []
+          }
+        ],
+        "summary": "Consulta ofertas.",
+        "description": "Consultar ofertas cadastradas nesta API de defesa.\nObservação: ao menos um dos itens de query parameters deve ser informado."
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OfertaType"
+              },
+              "examples": {
+                "Exemplo": {
+                  "value": "{    \"idCampanha\": \"CP00001\",    \"idOferta\": \"OF000023\",    \"dataInicioVigencia\": \"25-09-2021\",    \"dataFimVigencia\": \"30-10-2021\",    \"tipoProduto\": \"Crédito Consignado\",    \"unidadeContrato\": 0235,    \"carteiraCliente\": \"GV02\",    \"titulo\": \"OpenBanking - Oferta de consignado\",    \"subTitulo\": \"Taxa de empréstimo consignado reduzida\",    \"mensagem\": \"Temos uma oferta de empréstimo consignado para seu cliente xxx. Entre em contato com ele!\",    \"gerenteCarteira\": \"c999999\",    \"detalhes\": [        {            \"nome\": \"Taxa\",            \"valor\": \"0,99%\"        },        {            \"nome\": \"Valor máximo\",            \"valor\": \"R$10.000,00\"        }    ],    \"cpfcnpj\": \"12345678901\"}"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Ofertas"
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SucessoCadastroOfertaType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 200,
+                      "mensagem": "Oferta cadastrada com sucesso.",
+                      "idOfertaCanal": 79
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Sucesso no cadastro da nova oferta."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 401,
+                      "mensagem": "O token fornecido para acesso à API é inválido.",
+                      "detalhes": "Token não reconhecido/validado pelo realm do SSO."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Identificação provida pelo token aponta para usuário não autorizado a utilizar a API."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 403,
+                      "mensagem": "Usuário não autorizado a utilizar esta API",
+                      "detalhes": "Nome do usuário: cli-ser-xxx"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Token inválido"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 422,
+                      "mensagem": "O CPF fornecido é inválido.",
+                      "detalhes": "O CPF xxx, fornecido na chamada da API, é inválido."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Erro negocial ou estrutural na chamada da API. Este erro pode ser causado por uma chamada utilizando formato inválido de JSON ou também por fornecimento de dados negociais inválidos."
+          }
+        },
+        "security": [
+          {
+            "APIKey": [],
+            "Intranet": []
+          }
+        ],
+        "summary": "Cadastra uma oferta.",
+        "description": "Cadastra oferta a ser exibida no canal contendo vantagens ao cliente da Caixa, visando evitar que este migre/contrate o mesmo produto em outra instituição financeira."
+      }
+    },
+    "/v1/ofertas/{id}": {
+      "get": {
+        "tags": [
+          "Ofertas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Identificador único da oferta no canal (idCanalOferta).",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfertaCanalType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": "[\n    {\n        \"idCanalOferta\": 655644,\n        \"situacao\": \"Cadastrada\",\n        \"idCampanha\": \"CP0934029\",\n        \"idOferta\": \"OF293042309\",\n        \"dataInicioVigencia\": \"13-02-2021\",\n        \"dataFimVigencia\": \"13-09-2021\",\n        \"tipoProduto\": \"Empréstimo Consignado\",\n        \"unidadeContrato\": 0235,\n        \"carteiraCliente\": \"GV02\",\n        \"titulo\": \"Oferta OpenBanking - taxa reduzida\",\n        \"subTitulo\": \"Redução de taxa de juros\",\n        \"mensagem\": \"A taxa de juros para empréstimo consignado foi reduzida!\",\n        \"gerenteCarteira\": \"c999999\",\n        \"detalhes\": [\n            {\n                \"nome\": \"Taxa antiga\",\n                \"valor\": \"1.09% a.a.\"\n            },\n            {\n                \"nome\": \"Nova taxa\",\n                \"valor\": \"0,99% a.a.\"\n            }\n        ],\n        \"cpfcnpj\": \"48593825390\"\n    },\n    {\n        \"idCanalOferta\": 314343,\n        \"situacao\": \"Aceita\",\n        \"idCampanha\": \"CP52544\",\n        \"idOferta\": \"OF23242\",\n        \"dataInicioVigencia\": \"01-03-2021\",\n        \"dataFimVigencia\": \"31-12-2021\",\n        \"tipoProduto\": \"Crédito Giro Caixa\",\n        \"unidadeContrato\": 0242,\n        \"carteiraCliente\": \"GV01\",\n        \"titulo\": \"Oferta OpenBanking - taxa reduzida\",\n        \"subTitulo\": \"Redução de taxa de juros Giro Caixa\",\n        \"mensagem\": \"A taxa de juros para capital de giro foi reduzida!\",\n        \"gerenteCarteira\": \"c999999\",\n        \"detalhes\": [\n            {\n                \"nome\": \"Taxa antiga\",\n                \"valor\": \"1.09% a.a.\"\n            },\n            {\n                \"nome\": \"Nova taxa\",\n                \"valor\": \"0,99% a.a.\"\n            }\n        ],\n        \"cpfcnpj\": \"6567367567\"\n    }\n]"
+                  }
+                }
+              }
+            },
+            "description": "Consulta realizada com sucesso."
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 401,
+                      "mensagem": "O token fornecido para acesso à API é inválido.",
+                      "detalhes": "Token não reconhecido/validado pelo realm do SSO."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Identificação provida pelo token aponta para usuário não autorizado a utilizar a API."
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 403,
+                      "mensagem": "Usuário não autorizado a utilizar esta API",
+                      "detalhes": "Nome do usuário: cli-ser-xxx"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Token inválido"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 404,
+                      "mensagem": "Não foi localizada nenhuma oferta com o identificador fornecido.",
+                      "detalhes": "Não foi localizada nenhuma oferta com o identificador fornecido."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Não foi encontrada nenhuma oferta com o identificador fornecido."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErroType"
+                },
+                "examples": {
+                  "Exemplo": {
+                    "value": {
+                      "codigo": 422,
+                      "mensagem": "Não foi especificado ao menos um parâmetro de busca.",
+                      "detalhes": "Deve haver ao menos um parâmetro de busca enviado via query parameter."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Erro negocial ou estrutural na chamada da API."
+          }
+        },
+        "security": [
+          {
+            "Intranet": [
+              "scope"
+            ],
+            "APIKey": []
+          }
+        ],
+        "summary": "Consulta uma oferta.",
+        "description": "Consulta uma oferta cadastrada nesta API com o identificador único do canal (idCanalOferta, chamado no endpoint apenas como id)."
+      },
+      "parameters": [
+        {
+          "examples": {
+            "Exemplo": {
+              "value": "352423"
+            }
+          },
+          "name": "id",
+          "description": "Identificador único de uma oferta cadastrada no canal.",
+          "schema": {
+            "type": "number"
+          },
+          "in": "path",
+          "required": true
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "OfertaCanalType": {
+        "description": "Descreve uma oferta, já com os dados provenientes do canal de defesa.",
+        "required": [
+          "carteiraCliente",
+          "cpfcnpj",
+          "dataFimVigencia",
+          "idCampanha",
+          "idOferta",
+          "mensagem",
+          "subTitulo",
+          "tipoProduto",
+          "titulo",
+          "dataInicioVigencia",
+          "idCanalOferta",
+          "situacao"
+        ],
+        "type": "object",
+        "properties": {
+          "idCampanha": {
+            "description": "Identificador único da campanha, utilizado internamente pelo sistema que está chamando esta API. A unicidade desta informação não é garantida pela API. Este identificador será fornecido em chamadas de retorno com o resultado da oferta.",
+            "type": "string"
+          },
+          "idOferta": {
+            "description": "Identificador único da ofertra, utilizado internamente pelo sistema que está chamando esta API. A unicidade desta informação não é garantida pela API. Este identificador será fornecido em chamadas de retorno com o resultado da oferta.",
+            "type": "string"
+          },
+          "dataInicioVigencia": {
+            "format": "date-time",
+            "description": "Data de inicio da vigência da oferta, inclusive, no formato dd/mm/aaaa.",
+            "type": "string"
+          },
+          "dataFimVigencia": {
+            "description": "Data de término da vigência da oferta, inclusive, no formato dd/mm/aaaa.",
+            "type": "string"
+          },
+          "tipoProduto": {
+            "nullable": true,
+            "description": "Tipo do produto ao qual a oferta se refere.",
+            "type": "string"
+          },
+          "unidadeContrato": {
+            "format": "int32",
+            "description": "Código da unidade do produto (quatro dígitos) contratado pelo cliente junto à Caixa e que está sendo alvo de ofertas em outras instituições financeiras.",
+            "type": "integer"
+          },
+          "carteiraCliente": {
+            "nullable": true,
+            "description": "Código da carteira do cliente cadastrada no SICLI.",
+            "type": "string"
+          },
+          "titulo": {
+            "nullable": true,
+            "description": "Título da oferta a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "subTitulo": {
+            "nullable": true,
+            "description": "Sub-título da oferta a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "mensagem": {
+            "nullable": true,
+            "description": "Mensagem a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "gerenteCarteira": {
+            "nullable": true,
+            "description": "Opcional. Matrícula, no formado cxxxxxx, do gerente de atendimento para o qual a oferta será exibida.",
+            "type": "string"
+          },
+          "detalhes": {
+            "nullable": true,
+            "description": "Detalhes a serem exibidos para o gerente de atendimento em forma de tabela tabulada, visando fornecer maiores detalhes e informações sobre a oferta sendo exibida.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfertaDetalheType"
+            }
+          },
+          "cpfcnpj": {
+            "description": "CPF ou CNPJ do cliente alvo da oferta.",
+            "type": "string"
+          },
+          "idCanalOferta": {
+            "description": "Número identificador único da oferta cadastrada no canal.",
+            "type": "integer"
+          },
+          "situacao": {
+            "description": "Situação atual da oferta no canal de defesa.",
+            "enum": [
+              "Cadastrada",
+              "Aceita",
+              "Rejeitada"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "example": "{\n    \"idCanalOferta\": \"3232322\",\n    \"situacao\": \"Aceita\",\n    \"idCampanha\": \"CP0001\",\n    \"idOferta\": \"OF000001\",\n    \"dataInicioVigencia\": \"25-09-2021\",\n    \"dataFimVigencia\": \"30-10-2021\",\n    \"tipoProduto\": \"Crédito Consignado\",\n    \"unidadeContrato\": 0235,\n    \"carteiraCliente\": \"GV01\",\n    \"titulo\": \"OpenBanking - Oferta de Consignado\",\n    \"subTitulo\": \"Redução de taxa para empréstimo consignado!\",\n    \"mensagem\": \"O cliente x recebeu uma oferta diferenciada para empréstimo consignado. Entre em contato com ele agora mesmo!\",\n    \"gerenteCarteira\": \"c999999\",\n    \"detalhes\": [\n        {\n            \"nome\": \"Taxa\",\n            \"valor\": \"0,99%\"\n        },\n        {\n            \"nome\": \"Valor máximo do empréstimo consignado\",\n            \"valor\": \"R$10.000,00\"\n        }\n    ],\n    \"cpfcnpj\": \"01234567890\"\n}"
+      },
+      "ErroType": {
+        "title": "Root Type for ErroDataType",
+        "description": "Mensagens de erro.",
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "mensagem": {
+            "type": "string"
+          },
+          "detalhes": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "codigo": 401,
+          "mensagem": "erro",
+          "detalhes": ""
+        }
+      },
+      "SucessoCadastroOfertaType": {
+        "title": "Root Type for SucessoDataType",
+        "description": "JSON de retorno em casos de sucesso.",
+        "required": [
+          "codigo",
+          "mensagem",
+          "idOfertaCanal"
+        ],
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "format": "int32",
+            "description": "Código de retorno de sucesso: 200",
+            "type": "integer"
+          },
+          "mensagem": {
+            "description": "Valor fixo: Oferta cadastrada com sucesso.",
+            "type": "string"
+          },
+          "idOfertaCanal": {
+            "format": "int64",
+            "description": "Identificador único da oferta recém cadastrada no canal. Este número é de controle interno do canal, e sua unicidade é garantida pelo mesmo.",
+            "type": "integer"
+          }
+        },
+        "example": {
+          "codigo": 200,
+          "mensagem": "Oferta cadastrada com sucesso",
+          "idOfertaCanal": 123
+        }
+      },
+      "OfertaType": {
+        "description": "JSON informado para cadastro de oferta.",
+        "required": [
+          "carteiraCliente",
+          "cpfcnpj",
+          "dataFimVigencia",
+          "idCampanha",
+          "idOferta",
+          "mensagem",
+          "subTitulo",
+          "tipoProduto",
+          "titulo",
+          "dataInicioVigencia",
+          "unidadeContrato"
+        ],
+        "type": "object",
+        "properties": {
+          "idCampanha": {
+            "description": "Identificador único da campanha, utilizado internamente pelo sistema que está chamando esta API. A unicidade desta informação não é garantida pela API. Este identificador será fornecido em chamadas de retorno com o resultado da oferta.",
+            "type": "string"
+          },
+          "idOferta": {
+            "description": "Identificador único da ofertra, utilizado internamente pelo sistema que está chamando esta API. A unicidade desta informação não é garantida pela API. Este identificador será fornecido em chamadas de retorno com o resultado da oferta.",
+            "type": "string"
+          },
+          "dataInicioVigencia": {
+            "format": "date-time",
+            "description": "Data de inicio da vigência da oferta, inclusive, no formato dd/mm/aaaa.",
+            "type": "string"
+          },
+          "dataFimVigencia": {
+            "description": "Data de término da vigência da oferta, inclusive, no formato dd/mm/aaaa.",
+            "type": "string"
+          },
+          "tipoProduto": {
+            "nullable": true,
+            "description": "Tipo do produto ao qual a oferta se refere.",
+            "type": "string"
+          },
+          "unidadeContrato": {
+            "format": "int32",
+            "description": "Código da unidade do produto (quatro dígitos) contratado pelo cliente junto à Caixa e que está sendo alvo de ofertas em outras instituições financeiras.",
+            "type": "integer"
+          },
+          "carteiraCliente": {
+            "nullable": true,
+            "description": "Código da carteira do cliente cadastrada no SICLI.",
+            "type": "string"
+          },
+          "titulo": {
+            "nullable": true,
+            "description": "Título da oferta a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "subTitulo": {
+            "nullable": true,
+            "description": "Sub-título da oferta a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "mensagem": {
+            "nullable": true,
+            "description": "Mensagem a ser exibida para o gerente de atendimento responsável por levar a oferta ao cliente Caixa.",
+            "type": "string"
+          },
+          "gerenteCarteira": {
+            "nullable": true,
+            "description": "Opcional. Matrícula, no formado cxxxxxx, do gerente de atendimento para o qual a oferta será exibida.",
+            "type": "string"
+          },
+          "detalhes": {
+            "nullable": true,
+            "description": "Detalhes a serem exibidos para o gerente de atendimento em forma de tabela tabulada, visando fornecer maiores detalhes e informações sobre a oferta sendo exibida.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfertaDetalheType"
+            }
+          },
+          "cpfcnpj": {
+            "description": "CPF ou CNPJ do cliente alvo da oferta.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "example": "{\n    \"idCampanha\": \"CP0001\",\n    \"idOferta\": \"OF000001\",\n    \"dataInicioVigencia\": \"25-09-2021\",\n    \"dataFimVigencia\": \"30-10-2021\",\n    \"tipoProduto\": \"Crédito Consignado\",\n    \"unidadeContrato\": 0235,\n    \"carteiraCliente\": \"GV01\",\n    \"titulo\": \"OpenBanking - Oferta de Consignado\",\n    \"subTitulo\": \"Redução de taxa para empréstimo consignado!\",\n    \"mensagem\": \"O cliente x recebeu uma oferta diferenciada para empréstimo consignado. Entre em contato com ele agora mesmo!\",\n    \"gerenteCarteira\": \"c999999\",\n    \"detalhes\": [\n        {\n            \"nome\": \"Taxa\",\n            \"valor\": \"0,99%\"\n        },\n        {\n            \"nome\": \"Valor máximo do empréstimo consignado\",\n            \"valor\": \"R$10.000,00\"\n        }\n    ],\n    \"cpfcnpj\": \"01234567890\"\n}"
+      },
+      "OfertaDetalheType": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "nullable": true,
+            "type": "string"
+          },
+          "valor": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Intranet": {
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token",
+            "refreshUrl": "https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token",
+            "scopes": {
+              "scope": ""
+            }
+          }
+        },
+        "type": "oauth2",
+        "description": "Tokens emitidos pelo realm INTRANET"
+      },
+      "APIKey": {
+        "type": "apiKey",
+        "description": "API Key do sistema que está chamando esta API.",
+        "name": "APIKey",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "APIKey": [],
+      "Intranet": [
+        "scope"
+      ]
+    }
+  ]
+}

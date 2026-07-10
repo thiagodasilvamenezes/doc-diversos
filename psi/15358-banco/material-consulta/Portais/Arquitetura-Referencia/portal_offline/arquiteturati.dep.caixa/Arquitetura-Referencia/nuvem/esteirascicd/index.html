@@ -1,0 +1,3936 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Esteiras CI/CD - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="index.html#modelo-unico-de-devops-gitops-e-esteiras-corporativas-cicd-nuvem-mobile-e-on-premises" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="https://arquiteturati.dep.caixa/latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Esteiras CI/CD
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/index.html" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../infraestrutura_nuvem/index.html" class="md-tabs__link md-tabs__link--active">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/index.html" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telecom/telecom/index.html" class="md-tabs__link">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/index.html" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/index.html" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/index.html" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/index.html" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/index.html" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/index.html" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/index.html" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/index.html" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/index.html" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/index.html" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/index.html" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/index.html" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microprofile/index.html" class="md-nav__link">
+        Java Microprofile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/index.html" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/index.html" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/index.html" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_1" type="checkbox" id="__nav_2_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/index.html" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/index.html" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/index.html" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/index.html" class="md-nav__link">
+        Sigle Page Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2_1" type="checkbox" id="__nav_2_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2_1">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/index.html" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/index.html" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/index.html" class="md-nav__link">
+        Processamento Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/index.html" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/index.html" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14_1" type="checkbox" id="__nav_2_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/index.html" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/index.html" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/index.html" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/index.html" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/index.html" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/index.html" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/index.html" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/index.html" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_3" type="checkbox" id="__nav_3_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_4" type="checkbox" id="__nav_3_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/index.html" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infraestrutura_nuvem/index.html" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avd/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orquestracao-container/index.html" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arquiteturati.dep.caixa/25.06/nuvem/cosmos.md" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../power/index.html" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../key-vault/index.html" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Esteiras CI/CD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Esteiras CI/CD
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#1-identificacao" class="md-nav__link">
+    1. Identificação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#2-objetivos" class="md-nav__link">
+    2. Objetivos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#3-conceitos" class="md-nav__link">
+    3. Conceitos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#4-tecnologias-componentes-desta-arquitetura" class="md-nav__link">
+    4. Tecnologias (componentes desta arquitetura)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#5-arquitetura-em-descontinuidade" class="md-nav__link">
+    5. Arquitetura em descontinuidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#6-arquitetura-de-referencia" class="md-nav__link">
+    6. Arquitetura de referência
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#7-referencias" class="md-nav__link">
+    7. Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#8-normativos" class="md-nav__link">
+    8. Normativos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat_Keycloak/index.html" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/index.html" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/index.html" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/index.html" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/index.html" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/index.html" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/index.html" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/index.html" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/index.html" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/index.html" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/index.html" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/index.html" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/index.html" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/index.html" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/index.html" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1" type="checkbox" id="__nav_6_2_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/index.html" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1_3" type="checkbox" id="__nav_6_2_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/index.html" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/index.html" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/index.html" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/index.html" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/telecom/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/switching_datacenter/index.html" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/azure/index.html" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede1/index.html" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede2/index.html" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede3/index.html" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede4/index.html" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede5/index.html" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede6/index.html" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede7/index.html" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/rede-local/index.html" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/financeira/index.html" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/webproxy/index.html" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/call_center_nuvem/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/wifi/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/Balanceamento/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/interconexoes_multicloud/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/sdwan/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/contact/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/micro/index.html" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/dns/index.html" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telecom/mesa-operacoes/index.html" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/index.html" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/index.html" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/index.html" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#1-identificacao" class="md-nav__link">
+    1. Identificação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#2-objetivos" class="md-nav__link">
+    2. Objetivos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#3-conceitos" class="md-nav__link">
+    3. Conceitos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#4-tecnologias-componentes-desta-arquitetura" class="md-nav__link">
+    4. Tecnologias (componentes desta arquitetura)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#5-arquitetura-em-descontinuidade" class="md-nav__link">
+    5. Arquitetura em descontinuidade
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#6-arquitetura-de-referencia" class="md-nav__link">
+    6. Arquitetura de referência
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#7-referencias" class="md-nav__link">
+    7. Referências
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#8-normativos" class="md-nav__link">
+    8. Normativos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#historico-da-revisao" class="md-nav__link">
+    Histórico da Revisão
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="modelo-unico-de-devops-gitops-e-esteiras-corporativas-cicd-nuvem-mobile-e-on-premises">MODELO ÚNICO DE DEVOPS, GITOPS E ESTEIRAS CORPORATIVAS CI/CD: NUVEM, MOBILE E ON-PREMISES</h1>
+<h3 id="1-identificacao">1. Identificação</h3>
+<p>1.1. Esta arquitetura define um único modelo de DevOps e de Esteiras Corporativas CI/CD tanto para aplicações modernas quanto para aplicações “legado”, independentemente de sua hospedagem em máquinas virtuais (VMs) ou em cluster de Kubernetes, ou independentemente de sua hospedagem em ambientes de nuvem pública, nuvem híbrida, nuvem privada, on-premises ou em lojas de aplicativos.</p>
+<p>1.2. Sobretudo, esta arquitetura considera o trabalho desenvolvido pelo CoE de DevSecOps: a criação do IDP Caixa e as novas Esteiras Corporativas CI/CD, e define um modelo capaz de contemplar a imensa maioria das aplicações CAIXA.</p>
+<p>1.3. Esta arquitetura de referência também trata de mitigar as fragilidades relacionadas a ausência de estratégia para adequação das aplicações “legado”, hospedados em VMs — e que utilizam esteiras CI/CD obsoletas — com a realidade e o padrão das modernas, preparadas para ambientes de Kubernetes.</p>
+<h2 id="2-objetivos">2. Objetivos</h2>
+<p>2.1. Padronizar o fluxo e as ferramentas de DevOps e CI/CD, a fim de modernizar o fluxo de entrega das aplicações CAIXA, e a fim de reduzir a complexidade, viabilizar a reutilização de workflows e templates, e simplificar a experiência dos desenvolvedores de software.</p>
+<p>2.2. Definir um modelo de esteira CI/CD que garanta padrões de governança, qualidade e segurança de código, práticas modernas de mercado e agilidade de implantação (deployment).</p>
+<p>2.3. Oferecer um modelo de esteira CI/CD que, ao mesmo tempo em que garanta padrões de governança, permita e promova a autonomia das equipes de desenvolvimento.</p>
+<p>2.4. Aumentar a frequência de implantação e a velocidade de resposta das equipes de desenvolvimento às demandas de compliance, governo e mercado.</p>
+<p>2.5. Reduzir o tempo entre a concepção de uma mudança no software e sua disponibilização aos usuários finais (lead time e time to market).</p>
+<p>2.6. Reduzir a taxa de falhas e os incidentes nas mudanças implantadas.</p>
+<p>2.7. Reduzir o tempo de detecção e recuperação de falhas (MTTD e MTTR).</p>
+<h2 id="3-conceitos">3. Conceitos</h2>
+<p>3.1. <strong>Esteiras CI/CD (Continuous Integration/Continuous Delivery)</strong></p>
+<p>3.2. Uma esteira CI/CD é um conjunto automatizado de processos e ferramentas que permite a integração e a entrega contínua de software.</p>
+<p>3.3. Essa esteira define o fluxo de desenvolvimento de software, desde a criação do código até a sua implantação em ambiente de produção.</p>
+<p>3.4. A esteira contém esteiras menores, ou pipelines, que incluem etapas como compilação, testes automatizados, validações de segurança, publicação em repositório, aprovações manuais e implantação.</p>
+<p>3.5. Essas características garantem que cada mudança no código seja verificada e entregue de forma segura e eficiente, reduzindo falhas e retrabalho.</p>
+<p>3.6. Ao adotar uma esteira CI/CD, as equipes constroem software de maneira mais ágil e com maior qualidade e confiabilidade. Isso possibilita inovação frequente e constante entrega de valor.</p>
+<p>3.7. <strong>IDP – Internal Developer Portal (Portal Interno do Desenvolvedor)</strong></p>
+<p>3.8. O Gartner define IDP, ou Portal Interno do Desenvolvedor, como uma interface que fornece autoatendimento, automação, ferramentas, acesso a componentes reutilizáveis, serviços de plataforma e ativos de conhecimento (GARTNER, 2025).</p>
+<p>3.9. O IDP centraliza informações e processos para facilitar o desenvolvimento de software. E ajuda a garantir que todas as equipes sigam as mesmas diretrizes de governança, desenvolvimento e infraestrutura.</p>
+<p>3.10. O IDP permite que desenvolvedores, sem depender de outras equipes, acessem e provisionem serviços, APIs, infraestrutura, scaffolders, esteiras CI/CD e outras funcionalidades.</p>
+<p>3.11. O Gartner prevê que, até 2025, 75% das organizações com equipes de plataforma fornecerão portais internos, visando aprimorar a experiência do desenvolvedor e acelerar a inovação de produtos (GARTNER, 2022).</p>
+<p>3.12. <strong>GitOps</strong> </p>
+<p>3.13. GitOps é um padrão de gestão de sistemas e infraestrutura que obedece aos seguintes princípios:</p>
+<p>• <strong>Declarativo:</strong> o estado desejado do sistema deve ser expresso de modo declarativo.</p>
+<p>• <strong>Versionado e Imutável:</strong> a infraestrutura e as configurações são declaradas em arquivos versionados. Os arquivos são armazenados de uma forma que garante imutabilidade e rastreabilidade de mudanças.</p>
+<p>• <strong>Pull Automático:</strong> um software agente monitora a fonte que contém o estado desejado.</p>
+<p>• <strong>Reconciliação Contínua:</strong> o software agente monitora o estado atual do sistema e, se divergente, aplica o estado desejado (OPENGITOPS, 2025).</p>
+<p>3.14. No contexto de esteiras CI/CD, o padrão GitOps utiliza um repositório Git (chamado de Repositório de GitOps ou Repositório de Infra-Config) para armazenar arquivos declarativos (ex.: manifestos de Kubernetes, Helm charts, Kustomize YAMLs) que definem o estado desejado do sistema.</p>
+<p>3.15. Quando uma pipeline atualiza um arquivo neste repositório Git (ex.: inclusão da tag da nova versão da imagem de contêiner), um software agente (também chamado de Ferramenta de GitOps) detecta a mudança e, automaticamente, implementa-a no cluster que hospeda a aplicação.</p>
+<p>3.16. Sempre que há uma diferença entre o estado no Git e o estado no cluster, a Ferramenta de GitOps aplica as mudanças, garantindo a reconciliação.</p>
+<p>3.17. Se houver uma alteração manual no cluster (ex.: um desenvolvedor altera a quantidade de pods via “kubectl”), a Ferramenta de GitOps detectará a divergência entre os estados e, por padrão, automaticamente, implantará a quantidade de pods correta, conforme o estado desejado armazenado no Git.</p>
+<p>3.18. Significa dizer que, no padrão GitOps, o repositório Git é a única fonte de verdade para definir e gerenciar o estado de um sistema.</p>
+<p>3.19. Essa característica garante os seguintes benefícios:</p>
+<p>• <strong>Rastreabilidade e auditoria:</strong> apenas as mudanças aprovadas e versionadas no Git são aplicadas, o que facilita a compreensão do histórico, viabiliza o controle e evita alterações não autorizadas.</p>
+<p>• <strong>Automação e confiabilidade:</strong> todas as mudanças são implantadas automaticamente pela Ferramenta de GitOps, o que agiliza os deployments e reduz os erros manuais.</p>
+<p>• <strong>Desenvolvimento e rollback ágeis:</strong> implantação contínua de código e infraestrutura, e, se algo der errado, reverte-se a alteração no Git para o sistema retornar ao estado anterior.</p>
+<p>• <strong>Consistência entre os ambientes:</strong> mudanças são propagadas de forma padronizada entre diferentes ambientes (DEV, TQS, HMP, PRD etc.).</p>
+<h2 id="4-tecnologias-componentes-desta-arquitetura">4. Tecnologias (componentes desta arquitetura)</h2>
+<p>4.1. <strong>GitHub Actions (Execução de Esteiras CI/CD)</strong></p>
+<p>4.2. O GitHub Actions é uma ferramenta da plataforma GitHub que permite automatizar, personalizar e executar fluxos de trabalho de desenvolvimento de software diretamente no repositório Git (GITHUB, 2025).</p>
+<p>4.3. Com o GitHub Actions é possível estabelecer uma esteira CI/CD automatizada e baseada em eventos, como push, pull request, testes, builds, deployments e outras tarefas repetitivas. Tudo isso de forma integrada ao ciclo de vida do projeto.</p>
+<p>4.4. Apesar de outras ferramentas (Jenkins, CircleCI, Azure DevOps etc.) também possuírem essas funcionalidades, o diferencial do GitHub Actions é a sua integração nativa com os repositórios do GitHub, o que oferece uma experiência mais fluida, familiar e simplificada para os projetos e desenvolvedores da CAIXA.</p>
+<p>4.5. Além disso, desde que a Microsoft lançou o GitHub Actions após a aquisição da plataforma GitHub, o produto vem recebendo novas features e integrações com ferramentas corporativas e open source.</p>
+<p>4.6. Por possuir um roadmap robusto, integração nativa com o GitHub e por ter se consolidado como uma das principais ferramentas de DevOps da Microsoft, o GitHub Actions é a ferramenta de CI/CD adotada nesta arquitetura de referência.</p>
+<p>4.7. <strong>Situação atual (as is):</strong> coexistência de esteiras “legado” em Jenkins e em outras ferramentas, esteiras em Azure DevOps e esteiras em GitHub Actions.</p>
+<p>4.8. <strong>Situação alvo (to be):</strong> adequação e migração de todas as esteiras para o GitHub Actions, no padrão estabelecido pelo IDP Caixa e CoE de DevSecOps.</p>
+<p>4.9. <strong>Argo CD (Ferramenta de GitOps e Automação de Deployment)</strong></p>
+<p>4.10. O Argo CD é uma ferramenta de continuous delivery baseada em princípios de GitOps. Seu uso correto garante o padrão GitOps e automatiza a implantação de aplicações (deployment), simplificando a pipeline de CD.</p>
+<p>4.11. O Argo CD sincroniza o estado atual do cluster de Kubernetes com o estado desejado do sistema, definido em arquivos declarativos num repositório Git (chamado de Repositório de GitOps ou Repositório de Infra-Config).</p>
+<p>4.12. Dessa forma, o Argo CD garante que as aplicações sob seu monitoramento estejam sempre alinhadas às configurações versionadas no Git, o que possibilita consistência e rastreabilidade.</p>
+<p>4.13. Se houver falhas na nova versão, um commit e pull request podem ser realizados para alterar a versão no repositório Git, e o Argo CD automaticamente fará o deployment da versão estável.</p>
+<p>4.14. Com base em monitoramento de falhas em produção, esse rollback pode ser automatizado por uma pipeline (ex.: a ferramenta de observabilidade detecta um tipo de erro e dispara via webhook uma pipeline no GitHub Actions, a qual faz um pull request da versão anterior no Repositório de GitOps, e o Argo CD aplica a mudança no cluster).</p>
+<p>4.15. Por facilitar o rollback e automatizar o deployment, o Argo CD tornou-se um padrão de continuous delivery baseado em GitOps para ambientes de nuvem (CNCF, 2025).</p>
+<p>4.16. O Argo CD possibilita uma alta frequência de deployment para entregas rápidas de novas funcionalidades e atualizações, reduzindo o tempo entre a concepção de uma mudança no software e sua disponibilização aos usuários finais (lead time), e também reduzindo o tempo médio de recuperação de falhas (MTTR), garantindo que os usuários finais estejam satisfeitos e seguros (CNCF, 2025).</p>
+<p>4.17. <strong>Situação atual (as is):</strong> ausência do padrão GitOps, deployments manuais ou execução de scripts de deployments em esteiras de Jenkins e Azure DevOps.Em aplicações que já migraram para o IDP Caixa: uso do Argo CD para garantir GitOps e automatizar deployments.</p>
+<p>4.18. <strong>Situação alvo (to be):</strong> padronizar para todas as aplicações corporativas o Argo CD como ferramenta de GitOps e automação de deployments. Utilização de versão open source e preferencialmente de versão suportada, conforme a disponibilidade nos ambientes CAIXA.</p>
+<p>4.19. O Argo CD é uma ferramenta open source, considerada segura pelo Cloud Native Computing Foundation e amplamente utilizada no mercado. Contudo algumas empresas criaram produtos que ofertam o Argo CD dentro de uma proposta comercial ampla e suportada, como é o caso do Red Hat Openshift, ou como o Microsoft Azure AKS e o Azure Arc-enabled Kubernetes, que oferecem, por ora em versão prévia, o Argo CD como extensão de cluster.</p>
+<p>4.20. A necessidade de um Argo CD suportado, de licenças do Red Hat Openshift para esse fim ou da utilização do Argo CD via Microsoft Azure será avaliada conforme os testes executados pelo CoE de DevSecOps e pelo processo descrito no TE097 – Prospecção de Recursos Tecnológicos.</p>
+<p>4.21. <strong>Ansible</strong></p>
+<p>4.22. Embora o Argo CD seja projetado especificamente para Kubernetes, ele pode ser utilizado em conjunto do Ansible no intuito de garantir princípios modernos de DevOps e GitOps para aplicações implantadas em máquinas virtuais (VMs).</p>
+<p>4.23. Nesse cenário, utiliza-se os CRDs (custom resource definitions), uma funcionalidade do Kubernetes que permite que um novo recurso definido num arquivo YAML seja reconhecido como se fosse nativo.</p>
+<p>4.24. Assim, CRDs armazenados em conjunto dos manifestos no Repositório de GitOps descrevem recursos que representam VMs (VMDeployment) e suas configurações (spec, host, playbook etc.). O Argo CD monitora esse repositório e, quando há alteração, implanta os metadados das VMs no cluster de Kubernetes.</p>
+<p>4.25. Um Ansbile Operator, instalado dentro de um pod, detecta os metadados e executa o playbook correspondente na VM remota, realizando o deployment, aplicando as configurações e verificando o estado dos serviços. Tudo conforme o que está declarado no repositório de GitOps monitorado pelo Argo CD.</p>
+<p>4.26. Essa abordagem permite que aplicações do “legado”, hospedadas em VMs, possam ser beneficiadas pelo padrão GitOps e pela automação de esteiras corporativas de CI/CD.</p>
+<p>4.27. <strong>Situação atual (as is):</strong> dificuldade de integrar aplicações hospedadas em VMs a um modelo moderno de DevOps e esteiras CI/CD. Aplicações “legado” em Jenkins ou ferramentas anteriores. Aplicações hospedadas em servidores JBoss/WildFly anteriores a versão 6, incompatíveis com um fluxo de CI/CD. Pouca automação.</p>
+<p>4.28. <strong>Situação alvo (to be):</strong> descontinuar o uso de Jenkins e de ferramentas de CI/CD não padronizadas. Migrar essas esteiras para Azure DevOps, no padrão do CoE de DevSecOps, e em seguidas convertê-las em esteiras de GitHub Actions por meio do IDP Caixa. Refatorar, quando possível, aplicações monolíticas para arquitetura baseada em microsserviços e hospedagem em cluster de Kubernetes. Modernizar aplicações hospedadas em antigos servidores JBoss/WildFly para versões mais atuais, compatíveis com um fluxo CI/CD. Utilizar o Ansible como ferramenta de automação nos cenários que envolvem deployments em VMs.</p>
+<p>4.29. Tal como o Argo CD, o Ansible é uma ferramenta open source amplamente utilizada no mercado. Contudo algumas empresas criaram produtos que ofertam o Ansible dentro de uma proposta comercial ampla e suportada, como é o caso do Red Hat Ansible Automation Platform, produto não contratado pela CAIXA e atualmente em regime de comodato, com testes sendo realizados pela CESTI.</p>
+<p>4.30. A avaliação da necessidade e prospecção do Red Hat Ansible Automation Platform, ou ferramenta similar, é crítica para a execução desta arquitetura de referência e deve ser realizada conforme o processo descrito no TE097 – Prospecção de Recursos Tecnológicos.</p>
+<h2 id="5-arquitetura-em-descontinuidade">5. Arquitetura em descontinuidade</h2>
+<p>5.1. Para execução de esteiras corporativas CI/CD, a arquitetura publicada anteriormente previa o uso do Azure DevOps Services (ADS Nuvem) para aplicações iOS, e do Azure DevOps Server (ADS on-premises) para as demais aplicações.</p>
+<p>5.2. A arquitetura não considerava a existência de um IDP, o qual foi desenvolvido e está sendo implementado pelo CoE de DevSecOps.</p>
+<p>5.3. A arquitetura não previa o uso de GitOps para melhorar a eficiência, segurança e consistência do fluxo de entrega de software.</p>
+<p>5.4. A arquitetura não contemplava deployments em VMs, o que limitava aplicações “legado” de adotá-la.</p>
+<p>5.5. Assim é necessário atualizar e definir uma arquitetura que garanta um só modelo de DevOps e Esteiras Corporativas CI/CD, seja para aplicações modernas, seja para aplicações “legado”.</p>
+<h2 id="6-arquitetura-de-referencia">6. Arquitetura de referência</h2>
+<p>6.1. Esta atualização de arquitetura está alinhada ao TE111 – Padrões Arquiteturais Caixa e visa “conciliar as necessidades e estratégia da CAIXA com as práticas utilizadas pelo mercado de tecnologia”.</p>
+<p>6.2. É prática de mercado modernizar constantemente o modelo de DevOps e melhorar as Esteiras CI/CD, bem como adotar um IDP e o padrão GitOps. Assim esta arquitetura define um modelo que considera tais práticas.</p>
+<p>6.3. Esta arquitetura também segue o princípio de agnosticismo de vendors, isso é, o modelo mantém a capacidade de funcionar com diferentes marcas, plataformas ou serviços, sem depender de, por exemplo, um provedor de nuvem específico.</p>
+<p>6.4. As aplicações que adotarem esta Esteira CI/CD podem ser implantadas e/ou portadas em diferentes provedores de nuvem pública, em nuvem hibrida, em nuvem privada, em lojas de App ou em servidores tradicionais on-premises.</p>
+<p>6.5. Todas as Esteiras CI/CD devem ser executadas no GitHub Actions, independentemente da natureza da aplicação e do seu ambiente destino. Essa padronização reduz a complexidade dos ambientes CAIXA, simplifica a experiência dos desenvolvedores e viabiliza a reutilização e a provisão dos templates e workflows via IDP.</p>
+<p>6.6. Tal definição não fere o princípio de agnosticismo de vendors, pois, se houver mudança estratégica, os arquivos YAML que configuram as pipelines no GitHub Actions podem ser refatorados e portados para outra ferramenta de CI/CD.</p>
+<p>6.7. Diagramação desta arquitetura de referência:</p>
+<p><img alt="" src="../../img/nuvem/modeloUnico/imagem11.png" /></p>
+<p><strong>Etapas da Esteira Corporativa de Integração Contínua (CI):</strong></p>
+<p><strong>1)</strong> Pull Request </p>
+<p>A esteira de CI é disparada quando o desenvolvedor propõe um merge.</p>
+<p><strong>2)</strong> CI.yml </p>
+<p>É uma pipeline, executada pelo GitHub Actions, cujo objetivo central é acionar ferramentas que validam rapidamente a qualidade do novo código.</p>
+<p>Esse processo segue o princípio de fast-fail (falha rápida), o qual visa detectar falhas o mais brevemente possível, antes mesmo do build, e retornar um feedback rápido ao desenvolvedor. Essa prática também evita builds pesados de códigos fora dos padrões mínimos de segurança e qualidade, reduzindo o desperdício de tempo e recursos. </p>
+<p>As etapas de validação contidas no CI.yml e subordinadas ao MN TE102 – Diretrizes para o Processo de Qualidade das Soluções de TI, são:</p>
+<p>a) Linting: verificação de estilo e sintaxe de código (padrões de escrita, espaçamento, legibilidade).</p>
+<p>b) SAST: análise estática de segurança no código, a qual visa detectar vulnerabilidades e garantir conformidade com as melhores práticas de segurança.</p>
+<p>c) Testes de Unidade*: validações isoladas (funções, classes) de pequenas partes do código, a fim de detectar bugs e garantir que cada pedaço do sistema funcione sozinho.</p>
+<p>d) Qualidade de Código: avaliação geral de boas práticas, complexidade e manutenção de código, no intuito de assegurar padrões mínimos de codificação, sustentabilidade e desempenho lógico.</p>
+<p>e) Coverage-check: mensuração de quantas linhas ou trechos do código foram executados pelos Testes de Unidade. Aumenta a confiabilidade do código e o padrão de entrega ao definir uma cobertura alta (ex.: 85%).</p>
+<p>f) SCA: análise de composição de software, a qual varre vulnerabilidades nas dependências (bibliotecas/frameworks) internas e externas. Garante pacotes seguros, atualizados e licenciados, e mitiga os riscos associados ao uso de componentes de terceiros.</p>
+<p>*Para realizar Testes de Unidade, linguagens compiladas (C#, Java, GO etc.) exigem algum tipo de build. Ou seja, nesses casos, o CI.yml precisa executar um compile-only (“build leve”) para permitir os testes (exemplo em Java: mvn compile, mvn validate, mvn test-compile).</p>
+<p><strong>3)</strong> Merge</p>
+<p>Somente com o sucesso dos testes, do Coverage-check e da pipeline de CI (CI.yml), é que o código proposto será mesclado (merge) no repositório. A conclusão do merge dispara a próxima pipeline.</p>
+<p><strong>4)</strong> Build.yml</p>
+<p>É uma pipeline, executada pelo GitHub Actions, cujo objetivo central é criar, testar e disponibilizar artefatos seguros.
+Separar as pipelines CI.yml e Build.yml traz mais clareza e modularidade (CI testa e integra código, Build cria artefato). Essa prática também facilita troubleshooting (um erro de teste é diferente de um erro de build) e evita artefatos sujos (build apenas de mudanças aprovadas, sem lixo no repositório de artefatos).</p>
+<p>As etapas que devem ser executadas no Build.yml são:</p>
+<p>a) Build: transforma o código-fonte em um artefato executável ou implantável (ex.: .jar, .zip, .war, .apk, .app, .ipa, dockerfile etc.).</p>
+<p>b) Testes de Integração: validação das interações entre os diferentes módulos e componentes da aplicação, a fim de descobrir se o sistema montado funciona como esperado.</p>
+<p>c) SCA pós-build: varredura de vulnerabilidades que possam ter sido introduzidas no processo de build e que não foram conferidas no SCA pré-build (ex.: maven baixar dependências transitivas, imagem de contêiner empacotar utilitários não conferidos).</p>
+<p>d) Captura de SHA/Digest: é o processo que registra a impressão digital do artefato. Calcula-se o SHA-256 do binário (gerando um digest) ou captura-se o digest automático da imagem de contêiner, conforme o caso. O digest garante integridade imutável e identidade globalmente única para o artefato, o que é vital para rastreá-lo e promovê-lo com segurança.</p>
+<p>e) Assinatura de Código: uso de chave privada para assinar o artefato, quando necessário. Esse processo segue conforme o definido pela Arquitetura de Referência de Segurança no Desenvolvimento do Software, item 4, “Assinatura de Código”, publicado em: https://arquiteturati.dep.caixa/25.03/seguranca/desenvolvimento/. E ainda, esse processo está subordinado ao TE197 - Padrões de Verificação de Segurança de Aplicações, item 3.10, “Assinatura de Código Executável”.</p>
+<p>f) Metadados: cria um arquivo JSON com campos que descrevem o artefato: nome da aplicação, digest, tag genérica, último ambiente, ambiente alvo sugerido (ex.: env_target: tqs), status dos testes automáticos, status dos testes manuais, aprovações, timestamp, hash do commit, branch de origem, autor do commit, lista de dependências etc.</p>
+<p>*Se o artefato é um Front-end Mobile (p.ex.: .apk, .ipa):</p>
+<p>g) Push/Pull no AppDome: a pipeline faz, via requisição HTTP à API REST do AppDome, o upload (push) do artefato. A plataforma AppDome aplica, sem alterar o código-fonte, proteções e funcionalidades de segurança nos artefatos de Front-end Mobile. Sem seguida, a pipeline faz o download (pull) do artefato “blindado”, agora pronto para ser publicado.</p>
+<p><strong>5)</strong> Publicação de Artefatos</p>
+<p>O artefato e seus metadados são publicados (push) num repositório de artefato ou registro de contêiner, conforme o caso. Um plugin do IDP (TechDocs ou um plugin customizado) pode ler o arquivo JSON e exibir os metadados do artefato, a fim de facilitar sua rastreabilidade e promoção. Com os artefatos imutáveis disponíveis para serem promovidos, encerra-se a Esteira de Integração Contínua (CI) e inicia-se a Esteira de Entrega Contínua (CD).</p>
+<p><strong>Etapas da Esteira Corporativa de Entrega Contínua (CD):</strong></p>
+<p><strong>1)</strong> Release.yml</p>
+<p>É uma pipeline, executada pelo GitHub Actions, cujo objetivo central é aprovar a promoção dos artefatos aos ambientes de DES, TQS, HMP, PRD etc.</p>
+<p>Essa pipeline pode ser disparada automaticamente quando o artefato é novo e destinado aos ambientes de não-produção. Quando o artefato já foi homologado e destina-se a ambientes de produção, ou quando o time responsável pela aplicação julgar necessário, o Release.yml é acionado manualmente via GitHub Actions. O artefato também pode ser promovido via botão do IDP (porém é necessário desenvolver essa função e integrá-la com os metadados e inputs de variáveis de ambiente no GitHub Actions).</p>
+<p>As etapas executadas pelo Release.yml são:</p>
+<p>a) Validação de Artefato: verifica se o artefato a ser promovido existe no repositório e se o digest confere com metadados. Isso evita promover um artefato divergente, modificado ou não autorizado.</p>
+<p>b) Validação de Ambiente Alvo: verifica se o ambiente alvo está correto e disponível, se a janela de implantação está aberta (ex.: ambiente de produção) e se a mudança exige aprovação prévia (ex.: requisição de mudança na ferramenta de ITSM).</p>
+<p>c) Criação de Tag de Versão: cria uma tag versionada para vincular a release ao artefato e garantir uma referência rastreável e auditável.</p>
+<p>d) Gerenciamento de Mudança: quando necessário (ex.: promoção ao ambiente de produção), abre automaticamente uma requisição de mudança na ferramenta de ITSM (esta etapa está subordinada ao TE260 – Gerenciamento de Mudanças de TI).</p>
+<p>*Após sucesso de Gitops.yml:</p>
+<p>e) Push de tag: se a pipeline seguinte (Gitops.yml) for bem-sucedida, a tag criada é publicada no Repositório de Código. A prática de publicar a tag somente após o artefato ser promovido evita que uma tag no Git seja divergente da versão de fato implantada pela Ferramenta de GitOps (Argo CD). Além disso, essa prática evita a poluição do Git (tags órfãs, que apontam para versões que nunca existiram em um ambiente, dificultam automações, rollbacks e auditorias).</p>
+<p>f) Atualização de Metadados: a pipeline Release.yml aciona um script ou composite action que atualiza o JSON criado no build.yml. O novo ambiente atual, o novo ambiente destino, os status dos testes e os demais dados que facilitam a leitura do estado e a promoção do artefato são atualizados e consumidos pelo IDP (via TechDocs ou plugin customizado).</p>
+<p>*Se o artefato é um Front-end Mobile (p.ex.: .apk, .ipa):</p>
+<p>g) Deployment em Device Farm: a pipeline Release.yml, após as etapas anteriores, realiza o deployment do artefato no Device Farm e, posteriormente, aciona a ferramenta de distribuição em lojas de app (ex.: Fastlane supply/deliver, Xcode etc.).</p>
+<p>(Atualmente não há ferramenta no mercado que permita garantir 100% de GitOps para aplicações front-end mobile, porém, um fluxo de trabalho que cumpra as etapas descritas nessa Arquitetura de Referência melhora a automação, a escalabilidade e a confiabilidade da entrega do produto).</p>
+<p><strong>2)</strong> Call</p>
+<p>É um evento do GitHub Actions que permite que uma pipeline acione outra. No caso, a pipeline Release.yml aciona e entrega inputs com as variáveis de ambiente (tag, digest, ambiente destino etc.) do artefato à pipeline Gitops.yml, e também espera e recebe retornos desta (workflow_call, wait-job etc.).</p>
+<p><strong>3)</strong> Gitops.yml</p>
+<p>É uma pipeline, executada pelo GitHub Actions, cujo objetivo central é receber as variáveis de ambiente (tag, digest, ambiente destino etc.) do artefato promovido e atualizar os manifestos no Repositório de GitOps.</p>
+<p>Desacoplar Release.yml e Gitops.yml segue uma prática moderna que aumenta a clareza (Release.yml controla versão e aprova artefatos, Gitops.yml prepara o deployment declarativo) e melhora a rastreabilidade (Release.yml define quando e por quem o artefato foi aprovado, Gitops.yml quando e por quem ele foi implantado em, por exemplo, produção).</p>
+<p>Desacoplar Release.yml e Gitops.yml também facilita rollbacks controlados (é possível reverter o PR no Repositório de GitOps sem desfazer a promoção e a tag do artefato, isso é, reverter a entrega sem invalidar a versão).</p>
+<p>As etapas executadas pelo Gitops.yml são:</p>
+<p>a) Checkout do Repositório de GitOps: a pipeline clona o conteúdo no Repositório de GitOps (onde estão armazenados os manifestos que declaram o estado desejado do sistema).</p>
+<p>b) Injeção de Tag no Manifesto: com base nas variáveis de ambiente (tag, digest, ambiente destino etc.) recebidas nos inputs de Release.yml, a pipeline Gitops.yml atualiza localmente os novos valores dos manifestos (ex.: values.yaml, kustomization.yaml).</p>
+<p>c) Validação Pós-alteração: a pipeline roda comandos (kubectl diff, kubeval, helm lint, kustomize build etc.) que ajudam a validar se as alterações não quebram a sintaxe das ferramentas e os esquemas oficiais do Kubernetes.</p>
+<p>*Após sucesso do deployment:</p>
+<p>d) Smoke-test, E2E, DAST e Scan de Vulnerabilidade: se o push ou o Pull Request com as atualizações for bem-sucedido (etapa 4), e se a Ferramenta de GitOps sincronizar o novo estado desejado pelo manifesto com o cluster de Kubernetes (isso é, realizar o deployment, etapa 5), a pipeline Gitops.yml chama um workflow que executa os seguintes testes automáticos: smoke-tests, E2E, DAST e Scan de Vulnerabilidade (autenticado e não-autenticado).</p>
+<p><strong>4)</strong> Push para DES/TQS: se o artefato está sendo promovido a um ambiente não crítico (DES, TQS, Sandbox etc.), a pipeline faz um git commit e git push das atualizações direto na branch dentro do repositório monitorado pela Ferramenta de GitOps (Argo CD). Ou seja, não são necessárias a revisão humana e a aprovação manual, o merge é instantâneo.</p>
+<p>Pull Request para HMP/PRD: se o artefato está sendo promovido a um ambiente crítico (HMP/PRD), há uma condicional na pipeline que obriga que a alteração seja realizada via Pull Request. Ou seja, são obrigatórias a revisão humana, a consulta da requisição de mudança na ferramenta de ITSM e a aprovação manual (de acordo com o TE260 – Gerenciamento de Mudanças de TI). Somente após as aprovações, é que o merge com as alterações ocorre na branch dentro do Repositório de GitOps.</p>
+<p><strong>5)</strong> Ferramenta de GitOps (Argo CD): assim que o Repositório de GitOps for atualizado com dados da nova versão do artefato ou com novas configurações de infraestrutura, a Ferramenta de GitOps (Argo CD) detectará a mudança e, automaticamente, fará o deployment no ambiente alvo, garantindo que o cluster esteja sincronizado com o estado declarado nos manifestos.</p>
+<p>Se houver uma alteração manual (ad hoc) no cluster, a Ferramenta de GitOps (Argo CD) também detectará a divergência e fará um novo deployment para garantir que o cluster esteja sincronizado com o estado declarado nos manifestos. Significa dizer que a Ferramenta de GitOps (Argo CD) automatiza o deployment e garante que as aplicações sob seu monitoramento estejam sempre alinhadas às configurações versionadas no Git, o que possibilita consistência e rastreabilidade. </p>
+<p>Portanto o Repositório de GitOps (aquele que armazena o estado desejado da aplicação, sua versão atual e suas configurações) é a única fonte de verdade para gerenciar o estado de todo o sistema. Ou seja, qualquer ação que vise alterar o estado do sistema deve agir sobre o Repositório de GitOps.</p>
+<p><strong>6)</strong> Ambientes de DES/TQS/HMP/NPRD: a Ferramenta de GitOps (Argo CD) fará o deployment do artefato imutável no ambiente alvo, ambos definidos durante a pipeline Release.yml e atualizados pela pipeline Gitops.yml. </p>
+<p>O time responsável então executa os testes manuais (Regressão, Desempenho, Funcionalidade, Acessibilidade, PenTest etc.) necessários para validar a nova versão (este processo é definido pelo MN TE102 – Diretrizes para o Processo de Qualidade das Soluções de TI e pelo MN TE168 – Identificação De Vulnerabilidades De Segurança Cibernética). </p>
+<p>Conforme a nova versão é validada, o time responsável dispara novamente a pipeline Release.yml, a fim de promover o artefato entre os ambientes até que a nova versão esteja homologada e pronta para o ambiente de produção. </p>
+<p>Se a aplicação é um front-end mobile e destina-se a um Device Farm/Loja de App, o fluxo de entrega segue conforme o item “g)”, “Deployment em Device Farm”, da pipeline Release.yml. </p>
+<p>Se a aplicação não é preparada para Kubernetes e destina-se a VMs, o fluxo de entrega segue o que está descrito no item 4.21, “Ansible”, desta arquitetura de referência.</p>
+<p><strong>7)</strong> Ambiente de Produção: conforme execução das pipelines de Release.yml e Gitops.yml, e conforme a aprovação manual do Pull Request (subordinado ao TE260 – Gerenciamento de Mudanças de TI), a Ferramenta de GitOps (Argo CD) fará o deployment da nova versão no ambiente de produção. </p>
+<p>Após o deployment do artefato no ambiente de produção, encerra-se a Esteira de Entrega Contínua (CD). A aplicação é então monitorada pelas ferramentas de observabilidade e pelos times de desenvolvimento, SRE e produção.</p>
+<h2 id="7-referencias">7. Referências</h2>
+<p>Gartner. </p>
+<p>What are Internal Developer Portals?. 2025. Disponível em: https://www.gartner.com/reviews/market/internal-developer-portals. Acesso em: 09 de junho de 2025.</p>
+<p>Gartner.  </p>
+<p>Innovation Insight for Internal Developer Portals. 2022. https://www.gartner.com/en/documents/4010078. Acesso em: 09 de junho de 2025.</p>
+<p>OpenGitOps. </p>
+<p>GitOps Principles. 2025. https://opengitops.dev/. Acesso em: 09 de junho de 2025.</p>
+<p>IBM. </p>
+<p>Modelando implementações azuis-verdes, de rolagem e canárias, 2021. https://www.ibm.com/docs/pt-br/devops-deploy/6.2.5?topic=processes-modeling-blue-green-rolling-canary-deployments. Acesso em 09 de junho de 2025.</p>
+<p>Git Hub. </p>
+<p>Documentação do GitHub Actions, 2025. https://docs.github.com/pt/actions. Acesso em: 09 de junho de 2025.</p>
+<p>CNCF.</p>
+<p>Cloud Native Computing Foundation Announces Argo CD v3, 2025. https://www.cncf.io/announcements/2025/04/01/cloud-native-computing-foundation-announces-argo-cd-v3-update-to-enhance-scalability-and-security-for-kubernetes/. Acesso em 09 de junho de 2025.</p>
+<p>CNCF. </p>
+<p>Argo, Business Use Case, 2025. https://landscape.cncf.io/?item=app-definition-and-development--continuous-integration-delivery--argo. Acesso em: 09 de junho de 2025.</p>
+<h2 id="8-normativos">8.   Normativos</h2>
+<p>MN PO007 – Política de Segurança da Informação  </p>
+<p>MN TE102 – Diretrizes para o Processo de Qualidade das Soluções de TI  </p>
+<p>MN TE111 – Padrões Arquiteturais CAIXA  </p>
+<p>MN TE168 – Identificação De Vulnerabilidades De Segurança Cibernética  </p>
+<p>MN TE177 – Diretrizes para o Desenvolvimento de Aplicativos  </p>
+<p>MN TE192 – Arquitetura de Soluções Tecnológicas  </p>
+<p>MN TE197 – Padrões de Verificação de Segurança de Aplicações  </p>
+<p>MN TE260 – Gerenciamento de Mudanças de TI  </p>
+<h2 id="historico-da-revisao">Histórico da Revisão</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26/06/2025</td>
+<td>1.0</td>
+<td>Criação do documento</td>
+<td>SUART09</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../key-vault/index.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Key Vault" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Key Vault
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../RedHat_Keycloak/index.html" class="md-footer__link md-footer__link--next" aria-label="Próximo: SSO RedHat Keycloak (RHBK)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              SSO RedHat Keycloak (RHBK)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="index.html#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

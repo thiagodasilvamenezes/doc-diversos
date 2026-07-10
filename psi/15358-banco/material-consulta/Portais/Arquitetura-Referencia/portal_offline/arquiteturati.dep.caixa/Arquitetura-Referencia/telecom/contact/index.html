@@ -1,0 +1,5327 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>Uso futuro - Arquiteturas de Referência</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/medium-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="index.html#contact-center-caixa" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  Esta não é a documentação atual das arquiteturas de referência.
+  <a href="https://arquiteturati.dep.caixa/latest"> 
+
+
+    <strong>Clique aqui para ir para a versão atual.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-header__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Arquiteturas de Referência
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Uso futuro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        Introdução
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/api/index.html" class="md-tabs__link">
+        Aplicação
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-tabs__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-tabs__link">
+        Nuvem
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-tabs__link">
+        Segurança
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dados/introducao/index.html" class="md-tabs__link">
+        Dados
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../telecom/index.html" class="md-tabs__link md-tabs__link--active">
+        Telecom
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-tabs__link">
+        Linhas de Negócio
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../departamental/departamental/index.html" class="md-tabs__link">
+        Departamental
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+  <div style="font-weight: bold; font-size: 0.7rem; text-align: right; width: 250px; height: 30px; position: fixed; top: 70px; right: 15px; color: #ffffff; z-index: 99999;">
+    <b>#INTERNO.TODOS</b>  
+  </div>
+
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Arquiteturas de Referência" class="md-nav__button md-logo" aria-label="Arquiteturas de Referência" data-md-component="logo">
+      
+  <img src="../../img/marca.png" alt="logo">
+
+    </a>
+    Arquiteturas de Referência
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introdução
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introdução" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introdução
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notas-versao/index.html" class="md-nav__link">
+        Notas da versão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aplicação
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aplicação" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aplicação
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/swagger/index.html" class="md-nav__link">
+        Swagger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../desenvolvimento-caixa/index.html" class="md-nav__link">
+        Desenvolvimento CAIXA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dependencias/index.html" class="md-nav__link">
+        Boas práticas MAVEN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Logs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Logs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/logs/index.html" class="md-nav__link">
+        Geração de Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logs/consumo-logs/index.html" class="md-nav__link">
+        Consumo e monitoração de Log
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Integrações
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrações" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Integrações
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/integracoes/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integracoes/cicsws/index.html" class="md-nav__link">
+        CICS WS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Padrões de Arquitetura e Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Padrões de Arquitetura e Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Padrões de Arquitetura e Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/design/index.html" class="md-nav__link">
+        Padrões de Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/desacoplamento/index.html" class="md-nav__link">
+        Desacoplamento Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/cleanArchitecture/index.html" class="md-nav__link">
+        Clean Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/domainDrivenDesign/index.html" class="md-nav__link">
+        DDD - Domain-Driven Design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cleanArchitecture/repositorioProjetos/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Microsserviços
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Microsserviços" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Microsserviços
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microsservicos/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/microprofile/index.html" class="md-nav__link">
+        Java Microprofile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/spring/index.html" class="md-nav__link">
+        Spring Boot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/jwt/index.html" class="md-nav__link">
+        Segurança JWT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../microsservicos/arquitetura/index.html" class="md-nav__link">
+        Arquitetura .NET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Mobilidade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mobilidade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Mobilidade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_1" type="checkbox" id="__nav_2_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/archetype/index.html" class="md-nav__link">
+        Archetype
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9_2" type="checkbox" id="__nav_2_9_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade-v2/index.html" class="md-nav__link">
+        Nova Arquitetura de Mobilidade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mobilidade/mobilidade_seguranca/index.html" class="md-nav__link">
+        Segurança para Aplicativos Móveis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_1" type="checkbox" id="__nav_2_10_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/spa/index.html" class="md-nav__link">
+        Sigle Page Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/quickstarts/index.html" class="md-nav__link">
+        Quickstarts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2" type="checkbox" id="__nav_2_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10_2_1" type="checkbox" id="__nav_2_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10_2_1">
+          Micro Frontends
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Micro Frontends" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Micro Frontends
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/microfrontend/index.html" class="md-nav__link">
+        Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/guia-desenvolvimento-mf/index.html" class="md-nav__link">
+        Guia para desenvolvimento
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../batch/spring-batch/index.html" class="md-nav__link">
+        Processamento Batch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rpa/rpa/index.html" class="md-nav__link">
+        RPA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zOSconnect/index.html" class="md-nav__link">
+        ZOS Connect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          Eventos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Eventos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          Eventos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14_1" type="checkbox" id="__nav_2_14_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_14_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka/index.html" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-quarkus/index.html" class="md-nav__link">
+        Kafka com Quarkus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eventos/kafka-spring/index.html" class="md-nav__link">
+        Kafka com Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Infraestrutura
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Infraestrutura" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Infraestrutura
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/transmissao_arquivos/index.html" class="md-nav__link">
+        Transmissão de Arquivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/exadata/index.html" class="md-nav__link">
+        Exadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/sincronismo_tempo/index.html" class="md-nav__link">
+        Sincronismo de Tempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/software/uso-jdk/index.html" class="md-nav__link">
+        Java Development Kit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Hardware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Hardware" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/openblock/index.html" class="md-nav__link">
+        Open Bloco
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-ficon/as-is/index.html" class="md-nav__link">
+        SAN FICON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_3" type="checkbox" id="__nav_3_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_3">
+          Backup Multiplataforma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup Multiplataforma" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backup Multiplataforma
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/backup-multiplataforma/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_4" type="checkbox" id="__nav_3_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_4">
+          SAN OPEN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAN OPEN" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SAN OPEN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/as-is/index.html" class="md-nav__link">
+        Uso geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/hardware/san-open/to-be/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infraestrutura/unisys/index.html" class="md-nav__link">
+        SIACI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nuvem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/infraestrutura_nuvem/index.html" class="md-nav__link">
+        Infraestrutura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Azure Virtual Desktop
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Azure Virtual Desktop" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure Virtual Desktop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/avd/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/orquestracao-container/index.html" class="md-nav__link">
+        Orquestração de container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://arquiteturati.dep.caixa/25.06/nuvem/cosmos.md" class="md-nav__link">
+        Cosmos DB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/power/index.html" class="md-nav__link">
+        Power BI Embedded
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/key-vault/index.html" class="md-nav__link">
+        Key Vault
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/esteirascicd/index.html" class="md-nav__link">
+        Esteiras CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nuvem/RedHat_Keycloak/index.html" class="md-nav__link">
+        SSO RedHat Keycloak (RHBK)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Segurança
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Segurança" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Segurança
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/seguranca/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/criptografia/index.html" class="md-nav__link">
+        Criptografia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/identidade/index.html" class="md-nav__link">
+        Identidade e Gestão de Acessos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/operacoes/index.html" class="md-nav__link">
+        Operações de Segurança
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/desenvolvimento/index.html" class="md-nav__link">
+        Segurança no Desenvolvimento de Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/dados_endpoints/index.html" class="md-nav__link">
+        Segurança de Dados e Endpoints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/redes_comunicacao/index.html" class="md-nav__link">
+        Segurança de Redes e Comunicação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/nuvem/index.html" class="md-nav__link">
+        Segurança de Nuvem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Casos de uso Especiais
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Casos de uso Especiais" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Casos de uso Especiais
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_de_uso/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/openbanking/index.html" class="md-nav__link">
+        Openbanking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/seguranca_api/index.html" class="md-nav__link">
+        Segurança de APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/integracao_parceiros_openid/index.html" class="md-nav__link">
+        Integração com parceiros usando protocolo Openid Connect-OAuth 2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seguranca/casos_uso/novo_atm/index.html" class="md-nav__link">
+        Segurança do novo ATM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dados" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/introducao/index.html" class="md-nav__link">
+        Diretrizes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Bancos de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bancos de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bancos de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/gateway/index.html" class="md-nav__link">
+        Gateway de dados
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_2" type="checkbox" id="__nav_6_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_2">
+          Relacional
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Relacional" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Relacional
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/oracle/oracle/index.html" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3" type="checkbox" id="__nav_6_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3">
+          NoSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1" type="checkbox" id="__nav_6_2_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1">
+          Cache In Memory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cache In Memory" data-md-level="4">
+        <label class="md-nav__title" for="__nav_6_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cache In Memory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/db-cache-in-memory/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/replicado/db-cache-in-memory-replicado/index.html" class="md-nav__link">
+        Replicado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2_3_1_3" type="checkbox" id="__nav_6_2_3_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2_3_1_3">
+          Uso Restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso Restrito" data-md-level="5">
+        <label class="md-nav__title" for="__nav_6_2_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Uso Restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/banco_de_dados/nosql/cache-in-memory/distribuido/db-cache-in-memory-distribuido/index.html" class="md-nav__link">
+        Distribuído
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Gestão de Arquitetura de Dados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gestão de Arquitetura de Dados" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gestão de Arquitetura de Dados
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_1" type="checkbox" id="__nav_6_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_1">
+          Uso restrito
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso restrito" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso restrito
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/metadados/index.html" class="md-nav__link">
+        Metadados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/governanca_de_dados/powerdesign/index.html" class="md-nav__link">
+        PowerDesign
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4">
+          Integração
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integração" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Integração
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_1">
+          Uso geral
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uso geral" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uso geral
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/etl_oracle_data_pump/index.html" class="md-nav__link">
+        ETL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_5">
+          Big Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dados/big_data/big_data_e_analytics-visao_arquitetura/index.html" class="md-nav__link">
+        Big Data e Analytics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Telecom
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Telecom" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Telecom
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telecom/index.html" class="md-nav__link">
+        Visão Geral
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../switching_datacenter/index.html" class="md-nav__link">
+        Switching Datacenter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure/index.html" class="md-nav__link">
+        Azure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede1/index.html" class="md-nav__link">
+        Rede 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede2/index.html" class="md-nav__link">
+        Rede 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede3/index.html" class="md-nav__link">
+        Rede 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede4/index.html" class="md-nav__link">
+        Rede 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede5/index.html" class="md-nav__link">
+        Rede 5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede6/index.html" class="md-nav__link">
+        Rede 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede7/index.html" class="md-nav__link">
+        Rede 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rede-local/index.html" class="md-nav__link">
+        Rede Comutada Corporativa (SDLAN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financeira/index.html" class="md-nav__link">
+        Financeira
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webproxy/index.html" class="md-nav__link">
+        Web Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_14" type="checkbox" id="__nav_7_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_14">
+          Call Center em Nuvem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Call Center em Nuvem" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_14">
+          <span class="md-nav__icon md-icon"></span>
+          Call Center em Nuvem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../call_center_nuvem/index.html" class="md-nav__link">
+        Uso restrito
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_15" type="checkbox" id="__nav_7_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_15">
+          WiFi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="WiFi" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_15">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wifi/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_16" type="checkbox" id="__nav_7_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_16">
+          Balanceamento
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Balanceamento" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_16">
+          <span class="md-nav__icon md-icon"></span>
+          Balanceamento
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Balanceamento/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_17" type="checkbox" id="__nav_7_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_17">
+          Interconexões Multicloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Interconexões Multicloud" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_17">
+          <span class="md-nav__icon md-icon"></span>
+          Interconexões Multicloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interconexoes_multicloud/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_18" type="checkbox" id="__nav_7_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_18">
+          SDWAN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SDWAN" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_18">
+          <span class="md-nav__icon md-icon"></span>
+          SDWAN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdwan/index.html" class="md-nav__link">
+        Uso futuro
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_19" type="checkbox" id="__nav_7_19" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_19">
+          Contact Center
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contact Center" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_19">
+          <span class="md-nav__icon md-icon"></span>
+          Contact Center
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Uso futuro
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Uso futuro
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#processo-de-negocio" class="md-nav__link">
+    Processo de Negócio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#produtos-e-servicos-impactados" class="md-nav__link">
+    Produtos e Serviços Impactados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#cenario-atual" class="md-nav__link">
+    Cenário Atual
+  </a>
+  
+    <nav class="md-nav" aria-label="Cenário Atual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#solucoes-isoladas-de-atendimento-as-is" class="md-nav__link">
+    Soluções Isoladas de Atendimento (As Is)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-da-solucao-on-premise" class="md-nav__link">
+    Arquitetura da Solução On Premise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#descricao-geral" class="md-nav__link">
+    Descrição Geral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#fluxograma-operacional" class="md-nav__link">
+    Fluxograma Operacional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#call-center-em-nuvem" class="md-nav__link">
+    Call Center em Nuvem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#canais-digitais-parciais-whatsapp-webchat-e-chatbot" class="md-nav__link">
+    Canais Digitais Parciais: Whatsapp, Webchat e Chatbot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#armazenamento" class="md-nav__link">
+    Armazenamento
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#contact-center-caixa-omnichannel" class="md-nav__link">
+    Contact Center CAIXA - Omnichannel
+  </a>
+  
+    <nav class="md-nav" aria-label="Contact Center CAIXA - Omnichannel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#atendimento-integrado-omnichannel" class="md-nav__link">
+    Atendimento Integrado Omnichannel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#solucao-proposta-do-contact-center-caixa" class="md-nav__link">
+    Solução Proposta do Contact Center CAIXA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida-to-be" class="md-nav__link">
+    Arquitetura Definida (To Be)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#conectividade" class="md-nav__link">
+    Conectividade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#interoperabilidade" class="md-nav__link">
+    Interoperabilidade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#sistema-de-gerenciamento-e-gestao-da-solucao" class="md-nav__link">
+    Sistema De Gerenciamento e Gestão Da Solução
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#consideracoes-finais" class="md-nav__link">
+    Considerações Finais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#definicoes-acronimos-e-abreviacoes" class="md-nav__link">
+    Definições, Acrônimos e Abreviações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+    <nav class="md-nav" aria-label="Referências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquiteturas-de-ti" class="md-nav__link">
+    Arquiteturas de TI:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#legislacao" class="md-nav__link">
+    Legislação:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#normativos" class="md-nav__link">
+    Normativos:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../micro/index.html" class="md-nav__link">
+        Segmentação e Microssegmentação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/index.html" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mesa-operacoes/index.html" class="md-nav__link">
+        Mesa de Operações
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Linhas de Negócio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linhas de Negócio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Linhas de Negócio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_1">
+          Canais Físicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Canais Físicos" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_1">
+          <span class="md-nav__icon md-icon"></span>
+          Canais Físicos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../frontend/plataforma-unificada/index.html" class="md-nav__link">
+        Plataforma unificada de agências
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/canais_fisicos/dossie_digital/index.html" class="md-nav__link">
+        Dossiê Digital
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3">
+          Contabilidade Integrada
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contabilidade Integrada" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contabilidade Integrada
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linhas_negocio/contabilidade_integrada/contabilidade_integrada/index.html" class="md-nav__link">
+        Uso Geral
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Departamental
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Departamental" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Departamental
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../departamental/departamental/index.html" class="md-nav__link">
+        Arquitetura Tecnológica para Departamental
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="index.html#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#processo-de-negocio" class="md-nav__link">
+    Processo de Negócio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#produtos-e-servicos-impactados" class="md-nav__link">
+    Produtos e Serviços Impactados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#cenario-atual" class="md-nav__link">
+    Cenário Atual
+  </a>
+  
+    <nav class="md-nav" aria-label="Cenário Atual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#solucoes-isoladas-de-atendimento-as-is" class="md-nav__link">
+    Soluções Isoladas de Atendimento (As Is)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-da-solucao-on-premise" class="md-nav__link">
+    Arquitetura da Solução On Premise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#descricao-geral" class="md-nav__link">
+    Descrição Geral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#fluxograma-operacional" class="md-nav__link">
+    Fluxograma Operacional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#call-center-em-nuvem" class="md-nav__link">
+    Call Center em Nuvem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#canais-digitais-parciais-whatsapp-webchat-e-chatbot" class="md-nav__link">
+    Canais Digitais Parciais: Whatsapp, Webchat e Chatbot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#armazenamento" class="md-nav__link">
+    Armazenamento
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#contact-center-caixa-omnichannel" class="md-nav__link">
+    Contact Center CAIXA - Omnichannel
+  </a>
+  
+    <nav class="md-nav" aria-label="Contact Center CAIXA - Omnichannel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#atendimento-integrado-omnichannel" class="md-nav__link">
+    Atendimento Integrado Omnichannel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#solucao-proposta-do-contact-center-caixa" class="md-nav__link">
+    Solução Proposta do Contact Center CAIXA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquitetura-definida-to-be" class="md-nav__link">
+    Arquitetura Definida (To Be)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#conectividade" class="md-nav__link">
+    Conectividade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#interoperabilidade" class="md-nav__link">
+    Interoperabilidade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#sistema-de-gerenciamento-e-gestao-da-solucao" class="md-nav__link">
+    Sistema De Gerenciamento e Gestão Da Solução
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#consideracoes-finais" class="md-nav__link">
+    Considerações Finais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#definicoes-acronimos-e-abreviacoes" class="md-nav__link">
+    Definições, Acrônimos e Abreviações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="index.html#referencias" class="md-nav__link">
+    Referências
+  </a>
+  
+    <nav class="md-nav" aria-label="Referências">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="index.html#arquiteturas-de-ti" class="md-nav__link">
+    Arquiteturas de TI:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#legislacao" class="md-nav__link">
+    Legislação:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="index.html#normativos" class="md-nav__link">
+    Normativos:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="contact-center-caixa">CONTACT CENTER CAIXA</h1>
+<blockquote>
+<p><strong>Importante:</strong> Essa arquitetura de referência se encontra em fase de prospecção e não possui nenhum indicativo de uso geral pelas equipes. </p>
+</blockquote>
+<h2 id="objetivo">Objetivo</h2>
+<ol>
+<li>Disponibilização de infraestrutura para o atendimento integrado aos
+    canais de relacionamento CAIXA, por meio de Solução de <em>Contact
+    Center Omnichannel</em>, destinados aos profissionais de Telesserviços
+    ou de Atendimento à Clientes, na modalidade de software como serviço
+    em nuvem pública (<em>SaaS -- Software as a Service</em>).</li>
+</ol>
+<h2 id="processo-de-negocio">Processo de Negócio</h2>
+<ol>
+<li>
+<p>O modelo de negócio advém da necessidade de se implantar um modelo
+    de atendimento integrado, com objetivo de propiciar uma visão que
+    fortaleça o atendimento resolutivo com excelência nos canais
+    remotos.</p>
+</li>
+<li>
+<p>O atendimento integrado compreende na disponibilização dos serviços
+    de atendimento por intermédio de múltiplos canais de comunicação -
+    <em>Omnichannel</em>, de modo a promover a liberdade de escolha ao cliente,
+    fazendo com que a <a href="https://www.digitro.com/blog/comunicacao/customer-journey-mapear-jornada-cliente/">jornada do
+    cliente</a>
+     tenha experiência única e personalizada, com agilidade e eficiência
+    na troca de informações, buscando a resolução no primeiro contato.</p>
+</li>
+<li>
+<p>Deverá permitir que os atendimentos de ligações de e para os
+    clientes da CAIXA sejam realizados pelos empregados e colaboradores
+    da CAIXA, de forma remota, independente da área geográfica, seja em
+    ambiente CAIXA ou regime de <em>home office</em>.</p>
+</li>
+<li>
+<p>Deverá promover a integração estrutural entre as diversas áreas, de
+    modo que toda equipe atue de forma onipresente, provendo atendimento
+    por meio dos canais de voz, <em>webchat,</em> mensagens instantâneas,
+    atendimento automatizado - <em>bot, chatbot,</em> atendimento eletrônico,
+    <em>e-mail,</em> redes sociais e lojas de aplicativos.</p>
+</li>
+<li>
+<p>Deverá implementar os fluxos conversacionais e transacionais com o
+    emprego da TIC, como Inteligência Artificial, <em>Natural Language
+    Processing, Machine Learning</em>, Sintetizador e reconhecimento de voz
+    (<em>TTS e STT</em>), Assistente Virtual (<em>Chat bot</em>)<em>,</em> URA Cognitiva,
+    dentre outros disponíveis no mercado.</p>
+</li>
+<li>
+<p>Deverá permitir a criação de regras de roteamento unificada de
+    interações com base em regras de negócio, por qualquer canal de
+    atendimento suportado.</p>
+</li>
+<li>
+<p>Prover módulo de <em>Workforce Management</em>, nativamente, que propicie
+    gerenciamento da qualidade, da produtividade e planejamento
+    eficiente da força de trabalho, com elementos de análise, predição e
+    relatoria, incluindo ações reativas em picos de atendimento.</p>
+</li>
+<li>
+<p>Utilizar interface no idioma português do Brasil.</p>
+</li>
+</ol>
+<h2 id="produtos-e-servicos-impactados">Produtos e Serviços Impactados</h2>
+<ol>
+<li>
+<p>Pelos canais de atendimento os clientes, entes públicos e a
+    população em geral, poderão solicitar serviços e informações,
+    registrar reclamações e elogios, enviar sugestões, cancelar e
+    bloquear produtos, dentre muitos outros.</p>
+</li>
+<li>
+<p>Destaca-se os seguintes serviços de atendimento:</p>
+<ul>
+<li>
+<p>SAC - Serviço de Atendimento ao Cliente (SAC) ou Central de Relacionamento, responsável pelo atendimento a clientes e não clientes que buscam orientações, explicações, reclamações sobre produtos ou serviços;</p>
+</li>
+<li>
+<p><em>Help-desk</em> - Serviços para orientações quanto a dificuldades ou a soluções de problemas tecnológicos de serviços e produtos encontrados por clientes;</p>
+</li>
+<li>
+<p>Outros: Atendimento a Cartões, Ouvidoria, Agências Digitais, Habitação, Inadimplência, Mercado Financeiro e demais serviços sociais (FGTS, PIS, Seguro Desemprego, Auxílios) </p>
+<p><img alt="" src="../../img/telecom/contact-center/image1.png" /> 
+<div class="rotulo-img">Figura 1 -- Serviços Impactados</img> </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Os atendimentos aos clientes, hoje em regime contínuo, sejam via
+    meios eletrônicos (URA) ou diretamente ao operador, são os pilares
+    da retenção de clientes, em um ambiente de concorrência extremamente
+    acirrada.</p>
+</li>
+<li>
+<p>Os atendimentos seguem normas rígidas de continuidade e eficiência,
+    consubstanciadas na lei do SAC, que impõe multas elevadas diante de
+    indisponibilidade dos serviços, pelos órgãos reguladores e de defesa
+    do consumidor.</p>
+</li>
+<li>
+<p>A nova arquitetura proposta possuirá grande abrangência e
+    contemplará, além de todos os serviços de atendimento por voz do
+    Telesserviços e <em>Call Center</em> em Nuvem, atualmente em funcionamento,
+    atendimento a serviços exclusivos de agências, presencialmente, e
+    todos os novos canais digitais.</p>
+</li>
+<li>
+<p>Essa integração dos canais trará forte impacto no tempo dos
+    atendentes, resultando em aumento da produtividade, agilidade no
+    atendimento, independência geográfica e melhor experiência do
+    cliente.</p>
+</li>
+</ol>
+<h2 id="cenario-atual">Cenário Atual</h2>
+<h3 id="solucoes-isoladas-de-atendimento-as-is">Soluções Isoladas de Atendimento (<em>As Is</em>)</h3>
+<ol>
+<li>
+<p>O Atendimento da CAIXA, atualmente, é realizado por várias
+    soluções a serem consideradas:</p>
+<ul>
+<li>
+<p><em>Call Center</em> <em>On Premise</em> -- Telesserviços (Voz);</p>
+</li>
+<li>
+<p><em>Call Center</em> em Nuvem (Voz);</p>
+</li>
+<li>
+<p>Canais Digitais (<em>Whatsapp, Webchat e Chatbot</em>);</p>
+</li>
+<li>
+<p>Balcão Virtual - Videochamada para Deficientes Auditivos;</p>
+</li>
+<li>
+<p>Serviços Terceirizados.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>O Call Center adquirido pela CAIXA, há mais de 15 anos, é o
+    principal canal de atendimento, por suas dimensões e capacidade
+    de atendimento, contando com aproximadamente 8,5 mil Posições de
+    Atendimento Humano e 45 mil portas para Atendimento Eletrônico,
+    simultâneos, recebendo ainda, em torno de 1,5 bilhões de
+    ligações e 60 milhões de gravações ao ano.</p>
+</li>
+<li>
+<p>Essa infraestrutura de atendimento encontra-se instalada no
+    Centro Tecnológico da CAIXA - CTC, em Brasília, sendo exclusiva
+    para o atendimento e operações por voz, e mesmo, passando
+    algumas atualizações tecnológicas, sua capacidade está defasada
+    tecnologicamente e com capacidade limitada, sem condições de
+    crescimento, acréscimo de licenças e possibilidade de
+    implementação de novos serviços necessários ao atendimento
+    digital.</p>
+</li>
+<li>
+<p>E para manter toda essa infraestrutura e serviços em operação,
+    em regime de 24/7, a CAIXA possui um contrato com empresa
+    terceirizada para prestar o suporte tecnológico da solução, que
+    é proprietária, e outro contrato, também com empresa
+    terceirizada, denominada de "Fábrica de Software da CAIXA", para
+    prestar os serviços de desenvolvimento de aplicações AsterisK
+    (Aplicativo de telefonia de arquitetura aberta), com foco em
+    Atendimento Eletrônico (URA).</p>
+<p><img alt="" src="../../img/telecom/contact-center/image2.gif" /> </p>
+<p><div class="rotulo-img">Figura 2 -- Topologia do Telesserviços</div></p>
+</li>
+<li>
+<p>Assim, diante da pandemia e seguindo o estratégico com o objetivo de
+ampliar e modernizar o atendimento aos diversos canais digitais,
+para atendimento ao público e aos novos consumidores que vêm
+exigindo canais alternativos, com atendimento integrado e de forma
+mais eficaz, abriu-se algumas frentes de ações:</p>
+<ul>
+<li>
+<p>Prospectar e instruir processo para contratação de solução completa de Atendimento Integrado a médio/longo prazo;</p>
+</li>
+<li>
+<p>Ampliar os canais de voz com soluções de mercado em nuvem, por meio  de contratos emergências;</p>
+</li>
+<li>
+<p>Incluir soluções alternativas de atendimento de alguns canais digitais, pelo menos, também, por meio de contratos emergenciais;</p>
+</li>
+<li>
+<p>Buscar solução de videochamada para deficientes auditivos, para permitir o uso de linguagem de sinais (libras);</p>
+</li>
+<li>
+<p>Ampliar o atendimento, também no curto prazo, utilizando contrato de serviços terceirizados.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sem dúvida, o Atendimento Integrado desejado, traria imediatamente,
+além da comunicação vocal, a interação completa com os clientes, por
+meio de demais canais digitais, mais modernos.</p>
+</li>
+<li>
+<p>Entretanto, para o curto prazo, a CAIXA encontrou no mercado,
+soluções independentes, sobre as quais assinou contratos
+emergenciais com duas empresas distintas, para atender as seguintes
+necessidades:</p>
+<ol>
+<li>
+<p>Ampliação do Atendimento por Voz (<em>CCeN</em>);</p>
+</li>
+<li>
+<p>Inclusão de Canais Digitais (<em>Whatsapp, Webchat e Chatbot</em>).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>No primeiro caso, a solução exclusiva aos serviços de voz foi
+    denominada de <em>Call Center</em> em Nuvem (<em>CCeN</em>) e tem capacidade
+    de atendimento de até 1.000 Posições de Atendimento e 200 Portas
+    de URA.</p>
+<ol>
+<li>
+<p>Embora tenha capacidade bem inferior, ele possui algumas
+    características importantes, inexistentes ao <em>Call Center on
+    premise</em>, em operação na CAIXA, tais como: Capacidade até
+    1.000 PA, pagamento do serviço por PA Ativa, uso de
+    <em>Softphone</em> ou <em>Webphone</em>, Solução Integrada, Discagem
+    Automática Preditiva, Escuta Supervisionada e Relatórios
+    Gerenciais <em>Online</em>.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image3.png" /></p>
+</li>
+</ol>
+<p><div class="rotulo-img"> Figura 3 -- Atendimento pelo <em>Call Center</em> em Nuvem</div></p>
+</li>
+<li>
+<p>Quaisquer dessas soluções anteriores, <em>Call Center</em> em Nuvem e
+Terceirizadas, permitem transferências de chamadas (voz) para o
+<em>Call Center</em> da CAIXA, e para algumas Unidades internas, como CESEG
+e Ouvidoria, visando atendimentos complementares de segundo e
+terceiros níveis.</p>
+</li>
+<li>
+<p>Seguindo as frentes de ações relatadas anteriormente, a CAIXA adotou
+medidas internas, incentivando que os negócios, inclusive os
+atendimentos, fossem realizados também por meio digital,
+especialmente se valendo do canal <em>Whatsapp.</em></p>
+<ol>
+<li>
+<p>Portanto, no segundo caso dessas soluções independentes de
+mercado, que diz respeito ao atendimento digital, os serviços
+contratados contemplaria, pelo menos, o <em>Whatsapp e o WebChat,
+com uso de ChatBot</em>.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image4.png" /> </p>
+<p><div class="rotulo-img">Figura 4 -- Atendimentos Digitais </div></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Outrossim, em decorrência da Lei nº 5.367, de 5 de Janeiro de 2021,
+do Estado do Amazonas, sobre a obrigatoriedade das empresas aderirem
+ao atendimento à deficientes auditivos, por meio de videochamada,
+nos serviços de atendimento ao cliente \"SAC" e congêneres, a CAIXA
+buscou solução para se adaptar e atender a tal lei, que deverá se
+estender em nível nacional.</p>
+<ol>
+<li>Após avaliações dos cenários de soluções possíveis para
+atendimento às necessidades apresentadas até o momento, optou-se
+pelo uso da plataforma da Microsoft/Teams, denominada Balcão
+Virtual, por ser uma plataforma já contratada,  sem necessidade
+de novas aquisições e/ou adequação de licenças.</li>
+</ol>
+</li>
+<li>
+<p>Ainda, outro recurso utilizado para ampliação de canais, no curto
+prazo, foi a terceirização dos serviços de atendimento, incluindo
+profissionais e a infraestrutura externa, à exemplo dos atendimentos
+aos clientes de cartões de crédito, para terceirização parcial dos
+atendimentos e da infraestrutura do Telesserviços e Agências
+Digitais.</p>
+</li>
+</ol>
+<h3 id="arquitetura-da-solucao-on-premise">Arquitetura da Solução <em>On Premise</em></h3>
+<ol>
+<li>
+<p>A infraestrutura de atendimento de Telesserviços <em>on premise</em>,
+   implantada atualmente no CTC, em Brasília, e em plena operação
+   na CAIXA, possui a seguinte arquitetura.</p>
+</li>
+<li>
+<p>Essa infraestrutura é constituída basicamente pelos seguintes
+   elementos e módulos funcionais: IP PBX ou <em>Softswitch</em> - <em>Open
+   Scape</em>, DAC -- Distribuidor Automático de Chamadas ou RIC -
+   Roteamento Inteligente de Chamadas, Sistema de Gravação, IVR/URA
+   (<em>Interative Voice Response</em>/Unidade de Resposta Audível),
+   Servidores de Integração e Aplicação, Softwares e licenças de
+   Agentes.</p>
+</li>
+</ol>
+<p><img alt="" src="../../img/telecom/contact-center/image5.gif" /> </p>
+<div class="rotulo-img">Fig. 5 -- Arquitetura Interna da Solução de Telesserviços *On premisse*</div>
+
+<h3 id="descricao-geral">Descrição Geral</h3>
+<ol>
+<li>
+<p>A CAIXA se interliga com a Operadora contratada dos serviços
+    0800 por meio de entroncamento SIP (<em>SIP Trunking</em>) em alta
+    disponibilidade do tipo ativo-standby, de maneira que, se um
+    sítio ficar indisponível, a Operadora transferirá as chamadas
+    para o outro.</p>
+</li>
+<li>
+<p>A interligação dos troncos é realizada por fibra ótica e
+    terminada nos sítios tecnológicos CAIXA (CTC e Cotia),
+    suportando as chamadas por meio de sessões SIP, cujos acessos
+    são efetuados pelos controladores de borda da CAIXA, denominados
+    de SBC ("<em>Session Border Controller</em>"), também configurados em
+    alta disponibilidade, em cada sítio.</p>
+</li>
+<li>
+<p>Os SBC da CAIXA controlam todas as chamadas entrantes e saintes
+    entre a CAIXA, a Operadora de Telefonia e as empresas
+    contratadas/terceirizadas, sendo que, os fluxos de voz devem
+    passar sempre pelo site principal da CAIXA, para realização dos
+    atendimentos a seus clientes, localmente, remotamente ou pelos
+    parceiros.</p>
+</li>
+<li>
+<p>Internamente, no CTC, para o efetivo funcionamento dos
+    atendimentos, também serão trafegados fluxos de dados, entre os
+    servidores concentradores, integradores e de aplicação, e a rede
+    do mainframe, assim como a rede local dos operadores presentes
+    nas Unidades de Telesserviços ou remotos.</p>
+</li>
+<li>
+<p>Os dados enviados à rede dos operadores são sincronizados com o
+    fluxo de voz, de maneira a serem apresentados aos operadores,
+    referentes ao atendimento vocal em curso.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image6.png" /></p>
+<p><div class="rotulo-img">Fig. 6 -- Módulos Funcionais da Solução de Telesserviços</div></p>
+</li>
+</ol>
+<h3 id="fluxograma-operacional">Fluxograma Operacional</h3>
+<ol>
+<li>
+<p>Conforme fluxograma operacional a seguir, referente a uma
+    chamada entrante (<em>inbound</em>), o cliente inicia a chamada ao
+    serviço 0800 e logo no primeiro atendimento é interceptado pela
+    Operadora, solicitando ao mesmo que escolha o serviço, por meio
+    de uma URA segmentadora, com algumas opções básicas até o
+    terceiro nível.</p>
+</li>
+<li>
+<p>Após a identificação do serviço, toda chamada é encaminhada ao
+    SBC da CAIXA com os dados da opção do cliente, sendo que, em sua
+    maioria atendida pela URA ou, em alguns casos, direcionada à
+    Central Telefonica IP PBX Open Scape (OSCC), para o atendimento
+    Humano.</p>
+</li>
+<li>
+<p>A Central Open Scape (OSCC) recebe, distribui e gerencia o
+    atendimento das ligações atendidas pelos agentes de <em>call
+    center</em>, cujas regras de negócio, personalizáveis, orientam o
+    direcionamento de chamadas em filas, distribuição entre
+    atendentes humanos, eletrônicos e definem relatórios
+    estatísticos.</p>
+</li>
+<li>
+<p>A CAIXA possui várias Unidades de Atendimento, distribuídas em
+    vários estados como Belo Horizonte, Curitiba, Salvador,
+    Brasília, São Paulo e Rio de Janeiro - CEACR-RJ, equipadas com
+    uma central de telefonia, semelhante ao Telesserviços, porém sem
+    integração com o <em>Call Center</em> da Caixa.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image7.gif" /> </p>
+<p><div class="rotulo-img">Fig. 7 -- Fluxograma Operacional Básico -- Chamada de Entrada</div></p>
+</li>
+<li>
+<p>No <em>Call Center</em> da CAIXA, as URA fazem o atendimento eletrônico e,
+caso necessário, derivam as chamadas para atendimento humano no
+ambiente dessas Unidades, sendo que, todo o detalhamento é definido
+no desenvolvimento da APL da URA, conforme regras de negócio do
+gestor.</p>
+</li>
+<li>
+<p>O módulo OSCC armazena os dados estatísticos dos atendimentos
+realizados: site, período, fila, duração do atendimento, chamadas
+concluídas, se abandonadas, TMA, dentre outras informações.</p>
+</li>
+<li>
+<p>Toda a interconexão entre as URAS e o ambiente externo (CTI --
+<em>Computer Telefony Integration</em>) é realizada através de um pool
+servidores de integração e aplicação que tem por função, comunicar
+com o <em>APIManager</em>, Servidores ISO, Barramento, Azure, acessos a
+bases de dados e afins.</p>
+</li>
+<li>
+<p>As aplicações de URAS -- APL desenvolvidas pela Fábrica de Software
+contratada pela CAIXA, com os serviços em voz e guiadas pela
+digitação no teclado telefônico, atendem:</p>
+<ul>
+<li>
+<p>Identificação positiva do cliente antes de enviar para o humano;</p>
+</li>
+<li>
+<p>Consulta a serviços a exemplo do seguro desemprego, FGTS, Conta Corrente etc.;</p>
+</li>
+<li>
+<p>Adesão, contratação e cancelamento de serviços: CDC, Cesta de Serviços, FGTS saque imediato, <em>coronavoucher</em>, etc.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>De acordo com a regra de negócio, o atendimento pode ocorrer
+    integralmente na URA ou, parcialmente pela URA e designado
+    novamente à Central OSC, para distribuição da chamada a um
+    Operador humano para dar continuidade ao atendimento.</p>
+</li>
+<li>
+<p>O Servidor de BD de Log de Segurança das URA, têm a função de
+    registrar e armazenar as informações que recebeu da Operadora e
+    do SBC sobre o cliente e a jornada do cliente dentro da URA.</p>
+</li>
+<li>
+<p>Esses dados podem ser: telefone do cliente, região, serviço
+    selecionado, data e hora, dados digitados, retornos obtidos das
+    integrações configuradas, transações escolhidas, efetivas ou
+    chamadas sem sucesso por queda ou desistência do cliente,
+    duração da chamada, qualidade MOS, código de origem de
+    desconexão etc.</p>
+</li>
+<li>
+<p>Nas campanhas ativas, as chamadas também podem ser
+        originadas a partir das Unidades de Atendimento distribuídas
+        e veiculam até o <em>Call Center da</em> CAIXA, por onde sai a
+        chamada pelo SBC, em sentido contrário ao exemplo anterior,
+        até contatar o Cliente.</p>
+</li>
+</ol>
+<h3 id="call-center-em-nuvem"><em>Call Center</em> em Nuvem</h3>
+<ol>
+<li>
+<p>O CCeN tem como objetivo a disponibilização de Solução aos
+  profissionais de Telesserviços ou Atendimento à Clientes, na
+  modalidade de software como serviço em nuvem pública (SaaS --
+  Software as a Service), flexibilizando o trabalho remoto com uso
+  de rede internet.</p>
+</li>
+<li>
+<p>A Arquitetura envolve o Site da CAIXA -- CTC Brasília, o Site da
+  Operadora do Serviço Telefônico Fixo Comutado (STFC) e Telefonia
+  Móvel (celular), o Site do Fornecedor dos serviços de CCeN, os
+  Clientes e Operadores/Atendentes da CAIXA, conforme ilustrado na
+  figura a seguir.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image8.gif" /> </p>
+<p><div class="rotulo-img">Fig. 8 -- <em>Call Center</em> em Nuvem e Telesserviços</div></p>
+</li>
+<li>
+<p>Sua infraestrutura possui as funcionalidades para serviços de voz
+<em>inbound, outbound e blended</em>, a disponibilizadas aos profissionais
+remotos, semelhante aos módulos funcionais do sistema <em>on premise</em>
+da CAIXA, neste caso composto por:</p>
+<ul>
+<li>
+<p>DAC/RIC (Distribuidor Automático/Roteamento Inteligente das Chamadas);</p>
+</li>
+<li>
+<p>Discador Automático nos <em>Preview, Power e Preditiva,</em>  configuráveis e parametrizáveis;</p>
+</li>
+<li>
+<p>IVR/URA (<em>Interactive Voice Response/</em>Unidade de Resposta  Audível)</p>
+</li>
+<li>
+<p>Sistema de Gravação Automática, com filtros seletivos para pesquisas das conversas gravadas;</p>
+</li>
+<li>
+<p>Sistema de Gestão dos Serviços em plataforma <em>Web</em>;</p>
+</li>
+<li>
+<p>Aplicativo para comunicação do tipo <em>Softphone e Webphone</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Os serviços compreendem: Roteamento Inteligente das chamadas,
+Atendimento Receptivo por Atendente Humano ou Eletrônico, Operação
+de Chamadas Ativas de forma Manual ou Automática, Gravação e
+Gerenciamento Total ou Parcial das ligações realizadas.</p>
+</li>
+<li>
+<p>Todos os contatos são registrados e apresentam as estatísticas das
+campanhas, inclusive as tentativas sem sucesso.</p>
+</li>
+<li>
+<p>Mais informações poderão ser obtidas na descrição de Arquitetura de
+Referência de <em>Call Center</em> em Nuvem, conforme Referência no
+Item 11.</p>
+</li>
+</ol>
+<h3 id="canais-digitais-parciais-whatsapp-webchat-e-chatbot">Canais Digitais Parciais: <em>Whatsapp, Webchat e Chatbot</em></h3>
+<ol>
+<li>
+<p>Os canais digitais, atualmente na CAIXA, contempla o atendimento
+    via <em>chat</em> nos canais de <em>WHATSAPP e WEBCHAT</em>, com uso de
+    <em>CHATBOT,</em> também na modalidade de Software como Serviço em
+    nuvem pública -- <em>SaaS</em>.</p>
+<ol>
+<li>O uso de <em>chatbots</em> (robôs) integrado aos sistemas internos
+    das empresas, visam reduzir os atendimentos de agências e
+    liberar os empregados para exercerem atividades inerentes ao
+    atendimento presencial.</li>
+</ol>
+</li>
+<li>
+<p>O atendimento de tais canais é realizado por meio de atendimento
+    humano ou por meio de <em>chatbots</em>, com <em>front</em>-<em>end</em> único,
+    disponibilizando histórico de atendimento do cliente, contextos
+    de diálogos, filas parametrizáveis, possuindo recursos e
+    relatórios de gestão dos atendimentos.</p>
+</li>
+<li>
+<p>Há uma base unificada de todas as interações dos clientes, com
+    os anexos e referências aos arquivos trocados nos atendimentos,
+    permitindo exportação, utilizando o padrão tecnológico e
+    integrações com API's CAIXA.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image9.gif" /> </p>
+<p><div class="rotulo-img">Fig. 9 -- Serviço de Atendimento <em>Webchat e Whatsapp</em></div></p>
+</li>
+<li>
+<p>Foram definidas 11 mil posições de atendimento humano para suportar
+os picos de acesso simultâneos, com volume de 2 bilhões de registros
+ao ano, ocupando uma média de 2 Terabytes.</p>
+</li>
+<li>
+<p>A Solução possui ainda as seguintes característica funcionais:</p>
+<ol>
+<li>
+<p>respostas por texto automatizadas, utilizadas de acordo com os
+meios de acesso do cliente, as regras de negócio e configurações
+na Solução;</p>
+</li>
+<li>
+<p>permite implementar uso de árvores de atendimento com interação
+por menu numérico, menus textuais, e por interação direta, com
+capacidade para no mínimo 150 expressões chave;</p>
+</li>
+<li>
+<p>possibilita a parametrização de árvores com base em tecnologia
+\"<em>drag-and-drop</em>\", sem a necessidade de uso de códigos-fonte,
+de forma totalmente gráfica, visando facilitar o uso pelos
+gestores e administradores;</p>
+</li>
+<li>
+<p>permite alteração, desenvolvimento de menus, <em>submenus</em>, de
+novas árvores de navegação e testes, remotamente, em canais ou
+módulos isolados do ambiente de produção, antes da ativação e
+replicação das novas configurações aos outros canais e máquinas;</p>
+</li>
+<li>
+<p>permite a supervisão, a monitoração, a modificação da árvore de
+menus, a modificação do horário de atendimento, a marcação de
+datas como feriados e finais de semana, através de interface
+gráfica, sem a necessidade de reset, paralisação parcial dos
+grupos de portas e paralisação do bot;</p>
+</li>
+<li>
+<p>permite a criação de regras de desconexão por inatividade do
+cliente, tanto durante a navegação dentro da arvore quanto
+durante o atendimento humano;</p>
+</li>
+</ol>
+</li>
+<li>
+<p>No caso de transferência para um atendente humano, todo o histórico
+do atendimento por "<em>bot</em>" deverá ser repassado para o atendente
+humano, visando continuidade do atendimento, da mesma maneira como
+se estivesse sendo transferido por outro atendente.</p>
+<ol>
+<li>Entretanto, são contratos e serviços isolados aos serviços de
+voz atendidos pelos <em>Call Center,</em> ou seja, possui
+infraestrutura apartada do Telesserviços <em>on premise</em> e do <em>Call
+Center</em> em nuvem.</li>
+</ol>
+</li>
+</ol>
+<h3 id="armazenamento">Armazenamento</h3>
+<ol>
+<li>
+<p>A CAIXA empregou infraestrutura diversificada para as soluções
+    de atendimento atuais por voz, vídeo e canais digitais. Logo,
+    soluções isoladas implicam em locais de armazenamento distintos,
+    assim como ferramentas de gerenciamento, busca e pesquisa
+    diferentes.</p>
+</li>
+<li>
+<p>O Telesserviços, por exemplo, possui sistemas diversos para
+    armazenamento de dados, tais como informações de clientes,
+    atendimento eletrônico, atendimento humano, gravação de voz,
+    telas e <em>logs</em> de comunicação e operação entre sistemas.</p>
+<ol>
+<li>Os Logs do SBC, de segurança e da Central OSC são
+    armazenados no servidor CCTDCDADNT0202, os logs de URA são
+    armazenados no servidor CTSDCAPLNT0202, enquanto as
+    gravações de voz utilizam o sistema de gravação proprietário
+    do fabricante e depois são transferidas ao servidor
+    CCTDCDADNT0118.</li>
+</ol>
+</li>
+<li>
+<p>No caso do CCeN, todas as informações são armazenadas no
+    ambiente da Contratada para depois de alguns meses serem
+    transferidas ao servidor CCTDCDADNT0118, que é a base de dados
+    utilizada pelo Play CAIXA.</p>
+<ol>
+<li>Play CAIXA é a ferramenta atual de busca, execução e
+    pesquisa, utilizada para recuperação das mensagens gravadas.</li>
+</ol>
+</li>
+<li>
+<p>Para os Canais Digitais -- <em>WebChat</em> e <em>Whatsapp</em>, todas as
+    informações são registradas e armazenadas nos equipamentos da
+    Contratada para posterior transferência e internalização das
+    informações em outro servidor de propriedade CAIXA, utilizando
+    VPN em conexão de internet.</p>
+</li>
+<li>
+<p>Os registros gerados pelos atendimentos realizados por meio de
+    videochamada, na solução Balcão Virtual, ficarão armazenadas nos
+    servidores da Plataforma Microsoft /Teams, contratada pela
+    CAIXA.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image10.gif" /> </p>
+<p><div class="rotulo-img">Fig. 10 -- Armazenamento das Informações</div></p>
+</li>
+<li>
+<p>Conforme tabela a seguir, percebe-se o elevado volume de informações
+a serem transmitidas e armazenadas, trazendo alguns transtornos como
+problemas de espaço e indexações dos registros, dificultando a busca
+das informações de voz, tela e documentos transacionais.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image11.png" /></p>
+<p><div class="rotulo-img">* Volume Registrado em período de 12 meses<br/>
+** Volume de videochamadas ainda inexistente</div></p>
+</li>
+<li>
+<p>Para solucionar tais problemas, há necessidade de solução integrada,
+com capacidade para absorver as informações de todas as soluções,
+assim como facilitar o processo de pesquisa para eventuais
+auditorias.</p>
+</li>
+</ol>
+<h2 id="contact-center-caixa-omnichannel"><em>Contact Center CAIXA - Omnichannel</em></h2>
+<h3 id="atendimento-integrado-omnichannel">Atendimento Integrado <em>Omnichannel</em></h3>
+<ol>
+<li>
+<p>Importante definir alguns conceitos sobre os tipos ou
+    estratégias de atendimento, como <em>singlechannel, multichannel,
+    crosschanel e omnichanel.</em></p>
+</li>
+<li>
+<p>O primeiro refere-se a um único canal isolado de atendimento,
+    como o de voz, por exemplo, enquanto os demais possui mais de um
+    canal de comunicação com seus clientes.</p>
+</li>
+<li>
+<p>A diferença, entretanto, está na relação entre eles, podendo ser
+    canais isolados, ou haver algum tipo de transferência ou, ainda,
+    integração total entre eles, para dar continuidade ao
+    atendimento, como mostra a figura a seguir.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image12.gif" /> </p>
+<p><div class="rotulo-img">Fig. 11 -- Estratégias de Atendimento</div></p>
+</li>
+<li>
+<p>Na plataforma <em>Omnichannel</em> o atendimento é unificado, capaz de
+    absorver toda a demanda, integrando todos os meios digitais e voz,
+    incluindo interação completa com o cliente.</p>
+<p><img alt="Descubra como o e-mail pode alavancar o marketing omnichannel -- \@MediaPost" src="../../img/telecom/contact-center/image13.jpeg" /> </p>
+<p><div class="rotulo-img"> Fig. 12 -- <em>Omnichanel</em> -- Atendimento Unificado</div></p>
+</li>
+<li>
+<p>Assim, o relacionamento com as pessoas, seja para o atendimento ou
+    realização de negócios, por meio de uma solução <em>Omnichannel,</em> torna
+    o atendimento mais eficaz e melhora sobremaneira a experiência do
+    cliente.</p>
+<p><img alt="Omnichannel - Confira Tudo Aqui! | LHTecnologia" src="../../img/telecom/contact-center/image14.jpeg" /></p>
+<p><div class="rotulo-img"> Fig. 13 -- Atendimento Integrado - <em>Omnichannel</em></div></p>
+</li>
+<li>
+<p>O Atendimento Integrado traz, dentre outras, as seguintes
+    facilidades:</p>
+<ol>
+<li>
+<p>Atendimento por meios digitais e voz, utilizando a mesma fila,
+    com possibilidade de priorização dependendo do perfil ou
+    identificação do cliente;</p>
+</li>
+<li>
+<p>Acompanhamento de todos os atendimentos realizados pelo cliente,
+    armazenando e utilizando todo seu histórico nas futuras
+    interações;</p>
+</li>
+<li>
+<p>Automatização dos atendimentos por URA Inteligente acionada por
+    voz, bots diversos para os atendimentos digitais, além de
+    direcionamentos internos conforme estado emocional do cliente,
+    seu perfil, assunto tratado, dentre outros;</p>
+</li>
+<li>
+<p>Obtenção de capacidade para realização de negócios durante o
+    atendimento receptivo, com ofertas apresentadas conforme
+    diversos parâmetros, como nível de atendimento e perfil do
+    cliente, assim como ofertas disponibilizadas.</p>
+</li>
+<li>
+<p>Monitoração plena de parâmetros de qualidade, de maneira a
+    otimizar a alocação de atendentes, assim como simular
+    implantações e impactos na operação;</p>
+</li>
+<li>
+<p>Celeridade nas implementações, mudanças e ampliações.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Logo, a nova proposta é que as aplicações digitais contratadas pela
+    CAIXA, juntamente com o atendimento por voz e outros canais a serem
+    incluídos, devam se complementar em uma única Solução Integrada -
+    <em>Omnichannel</em>, e que irá substituir as soluções isoladas, cuja
+    proposta é descrita a seguir.</p>
+</li>
+</ol>
+<h3 id="solucao-proposta-do-contact-center-caixa">Solução Proposta do <em>Contact Center CAIXA</em></h3>
+<ol>
+<li>
+<p>Consiste na disponibilização de Solução de <em>Contact Center
+    Omnichannel (CCO),</em> na modalidade SaaS (<em>Software as a Service</em>)
+    em nuvem, estruturada sob plataforma única e gestão unificada,
+    com arquitetura <em>multi-tenancy</em>, 100% apartados, para atender as
+    áreas e empresas do conglomerado CAIXA.</p>
+</li>
+<li>
+<p>A capacidade deverá ser adequada parar garantir disponibilidade
+    de 99,99%, qualidade e performance, considerando a suficiência
+    de atendimento de picos simultâneos e expectativas de
+    crescimento.</p>
+</li>
+<li>
+<p>A solução deverá suportar interação <em>omnichannel</em> para voz e
+    canais digitais por meio de voz<em>, webchat</em>, mensagens
+    instantâneas, atendimento automatizado (<em>bot, chatbot/voicebot</em>
+    e atendimento na URA), e-mail, redes sociais e lojas de
+    aplicativos, <em>Web Interaction</em>, permitindo aos agentes,
+    visualização do histórico de interação do cliente com a central
+    de atendimento em interface unificada de atendimento.</p>
+</li>
+<li>
+<p>Deverá apresentar <em>front-end</em> único de atendimento, com base de
+    conhecimento, scripts de atendimento e processos guiados, com
+    fila universal independente do canal de entrada, protocolo
+    único, servidor de contexto único para todos os canais, visão
+    360° do cliente em todos os canais de voz e remotos da CAIXA,
+    curadoria, pesquisa de satisfação, relatoria/dashboard e gestão
+    operacional completa do <em>Contact Center</em>.</p>
+</li>
+<li>
+<p>O sistema ou aplicações de telefonia (voz) deverá conter os
+    seguintes módulos funcionais: IP PBX/<em>Softswitch</em>, RIC --
+    Roteamento Inteligente de Chamadas, Discador Automático, Sistema
+    de Gravação, IVR/URA <em>(Interative Voice Response/Unidade de
+    Resposta Audivel</em>), <em>Softwares</em> e licenças de Agentes.</p>
+</li>
+<li>
+<p>Prover os recursos de Assistente Virtual Cognitivo, com
+    capacidades de reconhecimento de voz e do contexto de conversa,
+    <em>ASR (Automatic Speech Recognition)</em> e análise da Fala e Texto
+    <em>(Speech e Text Analytics),</em> comando de voz<em>, text to speech
+    (TTS) e speech to text (STT)</em>, <em>uso de Inteligência Artificial.</em></p>
+</li>
+<li>
+<p>A interface de atendimento unificada deverá suportar a interação
+    <em>omnichannel</em> para todos canais remotos e, da mesma forma,
+    possuir painel de gerenciamento unificado para administração,
+    parametrizações e configurações dos elementos constituintes, com
+    <em>Reporting e Dashboard</em>.</p>
+</li>
+<li>
+<p>A Solução deverá permitir implementar <em>bots</em> para todos os meios
+    de acesso, com utilização de inteligência artificial, de maneira
+    a identificar o contexto, entender as perguntas, implementar as
+    respostas corretas e registrar na Solução as interações
+    realizadas, finalizando o atendimento ou transferindo a chamada
+    para um atendente.</p>
+</li>
+<li>
+<p>Possuir Módulos de Gestão e Administração, Gerenciamento da
+    Força de Trabalho WFM (<em>Workforce Management</em>), Monitoramento de
+    Qualidade e Gerenciamento de Desempenho.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image15.png" /></p>
+<p><div class="rotulo-img">Fig. 14 -- Módulos de Gestão, Administração e Gerenciamento</div></p>
+</li>
+<li>
+<p>As funcionalidades para voz (<em>singlechannel</em>), descritas nas
+    soluções de Telesserviços e <em>Call</em> <em>Center</em> em Nuvem, também valem
+    para o caso do <em>Omnichannel</em>, tais como atendimento via IVR/URA e
+    Discadores Automáticos, com vantagem de total integração aos demais
+    canais e adição dos recursos de reconhecimento de voz, assistente
+    virtual cognitivo, TTS, Inteligencia Artificial, dentre outros.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image16.gif" /> </p>
+<p><div class="rotulo-img">Fig. 15 -- Funcionalidades, Recursos e Atores na Solução <em>Omnichannel</em></div></p>
+</li>
+<li>
+<p>As interfaces para operacionalização das funcionalidades deverão ser
+    unificadas, ou seja, todas as funcionalidades solicitadas deverão
+    ser apresentadas em interface única para cada tipo de usuário:
+    Operador, Supervisor, Administrador e Técnico de suporte.</p>
+<ol>
+<li>Todas as interfaces de usuários deverão ser do tipo GUI,
+    altamente interativas, utilizar <em>cliente</em> em <em>software</em>,
+    habilitado em estações de trabalho e notebooks, com sistema
+    operacional <em>windows</em> ou via <em>Web,</em> simples, de maneira que o
+    usuário não necessite de conhecimentos técnicos de TI para sua
+    operação.</li>
+</ol>
+</li>
+<li>
+<p>Durante um atendimento, a solução deverá executar as operações
+    básicas de roteamento inteligente de chamadas (RIC),
+    autoatendimento, transferência de atendimentos entre canais com a
+    manutenção do contexto, gravação dos atendimentos em áudio, vídeo e
+    texto, e troca de arquivos.</p>
+<ol>
+<li>
+<p>As gravações ocorrerão de maneira automática (total) ou por
+    determinação do agente (parcial), sendo que, todas os arquivos
+    gerados deverão ser armazenados no ambiente em nuvem, pelo
+    período mínimo de 2 anos ou até o encerramento do contrato,
+    permitindo ainda o encaminhamento periódico dos mesmos, ou a
+    qualquer tempo, para armazenamento no ambiente determinado pela
+    CAIXA.</p>
+</li>
+<li>
+<p>Deverá permitir o expurgo das gravações, caso necessário, antes
+    de sua transferência para o Data Center da CAIXA ou ambiente
+    indicado pela CAIXA, conforme necessidades do Gestor, padrões e
+    normas internas.</p>
+</li>
+<li>
+<p>Implementar a indexação de todos os arquivos armazenados,
+    permitindo a gestão e buscas por quaisquer parâmetros definidos
+    previamente, facilitando auditoria e acompanhamento das ligações
+    gravadas, por meio de software de monitoramento e avaliação da
+    qualidade.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Prover autoatendimento eletrônico com URA Cognitiva, com interação
+    por menu numérico, comandos vocais, visuais e textuais, com
+    atendimento integral da solicitação do usuário ou transferência para
+    atendimento humano na solução de <em>Contact Center</em> ou ainda
+    atendimento híbrido automático/humano.</p>
+<ol>
+<li>Utilizar o Assistente Virtual Cognitivo para responder as mais
+    variadas perguntas referentes aos serviços e informações
+    necessárias em sua base de conhecimento, sem a interferência
+    humana, atendendo as solicitações (registro), provendo o
+    encaminhamento e tratamento.</li>
+</ol>
+</li>
+<li>
+<p>Toda operação poderá ser acompanhada por Supervisores, por meio de
+    interface <em>Web</em>, utilizando-se de <em>dasboard</em> e relatórios
+    gerenciais, de onde extraem-se informações sobre as ligações para
+    gestão da produtividade e utilização da Solução.</p>
+</li>
+</ol>
+<h3 id="arquitetura-definida-to-be">Arquitetura Definida (<em>To Be</em>)</h3>
+<ol>
+<li>
+<p>O <em>Contact Center</em> <em>Omnichannel deverá utilizar infraestrutura
+   própria e fora do ambiente da CAIXA</em>, cuja Arquitetura envolve o
+   Site da CAIXA -- CTC Brasília, o Site da Operadora do Serviço
+   Telefônico Fixo Comutado (STFC) e Telefonia Móvel (celular), o
+   Site do Fornecedor dos serviços de <em>Call Center Omnichannel em
+   Nuvem</em>, os Clientes e Operadores/Atendentes da CAIXA, conforme
+   ilustrado na figura a seguir.</p>
+</li>
+<li>
+<p>Durante a fase de implantação a Solução deverá conviver com o
+    <em>Call Center</em> da CAIXA, atualmente em operação, onde os serviços
+    de telefonia (voz) serão gradativamente transferidos para o novo
+    <em>Contact Center</em>.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image17.gif" /> </p>
+<p><div class="rotulo-img">Fig. 16 -- Topologia da Solução na Fase de Transição</div></p>
+<ol>
+<li>Neste caso, permanecerá a estrutura interna no CTC, ainda, com as
+funcionalidades do atendimento eletrônico e servidores de aplicação,
+conforme descrito no item 7.2. Arquitetura da Solução <em>On Premise.</em></li>
+</ol>
+</li>
+<li>
+<p>A medida que as funcionalidades e aplicações, especialmente da URA,
+    vão sendo desenvolvidas e implementadas no novo <em>Contact Center</em>, as
+    chamadas de voz serão também transferidas e a solução vai ganhando
+    autonomia.</p>
+</li>
+<li>
+<p>Assim, após a implantação completa, todos os serviços deverão ser
+    atendidos apenas pelo <em>Contact Center Omnichannel,</em> ficando a
+    critério da CAIXA optar pelo período necessário por manter parte
+    desses serviços de voz no ambiente da CAIXA.</p>
+<p><img alt="" src="../../img/telecom/contact-center/image18.png" /> </p>
+<p><div class="rotulo-img"> Fig. 17 -- Arquitetura da Solução Definitiva (To Be)</div></p>
+</li>
+<li>
+<p>Neste caso, serão desativados a central e os demais elementos da
+        solução <em>on premise</em>, permanecendo apenas alguns servidores
+        integradores e de aplicação para interação com o mainframe (DB).</p>
+</li>
+<li>
+<p>Exclui-se também os links de voz -- SIP trunk, entre "<em>Contact
+        Center</em> Nuvem \&lt;=&gt; CAIXA" e entre "Operadora \&lt;=&gt; CAIXA", pois o
+        atendimento ocorrerá diretamente pela infraestrutura da solução
+        da empresa Contratada.</p>
+</li>
+</ol>
+<h3 id="conectividade">Conectividade</h3>
+<ol>
+<li>
+<p>Conforme Arquitetura de Transição, durante a fase de
+    implantação, a conexão entre CAIXA, Operadora de Telefonia e a
+    Solução de <em>Contact Center Omnichannel</em> se dará por meio de
+    links de voz e dados.</p>
+</li>
+<li>
+<p>Nesta fase, todas as ligações telefônicas deverão entrar ou sair
+    pelo SBC da CAIXA, e não diretamente da Solução, por meio de
+    entroncamentos <em>SIP Trunkin</em>g.</p>
+<ol>
+<li>A Solução deverá, caso a CAIXA solicite, receber todos os
+    entroncamentos de voz advindos de empresas de
+    telecomunicações ou outras centrais de atendimento (<em>Call
+    Center</em>) contratados pela CAIXA.</li>
+</ol>
+</li>
+<li>
+<p>Após a implantação e estabilidade operacional de toda a Solução
+        <em>Omnichannel</em>, a conexão de voz, via SBC CAIXA, deverá ser
+        desativada e a Solução definitiva terá apenas a conexão de dados
+        entre a CAIXA e a nova Solução de <em>Contact Center</em> em Nuvem,
+        conforme Figura 15 -- Solução Definitiva.</p>
+</li>
+<li>
+<p>Os circuitos de dados necessários à conectividade e troca de
+        informações com a CAIXA deverão ser dimensionados e fornecidos
+        pela empresa contratada.</p>
+<ol>
+<li>O acesso entre a Solução e a Rede CAIXA se dará mediante
+        circuitos dedicados com tecnologia LAN TO LAN ou MPLS,
+        dispondo de circuito principal e contingente, por Operadoras
+        distintas, onde qualquer um assuma todo o tráfego durante a
+        queda do outro.</li>
+</ol>
+</li>
+<li>
+<p>O local de instalação dos circuitos dedicados - principal e
+        contingente, será o Centro Tecnológico Datacenter (DTC) e Centro
+        Tecnológico CAIXA (CTC), respectivamente, sendo que, conforme
+        conveniência técnica ou econômica, serão analisadas pela equipe
+        de Engenharia de Rede da CAIXA, a possibilidade de nova conexão
+        ou de instalação em outras localidades estratégicas, dentro do
+        território nacional.</p>
+<ol>
+<li>A Operadora deverá fornecer concentrador na ponta da CAIXA
+        ou fazer uso compartilhado destes equipamentos de
+        infraestrutura e equipamentos no respectivo site da CAIXA,
+        adotando a arquitetura de compartilhamento de conexões
+        físicas, realizando as configurações necessárias de rede e
+        de firewall, conforme padrões e normas estabelecidas pela
+        CAIXA.</li>
+</ol>
+</li>
+<li>
+<p>As redes (LAN e WAN) no ambiente da Solução deverão possuir
+        comunicação segregada e exclusiva para acesso à Rede CAIXA,
+        sendo vedado qualquer acesso à internet nesta rede.</p>
+</li>
+<li>
+<p>A conexão com os equipamentos da CAIXA será por meio de
+        interface padrão ethernet, com endereçamento IP WAN definido
+        entre CAIXA e CONTRATADA.</p>
+</li>
+<li>
+<p>A Solução deverá disponibilizar-se de equipamentos para
+        roteamento dinâmico BGP (<em>border gateway protocol</em>), para
+        divulgação dos endereços IP de serviço.</p>
+</li>
+</ol>
+<h3 id="interoperabilidade">Interoperabilidade</h3>
+<ol>
+<li>
+<p>Todos os componentes da solução deverão ser completamente
+        integrados e interoperáveis entre si e se integrar com a solução
+        da CAIXA.</p>
+</li>
+<li>
+<p>Solução deve prover tratamento de arquivos digitalizados e
+        ferramenta de antivírus para verificação dos arquivos
+        transmitidos, não devendo impactar o desempenho necessário da
+        solução para o atendimento dos parâmetros de qualidade definidos
+        neste contrato.</p>
+</li>
+<li>
+<p>A solução deverá possuir módulo de inteligência artificial
+        integrado.</p>
+</li>
+<li>
+<p>Todos os fluxos de mídias trocados entre a CAIXA e a CONTRATADA
+        deverão ser suportados por plataforma de segurança e
+        compatibilidades que assegure as seguintes funcionalidades:</p>
+<ol>
+<li>
+<p>Possuir capacidade de realização de todas as suas atividades
+        de inspeção, análise e bloqueio compatível com o volume de
+        chamadas especificado neste documento, de maneira a não
+        inserir quaisquer atrasos ou problemas nas comunicações de
+        tempo real e sem nenhum prejuízo às capacidades exigidas
+        nestas especificações.</p>
+</li>
+<li>
+<p>Proteger contra avalanche de registros, mesmo quando for
+        usado autenticação para os Registros de usuários SIP. A
+        solução deve permitir que todos os usuários se registrem aos
+        poucos durante uma avalanche, sem comprometer o SBC e nem os
+        <em>Application Servers</em> envolvidos.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Todas as interações entre os atendentes e clientes, via meios
+        textuais síncronos (<em>chat e instant messengers</em>) não poderão ter
+        latência maior que 2 segundos, entre o final do comando dado
+        pelo cliente e a sua apresentação na tela do Atendente.</p>
+</li>
+<li>
+<p>No caso da digitação, a solução deverá apresentar visualização
+        na tela de quem escreve, das próprias informações digitadas de
+        maneira instantânea, não sendo aceitos <em>delays</em> que prejudiquem
+        a fluidez da digitação. Tal característica é aplicável tanto ao
+        atendente quanto ao cliente.</p>
+</li>
+<li>
+<p>As interações dos Bots com os clientes não poderão ter latência
+        superior a 3 segundos, contados desde o final do comando dado
+        pelo cliente até o início da resposta do Bot, independente do
+        meio de acesso.</p>
+</li>
+<li>
+<p>No caso das chamadas de voz e vídeo, estas deverão ser fluidas e
+        sem <em>delays</em> ou variações, com qualidade superior ao índice MOS
+        (<em>Mean Opinion Scope</em>).</p>
+<ol>
+<li>
+<p>O fluxo de voz aceitável da solução deverá obedecer aos
+        seguintes limites: Latência máxima de 70 ms; Máximo de
+        <em>jitter</em> de 30 ms e perda de pacotes máxima de 1%.</p>
+</li>
+<li>
+<p>Entende-se por latência máxima total de uma via, o tempo de
+        entrada da voz do cliente até o atendente ouvir a sua voz,
+        com clareza, e vice-versa, considerando que as redes dos
+        clientes e operadores/atendentes, externos ou remotos,
+        estejam dentro dos parâmetros adequados para suportar o
+        tráfego de voz com qualidade.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="sistema-de-gerenciamento-e-gestao-da-solucao">Sistema De Gerenciamento e Gestão Da Solução</h3>
+<ol>
+<li>
+<p>A Solução deverá possuir Gerência de monitoração dos circuitos e
+        conexões, com acompanhamento periódico do consumo dos circuitos
+        providenciando aumento de capacidade preventivamente caso
+        necessário, tomando ações necessárias, preventivas e reativas,
+        em caso de incidentes ou necessidades que surgirem.</p>
+</li>
+<li>
+<p>A Solução deverá disponibilizar painel de controle (dashboard)
+        para gestão dos serviços, assim como para ateste das faturas,
+        com atualização em tempo real.</p>
+</li>
+<li>
+<p>Os sistemas de Gravação, Monitoria de Qualidade (<em>Qualtiy
+        Monitoring</em>), Gerenciamento de Desempenho (<em>Performance
+        Management</em>), Análise de Fala/Texto (<em>Speech e Text Analytics</em>)
+        e Gerenciamento da Força de Trabalho (WFM), deverão ser do mesmo
+        fabricante, compondo uma suíte integrada com todos esses
+        módulos.</p>
+</li>
+<li>
+<p>Toda a interface da Solução com o usuário final se dará no
+        idioma português do Brasil.</p>
+</li>
+</ol>
+<h2 id="consideracoes-finais">Considerações Finais</h2>
+<ol>
+<li>
+<p>O objetivo principal da Arquitetura de <em>Contact Center
+        Omnichannel</em>, aqui especificada é ampliar e modernizar o
+        atendimento aos diversos canais digitais, para atendimento ao
+        público e aos novos consumidores que exigem canais alternativos,
+        com atendimento integrado e eficaz.</p>
+</li>
+<li>
+<p>Trata-se de uma arquitetura nova e de alta complexidade,
+        envolvendo diversas áreas técnicas e negociais e que demandará
+        tempo para desenvolvimento, implementações e incorporações de
+        todos os serviços.</p>
+</li>
+<li>
+<p>Portanto, até que a nova solução esteja plenamente em operação,
+        o <em>Contact Center</em> <em>Omnichannel</em> deverá operar de forma
+        concomitante com o Telesserviços da CAIXA, <em>on premisse</em>, por um
+        período de transição, uma vez que este possui arquitetura
+        consolidada e operação estável para o canal de voz.</p>
+</li>
+<li>
+<p>Considera-se a Solução ativada em operação, quando todos os
+        acessos e canais estiverem disponíveis aos clientes e agentes,
+        com as configurações e parametrizações implementadas ao seu
+        pleno funcionamento, sendo que a partir daí essas atividades
+        passam a ser um trabalho continuo de acompanhamento e melhorias.</p>
+</li>
+<li>
+<p>O dimensionamento da Solução deverá ser realizado com base nos
+        requisitos funcionais, não funcionais e volumetria estimada,
+        indicados nas especificações técnicas, junto ao processo de
+        contratação.</p>
+</li>
+<li>
+<p>Da mesma forma, todos os detalhes técnicos de conectividade,
+        segurança, integração e implantação deverão estar de acordo com
+        os documentos pertinentes de especificações e referências
+        indicadas no item 11 -- Referências.</p>
+</li>
+</ol>
+<h2 id="definicoes-acronimos-e-abreviacoes">Definições, Acrônimos e Abreviações</h2>
+<table>
+<thead>
+<tr>
+<th>Termo</th>
+<th>Definição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Agente</em></td>
+<td>Pessoa que trabalha em centrais de atendimento como operador ou atendente (colaborador)</td>
+</tr>
+<tr>
+<td><em>Agente Universal</em></td>
+<td><em>Colaborador na função de [agente do contact center que divide o seu tempo e a sua atenção entre vários atender às necessidades dos clientes</em></td>
+</tr>
+<tr>
+<td><em>AR</em></td>
+<td>Uma experiência interativa de um ambiente do mundo real onde os objetos do mundo real são "aumentados" por informação perceptiva gerada por computador</td>
+</tr>
+<tr>
+<td><em>ASR</em></td>
+<td><em>Reconhecimento automático de voz. Consulte Reconhecimento de linguagem natural</em></td>
+</tr>
+<tr>
+<td><em>Assistente Virtual Cognitivo</em></td>
+<td>Aplicaçoes que usam Iinteligência Artificial para decodificar a voz humana, consultar bancos de dados ou sistemas de pesquisas e retornar informações úteis para os usuários, podendo ser usado em URA ou  <em>Chatbot</em>, capazes de aprender, tomar  decisões, resolver problemas complexos e se desenvolver com programações em seu banco de dados e muito poder de consulta a outras  referências, como as redes sociais, como Siri (da Apple), Cortana (da Microsoft) e Alexa (da Amazon)</td>
+</tr>
+<tr>
+<td><em>Call Center</em></td>
+<td>Central de relacionamento e atendimento com o cliente por meio do telefone - canal de voz</td>
+</tr>
+<tr>
+<td><em>CCeN</em></td>
+<td><em>Call Center em Nuvem ou Contact Center em Nuvem</em></td>
+</tr>
+<tr>
+<td><em>Contact  Center</em></td>
+<td>Plataforma de relacionamento ao cliente via múltiplos canais de atendimento - telefone, chat, redes sociais da  internet, aplicativos, e-mail etc.</td>
+</tr>
+<tr>
+<td><em>Blended</em></td>
+<td>Operação mixta, ativo e receptivo</td>
+</tr>
+<tr>
+<td><em>Callback</em></td>
+<td>Recurso para retornar a ligação quando a ligação do cliente cai ou uando está em fila de espera</td>
+</tr>
+<tr>
+<td><em>CRM</em></td>
+<td><em>Customer Relationship</em> Management - nome dado para um software que armazena, distribui e atualiza os dados de clientes</td>
+</tr>
+<tr>
+<td><em>CTI</em></td>
+<td><em>Computer Technology Integration</em> -- software e protocolo de comunicação utilizado para integração entre sistemas de telefonia e computador</td>
+</tr>
+<tr>
+<td><em>Fila</em></td>
+<td>Um tipo de número de diretório criado para armazenar chamadas ou mensagens que estão aguardando para serem atendidas</td>
+</tr>
+<tr>
+<td><em>GUI</em></td>
+<td>Interface gráfica de usuário - aproveita os recursos gráficos do computador para tornar visualmente mais fácil a utilização de cada programa</td>
+</tr>
+<tr>
+<td><em>IA</em></td>
+<td>Inteligência Artificial - agrupamento de várias tecnologias, como redes neurais artificiais, algoritmos, sistemas de aprendizado, entre outros para simular a inteligência humanas, cujas softwares servem para emular, com muito mais capacidade e rapidez, a capacidade humana de pensar, raciocinar, analisar e tomar decisões</td>
+</tr>
+<tr>
+<td><em>Linguagem Natural</em></td>
+<td>capacidade de compreender expressões complexas faladas de maneira mais natural e livre,</td>
+</tr>
+<tr>
+<td><em>Power Dialer</em></td>
+<td>Modo de operação de Discador Automático, em que o sistema realiza as discagens sempre que um atendente  estiver disponível</td>
+</tr>
+<tr>
+<td><em>Predictive   Dialer</em></td>
+<td>Modo de operação de Discador Automático, em que o sistema possuir capacidade de parametrizações, por meio de algoritmo estatístico, capaz de analisar os dados históricos das discagens de cada campanha e prever a quantidade de discagens necessárias para obter  a melhor performance</td>
+</tr>
+<tr>
+<td><em>Preview Dialer</em></td>
+<td>Modo Discador em que o sistema exibe, para o Agente, os dados do cliente antes de realizar a discagem, permitindo que ele decida se quer ou não fazer aquela ligação, de modo que o possa se preparar para o  atendimento antes de contatar o cliente.</td>
+</tr>
+<tr>
+<td><em>SBC</em></td>
+<td><em>Session Border Controller (Controle de Borda de Sessão) -- possui varias funções de controle entre  redes de voz diferentes, fazendo a</em> demarcação e a ocultação de topologia e travessia de NAT, transcodificação, compatitlização IPv4/IPv6, segurança etc.</td>
+</tr>
+<tr>
+<td><em>Servidor CTI</em></td>
+<td>Servidor que hospeda o software que monitora os eventos de telefonia (sinal para chamar, número ocupado, entre outros) no switch</td>
+</tr>
+<tr>
+<td>*Speech  Analytics *</td>
+<td> Análise de dados de voz - consiste em uma tecnologia responsável por identificar e extrair características de dados de voz, transformando sentimentos e emoções do interlocutor em dados, que serão posteriormente processados, para ações estratégicos ao negócio</td>
+</tr>
+<tr>
+<td><em>TTS</em></td>
+<td>recurso que permite que um aplicativo reproduza voz diretamente de um texto, convertendo esse texto em fala sintetizada</td>
+</tr>
+<tr>
+<td><em>Workforce</em></td>
+<td>estratégia que moderniza tecnologias e plataformas de <em>call</em> <em>center</em> por meio do uso de canais  digitais, para melhorar a experiência e a satisfação do cliente.</td>
+</tr>
+<tr>
+<td><em>WFM</em></td>
+<td>Gestão da Força de Trabalho - administração de uma sequência de tarefas e processos relacionados com a força de trabalho de uma organização</td>
+</tr>
+<tr>
+<td><em>WFO</em></td>
+<td>Otimização da força de trabalho - estratégia utilizada para integrar tecnologias desconectadas e  automatizar processos para reduzir os custos operacionais e administrar melhor o desempenho dos colaboradores, resultando em maior eficiência e mais satisfação do cliente</td>
+</tr>
+<tr>
+<td><em>Workflow</em></td>
+<td>conjunto e sequência de procedimentos para a execução de uma ou mais tarefas na central de atendimento</td>
+</tr>
+</tbody>
+</table>
+<h2 id="referencias">Referências</h2>
+<h3 id="arquiteturas-de-ti">Arquiteturas de TI:</h3>
+<ul>
+<li>
+<p>Call Center em Nuvem</p>
+<ul>
+<li><a href="https://gid.caixa:9443/ccm/resource/itemName/com.ibm.team.workitem.WorkItem/17287715">https://gid.caixa:9443/ccm/resource/itemName/com.ibm.team.workitem.WorkItem/17287715</a></li>
+</ul>
+</li>
+<li>
+<p>Segurança:</p>
+<ul>
+<li><a href="http://arquiteturati.caixa/arquitetura_referencia/seguranca/seguranca/">http://arquiteturati.caixa/arquitetura_referencia/seguranca/seguranca/</a></li>
+</ul>
+</li>
+<li>
+<p>Infraestrutura de Nuvem:</p>
+<ul>
+<li><a href="http://arquiteturati.caixa/arquitetura_referencia/infra_nuvem/infraestrutura_nuvem/">http//arquiteturati.caixa/arquitetura_referencia/infra_nuvem/infraestrutura_nuvem/</a></li>
+</ul>
+</li>
+<li>
+<p>Segurança em Nuvem: </p>
+<ul>
+<li><a href="https://caixa.sharepoint.com/:w:/s/5141/EddXduYs5BRHsEkmfFvRTgsBPRYlUkeqo3_u9dh9pn_PWQ?e=hHPslE">https://caixa.sharepoint.com/:w:/s/5141/EddXduYs5BRHsEkmfFvRTgsBPRYlUkeqo3_u9dh9pn_PWQ?e=hHPslE</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="legislacao">Legislação:</h3>
+<ul>
+<li>
+<p>Decreto nº 6.523/2008 - Lei do SAC (Serviços de Atendimento ao Cliente)</p>
+</li>
+<li>
+<p>Lei 13.709/2018 -- Lei Geral de Proteção de Dados Pessoais (LGPD)</p>
+</li>
+<li>
+<p>Resolução CMN nº 4658 de 26/ABR/2018 - específica sobre serviços em
+ nuvem para o setor financeiro, política de segurança cibernética e
+ sobre os requisitos para a contratação de serviços de processamento e
+ armazenamento de dados em nuvem.</p>
+</li>
+<li>
+<p>Resolução CMN nº4.752 de 26/NOV/2019 -- Altera e atualiza a Resolução
+ nº 4.658.</p>
+</li>
+</ul>
+<h3 id="normativos"><a href="http://sismn.caixa/">Normativos:</a></h3>
+<ul>
+<li>
+<p>MN TE 088 - Telefonia</p>
+</li>
+<li>
+<p>MN TE111 -- Padrões Arquiteturais </p>
+</li>
+<li>
+<p>MN TE213 -- Gestão de Riscos de TI</p>
+</li>
+<li>
+<p>MN TE232 -- Diretrizes de Segurança para Utilização de API </p>
+</li>
+<li>
+<p>MN TE227 -- Diretrizes para Utilização de Nuvem Pública</p>
+</li>
+</ul>
+<h1 id="historico-das-revisoes">Histórico das Revisões</h1>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Responsável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24/02/2022</td>
+<td>1.0</td>
+<td>Primeira Publicação no Portal</td>
+<td>Francisco Teodoro Assis Carvalho  (SUART07)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+      
+        
+        <a href="../sdwan/index.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Uso futuro" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Uso futuro
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../micro/index.html" class="md-footer__link md-footer__link--next" aria-label="Próximo: Segmentação e Microssegmentação" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              Segmentação e Microssegmentação
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2020 &copy; Caixa Econômica Federal. Todos os direitos reservados.  - <a href="index.html#__consent">Preferências de cookies</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+<h4>Cookies.</h4>
+<p>Usamos cookies para reconhecer suas visitas e preferências, bem como para medir a eficácia de nossa documentação. Com seu consentimento, você está nos ajudando a melhorar nossa documentação.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);console.log(new FormData(form)),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version.title": "Selecione a vers\u00e3o"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../js/medium-zoom.js"></script>
+      
+        <script src="../../js/site.js"></script>
+      
+    
+  </body>
+</html>

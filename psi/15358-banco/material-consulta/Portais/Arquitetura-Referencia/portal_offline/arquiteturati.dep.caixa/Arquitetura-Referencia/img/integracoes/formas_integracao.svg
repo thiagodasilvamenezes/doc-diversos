@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Gerado pelo Microsoft Visio, SVG Export Integração_Java-CICS.svg Página-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="8.68955in" height="5.01093in" viewBox="0 0 625.647 360.787" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st21">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Calibri;font-size:1.00001em;font-stretch:semi-expanded;font-weight:bold}
+		.st3 {fill:#000000;font-family:Calibri;font-size:0.833336em}
+		.st4 {fill:#595959;stroke:#595959;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {fill:#ffffff;font-family:Calibri;font-size:1.16666em;font-weight:bold}
+		.st6 {marker-end:url(#mrkr5-45);marker-start:url(#mrkr5-43);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.239976}
+		.st7 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.086948582161584}
+		.st8 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st9 {fill:#000000;font-family:Calibri;font-size:0.666664em}
+		.st10 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st11 {font-size:1em}
+		.st12 {fill:#595959;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:#515251;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st15 {marker-end:url(#mrkr4-162);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.239976}
+		.st16 {fill:#515150;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:#515050;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:#505050;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st19 {fill:#595959;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st20 {fill:#ffffff;font-family:Calibri;font-size:0.666664em}
+		.st21 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-11" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0.01" stop-color="#ffffff" stop-opacity="1"/>
+			<stop offset="0.5" stop-color="#fefefe" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-15" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
+			<stop offset="0" stop-color="#fefefe" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend5">
+			<path d="M 2 1 L 0 0 L 1.98117 -0.993387 C 1.67173 -0.364515 1.67301 0.372641 1.98465 1.00043 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr5-43" class="st7" refX="18.626687668767" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend5" transform="scale(11.501050105011) "/>
+		</marker>
+		<marker id="mrkr5-45" class="st7" refX="-20.126837683768" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend5" transform="scale(-11.501050105011,-11.501050105011) "/>
+		</marker>
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-162" class="st7" refX="-23.002100210021" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-11.501050105011,-11.501050105011) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Página-1</title>
+		<g id="group1-1" transform="translate(0.375,-188.786)">
+			<title>Alternando.200</title>
+			<g id="group2-2">
+				<title>Planilha.2</title>
+				<g id="shape3-3" transform="translate(2.83465,2.83465)">
+					<title>Planilha.3</title>
+				</g>
+				<g id="shape2-5">
+					<path d="M14.17 360.79 L620.79 360.79 L620.79 270.08 A14.1736 14.1736 -180 0 0 606.61 255.91 L0 255.91 L0 346.61
+								 A14.1736 14.1736 -180 0 0 14.17 360.79 Z" class="st1"/>
+				</g>
+			</g>
+			<g id="group4-7" transform="translate(0,-79.3701)">
+				<title>Planilha.4</title>
+				<desc>Interfaces</desc>
+				<g id="shape5-8">
+					<title>Planilha.5</title>
+				</g>
+				<g id="shape4-12">
+					<text x="6" y="351.63" class="st2">Interfaces</text>				</g>
+			</g>
+		</g>
+		<g id="group6-17" transform="translate(2.02517,-2.83465)">
+			<title>Alternando.368</title>
+			<g id="group7-18">
+				<title>Planilha.7</title>
+				<g id="shape8-19" transform="translate(2.83465,2.83465)">
+					<title>Planilha.8</title>
+				</g>
+				<g id="shape7-21">
+					<path d="M14.17 360.79 L620.79 360.79 L620.79 246.98 A14.1736 14.1736 -180 0 0 606.61 232.8 L0 232.8 L0 346.61
+								 A14.1736 14.1736 -180 0 0 14.17 360.79 Z" class="st1"/>
+				</g>
+			</g>
+			<g id="group9-23" transform="translate(0,-102.471)">
+				<title>Planilha.9</title>
+				<desc>Integrações</desc>
+				<g id="shape10-24">
+					<title>Planilha.10</title>
+				</g>
+				<g id="shape9-27">
+					<text x="6" y="351.63" class="st2">Integrações</text>				</g>
+			</g>
+		</g>
+		<g id="shape11-31" transform="translate(307.072,-223.797)">
+			<title>Planilha.11</title>
+			<desc>API Manager</desc>
+			<rect x="0" y="339.669" width="87.2979" height="21.1181" class="st1"/>
+			<text x="17.51" y="353.23" class="st3">API Manager</text>		</g>
+		<g id="shape12-34" transform="translate(127.934,-147.755)">
+			<title>Planilha.12</title>
+			<desc>APLICAÇÃO</desc>
+			<rect x="0" y="335.204" width="380.387" height="25.5827" class="st4"/>
+			<text x="156.77" y="352.2" class="st5">APLICAÇÃO</text>		</g>
+		<g id="shape13-37" transform="translate(443.997,-220.479)">
+			<title>Conector dinâmico.183</title>
+			<desc>BATCH</desc>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 403.1" class="st6"/>
+			<rect x="-3.97766" y="379.558" width="22.1287" height="9.59985" class="st8"/>
+			<text x="-3.98" y="386.76" class="st9">BATCH</text>		</g>
+		<g id="shape14-48" transform="translate(127.934,-72.4252)">
+			<title>Planilha.14</title>
+			<desc>API Manager</desc>
+			<rect x="0" y="339.669" width="103.181" height="21.1181" class="st1"/>
+			<text x="25.45" y="353.23" class="st3">API Manager</text>		</g>
+		<g id="shape15-51" transform="translate(343.634,-223.797)">
+			<title>Conector dinâmico.187</title>
+			<desc>API REST [JSON]</desc>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 406.42" class="st6"/>
+			<rect x="-7.11837" y="376.417" width="28.4101" height="19.1997" class="st10"/>
+			<text x="-7.12" y="383.62" class="st9">API REST <tspan x="-3.71" dy="1.2em" class="st11">[JSON]</tspan></text>		</g>
+		<g id="shape16-61" transform="translate(144.993,-173.337)">
+			<title>Conector dinâmico.238</title>
+			<desc>HTTPS</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 320.21" class="st6"/>
+			<rect x="-3.20834" y="333.284" width="20.5898" height="9.59985" class="st10"/>
+			<text x="-3.21" y="340.48" class="st9">HTTPS</text>		</g>
+		<g id="shape17-70" transform="translate(0.375,-149.987)">
+			<title>Planilha.17</title>
+			<desc>Login Caixa</desc>
+			<rect x="0" y="339.669" width="87.2979" height="21.1181" class="st1"/>
+			<text x="20.88" y="353.23" class="st3">Login Caixa</text>		</g>
+		<g id="shape18-73" transform="translate(45.149,-171.105)">
+			<title>Conector dinâmico.262</title>
+			<desc>HTTPS</desc>
+			<path d="M0 356.32 L0 355.96 L0 292.69 L72.86 292.69" class="st6"/>
+			<rect x="34.5621" y="288.603" width="20.5898" height="9.59985" class="st10"/>
+			<text x="34.56" y="295.8" class="st9">HTTPS</text>		</g>
+		<g id="shape19-82" transform="translate(127.934,-16.5145)">
+			<title>Planilha.19</title>
+			<desc>Sistema de Negócio</desc>
+			<rect x="0" y="339.669" width="103.181" height="21.1181" class="st1"/>
+			<text x="11.66" y="353.23" class="st3">Sistema de Negócio</text>		</g>
+		<g id="shape20-85" transform="translate(172.438,-72.4252)">
+			<title>Conector dinâmico.265</title>
+			<desc>API REST [JSON]</desc>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 390.75" class="st6"/>
+			<rect x="-7.11837" y="368.584" width="28.4101" height="19.1997" class="st10"/>
+			<text x="-7.12" y="375.78" class="st9">API REST <tspan x="-3.71" dy="1.2em" class="st11">[JSON]</tspan></text>		</g>
+		<g id="shape21-95" transform="translate(439.444,-220.479)">
+			<title>Documento.179</title>
+			<path d="M4.48 354.62 L4.48 353.74 L18.8 353.74 L18.8 354.62 L4.48 354.62 ZM4.48 351.09 L4.48 350.21 L18.8 350.21 L18.8
+						 351.09 L4.48 351.09 ZM4.48 347.57 L4.48 346.69 L18.8 346.69 L18.8 347.57 L4.48 347.57 ZM4.48 344.04 L4.48
+						 343.16 L18.8 343.16 L18.8 344.04 L4.48 344.04 ZM4.48 340.52 L4.48 339.64 L13.47 339.64 L13.47 340.52 L4.48
+						 340.52 ZM21.49 359.02 L21.49 339.64 L16.12 339.64 L16.12 334.35 L1.79 334.35 L1.79 359.02 L21.49 359.02
+						 ZM21.26 338.76 L17.01 334.57 L17.01 338.76 L21.26 338.76 ZM17.68 332.59 L23.28 338.09 L23.28 360.79 L0 360.79
+						 L0 332.59 L17.68 332.59 Z" class="st12"/>
+		</g>
+		<g id="shape22-97" transform="translate(522.526,-223.797)">
+			<title>Planilha.22</title>
+			<desc>Power Center</desc>
+			<rect x="0" y="339.669" width="87.2979" height="21.1181" class="st1"/>
+			<text x="15.81" y="353.23" class="st3">Power Center</text>		</g>
+		<g id="shape23-100" transform="translate(462.723,-227.269)">
+			<title>Conector dinâmico.269</title>
+			<desc>BATCH</desc>
+			<path d="M4.47 353.7 L4.83 353.7 L54.97 353.7" class="st6"/>
+			<rect x="18.837" y="348.901" width="22.1287" height="9.59985" class="st10"/>
+			<text x="18.84" y="356.1" class="st9">BATCH</text>		</g>
+		<g id="shape24-109" transform="translate(172.438,-147.755)">
+			<title>Conector dinâmico.273</title>
+			<desc>API REST [JSON]</desc>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 410.17" class="st6"/>
+			<rect x="-6.89458" y="377.741" width="28.4101" height="19.1997" class="st10"/>
+			<text x="-6.89" y="384.94" class="st9">API REST <tspan x="-3.49" dy="1.2em" class="st11">[JSON]</tspan></text>		</g>
+		<g id="group25-119" transform="translate(546.208,-144.991)">
+			<title>Database, mini 1.314</title>
+			<desc>SGBD</desc>
+			<g id="group26-120">
+				<title>Planilha.26</title>
+				<g id="shape27-121">
+					<title>Planilha.27</title>
+					<path d="M42.19 338.69 L42.19 349.93 L42.19 351.64 L42.19 351.71 C41.48 359.62 28.66 360.79 21.1 360.79 C13.53
+								 360.79 0.72 359.62 0 351.71 L0 351.64 L0 350.01 L0 338.69 L0 337.14 C0 331.47 10.59 328.99 21.1
+								 328.99 C31.6 328.99 42.19 331.47 42.19 337.14 L42.19 338.69 Z" class="st13"/>
+				</g>
+				<g id="shape28-123" transform="translate(2.38822,-2.32643)">
+					<title>Planilha.28</title>
+					<path d="M18.71 347.6 C11.22 347.6 3.74 346.36 0 343.57 L0 352.26 L0 353.81 C0.56 360.24 14.01 360.79 18.71 360.79
+								 C23.4 360.79 36.78 360.24 37.42 353.81 L37.42 352.26 L37.42 343.57 C33.67 346.36 26.19 347.6 18.71
+								 347.6 Z" class="st14"/>
+				</g>
+				<g id="shape29-125" transform="translate(2.38822,-17.836)">
+					<title>Planilha.29</title>
+					<ellipse cx="18.7077" cy="354.971" rx="18.7077" ry="5.81608" class="st14"/>
+				</g>
+			</g>
+			<g id="shape25-127">
+				<text x="9.65" y="368.19" class="st3">SGBD</text>			</g>
+		</g>
+		<g id="shape30-129" transform="translate(560.218,-223.797)">
+			<title>Conector dinâmico</title>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 402.97" class="st6"/>
+		</g>
+		<g id="shape31-136" transform="translate(508.321,-153.459)">
+			<title>Conector dinâmico.320</title>
+			<desc>JDBC</desc>
+			<path d="M4.47 353.7 L4.83 353.7 L37.12 353.7" class="st6"/>
+			<rect x="12.9321" y="348.901" width="16.0898" height="9.59985" class="st10"/>
+			<text x="12.93" y="356.1" class="st9">JDBC</text>		</g>
+		<g id="shape32-145" transform="translate(87.6729,-153.459)">
+			<title>Conector dinâmico.388</title>
+			<desc>HTTPS</desc>
+			<path d="M4.47 353.7 L4.83 353.7 L35.43 353.7" class="st6"/>
+			<rect x="9.83562" y="348.901" width="20.5898" height="9.59985" class="st10"/>
+			<text x="9.84" y="356.1" class="st9">HTTPS</text>		</g>
+		<g id="shape33-154" transform="translate(408.564,-305.786)">
+			<title>Planilha.33</title>
+			<desc>B2B</desc>
+			<rect x="0" y="339.669" width="85.0394" height="21.1181" class="st1"/>
+			<text x="34.55" y="353.23" class="st3">B2B</text>		</g>
+		<g id="shape34-157" transform="translate(443.997,-248.679)">
+			<title>Conector dinâmico.464</title>
+			<desc>NFS</desc>
+			<path d="M7.09 360.79 L7.09 309.2" class="st15"/>
+			<rect x="0.828863" y="327.434" width="12.5156" height="9.59985" class="st10"/>
+			<text x="0.83" y="334.63" class="st9">NFS</text>		</g>
+		<g id="shape35-165" transform="translate(341.179,-244.915)">
+			<title>Conector dinâmico.475</title>
+			<desc>API REST [JSON]</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 308.36" class="st6"/>
+			<rect x="-7.11837" y="322.559" width="28.4101" height="19.1997" class="st10"/>
+			<text x="-7.12" y="329.76" class="st9">API REST <tspan x="-3.71" dy="1.2em" class="st11">[JSON]</tspan></text>		</g>
+		<g id="group36-175" transform="translate(319.391,-302.172)">
+			<title>Content Type.476</title>
+			<desc>Canais</desc>
+			<g id="group37-176">
+				<title>Planilha.37</title>
+				<g id="group38-177">
+					<title>Planilha.38</title>
+					<g id="shape39-178">
+						<title>Planilha.39</title>
+						<path d="M5.25 360.79 C2.32 360.79 0 358.46 0 355.54 L0 321.04 C0 318.11 2.32 315.79 5.25 315.79 L52.5 315.79
+									 C55.42 315.79 57.75 318.11 57.75 321.04 L57.75 355.54 C57.75 358.46 55.42 360.79 52.5 360.79
+									 L5.25 360.79 Z" class="st13"/>
+					</g>
+					<g id="shape40-180" transform="translate(2.25,-2.25)">
+						<title>Planilha.40</title>
+						<path d="M50.25 320.29 L3 320.29 C1.35 320.29 0 321.64 0 323.29 L0 357.79 C0 359.44 1.35 360.79 3 360.79
+									 L50.25 360.79 C51.9 360.79 53.25 359.44 53.25 357.79 L53.25 323.29 C53.25 321.64 51.9 320.29
+									 50.25 320.29 ZM44.25 322.54 L46.5 322.54 L46.5 324.79 L44.25 324.79 L44.25 322.54 ZM39.75 322.54
+									 L42 322.54 L42 324.79 L39.75 324.79 L39.75 322.54 ZM51 357.79 C51 358.24 50.7 358.54 50.25 358.54
+									 L3 358.54 C2.55 358.54 2.25 358.24 2.25 357.79 L2.25 327.79 L51 327.79 L51 357.79 ZM51 324.79
+									 L48.75 324.79 L48.75 322.54 L51 322.54 L51 324.79 Z" class="st16"/>
+					</g>
+				</g>
+				<g id="shape41-182" transform="translate(7.5,-8.25)">
+					<title>Planilha.41</title>
+					<path d="M7.5 339.04 L7.5 359.29 L1.5 359.29 L1.5 339.04 L7.5 339.04 ZM9 337.54 L0 337.54 L0 360.79 L9 360.79
+								 L9 337.54 Z" class="st17"/>
+				</g>
+				<g id="shape42-184" transform="translate(18.75,-8.25)">
+					<title>Planilha.42</title>
+					<path d="M7.5 339.04 L7.5 359.29 L1.5 359.29 L1.5 339.04 L7.5 339.04 ZM9 337.54 L0 337.54 L0 360.79 L9 360.79
+								 L9 337.54 Z" class="st17"/>
+				</g>
+				<g id="shape43-186" transform="translate(30,-8.25)">
+					<title>Planilha.43</title>
+					<path d="M7.5 339.04 L7.5 359.29 L1.5 359.29 L1.5 339.04 L7.5 339.04 ZM9 337.54 L0 337.54 L0 360.79 L9 360.79
+								 L9 337.54 Z" class="st17"/>
+				</g>
+				<g id="shape44-188" transform="translate(41.25,-8.25)">
+					<title>Planilha.44</title>
+					<path d="M7.5 339.04 L7.5 359.29 L1.5 359.29 L1.5 339.04 L7.5 339.04 ZM9 337.54 L0 337.54 L0 360.79 L9 360.79
+								 L9 337.54 Z" class="st17"/>
+				</g>
+			</g>
+			<g id="shape36-190">
+				<text x="15.69" y="314.38" class="st3">Canais</text>			</g>
+		</g>
+		<g id="group45-192" transform="translate(122.838,-214.652)">
+			<title>Application, Hybrid</title>
+			<g id="group46-193" transform="translate(0,-4.09091)">
+				<title>Planilha.46</title>
+				<desc>Web</desc>
+				<g id="shape47-194">
+					<title>Planilha.47</title>
+					<path d="M4.85 360.79 C2.15 360.79 0 358.67 0 356.01 L0 324.65 C0 321.99 2.15 319.88 4.85 319.88 L48.53 319.88
+								 C51.24 319.88 53.39 321.99 53.39 324.65 L53.39 356.01 C53.39 358.67 51.24 360.79 48.53 360.79 L4.85
+								 360.79 Z" class="st13"/>
+				</g>
+				<g id="shape48-196" transform="translate(2.08,-2.04545)">
+					<title>Planilha.48</title>
+					<path d="M46.45 323.97 L2.77 323.97 C1.25 323.97 0 325.2 0 326.7 L0 358.06 C0 359.56 1.25 360.79 2.77 360.79
+								 L46.45 360.79 C47.98 360.79 49.23 359.56 49.23 358.06 L49.23 326.7 C49.23 325.2 47.98 323.97 46.45
+								 323.97 ZM40.91 326.01 L42.99 326.01 L42.99 328.06 L40.91 328.06 L40.91 326.01 ZM36.75 326.01 L38.83
+								 326.01 L38.83 328.06 L36.75 328.06 L36.75 326.01 ZM47.15 358.06 C47.15 358.47 46.87 358.74 46.45
+								 358.74 L2.77 358.74 C2.36 358.74 2.08 358.47 2.08 358.06 L2.08 330.79 L47.15 330.79 L47.15 358.06
+								 ZM47.15 328.06 L45.07 328.06 L45.07 326.01 L47.15 326.01 L47.15 328.06 Z" class="st18"/>
+				</g>
+				<g id="shape46-198">
+					<text x="11.97" y="340.16" class="st3">Web</text>				</g>
+			</g>
+			<g id="group49-200" transform="translate(14.56,-2.27374E-13)">
+				<title>Planilha.49</title>
+				<g id="shape50-201">
+					<title>Planilha.50</title>
+					<path d="M0 350.56 L0 345.45 L20.73 334.2 L20.73 343.13 L11.99 347.9 L20.73 352.13 L20.73 360.79 L0 350.56 Z"
+							class="st13"/>
+				</g>
+				<g id="shape51-203" transform="translate(2.08,-3.34091)">
+					<title>Planilha.51</title>
+					<path d="M16.57 356.7 L5.41 351.31 L16.57 345.24 L16.57 341.01 L0 350.01 L0 352.61 L16.57 360.79 L16.57 356.7
+								 Z" class="st18"/>
+				</g>
+				<g id="shape52-205" transform="translate(23.6427,0)">
+					<title>Planilha.52</title>
+					<path d="M0 352.13 L8.74 347.9 L0 343.13 L0 334.2 L20.73 345.45 L20.73 350.56 L0 360.79 L0 352.13 Z"
+							class="st13"/>
+				</g>
+				<g id="shape53-207" transform="translate(25.7227,-3.34091)">
+					<title>Planilha.53</title>
+					<path d="M0 341.01 L0 345.24 L11.16 351.31 L0 356.7 L0 360.79 L16.57 352.61 L16.57 350.01 L0 341.01 Z"
+							class="st18"/>
+				</g>
+			</g>
+			<g id="shape54-209" transform="translate(34.6667,-5.45455)">
+				<title>Planilha.54</title>
+				<rect x="0" y="357.378" width="5.54667" height="3.40909" class="st13"/>
+			</g>
+		</g>
+		<g id="shape55-211" transform="translate(231.906,-173.337)">
+			<title>Conector dinâmico.496</title>
+			<desc>TN3270</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 324.3" class="st6"/>
+			<rect x="-5.55419" y="335.33" width="25.2817" height="9.59985" class="st10"/>
+			<text x="-5.55" y="342.53" class="st9">TN3270</text>		</g>
+		<g id="group56-220" transform="translate(210.117,-214.652)">
+			<title>Planilha.56</title>
+			<g id="group57-221">
+				<title>Planilha.57</title>
+				<g id="shape58-222">
+					<title>Planilha.58</title>
+					<path d="M5.25 360.79 C2.32 360.79 0 358.46 0 355.54 L0 321.04 C0 318.11 2.32 315.79 5.25 315.79 L52.5 315.79
+								 C55.42 315.79 57.75 318.11 57.75 321.04 L57.75 355.54 C57.75 358.46 55.42 360.79 52.5 360.79 L5.25
+								 360.79 Z" class="st13"/>
+				</g>
+				<g id="shape59-224" transform="translate(2.25,-2.25)">
+					<title>Planilha.59</title>
+					<path d="M50.25 320.29 L3 320.29 C1.35 320.29 0 321.64 0 323.29 L0 357.79 C-0 359.44 1.35 360.79 3 360.79 L50.25
+								 360.79 C51.9 360.79 53.25 359.44 53.25 357.79 L53.25 323.29 C53.25 321.64 51.9 320.29 50.25 320.29
+								 ZM44.25 322.54 L46.5 322.54 L46.5 324.79 L44.25 324.79 L44.25 322.54 ZM39.75 322.54 L42 322.54 L42
+								 324.79 L39.75 324.79 L39.75 322.54 ZM51 357.79 C51 358.24 50.7 358.54 50.25 358.54 L3 358.54 C2.55
+								 358.54 2.25 358.24 2.25 357.79 L2.25 327.79 L51 327.79 L51 357.79 ZM51 324.79 L48.75 324.79 L48.75
+								 322.54 L51 322.54 L51 324.79 Z" class="st16"/>
+				</g>
+			</g>
+			<g id="shape60-226" transform="translate(5.5925,-5.49209)">
+				<title>Planilha.60</title>
+				<desc>Rede Caixa</desc>
+				<rect x="0" y="331.874" width="46.4882" height="28.9134" class="st19"/>
+				<text x="5.47" y="348.73" class="st20">Rede Caixa</text>			</g>
+		</g>
+		<g id="shape61-229" transform="translate(281.005,-72.4252)">
+			<title>Planilha.61</title>
+			<desc>Barramento</desc>
+			<rect x="0" y="339.669" width="103.181" height="21.1181" class="st1"/>
+			<text x="27.17" y="353.23" class="st3">Barramento</text>		</g>
+		<g id="shape63-232" transform="translate(325.509,-72.4252)">
+			<title>Conector dinâmico.63</title>
+			<desc>CICS LINK [COMMAREA|CONTAINER]</desc>
+			<path d="M7.09 365.26 L7.09 365.62 L7.09 390.75" class="st6"/>
+			<rect x="-36.9251" y="368.584" width="88.0236" height="19.1997" class="st10"/>
+			<text x="-8.28" y="375.78" class="st9">CICS LINK <tspan x="-36.93" dy="1.2em" class="st11">[COMMAREA|CONTAINER]</tspan></text>		</g>
+		<g id="shape64-242" transform="translate(281.005,-75.8976)">
+			<title>Conector dinâmico.64</title>
+			<desc>API REST [JSON]</desc>
+			<path d="M-4.47 353.7 L-4.83 353.7 L-45.06 353.7" class="st6"/>
+			<rect x="-38.6416" y="344.325" width="28.4101" height="19.1997" class="st10"/>
+			<text x="-38.64" y="351.52" class="st9">API REST <tspan x="-35.23" dy="1.2em" class="st11">[JSON]</tspan></text>		</g>
+		<g id="shape70-252" transform="translate(281.005,-16.5145)">
+			<title>Planilha.70</title>
+			<desc>Sistema de Negócio</desc>
+			<rect x="0" y="339.669" width="103.181" height="21.1181" class="st1"/>
+			<text x="11.66" y="353.23" class="st3">Sistema de Negócio</text>		</g>
+		<g id="shape80-255" transform="translate(405.14,-16.5145)">
+			<title>Planilha.80</title>
+			<desc>Sistema de Negócio</desc>
+			<rect x="0" y="339.669" width="103.181" height="21.1181" class="st1"/>
+			<text x="11.66" y="353.23" class="st3">Sistema de Negócio</text>		</g>
+		<g id="shape84-258" transform="translate(351.871,-93.5433)">
+			<title>Conector dinâmico.84</title>
+			<desc>WEB SERVICE [XML|JSON|*]</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 311.41" class="st6"/>
+			<rect x="-16.6314" y="331.1" width="47.3011" height="19.1997" class="st10"/>
+			<text x="-14.9" y="338.3" class="st9">WEB SERVICE <tspan x="-16.63" dy="1.2em" class="st11">[XML|JSON|*]</tspan></text>		</g>
+		<g id="shape90-268" transform="translate(474.422,-37.6326)">
+			<title>Conector dinâmico.90</title>
+			<desc>WEB SERVICE [XML|JSON|*]</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 255.5" class="st6"/>
+			<rect x="-16.5638" y="306.615" width="47.3011" height="19.1997" class="st8"/>
+			<text x="-14.83" y="313.82" class="st9">WEB SERVICE <tspan x="-16.56" dy="1.2em" class="st11">[XML|JSON|*]</tspan></text>		</g>
+		<g id="shape92-278" transform="translate(424.721,-37.6326)">
+			<title>Conector dinâmico.92</title>
+			<desc>MQ [XML|JSON|*]</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 255.5" class="st6"/>
+			<rect x="-16.5638" y="306.615" width="47.3011" height="19.1997" class="st10"/>
+			<text x="0.98" y="313.82" class="st9">MQ<tspan x="-16.56" dy="1.2em" class="st11">[XML|JSON|*]</tspan></text>		</g>
+		<g id="shape94-288" transform="translate(299.997,-93.5433)">
+			<title>Conector dinâmico.94</title>
+			<desc>MQ [XML|JSON|*]</desc>
+			<path d="M7.09 356.32 L7.09 355.96 L7.09 311.41" class="st6"/>
+			<rect x="-16.6314" y="331.1" width="47.3011" height="19.1997" class="st8"/>
+			<text x="0.91" y="338.3" class="st9">MQ<tspan x="-16.63" dy="1.2em" class="st11">[XML|JSON|*]</tspan></text>		</g>
+	</g>
+</svg>
