@@ -1,0 +1,19 @@
+-- ================================================================================
+-- ATENÇÃO!   ATENÇÃO!   ATENÇÃO!   ATENÇÃO!   ATENÇÃO!   ATENÇÃO!   ATENÇÃO!    
+-- ESCLARECEMOS QUE ESTA DDL FOI CONCEBIDA PARA ATENDIMENTO EXCLUSIVO DA
+-- REQUISIÇÃO NO AMBIENTE DE DESENVOLVIMENTO NÃO SENDO VÁLIDO, EM 
+-- HIPÓTESE ALGUMA, PARA IMPLEMENTAÇÃO DIRETA NO AMBIENTE PRODUTIVO.       
+-- NA OCORRÊNCIA DO SEU USO COMO REFERÊNCIA PARA IMPLEMENTAÇÃO NOS      
+-- AMBIENTES DE HMP/PRD, FAZ-SE NECESSÁRIA A ATUAÇÃO DO DBA DE PRODUÇÃO  
+-- PARA AS DEVIDAS ADEQUAÇÕES DE ACORDO COM O QUE FOI ESPECIFICADO PELA
+-- EQUIPE DE PROJETO NA ABERTURA DA MUDANÇA.                            
+-- ================================================================================
+-- SISTEMA      : SIACC
+-- SGBD			: ORACLE
+-- Ambiente		: DES
+-- Database		: ORAD05BC
+-- Conexo		: CNPEXDADVM01CLU08.EXTRA.CAIXA.GOV.BR
+-- Porta		: 1521
+-- Chamado		: REQ0001234567890
+-- Criado por	: Cxxxxxx / Fxxxxxx
+--======================================================================

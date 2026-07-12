@@ -1,0 +1,11 @@
+erDiagram
+    CLIENTE ||--o{ CONTA : possui
+    CLIENTE ||--o{ ATENDIMENTO : solicita
+    CLIENTE ||--o{ DISPOSITIVO_CLIENTE : vincula
+    CLIENTE ||--o{ INTERACAO_ATENDIMENTO : participa_de
+    CONTA ||--o{ TRANSACAO : movimenta
+    CONTA ||--o{ LIMITE_CONTA : possui
+    CANAL ||--o{ TRANSACAO : origina
+    CANAL ||--o{ ATENDIMENTO : recebe
+    ATENDIMENTO ||--o{ INTERACAO_ATENDIMENTO : registra
+    TRANSACAO ||--o{ TRANSACAO_HISTORICO : altera_estado

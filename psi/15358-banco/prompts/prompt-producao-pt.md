@@ -226,6 +226,84 @@ CREATE TABLE TRANSACAO_HISTORICO (
 
 ---
 
+## PREMISSAS DE CONSTRUÇÃO (decisões consolidadas — respostas do candidato às 20 perguntas de assertividade)
+
+Estas premissas foram deliberadas previamente e SÃO VINCULANTES para a redação. Não as contrarie.
+
+### P1 — Nível de profundidade e peso das entregas
+As 4 entregas têm importância equivalente. Em cada uma: entregar primeiro o **básico esperado por todos** (cobertura completa do pedido) e, em seguida, **expandir com o diferencial de profissional sênior** (soluções acima da média, visão de coordenador, sempre amarradas à estratégia de evolução). Conhecimento avançado + visão gerencial em todas as seções.
+
+### P2 — "Todos os conceitos da modelagem conceitual" = cobertura integral
+Abordar do simples ao específico, de forma coesa: entidade forte/fraca/dependente, entidade de domínio, entidade histórica/associativa, atributos (simples, compostos, derivados), cardinalidade e opcionalidade, **generalização/especialização (CLIENTE PF × PJ via `segmento`)**, agregação, normalização (até 3FN, padrão CAIXA), regras de negócio, ciclo de vida das entidades, separação mestre/transacional/operacional/histórico/domínio. Nada de lista superficial: cada conceito aplicado ao SIADL.
+
+### P3 — Divergências conceitual × físico: NÃO inventar (possível pegadinha)
+Justificar divergências **apenas SE existirem de fato**, baseadas no padrão do segmento e nas normas CAIXA. Se não houver divergência real em algum ponto, não criar artificialmente. É permitido (e desejável) registrar **considerações/alertas de perigos** que podem LEVAR a divergências se não forem observados.
+
+### P4 — Diagrama atual oficial (não contradizer)
+O diagrama do enunciado contém: CLIENTE 1:N CONTA; CLIENTE 1:N ATENDIMENTO; CLIENTE 1:N DISPOSITIVO_CLIENTE; **CLIENTE 1:N INTERACAO_ATENDIMENTO** (relacionamento direto que NÃO está no texto — avaliar redundância/derivação via ATENDIMENTO no modelo ideal); CONTA 1:N TRANSACAO; CONTA 1:N LIMITE_CONTA; ATENDIMENTO 1:N INTERACAO_ATENDIMENTO; TRANSACAO 1:N TRANSACAO_HISTORICO; CANAL 1:N TRANSACAO. **ATENDIMENTO NÃO se relaciona com CANAL no modelo atual** (usa atributo textual `canal`) — essa é uma correção a propor.
+
+### P5 — Elementos visuais obrigatórios
+Todo diagrama deve ser representado visualmente: (1) no documento principal, criar em **Mermaid/markdown**; (2) após cada diagrama, referenciar um **arquivo auxiliar** com a descrição completa e todas as informações para reconstruí-lo no **Draw.io ou PowerDesigner**; (3) quando não for possível desenhar em markdown, colocar apenas a referência ao arquivo **em destaque visual (cor vermelha ou fonte grande)**.
+
+### P6 — TIMESTAMP: análise ancorada na norma CAIXA
+Tratar o `TIMESTAMP` comparando com o que o **TE074/Anexo IV define para SQL Server** (DATETIME2 é o tipo correto para data+hora; ROWVERSION não recomendado — usar colunas DH). A crítica é normativa e técnica: mencionar a não aderência e propor a alteração.
+
+### P7 — Crescimento 30% a.m.: questionar E propor solução para os dois cenários
+Postura de coordenador: **questionar a premissa junto ao negócio** (validar se há gravação redundante/log excessivo) E propor solução para ambos os casos — se o dado estiver errado (saneamento da geração) e se estiver correto (solução de infra/estruturação/remodelagem de consultas para reduzir transações), citando padrões de solução consagrados para problemas semelhantes.
+
+### P8 — Retenção: decisão do gestor/PO, apresentar CENÁRIOS
+Não fixar uma política única. Apresentar análise condicional: "caso 90 dias → ...", "caso 12 meses → ...", com implicações de cada horizonte (storage, janela, backup), deixando explícito que a decisão é do **gestor da informação/PO** e o papel técnico é instrumentar os cenários.
+
+### P9 — Estornos (CHECK valor > 0): comparar abordagens
+Apresentar as abordagens (transação de estorno como novo registro de tipo específico mantendo o CHECK × valores negativos removendo o CHECK), com prós/contras de cada, indicando **o que é praticado comercialmente** no mercado financeiro (estorno como evento novo, preservando imutabilidade e trilha contábil) como recomendação.
+
+### P10 — Índice clustered das massivas: composta como definitiva, paliativo como tático
+Apresentar as duas alternativas com trade-offs. **Recomendação: chave clustered composta (data, id) alinhada à partição** como solução arquitetural definitiva (pré-requisito para SWITCH OUT; contrapartida: altera PKs, FKs, índices, consultas e TRANSACAO_HISTORICO). **OPTIMIZE_FOR_SEQUENTIAL_KEY = mitigação tática/emergencial** (estanca o hotspot de last-page insert enquanto a reestruturação é desenvolvida; não substitui particionamento nem habilita expurgo por SWITCH). Visão em fases: apagar o incêndio agora (operação), consertar a planta depois (arquitetura). Desenho físico detalhado e implantação sob responsabilidade do ABD.
+
+### P11 — SQL Server 2025: citar recursos novos
+Pode e deve citar recursos novos da versão quando melhorarem a solução (tempdb, IQP, columnstore etc.), com precisão técnica.
+
+### P12 — LIMITE_CONTA: opção A com temporal table como complemento de auditoria
+**Vigência de negócio (application-time) ≠ versionamento de sistema (system-time)** — misturá-los é erro conceitual grave. Manter vigência aplicativa (`data_inicio_vigencia`/`data_fim_vigencia`) + **índice único filtrado** garantindo um único vigente por tipo. Citar o **item 3.2.7 do TE074** (tabela temporal é padrão CAIXA) e recomendar **system-versioned temporal table estritamente para auditoria/conformidade** (quem mudou o limite e quando), isolando o histórico das consultas transacionais. Conversão completa para temporal table: mencionar como alternativa com impactos (volume 1 bi+, operação, semântica), decisão a validar por ABD/comitê. **Confirmado no corpus**: o guia de modelagem do portal traz exemplo oficial de `SYSTEM_VERSIONING = ON (HISTORY_TABLE = ...)` com `PERIOD FOR SYSTEM_TIME` — usar essa sintaxe como referência.
+
+### P13 — Nomenclatura CAIXA: apontar não aderência e mostrar o correto
+Citar explicitamente que a DDL atual **não adere às normas e nomenclatura CAIXA** (TE074/Anexo II) e apresentar como ficaria correto (TB_, NU_, CO_, DT_, DH_, VR_, IC_, DE_, QT_), no formato antes → depois.
+
+### P14 — Fluxo de validação de modelos: citar sem detalhar
+Mencionar o fluxo (modelo DES → pré-validação → solicitação de validação → laudo do AD) como estrutura de governança do plano, **sem entrar em detalhes operacionais internos** (sem URLs, sem nomes de ferramentas internas específicas além do essencial).
+
+### P15 — Papéis: nomenclatura do enunciado + mecânica do mundo real
+Usar "ADs e DBAs" (termos da prova; não inventar papéis), mas descrever a atuação do AD em **duas frentes complementares**: atuação **no squad** (modelagem ágil junto aos desenvolvedores) e atuação **no capítulo** (validação técnica, aderência aos normativos como TE074, emissão de laudos). DBA/ABD entra na implementação física e homologação. Maturidade organizacional sem extrapolar o enunciado.
+
+### P16 — Diagnóstico como auditoria de conformidade normativa
+Citar **explicitamente os itens 3.2.8 e 3.2.9 do TE074** como régua objetiva: TRANSACAO projeta ~94 bi linhas/ano → supera em ~940× o gatilho de 100 milhões de linhas/ano (3.2.8.3); o critério se estende a TRANSACAO_HISTORICO (3.2.8.6); **compressão PAGE é o default normativo** para SQL Server (3.2.9.1) e a NÃO compressão é que exige relatório técnico do ABD (3.2.9.3). Transformar "fere boas práticas" em "**descumpre item X do normativo**" — argumento de especialista sênior. **Reforços confirmados no corpus (guias do portal)**: particionar por TEMPO (ano/mês) com validação do ABD; compressão PAGE reduz **40–70% de espaço** com melhor I/O e cache; ciclo de vida com estágios (ativo → histórico → arquivo → expurgo/anonimização LGPD) automatizado por jobs — usar esses números e o modelo de estágios na proposta.
+
+### P16-bis — Exceções à validação ADI (ouro para o item b)
+O guia de atuação DBA confirma que **NÃO passam por validação ADI**: criação/alteração de índices por problemas de desempenho; sequences; e alterações de definições físicas de armazenamento (particionamento de tabelas/índices). Usar isso na estratégia corretiva do item (b): o DBA tem **autonomia formal para atuação tempestiva de performance** (índice emergencial, ajuste físico) sem o ciclo completo de validação de modelo — mantendo registro e comunicação ao AD para sincronização posterior do modelo físico.
+
+### P17 — TE169/TE174: controles normativos dentro da estratégia (nem frase solta, nem eixo principal)
+Incorporar explicitamente, vinculados aos sintomas: **TE169 (qualificação de dados)** ancora a dimensão "integridade" — ciclo definição→medição→análise→melhoria nas entidades com inconsistência confirmada (CLIENTE, ATENDIMENTO), com papéis de gestor da informação, AD e ABD. **TE174 (metadados/linhagem)** como **pré-requisito de segurança antes de cada DDL estrutural** — análise de impacto "onde é usado" protegendo sistemas consumidores. O núcleo do item (b) permanece em arquitetura/performance/integridade/segurança/disponibilidade; TE169/TE174 elevam de "tuning de banco" para estratégia de governança do ativo de dados.
+
+### P18 — Equilíbrio texto × tabelas
+Ambos são valorizados; o critério soberano é **coesão da informação**. Texto discursivo para raciocínio/justificativa, tabelas para densidade comparativa. Ajustável em iterações.
+
+### P19 — SQL a incluir
+Além da pseudo-DDL antes→depois das 4 tabelas principais, incluir: **partition function/scheme**, **índice único filtrado**, e **política de manutenção** (exemplos de REBUILD ONLINE/RESUMABLE por partição, estatísticas incrementais).
+
+### P20 — Tom de coordenador: aplicar TODAS as estratégias
+Decisões em primeira pessoa; premissas declaradas explicitamente (premissa explícita é defensável, implícita é lacuna); priorização por risco×impacto; critérios de sucesso mensuráveis.
+
+### P21 — ATENÇÃO: conflito de nomenclatura entre fontes do corpus
+O guia "Modelagem de Dados para Sistemas CAIXA" (portal) descreve nomenclatura por **sufixos** (`_ID`, `_DT`, `_VL`, `_NM`...), enquanto o **TE074/Anexo II oficial** define **prefixos de classe** (`NU_`, `DT_`, `DH_`, `VR_`, `NO_`, `IC_`, `CO_`...). **O normativo TE074/Anexo II é a fonte autoritativa** — usar prefixos de classe na pseudo-DDL proposta. Não misturar os dois padrões.
+
+### P22 — Fluxo em 3 fases e SLA como estrutura do plano (item a)
+O corpus confirma o workflow: **Fase 1 Desenvolvimento** (modelo no PowerDesigner + pré-validador + solicitação de validação) → **Fase 2 AD** (validação de conformidade TE074, normalização 3FN, classificação OR016/LGPD, laudo) → **Fase 3 ABD/DBA** (análise de performance e volumetria, decisão de particionamento/compactação, índices, geração de DDL, deploy DEV→TQS→HOM→PRD). Usar essa espinha dorsal no plano do item (a), citando de forma genérica (sem URLs/IPs internos). SLAs baseados em contagem de objetos existem (UAM/Anexo V) — mencionar dimensionamento de prazo por volumetria de objetos.
+
+### P23 — Implantação e monitoramento (item b)
+Apoiar a estratégia em práticas corporativas confirmadas: princípios de boas práticas de implantação (checklists, comunicação com gestores, envolvimento de operações, **projeção de performance para cenários de grande utilização**, preparação antecipada de infraestrutura) e **Grafana como ferramenta de dashboards/observabilidade** já praticada no ambiente. Rollback/backout formal como parte do rito de mudança.
+
+---
+
 ## DIRETRIZES DE QUALIDADE
 
 - **Cada proposta deve referenciar um problema concreto do SIADL** (nada genérico);
@@ -233,22 +311,47 @@ CREATE TABLE TRANSACAO_HISTORICO (
 - Tom de **coordenador técnico** — decide, justifica, prioriza e assume riscos calculados;
 - Tabelas para densidade; SQL mínimo e cirúrgico;
 - **Vedado pelo enunciado**: propor migração para microsserviços/APIs (o SIADL não possui essas integrações);
-- **Proibido (prudência, não consta do edital)** respeitar a extensão sugerida de 10 páginas;
+- **Recomendado (prudência, não consta do edital)**: tratar como cenário hipotético, evitar citar nomes de sistemas/estruturas internas reais não públicos e respeitar a extensão sugerida de 10 páginas;
 - Demonstrar as três visões: **conceitual (AD), física (DBA) e gerencial (coordenador)**.
 
 ---
 
 ## MATERIAIS DE CONSULTA (usar para aderência ao padrão corporativo)
 
-Normativos e guias em `F:\Desenvolvimento\repositorio\gh-thiago\doc-diversos\psi\15358-banco\material-consulta\Arquivo\arquivos-md\`:
+### Núcleo normativo — `material-consulta\Arquivo\arquivos-md\`
 
-- `normativos\TE074\` — Modelagem de dados relacional + Anexo II (nomenclatura de objetos/classes de atributos) + Anexo IV (datatypes permitidos por SGBD — DATETIME2 obrigatório no SQL Server);
+- `normativos\TE074\` — Modelagem de dados relacional + Anexo II (nomenclatura por prefixos de classe — **fonte autoritativa**, ver P21) + Anexo IV (datatypes — DATETIME2 obrigatório no SQL Server) + Anexo V (UAM/prazos) + Anexo VI (lista de validação);
 - `normativos\TE073\` — Gerência de modelos de dados (modelo DES, PowerDesigner, validação);
-- `normativos\TE169\` — Processo de qualidade de dados;
-- `normativos\TE174\` — Gerenciamento de metadados;
+- `normativos\TE169\` — Processo de qualidade de dados; `normativos\TE174\` — Metadados;
+- `normativos\TE197\` — Tabelas de log (particionamento de histórico, ref. TE074/3.2.6.1.2);
+- `OR005221.md` — Estrutura organizacional (capítulos × plataformas × squads);
+- `normativos\OR213\` — Criticidade (classificar o SIADL como crítico); `normativos\OR016\` — Tratamento da informação;
 - `portais\Capítulo-Administração-e-Banco-de-Dados.md` — papéis AD Tático / AD Time / ABD;
-- `diversos\Orientacoes_Iniciais_*.md` — acionamento do capítulo, critérios de validação, pré-validador, dicionário de dados;
-- `all\normativos-banco-de-dados-all.md`, `all\portais-banco-dados.md`, `all\diversos-banco-dados.md` — consolidados.
+- `diversos\Orientacoes_Iniciais_*.md` — acionamento do capítulo, critérios de validação, pré-validador, dicionário.
+
+### Guias do portal de dados (critérios PPDS) — `material-consulta\Portais\dados\markdown\`
+
+- `Particionamento.md`, `Compactação.md`, `Expurgo.md`, `Ciclo de Vida dos Dados.md`, `Otimização de Tabelas.md` — critérios detalhados que o TE074 delega ao portal (partition function por data, PAGE com 40–70% de redução, estágios de ciclo de vida, jobs de expurgo);
+- `Modelagem de Dados para Sistemas CAIXA.md`, `guia-caixa-dados-sql.md`, `Melhores Práticas em Modelagem de Dados.md` — workflow 3 fases, temporal tables com SYSTEM_VERSIONING, SLA, PK/FK/constraints (**atenção ao conflito de nomenclatura — P21**);
+- `Microsoft SQL Server - Uso de Constraint Default.md`, `Regras de modelagem para Frameworks Autorizados.md`, `Critérios para Validação de Modelos de Dados.md`, `Validações executadas no Pré-Validador.md`, `Nomenclatura_Objetos.md`.
+
+### Guias de atuação do Capítulo — `material-consulta\GECPA10-...-Arq-Unicos\GECPA10-DADOS-Modelagem-de-dados\`
+
+- `ADB\Guia-DBA-Oracle-SqlServer-Postgree-Site-RJ.md` — atuação do DBA multi-SGBD, **exceções à validação ADI** (P16-bis), fluxo de DDL e ambientes DES→TQS→HOM→PRD (usar SEM citar IPs/servidores/caminhos internos);
+- `ADI\GuiasArquiteturaDeDados\` — arquitetura de dados, critérios de validação, melhores práticas, otimização de tabelas (Particionamen/Compactac/Expurgo/Ciclo-de);
+- `Capitulo-de-Administracao-e-Banco-de-Dados.md`, `ADI-Ambiente-Nao-Producao.md`.
+
+### Guias de implantação e operação — `material-consulta\GUIAS\Implantacao\md\`
+
+- `Boas práticas para implantações.md` — 5 princípios (checklists, comunicação, operações, projeção de performance, preparação antecipada);
+- `Modelo de Uso do Grafana.md` — observabilidade/dashboards para o item (b);
+- `Atividades e atores do contexto de implantação.md`, `CE-SUGTI-*.md`, `CE-GEPAS-0031-2021.md` — ritos, atores e comunicados de gestão de mudança.
+
+### Regras de uso do corpus
+
+1. Priorize **normativos (TE/OR/CR)** sobre guias de portal em caso de divergência (ver P21);
+2. **Nunca copie** para a PT: URLs internas, IPs, nomes de servidores, caminhos de rede, nomes de sistemas internos específicos — use descrições genéricas ("ferramenta corporativa de modelagem", "repositório de DDL homologado");
+3. Use os fatos numéricos extraídos (100 mi linhas/ano; PAGE 40–70%; estágios de ciclo de vida; 3 fases de workflow) como evidência normativa no diagnóstico e na proposta.
 
 ## SAÍDA E ORGANIZAÇÃO DE ARQUIVOS
 
